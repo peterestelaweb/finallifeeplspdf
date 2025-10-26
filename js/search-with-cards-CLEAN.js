@@ -45,9 +45,109 @@ async function cargarDatos() {
 function crearFuncionesBusqueda() {
     window.performSearch = function(query) {
         if (!query || !query.trim() || !sistemaActivo) return [];
-        
+
         const searchTerm = query.toLowerCase().trim();
+
+        // Verificar si es cualquier tipo de búsqueda OMEGA
+        const omegaSpecificTerms = [
+            'omega3', 'omega 3', 'omega-3', 'omegold', 'vegan omegold',
+            'aceite de pescado', 'epa', 'dha', 'ácidos grasos'
+        ];
+
+        const isSpecificOmegaSearch = omegaSpecificTerms.some(term => searchTerm.includes(term));
+        const isGenericOmega = searchTerm === 'omega' || searchTerm === 'omegas';
+
+        // Si es cualquier tipo de búsqueda OMEGA, usar lógica especial
+        const isOmegaSearch = isSpecificOmegaSearch || isGenericOmega;
+
+        // Verificar si es búsqueda de VITAMINAS
+        // Activar solo para términos genéricos exactos
+        const genericVitaminTerms = [
+            'vitamina', 'vitaminas', 'vitamin', 'vitamins'
+        ];
+
+        const isVitaminSearch = genericVitaminTerms.includes(searchTerm) ||
+                               genericVitaminTerms.includes(searchTerm + 's');
+
         const resultados = datosPDFs.filter(pdf => {
+            // SI es búsqueda OMEGA específica (OMEGA3, OMEGOLD, etc.), usar lógica especial
+            if (isOmegaSearch) {
+                const hasOmegaInTitle = (pdf.title || '').toLowerCase().includes('omega');
+                const hasOmegoldInTitle = (pdf.title || '').toLowerCase().includes('omegold');
+                const hasOmegaInFilename = (pdf.filename || '').toLowerCase().includes('omega');
+                const hasOmegoldInFilename = (pdf.filename || '').toLowerCase().includes('omegold');
+                const hasOmegaInCategory = (pdf.category || '').toLowerCase() === 'omega';
+
+                // Lógica específica según término de búsqueda
+                if (searchTerm.includes('omegold')) {
+                    // Si busca OMEGOLD, solo mostrar productos con OMEGOLD
+                    return hasOmegoldInTitle || hasOmegoldInFilename;
+                } else {
+                    // Si busca OMEGA3, OMEGA 3, etc., mostrar todos los productos omega
+                    return hasOmegaInTitle || hasOmegoldInTitle || hasOmegaInFilename || hasOmegoldInFilename || hasOmegaInCategory;
+                }
+            }
+
+            // SI es búsqueda VITAMINAS, usar lógica especial
+            if (isVitaminSearch) {
+                const title = (pdf.title || '').toLowerCase();
+
+                // Lógica MUY ESPECÍFICA: Solo productos que realmente son vitaminas
+                // Deben empezar con "vitamin" o "vitamina" para ser considerados productos de vitaminas
+                const startsWithVitamin = title.startsWith('vitamin') || title.startsWith('vitamina');
+
+                return startsWithVitamin;
+            }
+
+            // BÚSQUEDA NORMAL mejorada para vitaminas específicas
+            // Si es búsqueda específica de vitaminas (vitamina c, vitamin e, etc.)
+            // permitir coincidencias flexibles entre español/inglés
+            // Lógica más flexible: buscar cualquier variación de vitamina + letra
+            if (searchTerm.includes('vitamina') || searchTerm.includes('vitamin')) {
+                // DEPURACIÓN TEMPORAL: Verificar qué está pasando
+                console.log('🔍 DEBUG: Búsqueda específica de vitamina');
+                console.log('   searchTerm:', searchTerm);
+                console.log('   incluye vitamina:', searchTerm.includes('vitamina'));
+                console.log('   incluye vitamin:', searchTerm.includes('vitamin'));
+                console.log('   longitud searchTerm:', searchTerm.length);
+                console.log('   searchTerm completo:', JSON.stringify(searchTerm));
+
+                const searchTermFlex = searchTerm.toLowerCase();
+                const titleFlex = (pdf.title || '').toLowerCase();
+                const filenameFlex = (pdf.filename || '').toLowerCase();
+
+                // Mejor normalización: No convertir español a inglés, mantener formatos originales
+                let searchTermNormalized = searchTermFlex.replace(/\s+/g, '');
+                let titleNormalized = titleFlex.replace(/\s+/g, '');
+                let filenameNormalized = filenameFlex.replace(/\s+/g, '');
+
+                // Intentar coincidencia directa primero
+                const directMatch = titleNormalized.includes(searchTermNormalized) ||
+                                  filenameNormalized.includes(searchTermNormalized);
+
+                if (directMatch) {
+                    return true;
+                }
+
+                // Si no hay coincidencia directa, buscar coincidencias flexibles
+                const vitaminLetter = searchTermFlex.replace(/[^a-z]/gi, '').slice(-1);
+                if (vitaminLetter && vitaminLetter.length === 1) {
+                    // Buscar en ambos formatos: español e inglés
+                    const letterMatch = titleFlex.includes(`vitamin ${vitaminLetter}`) ||
+                                      titleFlex.includes(`vitamin${vitaminLetter}`) ||
+                                      titleFlex.includes(`vitamina ${vitaminLetter}`) ||
+                                      titleFlex.includes(`vitamina${vitaminLetter}`) ||
+                                      filenameFlex.includes(`vitamin ${vitaminLetter}`) ||
+                                      filenameFlex.includes(`vitamin${vitaminLetter}`) ||
+                                      filenameFlex.includes(`vitamina ${vitaminLetter}`) ||
+                                      filenameFlex.includes(`vitamina${vitaminLetter}`);
+                    return letterMatch;
+                }
+
+                return false;
+            }
+
+            // BÚSQUEDA NORMAL para otros casos
             const texto = [
                 pdf.title || '',
                 pdf.filename || '',
@@ -56,10 +156,10 @@ function crearFuncionesBusqueda() {
                 (pdf.tags || []).join(' '),
                 pdf.category || ''
             ].join(' ').toLowerCase();
-            
+
             return texto.includes(searchTerm);
         });
-        
+
         return resultados;
     };
 
