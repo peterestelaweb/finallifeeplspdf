@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-10-03T22:02:10.568Z",
+  "testResults": {
+    "dailySearch": {
+      "resultsCount": 6,
+      "success": true
+    },
+    "omegaSearch": {
+      "resultsCount": 6,
+      "success": true
+    },
+    "basicosSearch": {
+      "resultsCount": 6,
+      "success": true
+    },
+    "noResultsTest": {
+      "noResultsMessageVisible": true,
+      "success": true
+    },
+    "mobileTest": {
+      "resultsCount": 6,
+      "success": true
+    }
+  },
+  "diagnostics": {
+    "hiddenElements": [],
+    "overlappingElements": [],
+    "zIndexIssues": []
+  },
+  "cssFixApplied": true,
+  "overallSuccess": true
+}

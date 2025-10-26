@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Formulario de Contacto</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .form-message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Test Formulario de Contacto</h1>
+        <p>Esta es una versión simplificada para probar el envío AJAX</p>
+
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="nombre">Nombre *</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono">
+            </div>
+
+            <div class="form-group">
+                <label for="motivo">Motivo de contacto *</label>
+                <select id="motivo" name="motivo" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="informacion">Información sobre productos</option>
+                    <option value="compra">Quiero comprar productos</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="pregunta">Pregunta *</label>
+                <textarea id="pregunta" name="pregunta" rows="3" required placeholder="Describe tu pregunta..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="ayuda">¿Cómo te podemos ayudar? *</label>
+                <textarea id="ayuda" name="ayuda" rows="3" required placeholder="Describe cómo podemos ayudarte..."></textarea>
+            </div>
+
+            <button type="submit" id="submitBtn">
+                <i class="fas fa-paper-plane"></i> Enviar Mensaje
+            </button>
+        </form>
+
+        <div id="formMessage" class="form-message"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📝 Inicializando test de formulario...');
+
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+            const submitBtn = document.getElementById('submitBtn');
+
+            function showMessage(message, type) {
+                formMessage.textContent = message;
+                formMessage.className = `form-message ${type}`;
+                formMessage.style.display = 'block';
+
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                console.log('📤 Enviando formulario...');
+
+                const formData = new FormData(this);
+
+                // Deshabilitar botón y mostrar loading
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+                // Enviar datos al servidor
+                fetch('php/test-send-contact-backup.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    console.log('Respuesta cruda:', response);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Respuesta JSON:', data);
+                    if (data.success) {
+                        showMessage('¡Mensaje enviado con éxito! Te contactaremos pronto.', 'success');
+                        contactForm.reset();
+                    } else {
+                        showMessage('Error al enviar el mensaje: ' + data.message, 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error en la solicitud:', error);
+                    showMessage('Error de conexión. Por favor, intenta más tarde.', 'error');
+                })
+                .finally(() => {
+                    // Restaurar botón
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensaje';
+                });
+            });
+
+            console.log('✅ Test de formulario inicializado');
+        });
+    </script>
+</body>
+</html>

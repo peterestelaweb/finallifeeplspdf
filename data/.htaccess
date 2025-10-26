@@ -1,0 +1,23 @@
+# Proteger acceso a archivos de datos
+<Files "*.json">
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+# Proteger archivos de log
+<Files "*.log">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Proteger archivos de lock
+<Files "*.lock">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Permitir acceso al índice JSON
+<Files "pdf-index.json">
+    Order Allow,Deny
+    Allow from all
+</Files>

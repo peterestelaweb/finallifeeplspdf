@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementación Banner Mercado Americano</title>
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #d32f2f;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .step {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid #ff6f00;
+        }
+        .step h3 {
+            color: #d32f2f;
+            margin-top: 0;
+        }
+        .code {
+            background: #263238;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+            font-size: 12px;
+        }
+        .warning {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #d32f2f;
+            margin: 20px 0;
+        }
+        .success {
+            background: #e8f5e8;
+            color: #2e7d32;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚨 IMPLEMENTACIÓN BANNER IMPOSIBLE DE IGNORAR</h1>
+
+        <div class="warning">
+            <h3>⚠️ ADVERTENCIA IMPORTANTE</h3>
+            <p>Esta solución hace que el aviso legal sea <strong>IMPOSIBLE DE IGNORAR</strong>. Los usuarios deben aceptar explícitamente antes de poder usar el sitio.</p>
+        </div>
+
+        <div class="step">
+            <h3>Paso 1: Añadir CSS</h3>
+            <p>Añadir el siguiente CSS al archivo <code>css/styles.css</code> (al final del archivo):</p>
+            <div class="code">
+/* ========================================
+   BANNER LEGAL IMPOSIBLE DE IGNORAR - MERCADO AMERICANO
+   ======================================== */
+
+/* Banner principal - IMPOSIBLE DE IGNORAR */
+.us-market-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #d32f2f, #b71c1c);
+    color: white;
+    padding: 20px;
+    z-index: 99999;
+    box-shadow: 0 4px 20px rgba(211, 47, 47, 0.4);
+    border-bottom: 4px solid #ff5252;
+    font-family: 'Inter', Arial, sans-serif;
+    text-align: center;
+    animation: pulse-banner 2s infinite;
+}
+
+@keyframes pulse-banner {
+    0% { box-shadow: 0 4px 20px rgba(211, 47, 47, 0.4); }
+    50% { box-shadow: 0 4px 30px rgba(211, 47, 47, 0.8); }
+    100% { box-shadow: 0 4px 20px rgba(211, 47, 47, 0.4); }
+}
+
+.us-market-banner .banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.us-market-banner .banner-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.us-market-banner .banner-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.us-market-banner .banner-subtitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.95;
+    line-height: 1.4;
+}
+
+.us-market-banner .banner-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.us-market-banner .accept-btn {
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.us-market-banner .accept-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.us-market-banner .details-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.us-market-banner .details-btn:hover {
+    background: white;
+    color: #d32f2f;
+}
+
+/* Overlay de bloqueo */
+.us-market-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+/* Modal de confirmación obligatoria */
+.us-market-modal {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 4px solid #d32f2f;
+}
+
+.us-market-modal .modal-title {
+    color: #d32f2f;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.us-market-modal .modal-subtitle {
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.us-market-modal .modal-details {
+    background: #fff3e0;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 30px 0;
+    border-left: 6px solid #ff6f00;
+    text-align: left;
+}
+
+.us-market-modal .modal-details h4 {
+    color: #d32f2f;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.us-market-modal .modal-details ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.us-market-modal .modal-details li {
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 500;
+}
+
+.us-market-modal .modal-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.us-market-modal .confirm-btn {
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.us-market-modal .confirm-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+}
+
+/* Indicador permanente en el header */
+.us-market-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #d32f2f, #b71c1c);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 1000;
+    animation: pulse-indicator 3s infinite;
+}
+
+@keyframes pulse-indicator {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Ajuste del body cuando el banner está activo */
+.body-with-banner {
+    padding-top: 120px !important;
+}
+
+.body-with-overlay {
+    overflow: hidden !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .us-market-banner {
+        padding: 15px;
+    }
+
+    .us-market-banner .banner-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .us-market-banner .banner-title {
+        font-size: 1.2rem;
+    }
+
+    .us-market-banner .banner-subtitle {
+        font-size: 1rem;
+    }
+
+    .us-market-modal {
+        padding: 30px 20px;
+    }
+
+    .us-market-modal .modal-title {
+        font-size: 1.6rem;
+    }
+
+    .us-market-modal .modal-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .body-with-banner {
+        padding-top: 160px !important;
+    }
+}
+
+/* ========================================
+   FIN DEL BANNER IMPOSIBLE DE IGNORAR
+   ======================================== */
+</div>
+        </div>
+
+        <div class="step">
+            <h3>Paso 2: Añadir JavaScript</h3>
+            <p>El archivo JavaScript ya ha sido creado en <code>js/us-market-banner.js</code></p>
+        </div>
+
+        <div class="step">
+            <h3>Paso 3: Actualizar HTML</h3>
+            <p>Añadir la siguiente línea antes de cerrar el body en <code>index.html</code>:</p>
+            <div class="code">&lt;script src="js/us-market-banner.js"&gt;&lt;/script&gt;</div>
+        </div>
+
+        <div class="success">
+            <h3>✅ RESULTADO ESPERADO</h3>
+            <ul>
+                <li>Los usuarios verán un overlay rojo brillante al entrar al sitio</li>
+                <li>Deben aceptar explícitamente antes de poder usar el buscador</li>
+                <li>Un banner permanente permanecerá visible en la parte superior</li>
+                <li>Un indicador rojo parpadeará en el header</li>
+                <li>El mensaje es claro, directo e imposible de ignorar</li>
+                <li>La información se almacena localmente para no mostrarlo nuevamente</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <h3>🔍 CARACTERÍSTICAS CLAVE</h3>
+            <ul>
+                <li><strong>OBLIGATORIO:</strong> No se puede usar el sitio sin aceptar</li>
+                <li><strong>VISIBLE:</strong> Colores rojos brillantes y animaciones</li>
+                <li><strong>CLARO:</strong> Texto directo y sin ambigüedades</li>
+                <li><strong>PERMANENTE:</strong> Indicador visible en todo momento</li>
+                <li><strong>LEGAL:</strong> Registro de aceptación con fecha y hora</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

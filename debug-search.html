@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Búsqueda</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .debug-info { background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .error { background: #ffebee; color: #c62828; }
+        .success { background: #e8f5e8; color: #2e7d32; }
+        input { width: 300px; padding: 10px; margin: 10px 0; }
+        button { padding: 10px 20px; margin: 10px; }
+        #results { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Diagnóstico del Sistema de Búsqueda</h1>
+
+    <div id="debugInfo" class="debug-info">
+        <h3>Estado de carga:</h3>
+        <div id="loadingStatus">Cargando...</div>
+    </div>
+
+    <div>
+        <input type="text" id="testInput" placeholder="Ej: OMEGOLD, omega, vitamin..." value="OMEGOLD">
+        <button onclick="testSearch()">Buscar</button>
+        <button onclick="testAllData()">Ver todos los datos</button>
+    </div>
+
+    <div id="results"></div>
+
+    <!-- Scripts en orden correcto -->
+    <script src="js/fuzzy-search.js"></script>
+    <script src="js/search-local.js"></script>
+
+    <script>
+        let debugInfo = document.getElementById('loadingStatus');
+        let resultsDiv = document.getElementById('results');
+
+        function addDebug(message, isError = false) {
+            debugInfo.innerHTML += `<div class="${isError ? 'error' : 'success'}">${message}</div>`;
+            console.log(message);
+        }
+
+        // Verificar carga de scripts
+        setTimeout(() => {
+            addDebug('✅ Carga básica completada');
+
+            // Verificar LocalSearchEngine
+            if (typeof LocalSearchEngine !== 'undefined') {
+                addDebug('✅ LocalSearchEngine class found');
+            } else {
+                addDebug('❌ LocalSearchEngine class NOT found', true);
+                return;
+            }
+
+            // Verificar motor global
+            if (window.localSearchEngine) {
+                addDebug('✅ Motor de búsqueda local inicializado');
+                addDebug(`📊 Total PDFs en motor: ${window.localSearchEngine.data.total_pdfs}`);
+
+                // Verificar si hay datos
+                if (window.localSearchEngine.data && window.localSearchEngine.data.pdfs) {
+                    addDebug(`📄 Array de PDFs tiene ${window.localSearchEngine.data.pdfs.length} elementos`);
+
+                    // Buscar OMEGOLD
+                    const omegoldResults = window.localSearchEngine.data.pdfs.filter(pdf =>
+                        pdf.title.toLowerCase().includes('omegold') ||
+                        pdf.filename.toLowerCase().includes('omegold')
+                    );
+                    addDebug(`🔍 Encontrados ${omegoldResults.length} OMEGOLD: ${omegoldResults.map(p => p.title).join(', ')}`);
+                } else {
+                    addDebug('❌ No se encontraron datos PDFs', true);
+                }
+            } else {
+                addDebug('❌ Motor de búsqueda local NO inicializado', true);
+            }
+        }, 1000);
+
+        function testSearch() {
+            const query = document.getElementById('testInput').value;
+            if (!window.localSearchEngine) {
+                resultsDiv.innerHTML = '<div class="error">❌ Motor de búsqueda no disponible</div>';
+                return;
+            }
+
+            const results = window.performSearch(query);
+            resultsDiv.innerHTML = `
+                <h3>Resultados para "${query}": ${results.length}</h3>
+                ${results.slice(0, 10).map(pdf => `
+                    <div style="border: 1px solid #ddd; padding: 10px; margin: 5px 0;">
+                        <strong>${pdf.title}</strong><br>
+                        <small>Fichero: ${pdf.filename}</small><br>
+                        <small>Categoría: ${pdf.category || 'N/A'}</small>
+                    </div>
+                `).join('')}
+                ${results.length > 10 ? `<p>... y ${results.length - 10} más</p>` : ''}
+            `;
+        }
+
+        function testAllData() {
+            if (!window.localSearchEngine) {
+                resultsDiv.innerHTML = '<div class="error">❌ Motor de búsqueda no disponible</div>';
+                return;
+            }
+
+            const allPDFs = window.localSearchEngine.data.pdfs;
+            resultsDiv.innerHTML = `
+                <h3>Todos los PDFs (${allPDFs.length})</h3>
+                <div style="max-height: 400px; overflow-y: auto;">
+                    ${allPDFs.slice(0, 20).map(pdf => `
+                        <div style="border: 1px solid #ddd; padding: 5px; margin: 2px 0; font-size: 12px;">
+                            <strong>${pdf.title}</strong> - ${pdf.category || 'N/A'}
+                        </div>
+                    `).join('')}
+                    ${allPDFs.length > 20 ? `<p>... y ${allPDFs.length - 20} más</p>` : ''}
+                </div>
+            `;
+        }
+
+        // Test automático de OMEGOLD
+        setTimeout(() => {
+            if (window.localSearchEngine) {
+                document.getElementById('testInput').value = 'OMEGOLD';
+                testSearch();
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

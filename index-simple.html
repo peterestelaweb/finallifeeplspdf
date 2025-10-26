@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador LIFEPLUS Formulaciones PDF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            color: #4c1d95;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2rem;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .stat-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 120px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4c1d95;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-top: 5px;
+        }
+        .search-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .search-container {
+            text-align: center;
+        }
+        .search-box {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        .search-input {
+            width: 100%;
+            padding: 18px 60px 18px 25px;
+            font-size: 1.1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-input:focus {
+            border-color: #4c1d95;
+            box-shadow: 0 0 0 3px rgba(76, 29, 149, 0.1);
+        }
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6b7280;
+            font-size: 1.2rem;
+        }
+        .results-container {
+            margin-top: 30px;
+        }
+        .result-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+        .result-card:hover {
+            transform: translateY(-2px);
+        }
+        .result-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #4c1d95;
+            margin-bottom: 10px;
+        }
+        .result-category {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .result-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+        .btn-primary {
+            background: #4c1d95;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #5b21b6;
+        }
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+        }
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6b7280;
+        }
+        .no-results i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #d1d5db;
+        }
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .loading i {
+            font-size: 3rem;
+            animation: spin 1s linear infinite;
+            color: #4c1d95;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1><i class="fas fa-file-pdf"></i> Buscador LIFEPLUS Formulaciones PDF</h1>
+            <p>Encuentra, consulta y descarga el PDF de las formulaciones de LifePlus</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="totalDocs">0</div>
+                <div class="stat-label">Documentos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="totalSize">0 MB</div>
+                <div class="stat-label">Tamaño Total</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="lastUpdate">--</div>
+                <div class="stat-label">Última Actualización</div>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <div class="search-section">
+            <div class="search-container">
+                <h3 style="margin-bottom: 20px; color: #4c1d95;">
+                    <i class="fas fa-search"></i> PON EL NOMBRE DE LA FORMULACION QUE BUSCAS
+                </h3>
+                <p style="margin-bottom: 30px; color: #6b7280;">Encuentra rápidamente cualquier ficha técnica de LifePlus</p>
+
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Ej: Omega3, Daily Biobasics, Proanthenols..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="results-container">
+                <div id="loadingIndicator" class="loading" style="display: none;">
+                    <i class="fas fa-spinner"></i>
+                    <p>Cargando documentos...</p>
+                </div>
+                <div id="resultsContainer"></div>
+                <div id="noResults" class="no-results" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <h3>No se encontraron fichas técnicas</h3>
+                    <p>Intenta con otros términos de búsqueda</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts cargados en orden correcto -->
+    <script src="js/fuzzy-search.js"></script>
+    <script src="js/search-local.js"></script>
+
+    <script>
+        // Esperar a que el motor local esté disponible
+        function waitForLocalSearchEngine() {
+            return new Promise((resolve) => {
+                const checkInterval = setInterval(() => {
+                    if (window.localSearchEngine && window.localSearchEngine.data) {
+                        clearInterval(checkInterval);
+                        resolve();
+                    }
+                }, 100);
+            });
+        }
+
+        // Clase simplificada de búsqueda
+        class SimpleSearchApp {
+            constructor() {
+                this.pdfs = [];
+                this.searchInput = document.getElementById('searchInput');
+                this.resultsContainer = document.getElementById('resultsContainer');
+                this.loadingIndicator = document.getElementById('loadingIndicator');
+                this.noResults = document.getElementById('noResults');
+                this.totalDocs = document.getElementById('totalDocs');
+
+                this.init();
+            }
+
+            async init() {
+                console.log('🚀 Iniciando Simple Search App...');
+
+                // Configurar event listeners
+                this.searchInput.addEventListener('input', () => this.performSearch());
+
+                // Esperar motor local
+                await waitForLocalSearchEngine();
+
+                // Cargar datos
+                await this.loadPDFData();
+
+                // Actualizar stats
+                this.updateStats();
+
+                console.log('✅ Simple Search App inicializada');
+            }
+
+            async loadPDFData() {
+                if (window.localSearchEngine && window.localSearchEngine.data) {
+                    this.pdfs = window.localSearchEngine.data.pdfs;
+                    console.log(`📄 Cargados ${this.pdfs.length} PDFs del motor local`);
+                } else {
+                    console.error('❌ Motor local no disponible');
+                    this.pdfs = [];
+                }
+            }
+
+            performSearch() {
+                const query = this.searchInput.value.toLowerCase().trim();
+
+                if (!query) {
+                    this.showAllPDFs();
+                    return;
+                }
+
+                const results = this.pdfs.filter(pdf => {
+                    return pdf.title.toLowerCase().includes(query) ||
+                           pdf.filename.toLowerCase().includes(query) ||
+                           (pdf.description && pdf.description.toLowerCase().includes(query)) ||
+                           (pdf.keywords && pdf.keywords.some(k => k.toLowerCase().includes(query)));
+                });
+
+                this.displayResults(results);
+            }
+
+            showAllPDFs() {
+                this.displayResults(this.pdfs);
+            }
+
+            displayResults(pdfs) {
+                this.resultsContainer.innerHTML = '';
+
+                if (pdfs.length === 0) {
+                    this.noResults.style.display = 'block';
+                    return;
+                }
+
+                this.noResults.style.display = 'none';
+
+                // Verificar si hay resultados del programa ADAR
+                const adarResults = pdfs.filter(pdf => pdf._programSource === 'program_adar');
+                if (adarResults.length > 0) {
+                    const adarMessage = document.createElement('div');
+                    adarMessage.style.cssText = 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center;';
+                    adarMessage.innerHTML = `<strong>🎯 PROGRAMA ADAR: ${adarResults.length} formulaciones clave para tu bienestar integral</strong>`;
+                    this.resultsContainer.appendChild(adarMessage);
+                }
+
+                // Verificar si hay resultados del programa BÁSICOS
+                const basicosResults = pdfs.filter(pdf => pdf._programSource === 'program_basicos');
+                if (basicosResults.length > 0) {
+                    const basicosMessage = document.createElement('div');
+                    basicosMessage.style.cssText = 'background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center;';
+                    basicosMessage.innerHTML = `<strong>🌿 PROGRAMA BÁSICOS: ${basicosResults.length} formulaciones esenciales para tu salud diaria</strong>`;
+                    this.resultsContainer.appendChild(basicosMessage);
+                }
+
+                pdfs.forEach(pdf => {
+                    const resultCard = this.createResultCard(pdf);
+                    this.resultsContainer.appendChild(resultCard);
+                });
+            }
+
+            createResultCard(pdf) {
+                const card = document.createElement('div');
+                card.className = 'result-card';
+
+                const category = pdf.category || 'General';
+                const fileSize = this.formatFileSize(pdf.fileSize || 0);
+
+                card.innerHTML = `
+                    <div class="result-title">${pdf.title}</div>
+                    <div class="result-category">${category}</div>
+                    <p style="color: #6b7280; margin-bottom: 15px;">${pdf.description || 'Ficha técnica de LifePlus'}</p>
+                    <div style="color: #9ca3af; font-size: 0.9rem; margin-bottom: 15px;">
+                        <i class="fas fa-file-pdf"></i> ${fileSize}
+                    </div>
+                    <div class="result-actions">
+                        <a href="pdfs/${encodeURIComponent(pdf.filename)}" class="btn btn-primary" target="_blank">
+                            <i class="fas fa-eye"></i> Ver PDF
+                        </a>
+                        <a href="pdfs/${encodeURIComponent(pdf.filename)}" class="btn btn-secondary" download="${pdf.filename}">
+                            <i class="fas fa-download"></i> Descargar
+                        </a>
+                    </div>
+                `;
+
+                return card;
+            }
+
+            formatFileSize(bytes) {
+                if (!bytes) return '0 MB';
+                const mb = bytes / (1024 * 1024);
+                return mb.toFixed(1) + ' MB';
+            }
+
+            updateStats() {
+                this.totalDocs.textContent = this.pdfs.length;
+
+                const totalSize = this.pdfs.reduce((sum, pdf) => sum + (pdf.fileSize || 0), 0);
+                const sizeMB = (totalSize / (1024 * 1024)).toFixed(0);
+                document.getElementById('totalSize').textContent = sizeMB + ' MB';
+
+                document.getElementById('lastUpdate').textContent = new Date().toLocaleDateString();
+
+                // Mostrar todos los documentos inicialmente
+                this.showAllPDFs();
+            }
+        }
+
+        // Inicializar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', () => {
+            new SimpleSearchApp();
+        });
+    </script>
+</body>
+</html>

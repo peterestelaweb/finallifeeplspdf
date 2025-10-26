@@ -1,0 +1,116 @@
+{
+  "timestamp": "2025-09-24T09:23:40.979Z",
+  "analysis": {
+    "section": {
+      "color": "rgb(51, 51, 51)",
+      "backgroundColor": "rgba(255, 255, 255, 0.95)",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "textShadow": "none",
+      "opacity": "1"
+    },
+    "content": {
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "textShadow": "none",
+      "opacity": "1"
+    },
+    "title": {
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontSize": "40px",
+      "fontWeight": "700",
+      "textShadow": "rgba(0, 0, 0, 0.3) 2px 2px 4px",
+      "opacity": "1"
+    },
+    "description": {
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontSize": "19.2px",
+      "fontWeight": "400",
+      "textShadow": "none",
+      "opacity": "0.9"
+    },
+    "features": [
+      {
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "fontSize": "17.6px",
+        "fontWeight": "500",
+        "textShadow": "none",
+        "opacity": "1"
+      },
+      {
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "fontSize": "17.6px",
+        "fontWeight": "500",
+        "textShadow": "none",
+        "opacity": "1"
+      },
+      {
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "fontSize": "17.6px",
+        "fontWeight": "500",
+        "textShadow": "none",
+        "opacity": "1"
+      }
+    ],
+    "effectiveBackground": "rgba(255, 255, 255, 0.95)",
+    "sectionBackground": "rgba(255, 255, 255, 0.95)",
+    "bodyBackground": "rgba(0, 0, 0, 0)"
+  },
+  "contrastAnalysis": {
+    "Título": {
+      "textColor": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(255, 255, 255, 0.95)",
+      "contrast": 1,
+      "fontSize": "40px",
+      "fontWeight": "700",
+      "textShadow": "rgba(0, 0, 0, 0.3) 2px 2px 4px",
+      "passesWCAG_AA": false,
+      "passesWCAG_AAA": false,
+      "recommendation": "Contraste muy pobre, requiere mejoras urgentes"
+    },
+    "Descripción": {
+      "textColor": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(255, 255, 255, 0.95)",
+      "contrast": 1,
+      "fontSize": "19.2px",
+      "fontWeight": "400",
+      "textShadow": "none",
+      "passesWCAG_AA": false,
+      "passesWCAG_AAA": false,
+      "recommendation": "Contraste muy pobre, requiere mejoras urgentes"
+    },
+    "Features": {
+      "textColor": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(255, 255, 255, 0.95)",
+      "contrast": 1,
+      "fontSize": "17.6px",
+      "fontWeight": "500",
+      "textShadow": "none",
+      "passesWCAG_AA": false,
+      "passesWCAG_AAA": false,
+      "recommendation": "Contraste muy pobre, requiere mejoras urgentes"
+    }
+  },
+  "summary": {
+    "issuesFound": true,
+    "issueCount": 3,
+    "issues": [
+      "Título tiene un contraste de 1:1 (necesita 4.5:1 mínimo)",
+      "Descripción tiene un contraste de 1:1 (necesita 4.5:1 mínimo)",
+      "Features tiene un contraste de 1:1 (necesita 4.5:1 mínimo)"
+    ],
+    "recommendations": [
+      "Título: mejorar contraste para WCAG AAA",
+      "Descripción: mejorar contraste para WCAG AAA",
+      "Features: mejorar contraste para WCAG AAA"
+    ],
+    "overallAssessment": "❌ Hay problemas de contraste que necesitan ser solucionados"
+  }
+}

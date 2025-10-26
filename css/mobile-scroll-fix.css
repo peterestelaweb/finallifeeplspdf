@@ -1,0 +1,225 @@
+/* SOLUCIÓN DEFINITIVA PARA PROBLEMA DE SCROLL EN ANDROID/IPHONE */
+/* ================================================ */
+
+/* 1. RESTAURAR SCROLL FLUIDO EN TODA LA PÁGINA */
+html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: 100% !important;
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+/* 2. CORREGIR OVERFLOW BEHAVIOR QUE BLOQUEA EL SCROLL */
+body {
+    overscroll-behavior-y: auto !important;
+    overscroll-behavior-x: none !important;
+    touch-action: pan-y !important;
+}
+
+/* 3. SECCIÓN DE VIDEOS - EVITAR BLOQUEO DE SCROLL */
+.video-section {
+    position: relative !important;
+    overflow: visible !important;
+    min-height: auto !important;
+    touch-action: pan-y !important;
+}
+
+/* 4. PHONE MOCKUP - EVITAR QUE CAPTURE EL SCROLL */
+.phone-mockup {
+    position: relative !important;
+    overflow: hidden !important;
+    touch-action: none !important;
+    pointer-events: auto !important;
+}
+
+/* 5. VIDEOS DENTRO DE MOCKUPS - NO INTERFERIR CON SCROLL */
+.phone-frame {
+    position: relative !important;
+    overflow: hidden !important;
+    touch-action: none !important;
+}
+
+.phone-screen {
+    position: relative !important;
+    overflow: hidden !important;
+    touch-action: none !important;
+}
+
+/* 6. VIDEO ELEMENTS - EVITAR CONFLICTO CON SCROLL */
+.phone-video {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    touch-action: none !important;
+    pointer-events: auto !important;
+}
+
+/* 7. BOTONES DE SONIDO - NO BLOQUEAR SCROLL */
+.sound-toggle {
+    position: absolute !important;
+    z-index: 10 !important;
+    touch-action: manipulation !important;
+    pointer-events: auto !important;
+}
+
+/* 8. CONTENEDORES QUE PUEDEN CAUSAR PROBLEMAS */
+.video-card {
+    position: relative !important;
+    overflow: visible !important;
+    touch-action: pan-y !important;
+}
+
+.video-card-content {
+    position: relative !important;
+    overflow: visible !important;
+    touch-action: pan-y !important;
+}
+
+/* 9. ASEGURAR QUE LOS ELEMENTOS FIJOS NO BLOQUEEN SCROLL */
+.whatsapp-float {
+    touch-action: manipulation !important;
+    pointer-events: auto !important;
+}
+
+/* 10. CORRECCIÓN PARA DISPOSITIVOS ANDROID */
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 768px) {
+    html, body {
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .video-section {
+        overflow: visible !important;
+        position: static !important;
+    }
+
+    .phone-mockup {
+        overflow: hidden !important;
+        touch-action: none !important;
+    }
+
+    .phone-video {
+        touch-action: none !important;
+        pointer-events: auto !important;
+    }
+}
+
+/* 11. CORRECCIÓN ESPECÍFICA PARA IOS */
+@supports (-webkit-touch-callout: none) {
+    html, body {
+        -webkit-overflow-scrolling: touch !important;
+        overflow-y: auto !important;
+    }
+
+    .phone-mockup {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+
+    .phone-video {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+/* 12. EVITAR CONFLICTOS CON ANIMACIONES */
+@keyframes none {
+    0% { transform: none; }
+    100% { transform: none; }
+}
+
+/* Desactivar animaciones que puedan interferir con scroll en móvil */
+@media (max-width: 768px) {
+    .video-card:hover {
+        transform: none !important;
+    }
+
+    .phone-mockup {
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* 13. FORZAR SCROLL EN CONTENEDORES */
+.results-container {
+    overflow-y: visible !important;
+    max-height: none !important;
+}
+
+.contact-section {
+    overflow: visible !important;
+    position: relative !important;
+}
+
+/* 14. CORRECCIÓN DE Z-INDEX QUE PUEDEN BLOQUEAR SCROLL */
+.video-section,
+.video-card,
+.phone-mockup,
+.phone-frame {
+    z-index: auto !important;
+}
+
+/* 15. ASEGURAR QUE EL SCROLL LLEGUE AL FINAL DE LA PÁGINA */
+html, body {
+    height: auto !important;
+    min-height: 100% !important;
+}
+
+/* 16. DEBUGGING - CLASES PARA IDENTIFICAR PROBLEMAS */
+.scroll-debug {
+    border: 2px solid red !important;
+}
+
+.scroll-fixed {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+/* 17. CORRECCIÓN PARA ELEMENTOS QUE CAPTURAN EVENTOS */
+.video-card,
+.phone-mockup,
+.sound-toggle {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* 18. EVITAR QUE VIDEOS SEAN DRAGGABLE */
+.phone-video {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+/* 19. FORZAR COMPORTAMIENTO DE SCROLL CORRECTO */
+@media (pointer: coarse) {
+    /* Dispositivos táctiles */
+    html, body {
+        overflow-y: scroll !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .video-section {
+        overflow-y: visible !important;
+    }
+}
+
+/* 20. CORRECCIÓN FINAL - ASEGURAR FLUIDEZ */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+/* FORZAR QUE NADA BLOQUEE EL SCROLL */
+.scroll-container {
+    overflow: visible !important;
+    position: relative !important;
+}

@@ -1,0 +1,215 @@
+/* =====================================================
+   SEARCH OVERLAP FIX - PREVENT DYNAMIC CONTENT OVERLAP
+   ===================================================== */
+
+/* 1. RESET CONFLICTING NEGATIVE MARGINS */
+.search-section {
+    margin-bottom: 0 !important;
+    padding-bottom: 15px !important;
+    min-height: auto !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.results-section {
+    margin-top: 0 !important;
+    padding-top: 20px !important;
+    min-height: auto !important;
+    position: relative !important;
+    z-index: 1 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 15px !important;
+    border-top: 2px solid rgba(99, 102, 241, 0.1) !important;
+}
+
+/* 2. ENSURE PROPER CONTAINER SPACING */
+.search-container {
+    margin-bottom: 0 !important;
+    padding-bottom: 20px !important;
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+}
+
+.results-container {
+    margin-top: 0 !important;
+    padding-top: 15px !important;
+}
+
+/* 3. DYNAMIC HEIGHT ACCOMMODATION */
+.results-grid {
+    min-height: 50px !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+/* 4. PREVENT OVERLAP WHEN RESULTS APPEAR */
+.results-section.has-results {
+    padding-top: 25px !important;
+    margin-top: 5px !important;
+}
+
+.results-section.has-many-results {
+    padding-top: 30px !important;
+    margin-top: 10px !important;
+}
+
+/* 5. ENSURE NO-RESULTS STATE DOESN'T OVERLAP */
+.no-results {
+    margin: 20px 0 !important;
+    padding: 40px 20px !important;
+    min-height: 200px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* 6. CARD SPACING TO PREVENT INTERNAL OVERLAP */
+.result-item {
+    margin-bottom: 15px !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.result-item:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* 7. PROGRAM INDICATORS SPACING */
+.adar-program-indicator,
+.basicos-program-indicator {
+    margin-bottom: 20px !important;
+    margin-top: 10px !important;
+}
+
+/* 8. LOADING INDICATOR SPACING */
+#loadingIndicator {
+    margin: 20px 0 !important;
+    min-height: 60px !important;
+}
+
+/* 9. RESPONSIVE FIXES */
+@media (max-width: 768px) {
+    .search-section {
+        padding-bottom: 10px !important;
+    }
+
+    .results-section {
+        padding-top: 15px !important;
+    }
+
+    .results-section.has-results {
+        padding-top: 20px !important;
+        margin-top: 3px !important;
+    }
+
+    .results-section.has-many-results {
+        padding-top: 25px !important;
+        margin-top: 5px !important;
+    }
+
+    .no-results {
+        margin: 15px 0 !important;
+        padding: 30px 15px !important;
+        min-height: 150px !important;
+    }
+
+    .result-item {
+        margin-bottom: 12px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-section {
+        padding-bottom: 8px !important;
+    }
+
+    .results-section {
+        padding-top: 12px !important;
+    }
+
+    .results-section.has-results {
+        padding-top: 18px !important;
+    }
+
+    .no-results {
+        margin: 10px 0 !important;
+        padding: 25px 10px !important;
+        min-height: 120px !important;
+    }
+
+    .result-item {
+        margin-bottom: 10px !important;
+    }
+}
+
+/* 10. SMOOTH TRANSITIONS FOR DYNAMIC CHANGES */
+.results-section {
+    transition: all 0.3s ease !important;
+}
+
+.search-section {
+    transition: all 0.3s ease !important;
+}
+
+/* 11. CLEAR FLOATS AND CONTAINMENT */
+.search-section::after,
+.results-section::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* 12. OVERFLOW CONTROL */
+.results-section {
+    overflow: visible !important;
+}
+
+.search-section {
+    overflow: visible !important;
+}
+
+/* 13. ZINDEX LAYERING */
+.search-section {
+    z-index: 2 !important;
+}
+
+.results-section {
+    z-index: 1 !important;
+}
+
+.results-grid {
+    z-index: 1 !important;
+}
+
+/* 14. SPECIAL HANDLING FOR ENHANCED CARDS */
+.enhanced-result-card {
+    margin-bottom: 15px !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.enhanced-result-card:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* 15. ANIMATION SAFE ZONES */
+@keyframes slideInResults {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.results-grid .result-item {
+    animation: slideInResults 0.3s ease forwards !important;
+}
+
+/* 16. VISUAL SEPARATION MAINTENANCE */
+.results-section {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+}

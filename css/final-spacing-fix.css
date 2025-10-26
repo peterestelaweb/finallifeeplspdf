@@ -1,0 +1,170 @@
+/* =====================================================
+   FINAL SPACING FIX - ZERO SPACE BETWEEN BLOCKS
+   ===================================================== */
+
+/* 1. ELIMINAR TODO EL ESPACIO ENTRE BLOQUES */
+.search-section {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    min-height: auto !important;
+}
+
+.results-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    min-height: auto !important;
+}
+
+/* 2. FORZAR QUE LOS CONTENEDORES ESTÉN PEGADOS */
+.search-container {
+    margin-bottom: 0 !important;
+    padding-bottom: 15px !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.results-container {
+    margin-top: 0 !important;
+    padding-top: 15px !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+/* 3. ELIMINAR MARGENES ADICIONALES */
+.container {
+    padding-bottom: 0 !important;
+}
+
+/* 4. CONECTAR VISUALMENTE LOS BLOQUES */
+.results-section {
+    border-top: 2px solid rgba(99, 102, 241, 0.1) !important;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(255, 255, 255, 0.98) 5%
+    ) !important;
+}
+
+/* 5. FORZAR SOLAPAMIENTO VISUAL */
+.search-section:after {
+    content: '';
+    display: block;
+    height: 0;
+    margin-bottom: -1px !important;
+}
+
+.results-section:before {
+    content: '';
+    display: block;
+    height: 0;
+    margin-top: -1px !important;
+}
+
+/* 6. ELIMINAR ESPACIOS EN MÓVILES */
+@media (max-width: 768px) {
+    .search-section {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+        min-height: auto !important;
+    }
+
+    .results-section {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        min-height: auto !important;
+    }
+
+    .search-container {
+        margin-bottom: 0 !important;
+        padding-bottom: 10px !important;
+    }
+
+    .results-container {
+        margin-top: 0 !important;
+        padding-top: 10px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-container {
+        padding-bottom: 8px !important;
+    }
+
+    .results-container {
+        padding-top: 8px !important;
+    }
+}
+
+/* 7. ASEGURAR VISIBILIDAD INMEDIATA DE RESULTADOS */
+.results-grid {
+    min-height: 100px !important;
+}
+
+.no-results {
+    margin-top: 0 !important;
+    padding: 20px !important;
+}
+
+/* 8. EVITAR CUALQUIER ESPACIO RESIDUAL */
+.search-section > *:last-child,
+.results-section > *:first-child {
+    margin: 0 !important;
+}
+
+.search-section .search-container:last-child {
+    margin-bottom: 0 !important;
+}
+
+.results-section .results-header:first-child {
+    margin-top: 0 !important;
+}
+
+/* 9. MEJORAR TRANSICIÓN VISUAL */
+.results-section {
+    transition: all 0.3s ease !important;
+}
+
+.results-section.has-results {
+    padding-top: 15px !important;
+}
+
+/* 10. FORZAR QUE NO HAYAN ESPACIOS INVISIBLES */
+* {
+    box-sizing: border-box !important;
+}
+
+.search-section,
+.results-section {
+    overflow: visible !important;
+}
+
+/* 11. SOLUCIÓN DEFINITIVA PARA MÓVILES */
+@media (max-width: 768px) {
+    html:not([data-ios="true"]) .search-section,
+    html:not([data-ios="true"]) .results-section {
+        transform: none !important;
+        margin: 0 !important;
+    }
+
+    /* Reducir altura mínima en móvil */
+    .search-section {
+        min-height: 300px !important;
+    }
+
+    .results-container {
+        min-height: 150px !important;
+    }
+}
+
+/* 12. ESPACIADO CERO PARA TABLETS */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .search-section {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .results-section {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+}

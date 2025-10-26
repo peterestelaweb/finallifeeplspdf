@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Búsqueda Local</title>
+</head>
+<body>
+    <h1>Test de Búsqueda Local</h1>
+    <input type="text" id="testInput" placeholder="Buscar...">
+    <button onclick="testSearch()">Buscar</button>
+    <div id="results"></div>
+
+    <script src="js/search-local.js"></script>
+    <script>
+        function testSearch() {
+            const query = document.getElementById('testInput').value;
+            console.log('Buscando:', query);
+            console.log('Total PDFs:', window.localSearchEngine.data.total_pdfs);
+
+            const results = window.performSearch(query);
+            console.log('Resultados:', results.length);
+
+            document.getElementById('results').innerHTML = `
+                <p><strong>Total PDFs:</strong> ${window.localSearchEngine.data.total_pdfs}</p>
+                <p><strong>Query:</strong> "${query}"</p>
+                <p><strong>Resultados:</strong> ${results.length}</p>
+                <ul>
+                    ${results.slice(0, 5).map(pdf => `<li>${pdf.title}</li>`).join('')}
+                </ul>
+            `;
+        }
+
+        // Test automático al cargar
+        setTimeout(() => {
+            console.log('Engine inicializado:', !!window.localSearchEngine);
+            console.log('Datos cargados:', window.localSearchEngine ? window.localSearchEngine.data.total_pdfs : 'NO');
+            testSearch();
+        }, 1000);
+    </script>
+</body>
+</html>

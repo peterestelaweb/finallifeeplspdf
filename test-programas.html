@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Programas</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        .test-button { background: #4c1d95; color: white; padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; }
+        .results { margin-top: 20px; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test de Programas</h1>
+
+    <div class="test-section">
+        <h3>PROGRAMA ADAR (6 productos)</h3>
+        <button class="test-button" onclick="testSearch('PROGRAM ADAR')">PROGRAM ADAR</button>
+        <button class="test-button" onclick="testSearch('programa adar')">programa adar</button>
+        <button class="test-button" onclick="testSearch('PROGRAM adar')">PROGRAM adar</button>
+        <button class="test-button" onclick="testSearch('program ADAR')">program ADAR</button>
+        <button class="test-button" onclick="testSearch('ADAR')">ADAR</button>
+    </div>
+
+    <div class="test-section">
+        <h3>PROGRAMA BÁSICOS (3 productos)</h3>
+        <button class="test-button" onclick="testSearch('PROGRAMA BASICOS')">PROGRAMA BASICOS</button>
+        <button class="test-button" onclick="testSearch('programa básicos')">programa básicos</button>
+        <button class="test-button" onclick="testSearch('basicos')">basicos</button>
+        <button class="test-button" onclick="testSearch('básicos')">básicos</button>
+        <button class="test-button" onclick="testSearch('basico')">basico</button>
+        <button class="test-button" onclick="testSearch('básico')">básico</button>
+        <button class="test-button" onclick="testSearch('basics')">basics</button>
+    </div>
+
+    <div id="results" class="results"></div>
+
+    <!-- Scripts -->
+    <script src="js/fuzzy-search.js"></script>
+    <script src="js/search-local.js"></script>
+
+    <script>
+        function testSearch(query) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `<h3>Resultados para: "${query}"</h3>`;
+
+            setTimeout(() => {
+                if (window.performSearch) {
+                    const results = window.performSearch(query);
+                    console.log('Resultados para', query, ':', results);
+
+                    if (results.length > 0) {
+                        let html = `<div class="success">✅ Se encontraron ${results.length} resultados:</div>`;
+
+                        // Contar resultados por programa
+                        const adarResults = results.filter(r => r._programSource === 'program_adar');
+                        const basicosResults = results.filter(r => r._programSource === 'program_basicos');
+                        const otherResults = results.filter(r => !r._programSource);
+
+                        if (adarResults.length > 0) {
+                            html += `<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 10px; margin-bottom: 15px; text-align: center;">
+                                <strong>🎯 PROGRAMA ADAR: ${adarResults.length} formulaciones encontradas</strong>
+                            </div>`;
+                        }
+
+                        if (basicosResults.length > 0) {
+                            html += `<div style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; padding: 15px; border-radius: 10px; margin-bottom: 15px; text-align: center;">
+                                <strong>🎯 PROGRAMA BÁSICOS: ${basicosResults.length} formulaciones encontradas</strong>
+                            </div>`;
+                        }
+
+                        results.forEach((result, index) => {
+                            const isFromAdar = result._programSource === 'program_adar';
+                            const isFromBasicos = result._programSource === 'program_basicos';
+                            let bgColor = '#f0f0f0';
+                            let borderColor = '#ddd';
+
+                            if (isFromAdar) {
+                                bgColor = '#e8f5e8';
+                                borderColor = '#4c1d95';
+                            } else if (isFromBasicos) {
+                                bgColor = '#e8f5e8';
+                                borderColor = '#28a745';
+                            }
+
+                            html += `<div style="background: ${bgColor}; padding: 10px; margin: 5px 0; border-radius: 5px; border: 2px solid ${borderColor};">
+                                <strong>${result.title}</strong>
+                                ${isFromAdar ? '🎯' : ''}
+                                ${isFromBasicos ? '🌿' : ''}<br>
+                                <small>${result.filename}</small><br>
+                                <small>Categoría: ${result.category || 'General'}</small>
+                            </div>`;
+                        });
+
+                        resultsDiv.innerHTML = html;
+                    } else {
+                        resultsDiv.innerHTML = `<div class="error">❌ No se encontraron resultados para: "${query}"</div>`;
+                    }
+                } else {
+                    resultsDiv.innerHTML = `<div class="error">❌ Motor de búsqueda no disponible</div>`;
+                }
+            }, 1000);
+        }
+
+        // Auto-test secuencial
+        setTimeout(() => {
+            console.log('🧪 Iniciando test automático de PROGRAMA BÁSICOS...');
+            testSearch('PROGRAMA BASICOS');
+        }, 2000);
+    </script>
+</body>
+</html>

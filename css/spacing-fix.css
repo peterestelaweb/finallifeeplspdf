@@ -1,0 +1,350 @@
+/* =====================================================
+   SPACING FIX - ELIMINATE SPACE BETWEEN BLOCKS
+   ===================================================== */
+
+/* 1. FORCED ZERO SPACING BETWEEN SEARCH AND RESULTS */
+.search-section {
+    margin-bottom: -2px !important; /* Casi tocándose - solo 2px de separación */
+    padding-bottom: 0 !important;
+}
+
+.results-section {
+    margin-top: 0 !important; /* Sin separación */
+    padding-top: 10px !important; /* Mínimo padding interno */
+    border-top: none !important;
+}
+
+/* 2. ELIMINAR CUALQUIER ESPACIO ADICIONAL */
+.search-container {
+    margin-bottom: 0 !important;
+    padding-bottom: 15px !important;
+}
+
+.results-container {
+    margin-top: 0 !important;
+}
+
+/* 3. FORZAR QUE LOS BLOQUES ESTÉN PEGADOS */
+.search-section:after {
+    content: '';
+    display: block;
+    height: 0;
+    margin-bottom: -1px !important;
+}
+
+.results-section:before {
+    content: '';
+    display: block;
+    height: 0;
+    margin-top: -1px !important;
+}
+
+/* =====================================================
+   MEJORAR EL MENSAJE "NO RESULTS"
+   ===================================================== */
+
+.no-results {
+    padding: 40px 20px !important;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+    border-radius: 16px !important;
+    border: 2px solid #e2e8f0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Efecto de fondo sutil */
+.no-results::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg,
+        transparent 30%,
+        rgba(99, 102, 241, 0.05) 50%,
+        transparent 70%);
+    animation: shimmerBackground 3s ease-in-out infinite;
+    z-index: 0;
+}
+
+.no-results-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Icono mejorado con animación */
+.no-results-icon {
+    margin-bottom: 25px !important;
+    position: relative;
+}
+
+.icon-circle {
+    width: 90px !important;
+    height: 90px !important;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow:
+        0 10px 30px rgba(99, 102, 241, 0.3),
+        0 0 0 3px rgba(99, 102, 241, 0.1),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3) !important;
+    position: relative !important;
+    animation: iconFloat 4s ease-in-out infinite !important;
+}
+
+/* Efecto de pulso alrededor del icono */
+.icon-circle::before {
+    content: '' !important;
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+    opacity: 0 !important;
+    animation: pulseRing 2s ease-in-out infinite !important;
+}
+
+.icon-circle::after {
+    content: '' !important;
+    position: absolute !important;
+    width: 120% !important;
+    height: 120% !important;
+    border-radius: 50% !important;
+    border: 2px solid rgba(99, 102, 241, 0.2) !important;
+    top: -10% !important;
+    left: -10% !important;
+    animation: rotateBorder 10s linear infinite !important;
+}
+
+.icon-circle i {
+    font-size: 2.2rem !important;
+    color: white !important;
+    position: relative !important;
+    z-index: 2 !important;
+    animation: iconPulse 2s ease-in-out infinite !important;
+}
+
+/* Texto mejorado */
+.no-results-text {
+    text-align: center !important;
+    max-width: 450px !important;
+    margin: 0 auto !important;
+}
+
+.no-results-text h3 {
+    font-size: 1.6rem !important;
+    margin-bottom: 12px !important;
+    color: #1e293b !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #1e293b, #64748b) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.no-results-text p {
+    font-size: 1.05rem !important;
+    color: #475569 !important;
+    margin-bottom: 20px !important;
+    line-height: 1.6 !important;
+    font-weight: 500 !important;
+}
+
+/* Sugerencias mejoradas */
+.search-suggestions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    justify-content: center !important;
+    margin-top: 25px !important;
+}
+
+.suggestion-tag {
+    background: linear-gradient(135deg, #ffffff, #f8fafc) !important;
+    color: #475569 !important;
+    padding: 10px 18px !important;
+    border-radius: 25px !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    border: 2px solid #e2e8f0 !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Efecto hover mejorado */
+.suggestion-tag::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent) !important;
+    transition: left 0.6s ease !important;
+}
+
+.suggestion-tag:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
+    border-color: #6366f1 !important;
+    color: #6366f1 !important;
+    background: linear-gradient(135deg, #ffffff, #f0f4ff) !important;
+}
+
+.suggestion-tag:hover::before {
+    left: 100% !important;
+}
+
+/* Sombra dinámica en hover */
+.suggestion-tag:hover::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%) !important;
+    animation: glowPulse 2s ease-in-out infinite !important;
+}
+
+/* Animaciones */
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-8px) rotate(2deg); }
+    50% { transform: translateY(-12px) rotate(0deg); }
+    75% { transform: translateY(-8px) rotate(-2deg); }
+}
+
+@keyframes pulseRing {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.2;
+        transform: scale(1.15);
+    }
+}
+
+@keyframes rotateBorder {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes shimmerBackground {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+/* =====================================================
+   RESPONSIVE PARA MÓVILES
+   ===================================================== */
+
+@media (max-width: 768px) {
+    .no-results {
+        padding: 30px 15px !important;
+        margin: 20px 0 !important;
+    }
+
+    .icon-circle {
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    .icon-circle i {
+        font-size: 1.8rem !important;
+    }
+
+    .no-results-text h3 {
+        font-size: 1.4rem !important;
+    }
+
+    .no-results-text p {
+        font-size: 0.95rem !important;
+    }
+
+    .suggestion-tag {
+        padding: 8px 14px !important;
+        font-size: 0.85rem !important;
+    }
+
+    .search-suggestions {
+        gap: 6px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .icon-circle {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .icon-circle i {
+        font-size: 1.5rem !important;
+    }
+
+    .no-results-text h3 {
+        font-size: 1.2rem !important;
+    }
+
+    .suggestion-tag {
+        padding: 6px 12px !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+/* =====================================================
+   SOLUCIÓN DEFINITIVA - BLOQUES PEGADOS
+   ===================================================== */
+
+/* Forzar que los bloques estén exactamente pegados */
+.container {
+    padding-bottom: 0 !important;
+}
+
+.search-section {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.search-container {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.results-section {
+    margin-top: 0 !important;
+    padding-top: 20px !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-top: 3px solid rgba(99, 102, 241, 0.1) !important;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(255, 255, 255, 0.98) 10%
+    ) !important;
+}
+
+/* Eliminar cualquier espacio residual */
+.search-section > *:last-child,
+.results-section > *:first-child {
+    margin: 0 !important;
+}

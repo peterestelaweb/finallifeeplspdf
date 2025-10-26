@@ -1,0 +1,81 @@
+{
+  "success": true,
+  "version": "3.1-composicion-real-pdf-parse-v2",
+  "fecha_procesamiento": "2025-09-30T11:52:06.000Z",
+  "total_pdfs_disponibles": 146,
+  "pdfs_analizados": 4,
+  "pdfs_procesados": 4,
+  "pdfs_con_errores": 0,
+  "composiciones": [
+    {
+      "filename": "OMEGOLD®.pdf",
+      "supplementFacts": {
+        "servingSize": "",
+        "servingsPerContainer": "",
+        "vitaminas": {},
+        "minerales": {},
+        "acidosGrasos": {
+          "Omega-3": {
+            "texto": "Omega-3   polinsaturado   EPA   (ácido\neicosapentaenoico, una cantidad mínima de 60 mg"
+          },
+          "EPA": {
+            "texto": "EPA   (ácido\neicosapentaenoico, una cantidad mínima de 60 mg"
+          },
+          "DHA": {
+            "texto": "DHA (ácido docosahexaenoico, una cantidad mínima de 430 mg"
+          }
+        },
+        "otrosIngredientes": [
+          {
+            "nombre": "nima de",
+            "cantidad": "430",
+            "unidad": "mg",
+            "infoAdicional": "por cápsula).",
+            "textoCompleto": "nima de 430 mg por cápsula).\n"
+          }
+        ],
+        "textoCompleto": "\n\nEl mundo dirigió su atención por\nprimera vez a las sorprendentes\npropiedades de los ácidos grasos\nomega 3 de cadena larga cuando\ndos investigadores daneses, Bang\ny   Dyerburg,   llevaron   a   cabo   un\nestudio de la población esquimal\nde Groenlandia para averiguar si\ntenían   una   alta   incidencia   de\nenfermedades cardiovasculares,\ndada   su   dieta   rica   en   grasas\n(pescado azul o graso, carne de\nfoca y grasa de ballena).\nPara   su   sorpresa,   la   tasa   de\nincidencia de enfermedades card -\niovasculares entre los esquimales,\ncon su dieta tradicional, era mucho\nmenor   que   la   del   pueblo   danés.\n¿Cuál era su secreto?\nEl análisis de las grasas presentes\nen   la   sangre   de   los   esquimales\nreveló   altos   niveles   de   dos\nácidos grasos inusuales: el eicosa -\npentaenoico   (EPA)   y   el   doco sa -\nhex aenoico (ADH), que son ácidos\ngrasos omega 3 de cadena larga.\nEsto   se   debe   a   que   su   dieta\ntradicional les proporciona entre 15\ny   20   gramos   diar",
+        "textoSupplementFacts": "Supplement Facts\nServing Size 1 Softgel Capsule\nServings Per Container 60\nINGREDIENTS: Fish Oil Concentrate, Capsule Shell (Gelatin,\nGlycerin  (Vegetable),  Water),  E32  Essential  Oil  Blend\n(Oregano Oil, Clary Sage Oil, Spanish Thyme Oil, Clove Oil,\nCinnamon  Oil),  Mixed  Tocopherols  (from  Soy,  including \nD-Alpha, D-Beta, D-Gamma, and D-Delta Tocopherols), and\nVitamin D (Cholecalciferol; in Corn Oil). \nSupportive but not conclusive \nresearch shows that consumption \nof EPA and DHA Omega-3 \nfatty acids may reduce the risk \nof coronary heart disease.\n                                      \n                                       \n                            \nO                       \n                                            \n                              \n                                   \n       \n       \nU\nS.SF2. MOD 1F\nExiste una investigación que si bien no es\nconcluyente, sustenta el principio de que\nlos ácidos grasos Omega-3 EPA y DHA\npodrían contribuir a reducir el riesgo de\nenfermedades coronarias.\nContiene   concentrado   de   aceite   de   pescado   con   Omega-3,   que   proporciona   una   fuente   rica   y   de   alta   calidad   de   Omega-3   polinsaturado   EPA   (ácido\neicosapentaenoico, una cantidad mínima de 60 mg por cápsula) y DHA (ácido docosahexaenoico, una cantidad mínima de 430 mg por cápsula).\nCada cápsula de Softgel contiene una mezcla precisa de ácidos grasos omega-3 DHA y EPA combinados con vitamina D y una mezcla exclusiva y patentada\nde aceites esenciales ricos en antioxidantes. \nLos ácidos grasos Omega-3 pueden tener ventajas significativas en el desarrollo, sin embargo, no debe considerarse un suplemento con OmeGold durante el\nembarazo, antes del segundo trimestre. Como con cualquier otro suplemento, le recomendamos que consulte a su médico para conocer las ventajas y riesgos\npotenciales antes de tomarlo, sobre todo si está embarazada, intentando embarazarse, lactando o bajo atención médica, lo mismo que si está tomando\nmedicamentos controlados.\nInformación sobre alergias: este producto contiene aceite de pescado y tocoferoles mixtos derivados de la soja, y ha sido procesado en una fábrica donde\ntambién se procesa pescado, marisco, soja y productos lácteos. \nMantenga este producto fuera del alcance de los niños.\nAlmacenar en un lugar seco a temperatura ambiente.\nINSTRUCCIONES DE USO: Una cápsula de Softgel dos veces al día.\nLifeplus International  •  P.O. Box 3749, Batesville, Arkansas 72503  •  800-572-8446  •  www.lifeplus.com\nEsta información es válida únicamente para su uso y distribución en Estados Unidos.\n©2017 Lifeplus International.  All rights reserved.4999—ES-0717\nUS.SF2.MOD 1F\n◊Los datos recogidos en este documento no han sido analizados por el organismo responsable de la regulación alimentaria y de medicamentos en los Estados Unidos.\nEste producto no está pensado para diagnosticar, tratar, curar o prevenir enfermedades."
+      }
+    },
+    {
+      "filename": "Aloe Vera Caps 6003-PI_ES.pdf",
+      "supplementFacts": {
+        "servingSize": "",
+        "servingsPerContainer": "",
+        "vitaminas": {},
+        "minerales": {},
+        "acidosGrasos": {},
+        "otrosIngredientes": [],
+        "textoCompleto": "\n\nRefuerzo inmunológico\nLos monocitos, células de gran impor­\ntancia  para  el  sistema  inmunológico,  \ncuentan con receptores de membrana \na  los  que  se  unen  los  residuos  de  \nazúcar de manosa, sobre todo cuando \nlas  molécula  de  manosa  aparecen  \nagrupadas   en   lo   que   se   conoce   \ncomo  enlaces  b­(1,4).  La  unión  de  \nlos   denominados   mananos   beta­\n1,4  activa  el  monocito,  que  a  su  vez  \nsegrega un gran número de proteínas \n(conocidas   como   citoquinas)   que   \nactúan  a  modo  de  transductores  de  \npéptidos  y  generan  una  respuesta  \nestructurada  por  parte  del  sistema  \ninmunológico.  Por  este  motivo,  se  ha  \ndemostrado  que  el  aloe  vera,  tanto  \nen  su  versión  en  gel  como  en  forma  \nde extracto procesado y estabilizado, \ntiene propiedades beneficiosas para el \nsistema inmunológico.\n◊\n \nCapsulas de Aloevations fáciles de \nusar, para mayor comodidad\nLas capsulas Aloevations de aloe vera \ncombinan la acción del aloe vera con \nl",
+        "textoSupplementFacts": "Supplement Facts\nServing Size 1 Capsule\nServings Per Container 60\nAmount Per Serving "
+      }
+    },
+    {
+      "filename": "BIO LIGHT .pdf",
+      "supplementFacts": {
+        "servingSize": "",
+        "servingsPerContainer": "",
+        "vitaminas": {},
+        "minerales": {},
+        "acidosGrasos": {},
+        "otrosIngredientes": [],
+        "textoCompleto": "\n\n¿Qué  beneficios  aporta  Daily  BioBasics?  Daily  BioBasics  es  un  completo  suplemento\nmultivitamínico  mineral  que  se  comercializa  en  un  polvo  concentrado  cómodo  que  solo  tendrá\nque agregarse a su bebida favorita. Contiene el 85 % de la cantidad diaria recomendada (CDR)\nde vitamina D, el 77 % de calcio, el 95 % de magnesio, el 87 % de manganeso, más del 200 %\nde  las  vitaminas  del  grupo  B  y  el  100  %  ó  más  del  valor  diario  de  los  minerales  y  vitaminas\nesenciales restantes, excluyendo de forma intencionada el hierro, el fósforo, el potasio y el sodio.\nDaily  BioBasics  contiene  fitonutrientes  procedentes  de  35  frutas  y  verduras  diferentes,  19  tipos\nde  hierbas  distintas,  numerosos  antioxidantes,  sustancias  prebióticas  y  probióticas,  así  como\nel  50%  de  la  IDR  de  fibra  recomendada  por  el  Departamento  de  Agricultura  de  los  Estados\nUnidos,  vital  para  reforzar  el  proceso  intestinal  y  conseguir  una  purificación  i",
+        "textoSupplementFacts": "Supplement Facts  \nServing size one 20 cc scoop (12.6 g) \nServings per container 30\nConsumir cantidades adecuadas de calcio y vitamina D durante toda la vida forma parte de una dieta bien \n \nequilibrada que puede reducir el riesgo de osteoporosis..\n.\nComo  con  cualquier  otro  suplemento,  le  recomendamos  que  consulte  a  su  médico  antes  de  tomarlo,  sobre  todo  si  está  embarazada,  intentando  \nembarazarse, lactando o bajo atención médica, lo mismo que si está tomando medicamentos controlados. Mantenga este producto fuera del alcance \nde los niños pequeños.\nFormulado sobre la base exclusiva PhytoZyme\n®\n de enzimas vegetales para darle biodisponibilidad y más de 30 concentrados sinérgicos de frutas, \nverduras y hierbas como co-factores fitonutrientes adicionales.\nCada porción contiene una mezcla probiótica estabilizada que proporciona trescientos cincuenta millones (350.000.000) de microorganismos benéficos \nque forman la flora intestinal, como Lactobacillus acidophilus DDS-1, Bifidobacterium bifidum y L. salivarius.\n "
+      }
+    },
+    {
+      "filename": "BE FOCUSED BERRY.pdf",
+      "supplementFacts": {
+        "servingSize": "",
+        "servingsPerContainer": "",
+        "vitaminas": {},
+        "minerales": {},
+        "acidosGrasos": {},
+        "otrosIngredientes": [],
+        "textoCompleto": "\n\nFOCUSED\n◊These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.\nPre Workout-blend\nGet ready, fuel up and go for it! \nBe Focused pre workout enhancer is the serious supplement for anyone looking for an edge to get ready \nand motivated to train to the next level. Its scientifically advanced ingredients can fortify you with unparalleled \nenergy, extreme focus with increased performance to create muscle building power like never before!\n◊\n  To \nenhance your workout, Be Focused features a specific formulation of cognitive enhancement with amino \nacid neurotransmitter precursors tyrosine and phenylalanine with Citicoline.\n◊\n These ingredients provide an \nenergizing sensory experience with natural caffeine to deliver explosive energy and focus for the best \nworkouts of your life.\n◊\nBe  Focused  is  designed  to  prepare \nanyone  interested  in  improving  their \nfitness,  muscle  strength  a",
+        "textoSupplementFacts": "Supplement Facts \nServing Size / 1 level 20 cc Scoop (16 g) \nServings Per Container / 30\n◊These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.\nLifeplus International • P.O. Box 3749, Batesville, Arkansas 72503 • 800-572-8446 • www.lifeplus.com\nThis information is for use and distribution only in the United States.\n© 2017 Lifeplus International. All rights reserved.6603—EN-1017\nUS.SF2.MOD 2B\nUS.SF2.MOD 2B\nAs with all supplements, please consult your physician prior to taking if you are pregnant or attempting to become pregnant, breast-feeding, \nunder a doctor’s care or taking prescription medication.\nAllergy Information: This product is processed in the same facility that processes products containing fish/shellfish, soy and dairy. This \nproduct was not tested on animals. \nStore in a cool, dry place. \nExcessive consumption may produce laxative effects. \nThe energy you need to help you through your workout.\n◊\nContains Creatine which helps support physical performance  during exercise and caffeine which helps support concentration and contributes to endurance \nperformance.\n◊\nNo artificial colors, artificial flavors, artificial sweeteners  or preservatives.\nSuitable for Vegans\nGluten Free\nFOR BEST RESULTS, CONSUME 30 MINUTES BEFORE YOUR EXERCISE.\nDIRECTIONS:  Mix 1 level 20 cc scoop (16 g) once per day with  8 oz (240 ml) of water or your favorite beverage. \nShake well."
+      }
+    }
+  ]
+}

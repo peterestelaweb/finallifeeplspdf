@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Test Mobile Performance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .pass { background: #d4edda; color: #155724; }
+        .fail { background: #f8d7da; color: #721c24; }
+        .warning { background: #fff3cd; color: #856404; }
+        button {
+            background: #4c1d95;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .metric-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4c1d95;
+        }
+        .metric-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>📱 Test de Rendimiento Mobile</h1>
+
+    <div class="test-section">
+        <h3>Detectar Dispositivo y Navegador</h3>
+        <div id="deviceInfo"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>Métricas de Rendimiento</h3>
+        <div class="metrics">
+            <div class="metric-card">
+                <div class="metric-value" id="fps">--</div>
+                <div class="metric-label">FPS</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="memory">--</div>
+                <div class="metric-label">Memoria (MB)</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="layoutShifts">--</div>
+                <div class="metric-label">Layout Shifts</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="loadTime">--</div>
+                <div class="metric-label">Tiempo Carga (ms)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>Pruebas de Parpadeo</h3>
+        <button onclick="testAnimations()">Test Animaciones</button>
+        <button onclick="testLayoutShifts()">Test Layout Shifts</button>
+        <button onclick="testScrollPerformance()">Test Scroll</button>
+        <button onclick="testInputLag()">Test Input Lag</button>
+        <div id="testResults"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>Recomendaciones</h3>
+        <div id="recommendations"></div>
+    </div>
+
+    <script>
+        // Información del dispositivo
+        function detectDevice() {
+            const info = {
+                userAgent: navigator.userAgent,
+                platform: navigator.platform,
+                isAndroid: /Android/i.test(navigator.userAgent),
+                isMobile: /Mobile|Android|iPhone|iPad/i.test(navigator.userAgent),
+                isChrome: /Chrome/i.test(navigator.userAgent),
+                viewport: {
+                    width: window.innerWidth,
+                    height: window.innerHeight
+                },
+                pixelRatio: window.devicePixelRatio || 1,
+                touchSupport: 'ontouchstart' in window
+            };
+
+            let html = '<div class="status ' + (info.isAndroid ? 'warning' : 'pass') + '">';
+            html += `<strong>Dispositivo:</strong> ${info.isAndroid ? 'Android' : 'Otro'}<br>`;
+            html += `<strong>Móvil:</strong> ${info.isMobile ? 'Sí' : 'No'}<br>`;
+            html += `<strong>Navegador:</strong> ${info.isChrome ? 'Chrome' : 'Otro'}<br>`;
+            html += `<strong>Viewport:</strong> ${info.viewport.width}x${info.viewport.height}<br>`;
+            html += `<strong>Pixel Ratio:</strong> ${info.pixelRatio}<br>`;
+            html += `<strong>Touch:</strong> ${info.touchSupport ? 'Sí' : 'No'}<br>`;
+            html += `<strong>User Agent:</strong> ${info.userAgent.substring(0, 50)}...`;
+            html += '</div>';
+
+            document.getElementById('deviceInfo').innerHTML = html;
+
+            return info;
+        }
+
+        // Medir FPS
+        function measureFPS() {
+            let fps = 0;
+            let lastTime = performance.now();
+            let frames = 0;
+
+            function measure() {
+                frames++;
+                const currentTime = performance.now();
+                if (currentTime >= lastTime + 1000) {
+                    fps = Math.round((frames * 1000) / (currentTime - lastTime));
+                    document.getElementById('fps').textContent = fps;
+                    frames = 0;
+                    lastTime = currentTime;
+                }
+                requestAnimationFrame(measure);
+            }
+            measure();
+        }
+
+        // Medir memoria
+        function measureMemory() {
+            if (performance.memory) {
+                const memory = Math.round(performance.memory.usedJSHeapSize / 1048576);
+                document.getElementById('memory').textContent = memory;
+            } else {
+                document.getElementById('memory').textContent = 'N/A';
+            }
+        }
+
+        // Medir Layout Shifts
+        function measureLayoutShifts() {
+            let shifts = 0;
+            if (window.PerformanceObserver) {
+                const observer = new PerformanceObserver((list) => {
+                    for (const entry of list.getEntries()) {
+                        if (!entry.hadRecentInput) {
+                            shifts += entry.value;
+                        }
+                    }
+                    document.getElementById('layoutShifts').textContent = shifts.toFixed(2);
+                });
+                observer.observe({entryTypes: ['layout-shift']});
+            }
+        }
+
+        // Tiempo de carga
+        function measureLoadTime() {
+            const loadTime = Math.round(performance.now());
+            document.getElementById('loadTime').textContent = loadTime;
+        }
+
+        // Test de animaciones
+        function testAnimations() {
+            const results = document.getElementById('testResults');
+            results.innerHTML = '<div class="status warning">⏳ Probando animaciones...</div>';
+
+            // Crear elementos animados
+            const testDiv = document.createElement('div');
+            testDiv.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                width: 100px;
+                height: 100px;
+                background: linear-gradient(45deg, red, blue);
+                transform: translate(-50%, -50%);
+                animation: spin 2s linear infinite;
+                z-index: 1000;
+            `;
+
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes spin {
+                    from { transform: translate(-50%, -50%) rotate(0deg); }
+                    to { transform: translate(-50%, -50%) rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+            document.body.appendChild(testDiv);
+
+            setTimeout(() => {
+                testDiv.remove();
+                style.remove();
+                results.innerHTML = '<div class="status pass">✅ Test de animaciones completado</div>';
+            }, 3000);
+        }
+
+        // Test de Layout Shifts
+        function testLayoutShifts() {
+            const results = document.getElementById('testResults');
+            results.innerHTML = '<div class="status warning">⏳ Probando layout shifts...</div>';
+
+            let shiftCount = 0;
+            const observer = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    if (!entry.hadRecentInput) {
+                        shiftCount++;
+                    }
+                }
+            });
+            observer.observe({entryTypes: ['layout-shift']});
+
+            // Forzar cambios de layout
+            const testElements = [];
+            for (let i = 0; i < 5; i++) {
+                const div = document.createElement('div');
+                div.style.cssText = `
+                    position: absolute;
+                    top: ${Math.random() * 100}px;
+                    left: ${Math.random() * 100}px;
+                    width: 50px;
+                    height: 50px;
+                    background: orange;
+                `;
+                document.body.appendChild(div);
+                testElements.push(div);
+            }
+
+            setTimeout(() => {
+                testElements.forEach(el => el.remove());
+                observer.disconnect();
+                results.innerHTML = `<div class="status ${shiftCount > 2 ? 'warning' : 'pass'}">Layout shifts detectados: ${shiftCount}</div>`;
+            }, 2000);
+        }
+
+        // Test de scroll
+        function testScrollPerformance() {
+            const results = document.getElementById('testResults');
+            results.innerHTML = '<div class="status warning">⏳ Probando rendimiento de scroll...</div>';
+
+            let scrollFPS = 0;
+            let scrollFrames = 0;
+            let lastScrollTime = performance.now();
+
+            function measureScroll() {
+                scrollFrames++;
+                const currentTime = performance.now();
+                if (currentTime >= lastScrollTime + 1000) {
+                    scrollFPS = Math.round((scrollFrames * 1000) / (currentTime - lastScrollTime));
+                    scrollFrames = 0;
+                    lastScrollTime = currentTime;
+                }
+                requestAnimationFrame(measureScroll);
+            }
+
+            window.addEventListener('scroll', measureScroll);
+
+            // Forzar scroll
+            const scrollAmount = 500;
+            window.scrollBy(0, scrollAmount);
+            setTimeout(() => window.scrollBy(0, -scrollAmount), 1000);
+
+            setTimeout(() => {
+                window.removeEventListener('scroll', measureScroll);
+                results.innerHTML = `<div class="status ${scrollFPS < 30 ? 'warning' : 'pass'}">FPS durante scroll: ${scrollFPS}</div>`;
+            }, 2000);
+        }
+
+        // Test de Input Lag
+        function testInputLag() {
+            const results = document.getElementById('testResults');
+            results.innerHTML = '<div class="status warning">⏳ Probando lag de input...</div>';
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.placeholder = 'Escribe algo...';
+            input.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; padding: 10px;';
+            document.body.appendChild(input);
+            input.focus();
+
+            let responseTimes = [];
+
+            input.addEventListener('keydown', () => {
+                const start = performance.now();
+                requestAnimationFrame(() => {
+                    const end = performance.now();
+                    responseTimes.push(end - start);
+                });
+            });
+
+            setTimeout(() => {
+                input.remove();
+                if (responseTimes.length > 0) {
+                    const avgResponse = responseTimes.reduce((a, b) => a + b, 0) / responseTimes.length;
+                    results.innerHTML = `<div class="status ${avgResponse > 16 ? 'warning' : 'pass'}">Tiempo respuesta promedio: ${avgResponse.toFixed(2)}ms</div>`;
+                }
+            }, 5000);
+        }
+
+        // Generar recomendaciones
+        function generateRecommendations(deviceInfo) {
+            const recommendations = document.getElementById('recommendations');
+            let html = '';
+
+            if (deviceInfo.isAndroid) {
+                html += '<div class="status warning">⚠️ Dispositivo Android detectado - Aplicar optimizaciones móviles</div>';
+            }
+
+            if (deviceInfo.pixelRatio > 2) {
+                html += '<div class="status warning">⚠️ Alto pixel ratio - Considerar reducir calidad de imágenes</div>';
+            }
+
+            if (deviceInfo.viewport.width < 768) {
+                html += '<div class="status pass">✅ Vista móvil - Desactivar animaciones complejas</div>';
+            }
+
+            html += '<div class="status pass">✅ Aplicar mobile-fix.css para prevenir parpadeo</div>';
+            html += '<div class="status pass">✅ Considerar reducir partículas animadas en móvil</div>';
+            html += '<div class="status pass">✅ Usar loading overlay para prevenir layout shifts</div>';
+
+            recommendations.innerHTML = html;
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            const deviceInfo = detectDevice();
+            measureFPS();
+            measureMemory();
+            measureLayoutShifts();
+            measureLoadTime();
+
+            setInterval(measureMemory, 2000);
+
+            setTimeout(() => {
+                generateRecommendations(deviceInfo);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

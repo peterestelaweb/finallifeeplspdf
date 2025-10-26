@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador LIFEPLUS Formulaciones PDF</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/us-market-friendly.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <!-- Ondas de color -->
+            <div class="waves-container">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
+
+            <!-- Contenido centrado con logos a los lados -->
+            <div class="header-centered">
+                <!-- Logo LifePlus a la izquierda -->
+                <div class="header-logo lifeplus-logo-container">
+                    <img src="images/logo-lifeplus-limpio.png" alt="LifePlus Logo" class="side-logo lifeplus-side-logo">
+                </div>
+
+                <!-- Contenido del título en el centro -->
+                <div class="header-content">
+                    <h1 class="title elegant-title">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>BUSCADOR LIFEPLUS FORMULACIONES PDF</span>
+                    </h1>
+                    <p class="subtitle">
+                        Encuentra, consulta y descargas el PDF de las formulaciones de LifePlus
+                    </p>
+                    <div class="header-actions">
+                        <a href="contacto.html" class="contact-btn">
+                            <i class="fas fa-envelope"></i>
+                            Contacto
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Logo Sunshine Team a la derecha -->
+                <div class="header-logo sunshine-logo-container">
+                    <img src="images/sunshine-logo.png" alt="Sunshine Team Logo" class="side-logo sunshine-side-logo">
+                </div>
+            </div>
+
+            <!-- Partículas energéticas -->
+            <div class="particles-container"></div>
+        </header>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" id="totalDocs">0</div>
+                    <div class="stat-label">Documentos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="totalSize">0 MB</div>
+                    <div class="stat-label">Tamaño Total</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="lastUpdate">--</div>
+                    <div class="stat-label">Última Actualización</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-container">
+                <div class="search-instruction">
+                    <h3 class="instruction-title">
+                        <i class="fas fa-search"></i>
+                        PON EL NOMBRE DE LA FORMULACION QUE BUSCAS
+                    </h3>
+                    <p class="instruction-text">
+                        Encuentra rápidamente cualquier ficha técnica de LifePlus
+                    </p>
+                </div>
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Ej: Omega3, Daily Biobasics, Proanthenols..."
+                        class="search-input"
+                        autocomplete="off"
+                    >
+                    <button id="clearSearch" class="clear-btn" style="display: none;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="search-filters">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="">Todas las categorías</option>
+                    </select>
+
+                    <div class="search-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="fuzzySearch" checked>
+                            <span>Búsqueda aproximada</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section">
+            <div class="results-header">
+                <h3 class="results-title">
+                    <span id="resultCount">0</span> documentos encontrados
+                </h3>
+                <div class="sort-options">
+                    <select id="sortBy" class="sort-select">
+                        <option value="relevance">Relevancia</option>
+                        <option value="name">Nombre</option>
+                        <option value="date">Fecha</option>
+                        <option value="size">Tamaño</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="loadingIndicator" class="loading" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>Cargando documentos...</span>
+            </div>
+
+            <div id="resultsContainer" class="results-grid">
+                <!-- Los resultados se cargarán aquí dinámicamente -->
+            </div>
+
+            <div id="noResults" class="no-results" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No se encontraron fichas técnicas</h3>
+                <p>Intenta con otros términos de búsqueda</p>
+            </div>
+        </div>
+
+        <!-- Video Demo Section -->
+        <div class="video-section">
+            <div class="videos-header">
+                <h2 class="videos-title">Descubre LifePlus en Acción</h2>
+                <p class="videos-subtitle">Mira cómo funciona nuestro buscador y conoce los beneficios de los productos LifePlus</p>
+            </div>
+
+            <div class="videos-grid">
+                <!-- Video 1: Demo del Buscador -->
+                <div class="video-card">
+                    <div class="phone-mockup">
+                        <div class="phone-frame">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <video
+                                    id="demoVideo"
+                                    class="phone-video"
+                                    controls
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    webkit-playsinline
+                                    x5-playsinline
+                                    disablePictureInPicture
+                                >
+                                    <source src="videos/demo-video.mp4" type="video/mp4">
+                                    Tu navegador no soporta videos HTML5.
+                                </video>
+                                <!-- Botón personalizado de sonido -->
+                                <button id="soundToggle1" class="sound-toggle" title="Activar sonido">
+                                    <i class="fas fa-volume-mute"></i>
+                                </button>
+                            </div>
+                            <div class="phone-button"></div>
+                        </div>
+                    </div>
+                    <div class="video-card-content">
+                        <h3 class="video-card-title">Buscador de Fichas Técnicas</h3>
+                        <p class="video-card-description">
+                            Aprende a usar nuestro buscador inteligente para encontrar rápidamente
+                            la información de productos LifePlus.
+                        </p>
+                        <div class="video-card-features">
+                            <div class="feature-item">
+                                <i class="fas fa-search"></i>
+                                <span>Búsqueda inteligente</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-download"></i>
+                                <span>Descarga directa</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-filter"></i>
+                                <span>Filtros avanzados</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 2: Beneficios de Productos -->
+                <div class="video-card">
+                    <div class="phone-mockup">
+                        <div class="phone-frame">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <video
+                                    id="benefitsVideo"
+                                    class="phone-video"
+                                    controls
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    webkit-playsinline
+                                    x5-playsinline
+                                    disablePictureInPicture
+                                    preload="metadata"
+                                >
+                                    <source src="videos/solis-greenly.mp4#t=0.1" type="video/mp4">
+                                    Tu navegador no soporta videos HTML5.
+                                </video>
+                                <!-- Botón personalizado de sonido -->
+                                <button id="soundToggle2" class="sound-toggle" title="Activar sonido">
+                                    <i class="fas fa-volume-mute"></i>
+                                </button>
+                            </div>
+                            <div class="phone-button"></div>
+                        </div>
+                    </div>
+                    <div class="video-card-content">
+                        <h3 class="video-card-title">Beneficios LifePlus</h3>
+                        <p class="video-card-description">
+                            Descubre los increíbles beneficios de los productos LifePlus para
+                            tu salud y bienestar diario.
+                        </p>
+                        <div class="video-card-features">
+                            <div class="feature-item">
+                                <i class="fas fa-leaf"></i>
+                                <span>Ingredientes naturales</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Salud integral</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-star"></i>
+                                <span>Calidad premium</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón de WhatsApp integrado en la sección -->
+            <div class="video-whatsapp-cta">
+                <a href="https://wa.me/3467567515?text=Hola!%20Estoy%20interesado%20en%20conocer%20más%20sobre%20los%20productos%20LifePlus%20de%20SUNSHINE%20TEAM" target="_blank" class="video-whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <span class="btn-text">CHATEA CON NOSOTROS</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contacto" class="contact-section">
+            <div class="contact-container">
+                <div class="contact-header">
+                    <h2 class="contact-title">
+                        <i class="fas fa-envelope"></i>
+                        Contacto SUNSHINE TEAM
+                    </h2>
+                    <p class="contact-subtitle">
+                        ¿Tienes preguntas sobre LifePlus? Estamos aquí para ayudarte
+                    </p>
+                </div>
+
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre *</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono">
+                            </div>
+                            <div class="form-group">
+                                <label for="motivo">Motivo de contacto *</label>
+                                <select id="motivo" name="motivo" required>
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="informacion">Información sobre productos</option>
+                                    <option value="compra">Quiero comprar productos</option>
+                                    <option value="oportunidad">Oportunidad de negocio</option>
+                                    <option value="soporte">Soporte técnico</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" id="tieneCliente" name="tieneCliente">
+                                ¿Tienes ya NÚMERO DE CLIENTE en LifePlus (Número PIN)?
+                            </label>
+                        </div>
+
+                        <div id="clienteInfo" class="cliente-info" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="pinCliente">Número PIN del cliente</label>
+                                    <input type="text" id="pinCliente" name="pinCliente">
+                                </div>
+                                <div class="form-group">
+                                    <label for="recomendado">¿Quién te recomendó?</label>
+                                    <input type="text" id="recomendado" name="recomendado" placeholder="Nombre de la persona que te recomendó">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ayuda">¿Cómo te podemos ayudar? *</label>
+                            <textarea id="ayuda" name="ayuda" rows="3" required placeholder="Describe detalladamente cómo podemos ayudarte..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Enviar Mensaje
+                            </button>
+                            <button type="reset" class="reset-btn">
+                                <i class="fas fa-redo"></i>
+                                Limpiar Formulario
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="formMessage" class="form-message" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+
+    <!-- Botón de WhatsApp después del formulario -->
+    <div class="whatsapp-section">
+        <div class="whatsapp-container">
+            <a href="https://wa.me/3467567515?text=Hola!%20Estoy%20interesado%20en%20conocer%20más%20sobre%20los%20productos%20LifePlus%20de%20SUNSHINE%20TEAM" target="_blank" class="whatsapp-fixed-btn">
+                <i class="fab fa-whatsapp"></i>
+                <span>CHATEA CON NOSOTROS</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <p>&copy; 2025 Buscador LifePlus Formulaciones PDF. Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-section">
+                <a href="https://peterestela.com" target="_blank" class="main-site-link">
+                    <i class="fas fa-home"></i>
+                    Visita peterestela.com
+                </a>
+            </div>
+            <div class="footer-section">
+                <a href="https://wa.me/3467567515" target="_blank" class="whatsapp-link">
+                    <i class="fab fa-whatsapp"></i>
+                    +34 675 67 51 5
+                </a>
+            </div>
+            <div class="footer-section">
+                <div class="team-logo">
+                    <img src="images/sunshine-logo.png" alt="SUNSHINE TEAM" class="sunshine-logo">
+                    <span class="team-text">SUNSHINE TEAM</span>
+                </div>
+            </div>
+            <div class="footer-section developer-credit">
+                <span class="credit-text">Desarrollado por Peter Estela</span>
+            </div>
+            <div class="footer-section legal-disclaimer">
+                <span class="disclaimer-text">
+                    <i class="fas fa-info-circle"></i>
+                    <a href="#" id="disclaimerLink">Información para mercado estadounidense</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+  
+    <!-- Contenedor de partículas 3D -->
+    <div class="three-d-particles" id="threeDParticles"></div>
+
+    <!-- Modal Legal -->
+    <div id="legalModal" class="legal-modal">
+        <div class="legal-modal-content">
+            <div class="legal-modal-header">
+                <h3>Información Legal y Mercados</h3>
+                <span class="legal-modal-close">&times;</span>
+            </div>
+            <div class="legal-modal-body">
+                <div class="legal-notice">
+                    <h4><i class="fas fa-globe-americas"></i> Información para Mercado Estadounidense</h4>
+                    <p><strong>Aviso importante:</strong> Las fichas técnicas y formulaciones mostradas en este sitio están alojadas en servidores ubicados en Estados Unidos y están destinadas específicamente para el mercado estadounidense.</p>
+
+                    <div class="legal-points">
+                        <div class="legal-point">
+                            <i class="fas fa-server"></i>
+                            <div>
+                                <strong>Alojamiento:</strong> La información está hospedada en servidores de Estados Unidos, cumpliendo con la legislación aplicable en ese país.
+                            </div>
+                        </div>
+                        <div class="legal-point">
+                            <i class="fas fa-target"></i>
+                            <div>
+                                <strong>Mercado objetivo:</strong> Estas formulaciones están diseñadas y reguladas para su comercialización y consumo en el mercado estadounidense.
+                            </div>
+                        </div>
+                        <div class="legal-point">
+                            <i class="fas fa-balance-scale"></i>
+                            <div>
+                                <strong>Regulación:</strong> Los productos cumplen con las normativas de la FDA (Food and Drug Administration) y otras agencias regulatorias estadounidenses.
+                            </div>
+                        </div>
+                        <div class="legal-point">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div>
+                                <strong>Responsabilidad:</strong> La información proporcionada es para referencia del mercado estadounidense. La disponibilidad y regulaciones pueden variar en otros países.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="legal-disclaimer-text">
+                        <p><em>Este sitio actúa como un buscador de información técnica y no comercializa directamente los productos. Para información específica sobre disponibilidad en tu región, contacta con los distribuidores autorizados de LifePlus.</em></p>
+                    </div>
+                </div>
+            </div>
+            <div class="legal-modal-footer">
+                <button class="legal-modal-btn" id="closeLegalModal">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/fuzzy-search.js"></script>
+    <script src="js/search-con-composicion.js"></script>
+    <link rel="stylesheet" href="css/composicion-nutricional.css">
+    <script src="js/contacto-simple.js"></script>
+    <script src="js/video-sound-control.js"></script>
+    <script src="js/header-animations.js"></script>
+    <script src="js/legal-modal.js"></script>
+    <script src="js/us-market-friendly.js"></script>
+</body>
+</html>

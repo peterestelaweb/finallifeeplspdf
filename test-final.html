@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Header Final</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .test-info {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .test-header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+        }
+
+        .results {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+        .warning { color: #f59e0b; }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h1>🧪 Test Header Final</h1>
+        <p>Verificando todas las mejoras implementadas:</p>
+        <ul>
+            <li>✅ Logos más grandes (180px vs 140px anterior)</li>
+            <li>✅ Efecto cyberpunk sutil en el título</li>
+            <li>✅ Partículas mejoradas y más visibles</li>
+            <li>✅ Layout optimizado con espacio máximo</li>
+        </ul>
+    </div>
+
+    <!-- Header de prueba -->
+    <div class="test-header">
+        <div id="test-results" class="results">
+            <h3>Resultados de la prueba:</h3>
+            <div id="test-output"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/fuzzy-search.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/contacto-simple.js"></script>
+    <script src="js/video-sound-control.js"></script>
+    <script src="js/header-animations.js"></script>
+
+    <script>
+        // Test simplificado que corre en el navegador
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🧪 Iniciando test final del header...');
+
+            setTimeout(() => {
+                let results = [];
+
+                // 1. Verificar logos grandes
+                const lifeplusLogo = document.querySelector('.lifeplus-side-logo');
+                const sunshineLogo = document.querySelector('.sunshine-side-logo');
+
+                if (lifeplusLogo && sunshineLogo) {
+                    const lifeplusRect = lifeplusLogo.getBoundingClientRect();
+                    const sunshineRect = sunshineLogo.getBoundingClientRect();
+
+                    if (lifeplusRect.width >= 160 && sunshineRect.width >= 160) {
+                        results.push('✅ Logos tienen tamaño adecuado (≥160px)');
+                    } else {
+                        results.push('❌ Logos podrían ser más grandes');
+                    }
+
+                    // Verificar que son del mismo tamaño
+                    const sizeDiff = Math.abs(lifeplusRect.width - sunshineRect.width);
+                    if (sizeDiff <= 5) {
+                        results.push('✅ Ambos logos tienen el mismo tamaño');
+                    } else {
+                        results.push(`❌ Diferencia de tamaño: ${sizeDiff}px`);
+                    }
+                } else {
+                    results.push('❌ No se encontraron los logos');
+                }
+
+                // 2. Verificar efecto cyberpunk
+                const elegantTitle = document.querySelector('.elegant-title');
+                if (elegantTitle) {
+                    const computedStyle = window.getComputedStyle(elegantTitle);
+                    const textShadow = computedStyle.textShadow;
+
+                    if (textShadow && textShadow.includes('rgba')) {
+                        results.push('✅ Título tiene efecto cyberpunk sutil');
+                    } else {
+                        results.push('❌ Título no tiene efecto cyberpunk');
+                    }
+
+                    // Verificar animación
+                    const animationName = computedStyle.animationName;
+                    if (animationName && animationName.includes('subtleCyberpunk')) {
+                        results.push('✅ Animación cyberpunk detectada');
+                    } else {
+                        results.push('⚠️ Animación cyberpunk no detectada');
+                    }
+                } else {
+                    results.push('❌ No se encontró el título elegante');
+                }
+
+                // 3. Verificar partículas
+                const particles = document.querySelectorAll('.particle');
+                if (particles.length >= 20) {
+                    results.push(`✅ Partículas mejoradas: ${particles.length} encontradas`);
+                } else {
+                    results.push(`⚠️ Partículas: ${particles.length} (esperaba ≥20)`);
+                }
+
+                // 4. Verificar layout
+                const headerCentered = document.querySelector('.header-centered');
+                if (headerCentered) {
+                    const computedStyle = window.getComputedStyle(headerCentered);
+                    const justifyContent = computedStyle.justifyContent;
+
+                    if (justifyContent === 'space-between') {
+                        results.push('✅ Layout optimizado para máximo espacio');
+                    } else {
+                        results.push(`❌ Layout no optimizado: ${justifyContent}`);
+                    }
+                }
+
+                // Mostrar resultados
+                const testOutput = document.getElementById('test-output');
+                testOutput.innerHTML = results.map(result => {
+                    const className = result.includes('✅') ? 'success' :
+                                    result.includes('❌') ? 'error' : 'warning';
+                    return `<div class="${className}">${result}</div>`;
+                }).join('');
+
+                // Resumen
+                const passed = results.filter(r => r.includes('✅')).length;
+                const total = results.length;
+
+                const summary = document.createElement('div');
+                summary.innerHTML = `<hr><strong>RESUMEN: ${passed}/${total} pruebas superadas (${Math.round(passed/total*100)}%)</strong>`;
+                summary.style.marginTop = '20px';
+                summary.style.paddingTop = '20px';
+                testOutput.appendChild(summary);
+
+                console.log(`🎉 Test completado: ${passed}/${total} pruebas superadas`);
+
+            }, 3000); // Esperar a que todo cargue
+        });
+    </script>
+</body>
+</html>

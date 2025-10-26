@@ -1,0 +1,174 @@
+/**
+ * EMERGENCY FIX - CORRECCIÓN INMEDIATA DE ERRORES
+ * Se carga después del CSS principal para sobreescribir problemas
+ */
+
+/* ====== CORRECCIÓN DE COLORES ====== */
+:root {
+    --primary-color: #00a86b !important; /* Verde LifePlus */
+    --secondary-color: #2d3748 !important;
+    --accent-color: #3182ce !important;
+}
+
+body {
+    background-color: #f7fafc !important; /* Fondo gris claro */
+}
+
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #38a169 100%) !important;
+}
+
+/* ====== CORRECCIÓN DE SCROLL HORIZONTAL ====== */
+.container {
+    max-width: 95% !important;
+    overflow-x: hidden !important;
+}
+
+* {
+    box-sizing: border-box !important;
+}
+
+/* ====== CORRECCIÓN DE INPUTS MOBILE ====== */
+@media (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+        font-size: 16px !important;
+        min-height: 44px !important;
+        padding: 12px !important;
+    }
+
+    /* Específico para los inputs problemáticos */
+    .search-input {
+        font-size: 16px !important;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px !important;
+        padding: 12px !important;
+        min-height: 44px !important;
+    }
+}
+
+/* ====== CORRECCIÓN DE SECCIÓN VIDEOS ====== */
+.video-section {
+    background: white !important;
+    padding: 40px 20px !important;
+    margin: 40px 0 !important;
+    border-radius: 15px !important;
+}
+
+.video-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 30px !important;
+    margin-top: 30px !important;
+}
+
+.video-card {
+    background: white !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.video-container {
+    position: relative !important;
+    padding-bottom: 56.25% !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+.video-container video {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* ====== CORRECCIÓN RESPONSIVE MOBILE ====== */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px !important;
+        max-width: 100% !important;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .header-centered {
+        flex-direction: column !important;
+        gap: 20px !important;
+        padding: 15px 0 !important;
+    }
+
+    .search-section {
+        padding: 20px 15px !important;
+    }
+}
+
+/* ====== CORRECCIÓN DE TELÉFONO FOOTER ====== */
+.whatsapp-link {
+    color: #25d366 !important;
+}
+
+.footer {
+    background: var(--primary-color) !important;
+}
+
+/* ====== CORRECCIÓN DE RESULTADOS ====== */
+.results-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+    gap: 20px !important;
+}
+
+@media (max-width: 768px) {
+    .results-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+}
+
+/* ====== CORRECCIÓN DE BOTONES ====== */
+.btn {
+    font-size: 16px !important;
+    padding: 12px 16px !important;
+    min-height: 44px !important;
+}
+
+/* ====== FORZAR VISIBILIDAD DE ELEMENTOS ====== */
+.loading-overlay {
+    z-index: 9999 !important;
+}
+
+.no-results {
+    text-align: center !important;
+    padding: 60px 20px !important;
+}
+
+/* ====== CORRECCIÓN HEADER EN MOBILE ====== */
+@media (max-width: 768px) {
+    .header-centered {
+        padding: 10px !important;
+    }
+
+    .header-content h1 {
+        font-size: 1.8rem !important;
+        line-height: 1.3 !important;
+    }
+
+    .subtitle {
+        font-size: 0.9rem !important;
+    }
+}

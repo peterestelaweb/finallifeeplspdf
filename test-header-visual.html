@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Visual del Header Rediseñado</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .test-info {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .test-info h2 {
+            color: #2e7d32;
+            margin: 0 0 10px 0;
+        }
+        .test-info ul {
+            color: #1b5e20;
+            margin: 0;
+            padding-left: 20px;
+        }
+        .test-info li {
+            margin-bottom: 5px;
+        }
+        .checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        .check-item i {
+            color: #28a745;
+            font-size: 1.2rem;
+        }
+        .mobile-preview {
+            margin-top: 30px;
+            border: 2px solid #ddd;
+            border-radius: 15px;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .mobile-preview h3 {
+            color: #495057;
+            margin: 0 0 15px 0;
+            text-align: center;
+        }
+        .mobile-frame {
+            max-width: 375px;
+            margin: 0 auto;
+            border: 3px solid #333;
+            border-radius: 25px;
+            overflow: hidden;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-info">
+            <h2><i class="fas fa-check-circle"></i> Prueba Visual del Header Rediseñado</h2>
+            <p>Verifica que todos los elementos del header cumplan con los requisitos:</p>
+            <div class="checklist">
+                <div class="check-item">
+                    <i class="fas fa-check"></i>
+                    <span>Logos de 80px de tamaño</span>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check"></i>
+                    <span>Logo LifePlus a la izquierda</span>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check"></i>
+                    <span>Logo Sunshine a la derecha</span>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check"></i>
+                    <span>Todo centrado horizontalmente</span>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check"></i>
+                    <span>Texto entre los dos logos</span>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check"></i>
+                    <span>Sin solapamiento de elementos</span>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check"></i>
+                    <span>Efecto glitch eliminado</span>
+                </div>
+                <div class="check-item">
+                    <i class="fas fa-check"></i>
+                    <span>Animaciones suaves implementadas</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header completo para prueba -->
+        <header class="header">
+            <!-- Ondas de color -->
+            <div class="waves-container">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
+
+            <!-- Contenido centrado con logos a los lados -->
+            <div class="header-centered">
+                <!-- Logo LifePlus a la izquierda -->
+                <div class="header-logo lifeplus-logo-container">
+                    <img src="images/LOGO LIFEPLUS LIMPIO.png" alt="LifePlus Logo" class="side-logo lifeplus-side-logo">
+                </div>
+
+                <!-- Contenido del título en el centro -->
+                <div class="header-content">
+                    <h1 class="title elegant-title">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>BUSCADOR LIFEPLUS FORMULACIONES PDF</span>
+                    </h1>
+                    <p class="subtitle">
+                        Encuentra y descarga fichas técnicas y documentos de LifePlus
+                    </p>
+                    <div class="header-actions">
+                        <a href="contacto.html" class="contact-btn">
+                            <i class="fas fa-envelope"></i>
+                            Contacto
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Logo Sunshine Team a la derecha -->
+                <div class="header-logo sunshine-logo-container">
+                    <img src="images/sunshine-logo.png" alt="Sunshine Team Logo" class="side-logo sunshine-side-logo">
+                </div>
+            </div>
+
+            <!-- Partículas energéticas -->
+            <div class="particles-container"></div>
+        </header>
+
+        <!-- Vista previa móvil -->
+        <div class="mobile-preview">
+            <h3><i class="fas fa-mobile-alt"></i> Vista Previa Móvil</h3>
+            <div class="mobile-frame">
+                <header class="header">
+                    <!-- Ondas de color -->
+                    <div class="waves-container">
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                    </div>
+
+                    <!-- Contenido centrado con logos a los lados -->
+                    <div class="header-centered">
+                        <!-- Logo LifePlus a la izquierda -->
+                        <div class="header-logo lifeplus-logo-container">
+                            <img src="images/LOGO LIFEPLUS LIMPIO.png" alt="LifePlus Logo" class="side-logo lifeplus-side-logo">
+                        </div>
+
+                        <!-- Contenido del título en el centro -->
+                        <div class="header-content">
+                            <h1 class="title elegant-title">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>BUSCADOR LIFEPLUS</span>
+                            </h1>
+                            <p class="subtitle">
+                                Encuentra fichas técnicas de LifePlus
+                            </p>
+                            <div class="header-actions">
+                                <a href="contacto.html" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    Contacto
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Logo Sunshine Team a la derecha -->
+                        <div class="header-logo sunshine-logo-container">
+                            <img src="images/sunshine-logo.png" alt="Sunshine Team Logo" class="side-logo sunshine-side-logo">
+                        </div>
+                    </div>
+
+                    <!-- Partículas energéticas -->
+                    <div class="particles-container"></div>
+                </header>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/header-animations.js"></script>
+    <script>
+        // Verificación automática de elementos
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔍 Iniciando verificación visual...');
+
+            // Verificar dimensiones de logos
+            const logos = document.querySelectorAll('.side-logo');
+            logos.forEach((logo, index) => {
+                setTimeout(() => {
+                    const rect = logo.getBoundingClientRect();
+                    console.log(`Logo ${index + 1}: ${rect.width}x${rect.height}px`);
+
+                    if (Math.abs(rect.width - 80) > 5) {
+                        console.warn(`⚠️ Logo ${index + 1} no tiene 80px de ancho: ${rect.width}px`);
+                    } else {
+                        console.log(`✅ Logo ${index + 1} tiene el tamaño correcto: ${rect.width}px`);
+                    }
+                }, 3000); // Esperar a que la animación termine
+            });
+
+            // Verificar posición del contenido
+            setTimeout(() => {
+                const headerCentered = document.querySelector('.header-centered');
+                const rect = headerCentered.getBoundingClientRect();
+                console.log(`Header centrado: ${rect.width}px de ancho`);
+
+                const headerContent = document.querySelector('.header-content');
+                const contentRect = headerContent.getBoundingClientRect();
+                console.log(`Contenido centrado: ${contentRect.left}px desde la izquierda`);
+            }, 1000);
+
+            console.log('🎯 Verificación completada. Revisa la consola para detalles.');
+        });
+    </script>
+</body>
+</html>
