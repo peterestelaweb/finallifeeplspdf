@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Search Visibility</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .diagnostic-result {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .success { border-color: #28a745; background: #d4edda; }
+        .warning { border-color: #ffc107; background: #fff3cd; }
+        .error { border-color: #dc3545; background: #f8d7da; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🔍 Search Results Visibility Test</h1>
+        <p>This page tests the search results visibility fixes.</p>
+
+        <div class="test-section">
+            <h2>📋 Test Instructions</h2>
+            <ol>
+                <li>Open the main application: <a href="index.html" target="_blank">index.html</a></li>
+                <li>Search for "Daily" or any product name</li>
+                <li>Observe if search results are visible</li>
+                <li>Use the diagnostic tools below to identify issues</li>
+            </ol>
+        </div>
+
+        <div class="test-section">
+            <h2>🛠️ Diagnostic Tools</h2>
+            <button class="test-button" onclick="runVisibilityCheck()">Check Visibility</button>
+            <button class="test-button" onclick="applyEmergencyFix()">Apply Emergency Fix</button>
+            <button class="test-button" onclick="simulateSearchResults()">Simulate Search Results</button>
+            <button class="test-button" onclick="clearSearchResults()">Clear Results</button>
+            <div id="diagnosticResult" class="diagnostic-result" style="display: none;"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>📊 Current State</h2>
+            <div id="currentState">
+                <p>Click "Check Visibility" to see the current state of search elements.</p>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>🎯 Expected Behavior</h2>
+            <ul>
+                <li><strong>Search Section:</strong> Should be visible with search input</li>
+                <li><strong>Results Section:</strong> Should appear below search section with proper spacing</li>
+                <li><strong>Results Container:</strong> Should display search result cards</li>
+                <li><strong>No Results Message:</strong> Should show when no products match the search</li>
+                <li><strong>Document Counter:</strong> Should show number of results found</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>🐛 Common Issues</h2>
+            <ul>
+                <li><strong>Hidden Results:</strong> Results section may have display: none or visibility: hidden</li>
+                <li><strong>Z-index Conflicts:</strong> Search section covering results section</li>
+                <li><strong>Negative Margins:</strong> Overlap between search and results sections</li>
+                <li><strong>Zero Height:</strong> Results container may have zero height</li>
+                <li><strong>Positioning Issues:</strong> Absolute positioning causing elements to be off-screen</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function runVisibilityCheck() {
+            const result = document.getElementById('diagnosticResult');
+            const issues = [];
+
+            // Check if we're on the main page
+            if (window.location.pathname.endsWith('test-search-visibility.html')) {
+                result.className = 'diagnostic-result warning';
+                result.innerHTML = `
+                    ⚠️ This is a test page. Please run this diagnostic on the main application page (index.html).
+                    <br><br>
+                    <a href="index.html" target="_blank">Open Main Application</a>
+                `;
+                result.style.display = 'block';
+                return;
+            }
+
+            // Check main application elements
+            const searchSection = document.querySelector('.search-section');
+            const resultsSection = document.querySelector('.results-section');
+            const resultsContainer = document.getElementById('resultsContainer');
+            const resultsGrid = document.querySelector('.results-grid');
+
+            if (!searchSection) issues.push('❌ Search section not found');
+            if (!resultsSection) issues.push('❌ Results section not found');
+            if (!resultsContainer) issues.push('❌ Results container not found');
+            if (!resultsGrid) issues.push('❌ Results grid not found');
+
+            if (searchSection && resultsSection) {
+                const searchRect = searchSection.getBoundingClientRect();
+                const resultsRect = resultsSection.getBoundingClientRect();
+
+                if (resultsRect.top < searchRect.bottom) {
+                    issues.push(`⚠️ Sections overlap by ${Math.round(searchRect.bottom - resultsRect.top)}px`);
+                }
+
+                const searchStyle = window.getComputedStyle(searchSection);
+                const resultsStyle = window.getComputedStyle(resultsSection);
+
+                if (searchStyle.zIndex > resultsStyle.zIndex) {
+                    issues.push(`⚠️ Search z-index (${searchStyle.zIndex}) > Results z-index (${resultsStyle.zIndex})`);
+                }
+            }
+
+            if (resultsContainer) {
+                const children = resultsContainer.querySelectorAll('.result-item, .enhanced-result-card, .no-results');
+                if (children.length === 0) {
+                    issues.push('⚠️ No result cards found in container');
+                } else {
+                    children.forEach((card, index) => {
+                        const style = window.getComputedStyle(card);
+                        if (style.display === 'none') {
+                            issues.push(`❌ Card ${index + 1} has display: none`);
+                        }
+                        if (style.visibility === 'hidden') {
+                            issues.push(`❌ Card ${index + 1} has visibility: hidden`);
+                        }
+                    });
+                }
+            }
+
+            // Display results
+            result.className = 'diagnostic-result ' + (issues.length > 0 ? 'warning' : 'success');
+            result.innerHTML = issues.length > 0
+                ? '<strong>Issues Found:</strong><br>' + issues.join('<br>')
+                : '✅ No visibility issues detected';
+            result.style.display = 'block';
+
+            updateCurrentState();
+        }
+
+        function applyEmergencyFix() {
+            const resultsSection = document.querySelector('.results-section');
+            const resultsContainer = document.getElementById('resultsContainer');
+            const searchSection = document.querySelector('.search-section');
+
+            if (resultsSection) {
+                resultsSection.style.display = 'block';
+                resultsSection.style.visibility = 'visible';
+                resultsSection.style.opacity = '1';
+                resultsSection.style.marginTop = '20px';
+                resultsSection.style.paddingTop = '30px';
+                resultsSection.style.zIndex = '10';
+            }
+
+            if (resultsContainer) {
+                resultsContainer.style.display = 'block';
+                resultsContainer.style.visibility = 'visible';
+                resultsContainer.style.opacity = '1';
+                resultsContainer.style.minHeight = '150px';
+            }
+
+            if (searchSection) {
+                searchSection.style.marginBottom = '20px';
+                searchSection.style.zIndex = '1';
+            }
+
+            const result = document.getElementById('diagnosticResult');
+            result.className = 'diagnostic-result success';
+            result.innerHTML = '✅ Emergency fix applied. Check visibility again.';
+            result.style.display = 'block';
+
+            setTimeout(() => runVisibilityCheck(), 500);
+        }
+
+        function simulateSearchResults() {
+            const resultsContainer = document.getElementById('resultsContainer');
+            if (!resultsContainer) return;
+
+            // Create sample search results
+            const sampleResults = [
+                { title: 'Daily Biobasics', category: 'Nutrition', size: '2.5 MB' },
+                { title: 'Daily Plus', category: 'Vitamins', size: '1.8 MB' },
+                { title: 'Daily Defense', category: 'Immunity', size: '3.1 MB' }
+            ];
+
+            resultsContainer.innerHTML = `
+                <div class="adar-program-indicator">
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center;">
+                        <i class="fas fa-star"></i>
+                        <strong>🎯 SEARCH RESULTS: ${sampleResults.length} products found</strong>
+                    </div>
+                </div>
+            `;
+
+            const grid = document.createElement('div');
+            grid.className = 'results-grid';
+            grid.style.cssText = `
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 20px;
+            `;
+
+            sampleResults.forEach(result => {
+                const card = document.createElement('div');
+                card.className = 'result-item enhanced';
+                card.style.cssText = `
+                    background: rgba(255, 255, 255, 0.98);
+                    border-radius: 12px;
+                    padding: 20px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                    margin-bottom: 15px;
+                    border: 1px solid #e2e8f0;
+                `;
+                card.innerHTML = `
+                    <h3 style="margin: 0 0 10px 0; color: #2d3748;">${result.title}</h3>
+                    <p style="margin: 0 0 10px 0; color: #718096;">Category: ${result.category}</p>
+                    <p style="margin: 0 0 15px 0; color: #718096;">Size: ${result.size}</p>
+                    <button style="background: #6366f1; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">
+                        Download PDF
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+
+            resultsContainer.appendChild(grid);
+
+            // Update result count
+            const resultCount = document.getElementById('resultCount');
+            if (resultCount) {
+                resultCount.textContent = sampleResults.length;
+            }
+
+            const result = document.getElementById('diagnosticResult');
+            result.className = 'diagnostic-result success';
+            result.innerHTML = '✅ Sample search results created. Check if they are visible.';
+            result.style.display = 'block';
+
+            updateCurrentState();
+        }
+
+        function clearSearchResults() {
+            const resultsContainer = document.getElementById('resultsContainer');
+            if (resultsContainer) {
+                resultsContainer.innerHTML = '';
+            }
+
+            const resultCount = document.getElementById('resultCount');
+            if (resultCount) {
+                resultCount.textContent = '0';
+            }
+
+            const result = document.getElementById('diagnosticResult');
+            result.className = 'diagnostic-result';
+            result.innerHTML = 'Search results cleared.';
+            result.style.display = 'block';
+
+            updateCurrentState();
+        }
+
+        function updateCurrentState() {
+            const currentState = document.getElementById('currentState');
+            const searchSection = document.querySelector('.search-section');
+            const resultsSection = document.querySelector('.results-section');
+            const resultsContainer = document.getElementById('resultsContainer');
+
+            if (searchSection && resultsSection && resultsContainer) {
+                const searchRect = searchSection.getBoundingClientRect();
+                const resultsRect = resultsSection.getBoundingClientRect();
+
+                currentState.innerHTML = `
+                    <strong>Search Section:</strong><br>
+                    - Display: ${window.getComputedStyle(searchSection).display}<br>
+                    - Visibility: ${window.getComputedStyle(searchSection).visibility}<br>
+                    - Z-index: ${window.getComputedStyle(searchSection).zIndex}<br>
+                    - Bottom position: ${Math.round(searchRect.bottom)}px<br><br>
+
+                    <strong>Results Section:</strong><br>
+                    - Display: ${window.getComputedStyle(resultsSection).display}<br>
+                    - Visibility: ${window.getComputedStyle(resultsSection).visibility}<br>
+                    - Z-index: ${window.getComputedStyle(resultsSection).zIndex}<br>
+                    - Top position: ${Math.round(resultsRect.top)}px<br>
+                    - Gap between sections: ${Math.round(resultsRect.top - searchRect.bottom)}px<br><br>
+
+                    <strong>Results Container:</strong><br>
+                    - Children count: ${resultsContainer.children.length}<br>
+                    - Display: ${window.getComputedStyle(resultsContainer).display}<br>
+                    - Min-height: ${window.getComputedStyle(resultsContainer).minHeight}
+                `;
+            } else {
+                currentState.innerHTML = '<p>Could not find search elements. Make sure you are on the main application page.</p>';
+            }
+        }
+
+        // Auto-run visibility check when page loads
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                runVisibilityCheck();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

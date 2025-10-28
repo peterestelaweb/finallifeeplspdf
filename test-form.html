@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Formulario LifePlus</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #218838; }
+        .test-info { background: #e7f3ff; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h1>📧 Test Formulario LifePlus</h1>
+
+    <div class="test-info">
+        <h3>ℹ️ Información de Test</h3>
+        <p><strong>Formspree Endpoint:</strong> https://formspree.io/f/moqzkwzd</p>
+        <p><strong>Email Destino:</strong> maykasunshineteam@gmail.com</p>
+        <p><strong>PIN de Test:</strong> 6411840 (válido)</p>
+        <p><strong>Estado:</strong> Listo para probar envío real</p>
+    </div>
+
+    <form action="https://formspree.io/f/moqzkwzd" method="POST">
+        <input type="hidden" name="_subject" value="TEST - Nuevo contacto desde LifePlus PDF">
+        <input type="hidden" name="_template" value="table">
+
+        <div class="form-group">
+            <label for="nombre">Nombre *</label>
+            <input type="text" id="nombre" name="nombre" required value="Usuario de Prueba">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required value="test@example.com">
+        </div>
+
+        <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" value="600000000">
+        </div>
+
+        <div class="form-group">
+            <label for="motivo">Motivo *</label>
+            <select id="motivo" name="motivo" required>
+                <option value="información">Solicitud de información</option>
+                <option value="soporte">Soporte técnico</option>
+                <option value="pedido">Información de pedidos</option>
+                <option value="colaboración">Propuesta de colaboración</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="ayuda">Mensaje *</label>
+            <textarea id="ayuda" name="ayuda" required rows="4">Este es un mensaje de prueba para verificar que el formulario funciona correctamente.</textarea>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="hasPin" name="hasPin" value="yes" checked>
+                ¿Tienes número PIN de LifePlus?
+            </label>
+        </div>
+
+        <div class="form-group" id="pinField" style="display: block;">
+            <label for="numeroPin">Número PIN *</label>
+            <input type="text" id="numeroPin" name="numeroPin" placeholder="Ingresa tu número de PIN de LifePlus (7 dígitos)" maxlength="7" value="6411840" required>
+            <small style="color: #666; display: block; margin-top: 5px;">Este campo es obligatorio si tienes número de cliente LifePlus</small>
+        </div>
+
+        <input type="hidden" name="informacion_adicional" value="Datos adicionales de prueba">
+
+        <button type="submit">📧 Enviar Test de Formulario</button>
+    </form>
+
+    <div style="margin-top: 30px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+        <h3>📋 Pasos para verificar el funcionamiento:</h3>
+        <ol>
+            <li>Haz clic en "Enviar Test de Formulario"</li>
+            <li>Se redirigirá a Formspree para confirmación</li>
+            <li>Verifica que llegue el email a <strong>maykasunshineteam@gmail.com</strong></li>
+            <li>El email debe contener todos los campos del formulario</li>
+            <li>Si funciona, el formulario principal está listo para usar</li>
+        </ol>
+    </div>
+</body>
+</html>

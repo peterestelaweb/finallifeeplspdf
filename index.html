@@ -925,7 +925,7 @@
                 </p>
             </div>
 
-            <form class="contact-form" id="contactForm">
+            <form class="contact-form" id="contactForm" action="php/send-contact-ajax.php" method="POST">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nombre">Nombre *</label>
@@ -960,9 +960,20 @@
                     <textarea id="ayuda" name="ayuda" rows="4" required></textarea>
                 </div>
 
+    
                 <div class="checkbox-group">
-                    <input type="checkbox" id="hasPin" name="hasPin">
-                    <label for="hasPin">¿Tienes ya NÚMERO DE CLIENTE en LifePlus (Número PIN)?</label>
+                    <input type="checkbox" id="tieneCliente" name="tieneCliente">
+                    <label for="tieneCliente">¿Tienes ya NÚMERO DE CLIENTE en LifePlus (Número PIN)?</label>
+                </div>
+
+                <div class="form-group" id="pinClienteGroup" style="display: none;">
+                    <label for="pinCliente">Número PIN del cliente *</label>
+                    <input type="text" id="pinCliente" name="pinCliente" placeholder="Escribe tu número PIN">
+                </div>
+
+                <div class="form-group">
+                    <label for="recomendado">¿Quién te recomendó?</label>
+                    <input type="text" id="recomendado" name="recomendado" placeholder="Nombre de quien te recomendó (opcional)">
                 </div>
 
                 <div class="form-actions">
@@ -1038,6 +1049,60 @@
             }
 
             console.log('✅ Sistema de búsqueda LifePlus inicializado correctamente');
+        });
+
+        // Mostrar/ocultar campo PIN cliente
+        document.getElementById('tieneCliente').addEventListener('change', function() {
+            const pinGroup = document.getElementById('pinClienteGroup');
+            if (this.checked) {
+                pinGroup.style.display = 'block';
+            } else {
+                pinGroup.style.display = 'none';
+                document.getElementById('pinCliente').value = '';
+            }
+        });
+
+        // Manejar envío del formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+
+            // Mostrar estado de carga
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            submitBtn.disabled = true;
+
+            fetch('php/send-contact-final-limpio.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Mostrar mensaje de éxito amigable
+                    alert('✅ ¡Gracias por contactarnos!\n\nHemos recibido tu mensaje correctamente y nos pondremos en contacto contigo lo antes posible.\n\nEquipo SUNSHINE TEAM');
+                    this.reset();
+                    // Ocultar campo PIN si estaba visible
+                    document.getElementById('pinClienteGroup').style.display = 'none';
+                } else {
+                    // Mostrar mensaje de error
+                    alert('❌ Error: ' + data.message);
+                    if (data.errores && data.errores.length > 0) {
+                        alert('Detalles del error:\n' + data.errores.join('\n'));
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('❌ Error de conexión. Por favor, inténtalo de nuevo más tarde.');
+            })
+            .finally(() => {
+                // Restaurar botón
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
         });
     </script>
 </body>

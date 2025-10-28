@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Espaciado - LifePlus Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-button {
+            background: #4c1d95;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .test-button:hover {
+            background: #6b46c1;
+        }
+        .measurement-display {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+            border-left: 4px solid #4c1d95;
+        }
+        .iframe-container {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .mobile-view {
+            max-width: 375px;
+            margin: 0 auto;
+        }
+        .desktop-view {
+            width: 100%;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🔍 Test de Espaciado y Funcionalidad</h1>
+        <p>Esta página te ayudará a verificar el espaciado entre el bloque de búsqueda y resultados, y probar la funcionalidad de búsqueda.</p>
+
+        <h2>📱 Controles de Test</h2>
+        <button class="test-button" onclick="testDesktopView()">Vista Desktop</button>
+        <button class="test-button" onclick="testMobileView()">Vista Móvil</button>
+        <button class="test-button" onclick="measureSpacing()">Medir Espaciado</button>
+        <button class="test-button" onclick="testSearch()">Probar Búsqueda (Omega3)</button>
+        <button class="test-button" onclick="clearSearch()">Limpiar Búsqueda</button>
+        <button class="test-button" onclick="checkSearchVisibility()">Verificar Visibilidad</button>
+
+        <div id="statusMessage" class="status" style="display: none;"></div>
+
+        <h2>📏 Mediciones Actuales</h2>
+        <div id="measurements" class="measurement-display">
+            Las mediciones aparecerán aquí...
+        </div>
+    </div>
+
+    <div class="test-container">
+        <h2>🖥️ Vista Previa</h2>
+        <div id="iframeWrapper" class="iframe-container desktop-view">
+            <iframe id="testFrame" src="index.html" onload="onFrameLoad()"></iframe>
+        </div>
+    </div>
+
+    <div class="test-container">
+        <h2>📋 Guía de Verificación Manual</h2>
+        <ol>
+            <li><strong>Espaciado Cero:</strong> Los bloques de búsqueda y resultados deben estar prácticamente pegados (máximo 5px de separación).</li>
+            <li><strong>Visibilidad de Resultados:</strong> Al buscar "Omega3", los resultados deben aparecer inmediatamente sin scroll.</li>
+            <li><strong>Consistencia Móvil:</strong> El espaciado debe ser consistente en desktop y móvil.</li>
+            <li><strong>Sin Espacios Extra:</strong> No debe haber espacios blancos innecesarios entre los bloques.</li>
+        </ol>
+
+        <h3>✅ Checklist de Verificación:</h3>
+        <ul>
+            <li>□ El espaciado entre bloques es ≤ 5px en desktop</li>
+            <li>□ El espaciado entre bloques es ≤ 5px en móvil</li>
+            <li>□ Los resultados aparecen sin scroll al buscar "Omega3"</li>
+            <li>□ No hay espacios visibles extraños</li>
+            <li>□ La interfaz se ve correcta en ambos formatos</li>
+        </ul>
+    </div>
+
+    <script>
+        let currentView = 'desktop';
+        let testFrame = document.getElementById('testFrame');
+
+        function showStatus(message, type = 'success') {
+            const statusDiv = document.getElementById('statusMessage');
+            statusDiv.textContent = message;
+            statusDiv.className = `status ${type}`;
+            statusDiv.style.display = 'block';
+
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        function onFrameLoad() {
+            setTimeout(() => {
+                measureSpacing();
+                showStatus('Página cargada correctamente', 'success');
+            }, 1000);
+        }
+
+        function testDesktopView() {
+            currentView = 'desktop';
+            const wrapper = document.getElementById('iframeWrapper');
+            wrapper.className = 'iframe-container desktop-view';
+            testFrame.src = testFrame.src;
+            showStatus('Cambiando a vista desktop...', 'success');
+        }
+
+        function testMobileView() {
+            currentView = 'mobile';
+            const wrapper = document.getElementById('iframeWrapper');
+            wrapper.className = 'iframe-container mobile-view';
+            testFrame.src = testFrame.src;
+            showStatus('Cambiando a vista móvil...', 'success');
+        }
+
+        function measureSpacing() {
+            try {
+                const frameDoc = testFrame.contentDocument || testFrame.contentWindow.document;
+
+                // Verificar si el frame tiene el monitor de espaciado
+                if (frameDoc.defaultWindow && frameDoc.defaultWindow.measureSpacing) {
+                    const measurements = frameDoc.defaultWindow.measureSpacing();
+                    displayMeasurements(measurements);
+
+                    if (measurements.gap <= 5) {
+                        showStatus(`✅ Espaciado correcto: ${measurements.gap}px`, 'success');
+                    } else {
+                        showStatus(`⚠️ Espaciado excesivo: ${measurements.gap}px (debe ser ≤ 5px)`, 'warning');
+                    }
+                } else {
+                    // Medición manual
+                    manualMeasure();
+                }
+            } catch (error) {
+                showStatus('Error al medir espaciado: ' + error.message, 'error');
+            }
+        }
+
+        function manualMeasure() {
+            try {
+                const frameDoc = testFrame.contentDocument || testFrame.contentWindow.document;
+                const searchSection = frameDoc.querySelector('.search-section');
+                const resultsSection = frameDoc.querySelector('.results-section');
+
+                if (searchSection && resultsSection) {
+                    const searchRect = searchSection.getBoundingClientRect();
+                    const resultsRect = resultsSection.getBoundingClientRect();
+                    const gap = resultsRect.top - searchRect.bottom;
+
+                    const measurements = {
+                        searchBottom: Math.round(searchRect.bottom),
+                        resultsTop: Math.round(resultsRect.top),
+                        gap: Math.round(gap),
+                        isMobile: currentView === 'mobile'
+                    };
+
+                    displayMeasurements(measurements);
+
+                    if (gap <= 5) {
+                        showStatus(`✅ Espaciado correcto: ${gap}px`, 'success');
+                    } else {
+                        showStatus(`⚠️ Espaciado excesivo: ${gap}px (debe ser ≤ 5px)`, 'warning');
+                    }
+                } else {
+                    showStatus('No se encontraron los elementos para medir', 'error');
+                }
+            } catch (error) {
+                showStatus('Error en medición manual: ' + error.message, 'error');
+            }
+        }
+
+        function displayMeasurements(measurements) {
+            const display = document.getElementById('measurements');
+            display.innerHTML = `
+                <strong>Mediciones Actuales:</strong><br>
+                Vista: ${measurements.isMobile ? 'Móvil' : 'Desktop'}<br>
+                Bottom de búsqueda: ${measurements.searchBottom}px<br>
+                Top de resultados: ${measurements.resultsTop}px<br>
+                <strong>Espaciado: ${measurements.gap}px</strong><br>
+                Estado: ${measurements.gap <= 5 ? '✅ Correcto' : '⚠️ Necesita ajuste'}
+            `;
+        }
+
+        function testSearch() {
+            try {
+                const frameDoc = testFrame.contentDocument || testFrame.contentWindow.document;
+                const searchInput = frameDoc.querySelector('#searchInput');
+
+                if (searchInput) {
+                    searchInput.value = 'Omega3';
+                    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+                    searchInput.dispatchEvent(new Event('keyup', { bubbles: true }));
+
+                    showStatus('Buscando "Omega3"...', 'success');
+
+                    setTimeout(() => {
+                        checkSearchVisibility();
+                    }, 2000);
+                } else {
+                    showStatus('No se encontró el campo de búsqueda', 'error');
+                }
+            } catch (error) {
+                showStatus('Error al ejecutar búsqueda: ' + error.message, 'error');
+            }
+        }
+
+        function clearSearch() {
+            try {
+                const frameDoc = testFrame.contentDocument || testFrame.contentWindow.document;
+                const searchInput = frameDoc.querySelector('#searchInput');
+                const clearBtn = frameDoc.querySelector('#clearSearch');
+
+                if (searchInput) {
+                    searchInput.value = '';
+                    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+
+                    if (clearBtn) {
+                        clearBtn.click();
+                    }
+
+                    showStatus('Búsqueda limpiada', 'success');
+                }
+            } catch (error) {
+                showStatus('Error al limpiar búsqueda: ' + error.message, 'error');
+            }
+        }
+
+        function checkSearchVisibility() {
+            try {
+                const frameDoc = testFrame.contentDocument || testFrame.contentWindow.document;
+                const resultsGrid = frameDoc.querySelector('.results-grid');
+                const noResults = frameDoc.querySelector('#noResults');
+                const resultCount = frameDoc.querySelector('#resultCount');
+
+                let hasResults = false;
+                let resultsText = '';
+
+                if (resultsGrid) {
+                    const cards = resultsGrid.querySelectorAll('.result-card');
+                    hasResults = cards.length > 0;
+                    resultsText = hasResults ? `${cards.length} resultados encontrados` : 'No hay resultados';
+                }
+
+                if (noResults && noResults.style.display !== 'none') {
+                    resultsText = 'Mostrando mensaje de "sin resultados"';
+                }
+
+                if (resultCount) {
+                    resultsText += ` (Contador: ${resultCount.textContent})`;
+                }
+
+                if (hasResults || (noResults && noResults.style.display !== 'none')) {
+                    showStatus(`✅ Resultados visibles: ${resultsText}`, 'success');
+                } else {
+                    showStatus('⚠️ No se ven resultados claramente', 'warning');
+                }
+
+                // Medir espaciado después de la búsqueda
+                setTimeout(() => {
+                    measureSpacing();
+                }, 500);
+
+            } catch (error) {
+                showStatus('Error al verificar resultados: ' + error.message, 'error');
+            }
+        }
+
+        // Medición automática cada 5 segundos
+        setInterval(() => {
+            if (testFrame.contentDocument) {
+                measureSpacing();
+            }
+        }, 5000);
+
+        // Medición inicial
+        setTimeout(() => {
+            measureSpacing();
+        }, 2000);
+    </script>
+</body>
+</html>

@@ -34,21 +34,6 @@ class FuzzySearch {
             'xcel': 'x cell',
             'xsel': 'x cell'
         };
-
-        // Mapeo especial para OMEGA3/OMEGOLD
-        this.omegaMappings = {
-            'omega3': 'omega',
-            'omega 3': 'omega',
-            'omega-3': 'omega',
-            'omegold': 'omega',
-            'omegolds': 'omega',
-            'vegan omegold': 'omega',
-            'vegan omeGold': 'omega',
-            'aceite de pescado': 'omega',
-            'epa': 'omega',
-            'dha': 'omega',
-            'ácidos grasos': 'omega'
-        };
     }
 
     /**
@@ -156,27 +141,6 @@ class FuzzySearch {
     }
 
     /**
-     * Manejo especial para OMEGA3/OMEGOLD
-     */
-    handleOmegaSearch(query) {
-        const normalized = this.normalizeString(query);
-
-        // Si es claramente una búsqueda de OMEGA
-        if (normalized.includes('omega') || normalized.includes('omeg') || normalized.includes('epa') || normalized.includes('dha')) {
-            return ['omega'];
-        }
-
-        // Aplicar mapeos especiales de OMEGA
-        for (const [key, value] of Object.entries(this.omegaMappings)) {
-            if (normalized.includes(key)) {
-                return [value];
-            }
-        }
-
-        return null;
-    }
-
-    /**
      * Genera variaciones de búsqueda para manejar errores comunes
      */
     generateSearchVariations(query) {
@@ -187,13 +151,6 @@ class FuzzySearch {
         const xcellVariations = this.handleXCellSearch(query);
         if (xcellVariations) {
             xcellVariations.forEach(variation => variations.add(variation));
-            return Array.from(variations);
-        }
-
-        // Manejo especial para OMEGA
-        const omegaVariations = this.handleOmegaSearch(query);
-        if (omegaVariations) {
-            omegaVariations.forEach(variation => variations.add(variation));
             return Array.from(variations);
         }
 
@@ -237,13 +194,6 @@ class FuzzySearch {
         // Primero intentar coincidencia exacta con cualquier variación
         for (const variation of needleVariations) {
             if (normalizedHaystack.includes(variation)) {
-                return true;
-            }
-        }
-
-        // NUEVO: Manejo especial para OMEGA - si el haystack contiene "omega" o "omegold"
-        if (needleVariations.includes('omega')) {
-            if (normalizedHaystack.includes('omega') || normalizedHaystack.includes('omegold')) {
                 return true;
             }
         }
@@ -365,22 +315,7 @@ class FuzzySearch {
                 if (this.containsApproximate(pdf.title, query, 0.85)) {
                     score += 100;
                 }
-            }
-            // NUEVO: Búsqueda aproximada especial para OMEGA
-            else if (this.handleOmegaSearch(query)) {
-                const normalizedTitle = this.normalizeString(pdf.title);
-                const normalizedFilename = this.normalizeString(pdf.filename);
-
-                // Si contiene "omega" o "omegold" en el título o filename, dar máxima puntuación
-                if (normalizedTitle.includes('omega') || normalizedTitle.includes('omegold')) {
-                    score += 100;
-                } else if (normalizedFilename.includes('omega') || normalizedFilename.includes('omegold')) {
-                    score += 80;
-                } else if (pdf.description && this.containsApproximate(pdf.description, query, 0.85)) {
-                    score += 60;
-                }
-            }
-            else {
+            } else {
                 // Coincidencia aproximada estricta en título
                 if (this.containsApproximate(pdf.title, query, 0.85)) {
                     score += 70;

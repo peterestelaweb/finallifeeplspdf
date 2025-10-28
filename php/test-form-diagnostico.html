@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Diagnóstico Email</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background: #dc3545; color: white; padding: 15px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin: 10px 5px; }
+        .btn-primary { background: #007bff; }
+        .btn-warning { background: #ffc107; color: black; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 5px; font-family: monospace; white-space: pre-wrap; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .warning { background: #fff3cd; color: #856404; }
+        .diagnostic { background: #e2e3e5; color: #383d41; }
+    </style>
+</head>
+<body>
+    <h1>🔍 DIAGNÓSTICO COMPLETO EMAIL</h1>
+    <p>Esta herramienta nos ayudará a encontrar exactamente por qué no llegan los emails.</p>
+
+    <h2>📋 PASO 1: Verificar Configuración del Servidor</h2>
+    <button onclick="runDiagnostic()">🔧 Ejecutar Diagnóstico del Servidor</button>
+
+    <h2>📬 PASO 2: Test de Email Básico</h2>
+    <button onclick="testBasicEmail()" class="btn-primary">📤 Enviar Email de Prueba</button>
+
+    <h2>📝 PASO 3: Test con Formulario Real</h2>
+    <form id="realForm" method="POST" action="php/diagnostico-completo-email.php">
+        <div class="form-group">
+            <label for="nombre">Nombre *</label>
+            <input type="text" id="nombre" name="nombre" required value="Test Diagnóstico">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required value="test@example.com">
+        </div>
+
+        <div class="form-group">
+            <label for="motivo">Motivo *</label>
+            <select id="motivo" name="motivo" required>
+                <option value="oportunidad">Oportunidad de negocio</option>
+                <option value="informacion">Información sobre productos</option>
+                <option value="compra">Quiero comprar productos</option>
+                <option value="soporte">Soporte técnico</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="ayuda">¿Cómo podemos ayudar? *</label>
+            <textarea id="ayuda" name="ayuda" required rows="4">Este es un mensaje de prueba desde el diagnóstico. Por favor confirma si recibes este email.</textarea>
+        </div>
+
+        <button type="submit" class="btn-warning">📧 Enviar Formulario con Diagnóstico</button>
+    </form>
+
+    <h2>🔄 PASO 4: Verificar Logs</h2>
+    <button onclick="checkLogs()">📋 Ver Logs del Servidor</button>
+
+    <div id="result"></div>
+
+    <script>
+        function runDiagnostic() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = 'result diagnostic';
+            resultDiv.innerHTML = '⏳ Ejecutando diagnóstico del servidor...';
+
+            fetch('php/diagnostico-completo-email.php')
+                .then(response => response.text())
+                .then(data => {
+                    resultDiv.className = 'result diagnostic';
+                    resultDiv.textContent = data;
+                })
+                .catch(error => {
+                    resultDiv.className = 'result error';
+                    resultDiv.textContent = 'Error al ejecutar diagnóstico: ' + error.message;
+                });
+        }
+
+        function testBasicEmail() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = 'result warning';
+            resultDiv.innerHTML = '⏳ Enviando email básico de prueba...';
+
+            // Test básico directo
+            fetch('php/test-email.php')
+                .then(response => response.json())
+                .then(data => {
+                    resultDiv.className = data.success ? 'result success' : 'result error';
+                    resultDiv.innerHTML = `
+${data.success ? '✅' : '❌} ${data.message}
+
+Detalles:
+${JSON.stringify(data, null, 2)}
+
+📬 POR FAVOR REVISAR INMEDIATAMENTE:
+1. La bandeja de entrada de maykasunshineteam@gmail.com
+2. La carpeta SPAM
+3. La carpeta Promociones
+4. La carpeta Actualizaciones
+
+Si no llega, el problema es del servidor SMTP.
+                    `;
+                })
+                .catch(error => {
+                    resultDiv.className = 'result error';
+                    resultDiv.textContent = 'Error al testear email: ' + error.message;
+                });
+        }
+
+        function checkLogs() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = 'result warning';
+            resultDiv.innerHTML = `
+📋 VERIFICACIÓN DE LOGS:
+
+1. LOGS DE EMAIL DEL SERVIDOR:
+   - /var/log/mail.log (Linux)
+   - /var/log/maillog (CentOS/RHEL)
+   - /var/log/exim4/mainlog (Exim)
+   - /var/log/postfix.log (Postfix)
+
+2. LOGS DE PHP:
+   - /var/log/php_errors.log
+   - /var/log/apache2/error.log
+   - /var/log/nginx/error.log
+
+3. LOGS DEL HOSTING:
+   - Accede al panel de control de tu hosting
+   - Busca sección "Email Logs" o "Mail Logs"
+   - Revisa logs de las últimas horas
+
+4. PANEL DE CONTROL DEL HOSTING:
+   - cPanel: Email → Email Trace
+   - Plesk: Mail → Mail Log
+   - DirectAdmin: Email Log
+
+🔍 BUSCAR ESTOS ERRORES:
+- "Connection refused"
+- "Authentication failed"
+- "Message deferred"
+- "User unknown"
+- "Relay access denied"
+
+📧 EMAIL DE SOPORTE:
+Muestra este diagnóstico a tu proveedor de hosting:
+"La función mail() de PHP funciona pero los emails no llegan al destinatario. Por favor revise la configuración SMTP y los logs de email."
+            `;
+        }
+
+        // Auto-ejecutar diagnóstico al cargar la página
+        window.onload = function() {
+            runDiagnostic();
+        };
+    </script>
+</body>
+</html>

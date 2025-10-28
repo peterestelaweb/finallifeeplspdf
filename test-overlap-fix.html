@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Search Overlap Fix</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/us-market-friendly.css">
+    <link rel="stylesheet" href="css/mobile-fix.css">
+    <link rel="stylesheet" href="css/mobile-scroll-fix.css">
+    <link rel="stylesheet" href="css/local-fonts.css">
+    <link rel="stylesheet" href="css/video-positioning-fix.css">
+    <link rel="stylesheet" href="css/spacing-fix.css">
+    <link rel="stylesheet" href="css/enhanced-no-results.css">
+    <link rel="stylesheet" href="css/final-spacing-fix.css">
+    <link rel="stylesheet" href="css/search-overlap-fix.css">
+
+    <style>
+        .test-controls {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+        }
+
+        .test-controls h4 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .test-controls button {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+            padding: 8px 12px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .test-controls button:hover {
+            background: #4f46e5;
+        }
+
+        .debug-info {
+            background: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 11px;
+        }
+
+        .overlap-indicator {
+            position: absolute;
+            background: rgba(239, 68, 68, 0.2);
+            border: 2px solid #ef4444;
+            border-radius: 5px;
+            z-index: 999;
+            display: none;
+        }
+
+        .overlap-indicator.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Test Controls Panel -->
+    <div class="test-controls">
+        <h4>🧪 Test Controls</h4>
+        <button onclick="testSearchDaily()">Test "Daily" Search</button>
+        <button onclick="testLongResults()">Test Many Results</button>
+        <button onclick="testNoResults()">Test No Results</button>
+        <button onclick="clearSearch()">Clear Search</button>
+        <button onclick="checkOverlap()">Check Overlap</button>
+        <button onclick="forceSpacingAdjustment()">Force Spacing Fix</button>
+
+        <div class="debug-info">
+            <div id="debugInfo">Ready for testing...</div>
+        </div>
+    </div>
+
+    <!-- Overlap Indicator -->
+    <div id="overlapIndicator" class="overlap-indicator"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="waves-container">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
+
+            <div class="header-centered">
+                <div class="header-logo lifeplus-logo-container">
+                    <img src="images/logo-lifeplus-limpio.png" alt="LifePlus Logo" class="side-logo lifeplus-side-logo">
+                </div>
+
+                <div class="header-content">
+                    <h1 class="title elegant-title">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>SEARCH OVERLAP FIX TEST</span>
+                    </h1>
+                    <p class="subtitle">
+                        Testing dynamic spacing adjustment for search results
+                    </p>
+                </div>
+
+                <div class="header-logo sunshine-logo-container">
+                    <img src="images/sunshine-logo.png" alt="Sunshine Team Logo" class="side-logo sunshine-side-logo">
+                </div>
+            </div>
+
+            <div class="particles-container"></div>
+        </header>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-container">
+                <div class="search-instruction">
+                    <h3 class="instruction-title">
+                        <i class="fas fa-search"></i>
+                        TEST SEARCH FUNCTIONALITY
+                    </h3>
+                    <p class="instruction-text">
+                        Test for overlapping issues with search results
+                    </p>
+                </div>
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Ej: Daily, Omega3, Proanthenols..."
+                        class="search-input"
+                        autocomplete="off"
+                    >
+                    <button id="clearSearch" class="clear-btn" style="display: none;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="search-filters">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="">Todas las categorías</option>
+                    </select>
+
+                    <div class="search-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="fuzzySearch" checked>
+                            <span>Búsqueda aproximada</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section">
+            <div class="results-header">
+                <h3 class="results-title">
+                    <span id="resultCount">0</span> documentos encontrados
+                </h3>
+                <div class="sort-options">
+                    <select id="sortBy" class="sort-select">
+                        <option value="relevance">Relevancia</option>
+                        <option value="name">Nombre</option>
+                        <option value="date">Fecha</option>
+                        <option value="size">Tamaño</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="loadingIndicator" class="loading" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>Cargando documentos...</span>
+            </div>
+
+            <div id="resultsContainer" class="results-grid">
+                <!-- Los resultados se cargarán aquí dinámicamente -->
+            </div>
+
+            <div id="noResults" class="no-results" style="display: none;">
+                <div class="no-results-content">
+                    <div class="no-results-icon">
+                        <div class="icon-circle">
+                            <i class="fas fa-compass"></i>
+                        </div>
+                    </div>
+                    <div class="no-results-text">
+                        <h3>¡Explora Nuevos Horizontes!</h3>
+                        <p>No encontramos resultados para esa búsqueda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/malware-scanner.js"></script>
+    <script src="js/mobile-scroll-helper.js"></script>
+    <script src="js/fuzzy-search.js"></script>
+    <script src="js/search-local.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/search-spacing-controller.js"></script>
+
+    <script>
+        // Test Functions
+        function updateDebugInfo(message) {
+            document.getElementById('debugInfo').innerHTML = message;
+        }
+
+        function testSearchDaily() {
+            updateDebugInfo('🔍 Testing "Daily" search...');
+            const searchInput = document.getElementById('searchInput');
+            searchInput.value = 'Daily';
+            searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+
+            setTimeout(() => {
+                checkOverlap();
+                updateDebugInfo('✅ "Daily" search completed');
+            }, 1000);
+        }
+
+        function testLongResults() {
+            updateDebugInfo('📋 Testing many results...');
+            const searchInput = document.getElementById('searchInput');
+            searchInput.value = 'vitamin';
+            searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+
+            setTimeout(() => {
+                checkOverlap();
+                updateDebugInfo('✅ Many results test completed');
+            }, 1000);
+        }
+
+        function testNoResults() {
+            updateDebugInfo('❌ Testing no results...');
+            const searchInput = document.getElementById('searchInput');
+            searchInput.value = 'xyznonexistent';
+            searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+
+            setTimeout(() => {
+                checkOverlap();
+                updateDebugInfo('✅ No results test completed');
+            }, 1000);
+        }
+
+        function clearSearch() {
+            updateDebugInfo('🧹 Clearing search...');
+            const searchInput = document.getElementById('searchInput');
+            searchInput.value = '';
+            searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+
+            setTimeout(() => {
+                updateDebugInfo('✅ Search cleared');
+            }, 500);
+        }
+
+        function checkOverlap() {
+            const searchSection = document.querySelector('.search-section');
+            const resultsSection = document.querySelector('.results-section');
+            const indicator = document.getElementById('overlapIndicator');
+
+            if (!searchSection || !resultsSection) {
+                updateDebugInfo('❌ Sections not found');
+                return;
+            }
+
+            const searchRect = searchSection.getBoundingClientRect();
+            const resultsRect = resultsSection.getBoundingClientRect();
+
+            const gap = resultsRect.top - searchRect.bottom;
+            const hasOverlap = gap < 5;
+
+            // Visual indicator
+            if (hasOverlap) {
+                indicator.classList.add('active');
+                indicator.style.top = resultsRect.top + 'px';
+                indicator.style.left = '10px';
+                indicator.style.right = '10px';
+                indicator.style.height = '2px';
+                updateDebugInfo(`⚠️ OVERLAP DETECTED! Gap: ${gap.toFixed(1)}px`);
+            } else {
+                indicator.classList.remove('active');
+                updateDebugInfo(`✅ No overlap. Gap: ${gap.toFixed(1)}px`);
+            }
+
+            // Log spacing info
+            console.log('📏 Spacing Analysis:', {
+                searchBottom: searchRect.bottom,
+                resultsTop: resultsRect.top,
+                gap: gap,
+                hasOverlap: hasOverlap,
+                searchMarginBottom: window.getComputedStyle(searchSection).marginBottom,
+                resultsMarginTop: window.getComputedStyle(resultsSection).marginTop,
+                resultsPaddingTop: window.getComputedStyle(resultsSection).paddingTop
+            });
+        }
+
+        function forceSpacingAdjustment() {
+            updateDebugInfo('🔧 Forcing spacing adjustment...');
+
+            if (window.searchSpacingController) {
+                window.searchSpacingController.forceAdjustment();
+                setTimeout(() => {
+                    checkOverlap();
+                    updateDebugInfo('✅ Spacing adjustment forced');
+                }, 100);
+            } else {
+                updateDebugInfo('❌ SearchSpacingController not available');
+            }
+        }
+
+        // Initialize checks
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                checkOverlap();
+                updateDebugInfo('🚀 Test page loaded and ready');
+            }, 2000);
+        });
+
+        // Monitor spacing changes
+        setInterval(() => {
+            const resultsContainer = document.getElementById('resultsContainer');
+            if (resultsContainer && resultsContainer.children.length > 0) {
+                checkOverlap();
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

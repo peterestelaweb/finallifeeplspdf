@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Overlap Fix Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-button {
+            background: #4c1d95;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .test-button:hover {
+            background: #5b21b6;
+        }
+        .test-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .viewport-controls {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .viewport-button {
+            background: #059669;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .viewport-button:hover {
+            background: #047857;
+        }
+        .viewport-button.active {
+            background: #dc2626;
+        }
+        .console-output {
+            background: #1f2937;
+            color: #10b981;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+        .iframe-container {
+            width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .iframe-container.desktop {
+            height: 800px;
+        }
+        .iframe-container.tablet {
+            height: 600px;
+            max-width: 768px;
+            margin: 0 auto;
+        }
+        .iframe-container.mobile {
+            height: 500px;
+            max-width: 375px;
+            margin: 0 auto;
+        }
+        .test-status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .test-status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        .test-status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+        .test-status.info {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #3b82f6;
+        }
+        .results-info {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .screenshot-button {
+            background: #ea580c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .screenshot-button:hover {
+            background: #c2410c;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Search Overlap Fix Test Suite</h1>
+
+    <div class="test-container">
+        <h2>📱 Viewport Controls</h2>
+        <div class="viewport-controls">
+            <button class="viewport-button active" onclick="setViewport('desktop')">Desktop (1200px)</button>
+            <button class="viewport-button" onclick="setViewport('tablet')">Tablet (768px)</button>
+            <button class="viewport-button" onclick="setViewport('mobile')">Mobile (375px)</button>
+            <span id="currentViewport" style="margin-left: 20px; font-weight: bold;">Current: Desktop</span>
+        </div>
+    </div>
+
+    <div class="test-container">
+        <h2>🧪 Test Controls</h2>
+        <button class="test-button" onclick="testSearch('Daily')">Test Search: "Daily"</button>
+        <button class="test-button" onclick="testSearch('Basicos')">Test Search: "Basicos"</button>
+        <button class="test-button" onclick="testSearch('Renovar')">Test Search: "Renovar"</button>
+        <button class="test-button" onclick="testSearch('Vigor')">Test Search: "Vigor"</button>
+        <button class="test-button" onclick="testSearch('NonExistent')">Test No Results</button>
+        <button class="test-button" onclick="clearSearch()">Clear Search</button>
+        <button class="screenshot-button" onclick="takeScreenshot()">📸 Take Screenshot</button>
+        <button class="test-button" onclick="checkControllerStatus()">Check Controller</button>
+        <button class="test-button" onclick="runFullTestSuite()">🚀 Run Full Test Suite</button>
+    </div>
+
+    <div class="test-container">
+        <h2>📊 Test Results</h2>
+        <div id="testStatus"></div>
+        <div id="resultsInfo" class="results-info" style="display: none;">
+            <h3>Results Analysis:</h3>
+            <div id="resultsDetails"></div>
+        </div>
+    </div>
+
+    <div class="test-container">
+        <h2>🖥️ Browser Preview</h2>
+        <div id="iframeContainer" class="iframe-container desktop">
+            <iframe id="testFrame" src="http://localhost:9001/index.html" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <div class="test-container">
+        <h2>📝 Console Output</h2>
+        <div id="consoleOutput" class="console-output">
+            <div>Console output will appear here...</div>
+        </div>
+        <button class="test-button" onclick="clearConsole()">Clear Console</button>
+    </div>
+
+    <script>
+        let currentViewport = 'desktop';
+        let testResults = [];
+        const testFrame = document.getElementById('testFrame');
+        const consoleOutput = document.getElementById('consoleOutput');
+
+        // Initialize
+        window.addEventListener('load', () => {
+            logToConsole('🚀 Test suite initialized');
+            setTimeout(() => {
+                checkControllerStatus();
+            }, 2000);
+        });
+
+        function setViewport(viewport) {
+            currentViewport = viewport;
+            const container = document.getElementById('iframeContainer');
+            const buttons = document.querySelectorAll('.viewport-button');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            container.className = `iframe-container ${viewport}`;
+            document.getElementById('currentViewport').textContent = `Current: ${viewport.charAt(0).toUpperCase() + viewport.slice(1)}`;
+
+            logToConsole(`📱 Viewport changed to: ${viewport}`);
+        }
+
+        function testSearch(searchTerm) {
+            logToConsole(`🔍 Testing search for: "${searchTerm}"`);
+            showStatus(`Searching for "${searchTerm}"...`, 'info');
+
+            try {
+                const frameDoc = testFrame.contentDocument || testFrame.contentWindow.document;
+                const searchInput = frameDoc.getElementById('searchInput');
+
+                if (searchInput) {
+                    searchInput.value = searchTerm;
+                    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+                    searchInput.dispatchEvent(new Event('keyup', { bubbles: true }));
+
+                    setTimeout(() => {
+                        analyzeResults(searchTerm);
+                    }, 1500);
+                } else {
+                    showStatus('Search input not found!', 'error');
+                    logToConsole('❌ Search input not found in iframe');
+                }
+            } catch (error) {
+                showStatus('Error accessing iframe: ' + error.message, 'error');
+                logToConsole('❌ Error: ' + error.message);
+            }
+        }
+
+        function clearSearch() {
+            logToConsole('🧹 Clearing search...');
+            try {
+                const frameDoc = testFrame.contentDocument || testFrame.contentWindow.document;
+                const searchInput = frameDoc.getElementById('searchInput');
+                const clearBtn = frameDoc.getElementById('clearSearch');
+
+                if (clearBtn && clearBtn.style.display !== 'none') {
+                    clearBtn.click();
+                } else if (searchInput) {
+                    searchInput.value = '';
+                    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+
+                setTimeout(() => {
+                    analyzeResults('cleared');
+                }, 500);
+            } catch (error) {
+                logToConsole('❌ Error clearing search: ' + error.message);
+            }
+        }
+
+        function analyzeResults(searchTerm) {
+            try {
+                const frameDoc = testFrame.contentDocument || testFrame.contentWindow.document;
+                const resultsContainer = frameDoc.getElementById('resultsContainer');
+                const resultsGrid = frameDoc.querySelector('.results-grid');
+                const noResults = frameDoc.getElementById('noResults');
+                const resultCount = frameDoc.getElementById('resultCount');
+
+                const resultItems = resultsGrid ? resultsGrid.querySelectorAll('.result-item, .enhanced-result-card') : [];
+                const hasResults = resultItems.length > 0;
+                const hasNoResults = noResults && noResults.style.display !== 'none';
+
+                // Get spacing information
+                const searchSection = frameDoc.querySelector('.search-section');
+                const resultsSection = frameDoc.querySelector('.results-section');
+
+                let spacingInfo = {};
+                if (searchSection && resultsSection) {
+                    const searchRect = searchSection.getBoundingClientRect();
+                    const resultsRect = resultsSection.getBoundingClientRect();
+                    spacingInfo = {
+                        gap: resultsRect.top - searchRect.bottom,
+                        searchHeight: searchRect.height,
+                        resultsMarginTop: parseInt(window.getComputedStyle(resultsSection).marginTop),
+                        resultsPaddingTop: parseInt(window.getComputedStyle(resultsSection).paddingTop)
+                    };
+                }
+
+                const analysis = {
+                    searchTerm,
+                    viewport: currentViewport,
+                    hasResults,
+                    hasNoResults,
+                    resultCount: resultItems.length,
+                    displayedCount: resultCount ? resultCount.textContent : '0',
+                    spacingInfo,
+                    timestamp: new Date().toISOString()
+                };
+
+                testResults.push(analysis);
+                displayResults(analysis);
+                checkOverlap(analysis);
+
+                logToConsole(`✅ Analysis complete for "${searchTerm}": ${resultItems.length} results`);
+
+            } catch (error) {
+                logToConsole('❌ Error analyzing results: ' + error.message);
+                showStatus('Error analyzing results: ' + error.message, 'error');
+            }
+        }
+
+        function displayResults(analysis) {
+            const resultsInfo = document.getElementById('resultsInfo');
+            const resultsDetails = document.getElementById('resultsDetails');
+
+            resultsInfo.style.display = 'block';
+
+            let html = `
+                <p><strong>Search Term:</strong> ${analysis.searchTerm}</p>
+                <p><strong>Viewport:</strong> ${analysis.viewport}</p>
+                <p><strong>Results Found:</strong> ${analysis.resultCount}</p>
+                <p><strong>Displayed Count:</strong> ${analysis.displayedCount}</p>
+                <p><strong>Has Results:</strong> ${analysis.hasResults ? '✅ Yes' : '❌ No'}</p>
+                <p><strong>Has No Results Message:</strong> ${analysis.hasNoResults ? '✅ Yes' : '❌ No'}</p>
+            `;
+
+            if (analysis.spacingInfo.gap !== undefined) {
+                html += `
+                    <h4>Spacing Analysis:</h4>
+                    <p><strong>Gap between sections:</strong> ${analysis.spacingInfo.gap}px</p>
+                    <p><strong>Search section height:</strong> ${analysis.spacingInfo.searchHeight}px</p>
+                    <p><strong>Results margin-top:</strong> ${analysis.spacingInfo.resultsMarginTop}px</p>
+                    <p><strong>Results padding-top:</strong> ${analysis.spacingInfo.resultsPaddingTop}px</p>
+                `;
+            }
+
+            resultsDetails.innerHTML = html;
+        }
+
+        function checkOverlap(analysis) {
+            if (analysis.spacingInfo.gap !== undefined) {
+                if (analysis.spacingInfo.gap < 0) {
+                    showStatus(`⚠️ OVERLAP DETECTED! Gap: ${analysis.spacingInfo.gap}px`, 'error');
+                    logToConsole(`🚨 OVERLAP: ${analysis.spacingInfo.gap}px (negative means overlap)`);
+                } else if (analysis.spacingInfo.gap < 5) {
+                    showStatus(`⚠️ Very small gap: ${analysis.spacingInfo.gap}px`, 'error');
+                    logToConsole(`⚠️ Small gap: ${analysis.spacingInfo.gap}px`);
+                } else {
+                    showStatus(`✅ Good spacing: ${analysis.spacingInfo.gap}px gap`, 'success');
+                    logToConsole(`✅ Good spacing: ${analysis.spacingInfo.gap}px`);
+                }
+            }
+        }
+
+        function checkControllerStatus() {
+            logToConsole('🔧 Checking Search Spacing Controller status...');
+            try {
+                const frameWindow = testFrame.contentWindow;
+
+                setTimeout(() => {
+                    if (frameWindow.searchSpacingController) {
+                        const controller = frameWindow.searchSpacingController;
+                        const state = controller.getCurrentState();
+
+                        logToConsole('✅ Search Spacing Controller found and active');
+                        logToConsole('📊 Controller state:', state);
+                        showStatus('✅ Search Spacing Controller is working', 'success');
+
+                        // Test force adjustment
+                        controller.forceAdjustment();
+                        logToConsole('🔄 Force adjustment triggered');
+
+                    } else {
+                        logToConsole('❌ Search Spacing Controller not found');
+                        showStatus('❌ Search Spacing Controller not found', 'error');
+
+                        // Try to initialize manually
+                        if (frameWindow.debugSpacing) {
+                            frameWindow.debugSpacing();
+                            logToConsole('🔧 Attempted manual initialization via debugSpacing()');
+                        }
+                    }
+                }, 1000);
+
+            } catch (error) {
+                logToConsole('❌ Error checking controller: ' + error.message);
+                showStatus('Error checking controller: ' + error.message, 'error');
+            }
+        }
+
+        function takeScreenshot() {
+            logToConsole('📸 Screenshot functionality would be implemented here');
+            showStatus('📸 Screenshot requested (manual implementation needed)', 'info');
+
+            // In a real implementation, you would use a screenshot library
+            // For now, just log the current state
+            const analysis = {
+                timestamp: new Date().toISOString(),
+                viewport: currentViewport,
+                url: testFrame.src,
+                lastTest: testResults[testResults.length - 1]
+            };
+
+            logToConsole('📸 Screenshot data:', analysis);
+        }
+
+        function runFullTestSuite() {
+            logToConsole('🚀 Starting full test suite...');
+            showStatus('Running full test suite...', 'info');
+
+            const testTerms = ['Daily', 'Basicos', 'Renovar', 'Vigor', 'NonExistent'];
+            let currentTestIndex = 0;
+
+            function runNextTest() {
+                if (currentTestIndex < testTerms.length) {
+                    const term = testTerms[currentTestIndex];
+                    testSearch(term);
+                    currentTestIndex++;
+                    setTimeout(runNextTest, 3000);
+                } else {
+                    logToConsole('✅ Full test suite completed');
+                    showStatus('✅ Full test suite completed!', 'success');
+                    generateTestReport();
+                }
+            }
+
+            runNextTest();
+        }
+
+        function generateTestReport() {
+            logToConsole('📊 Generating test report...');
+
+            const report = {
+                timestamp: new Date().toISOString(),
+                totalTests: testResults.length,
+                results: testResults,
+                summary: {
+                    successfulTests: testResults.filter(r => r.spacingInfo.gap >= 5).length,
+                    overlapDetected: testResults.filter(r => r.spacingInfo.gap < 0).length,
+                    smallGaps: testResults.filter(r => r.spacingInfo.gap > 0 && r.spacingInfo.gap < 5).length
+                }
+            };
+
+            logToConsole('📋 Test Report:', report);
+
+            const summary = `
+                <h3>📋 Test Report Summary</h3>
+                <p><strong>Total Tests:</strong> ${report.totalTests}</p>
+                <p><strong>Successful:</strong> ${report.summary.successfulTests}</p>
+                <p><strong>Overlap Detected:</strong> ${report.summary.overlapDetected}</p>
+                <p><strong>Small Gaps:</strong> ${report.summary.smallGaps}</p>
+            `;
+
+            document.getElementById('testStatus').innerHTML += summary;
+        }
+
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('testStatus');
+            const statusClass = `test-status ${type}`;
+            const timestamp = new Date().toLocaleTimeString();
+
+            statusDiv.innerHTML = `<div class="${statusClass}">[${timestamp}] ${message}</div>`;
+        }
+
+        function logToConsole(message, data = null) {
+            const timestamp = new Date().toLocaleTimeString();
+            let logMessage = `[${timestamp}] ${message}`;
+
+            if (data) {
+                logMessage += '\n' + JSON.stringify(data, null, 2);
+            }
+
+            consoleOutput.innerHTML += `<div>${logMessage}</div>`;
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        }
+
+        function clearConsole() {
+            consoleOutput.innerHTML = '<div>Console cleared...</div>';
+        }
+
+        // Monitor iframe for console messages
+        testFrame.addEventListener('load', () => {
+            logToConsole('🔄 Iframe loaded successfully');
+
+            // Try to capture console messages from iframe
+            try {
+                const frameWindow = testFrame.contentWindow;
+                const originalConsole = frameWindow.console;
+
+                frameWindow.console = {
+                    ...originalConsole,
+                    log: function(...args) {
+                        originalConsole.log.apply(this, args);
+                        logToConsole('📱 [Frame] ' + args.join(' '));
+                    },
+                    warn: function(...args) {
+                        originalConsole.warn.apply(this, args);
+                        logToConsole('⚠️ [Frame] ' + args.join(' '));
+                    },
+                    error: function(...args) {
+                        originalConsole.error.apply(this, args);
+                        logToConsole('❌ [Frame] ' + args.join(' '));
+                    }
+                };
+            } catch (error) {
+                logToConsole('Could not intercept iframe console: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html>

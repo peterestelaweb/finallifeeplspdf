@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIFEPLUS Page Diagnostic Runner</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .header h1 {
+            color: #1565c0;
+            margin: 0;
+            font-size: 2rem;
+        }
+        .header p {
+            color: #666;
+            margin: 10px 0 0 0;
+            font-size: 1.1rem;
+        }
+        .diagnostic-section {
+            margin: 20px 0;
+        }
+        .section-title {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        .url-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .url-input:focus {
+            outline: none;
+            border-color: #1565c0;
+        }
+        .btn-primary {
+            background: #1565c0;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .btn-primary:hover {
+            background: #0d47a1;
+        }
+        .btn-secondary {
+            background: #666;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .btn-secondary:hover {
+            background: #555;
+        }
+        .output-area {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+            max-height: 500px;
+            overflow-y: auto;
+            margin-top: 15px;
+        }
+        .instructions {
+            background: #e3f2fd;
+            border-left: 4px solid #1565c0;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #1565c0;
+        }
+        .instructions ol {
+            margin-bottom: 0;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .warning h3 {
+            margin-top: 0;
+            color: #856404;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .status.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .status.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .status.info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 LIFEPLUS Page Diagnostic Tool</h1>
+            <p>Comprehensive analysis tool for video playback, spacing, and animation issues</p>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 Instructions</h3>
+            <ol>
+                <li>Enter the URL of the LIFEPLUS page you want to analyze</li>
+                <li>Click "Load Page & Run Diagnostic" to open the page in a new window</li>
+                <li>Switch to the new tab and wait for the page to load completely</li>
+                <li>Open the browser console (F12 or Ctrl+Shift+I)</li>
+                <li>The diagnostic will run automatically and display results in the console</li>
+                <li>Copy the diagnostic report and paste it back here for analysis</li>
+            </ol>
+        </div>
+
+        <div class="warning">
+            <h3>⚠️ Important Notes</h3>
+            <ul>
+                <li>This tool requires the target page to be on the same domain or CORS enabled</li>
+                <li>Make sure all videos are accessible and not blocked by network policies</li>
+                <li>Some features may not work if the page uses CSP restrictions</li>
+                <li>For local files, use a local server (like Python's http.server)</li>
+            </ul>
+        </div>
+
+        <div class="diagnostic-section">
+            <h2 class="section-title">🎯 Target Configuration</h2>
+
+            <label for="targetUrl">Target Page URL:</label>
+            <input type="url" id="targetUrl" class="url-input"
+                   value="file:///Users/maykacenteno/Library/CloudStorage/GoogleDrive-peterestela@gmail.com/Mi unidad/CURSO VERA BADIAS/PROYECTOS./PROYECTO B-MAD ( MULTIPLES AGENTES )/BMAD-METHOD-main/VERSION-ESTATICA/index.html"
+                   placeholder="Enter the URL of the page to diagnose">
+
+            <div style="margin-top: 20px;">
+                <button class="btn-primary" onclick="loadAndDiagnose()">🔍 Load Page & Run Diagnostic</button>
+                <button class="btn-secondary" onclick="generateDiagnosticScript()">📄 Get Diagnostic Script</button>
+                <button class="btn-secondary" onclick="clearOutput()">🗑️ Clear Output</button>
+            </div>
+        </div>
+
+        <div class="diagnostic-section">
+            <h2 class="section-title">📊 Diagnostic Output</h2>
+            <div id="statusArea"></div>
+            <textarea id="outputArea" class="output-area" placeholder="Diagnostic results will appear here..."></textarea>
+        </div>
+
+        <div class="diagnostic-section">
+            <h2 class="section-title">🔧 Manual Diagnostic Steps</h2>
+            <p>If automatic loading doesn't work, follow these steps:</p>
+            <ol>
+                <li>Open the target page manually in a new tab</li>
+                <li>Open browser console (F12)</li>
+                <li>Copy and paste the diagnostic script from below</li>
+                <li>Press Enter to run the diagnostic</li>
+                <li>Copy the results back to this page</li>
+            </ol>
+
+            <button class="btn-secondary" onclick="showDiagnosticScript()">📋 Show Diagnostic Script</button>
+
+            <div id="scriptArea" style="display: none; margin-top: 15px;">
+                <textarea class="output-area" id="scriptContent" readonly rows="10"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showStatus(message, type = 'info') {
+            const statusArea = document.getElementById('statusArea');
+            statusArea.innerHTML = `<div class="status ${type}">${message}</div>`;
+
+            // Auto-hide after 5 seconds for success messages
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusArea.innerHTML = '';
+                }, 5000);
+            }
+        }
+
+        function appendOutput(text) {
+            const outputArea = document.getElementById('outputArea');
+            const currentContent = outputArea.value;
+            outputArea.value = currentContent + '\n' + text;
+            outputArea.scrollTop = outputArea.scrollHeight;
+        }
+
+        function clearOutput() {
+            document.getElementById('outputArea').value = '';
+            document.getElementById('statusArea').innerHTML = '';
+        }
+
+        function loadAndDiagnose() {
+            const url = document.getElementById('targetUrl').value;
+
+            if (!url) {
+                showStatus('❌ Please enter a valid URL', 'error');
+                return;
+            }
+
+            showStatus('🚀 Opening new window with diagnostic script...', 'info');
+            appendOutput(`Loading diagnostic for: ${url}`);
+            appendOutput('Opening new window...');
+
+            // Create diagnostic script for injection
+            const diagnosticScript = `
+                (function() {
+                    const script = document.createElement('script');
+                    script.src = 'mcp-chrome-diagnostic.js';
+                    script.onload = function() {
+                        console.log('🎯 Diagnostic script loaded successfully!');
+                        console.log('📊 Running automatic diagnostic...');
+                        setTimeout(() => {
+                            if (window.pageDiagnostic) {
+                                window.pageDiagnostic.runFullDiagnosis();
+                            }
+                        }, 1000);
+                    };
+                    script.onerror = function() {
+                        console.error('❌ Failed to load diagnostic script');
+                        console.log('📋 Manual diagnostic script:');
+                        console.log(${JSON.stringify(getDiagnosticScriptContent())});
+                    };
+                    document.head.appendChild(script);
+                })();
+            `;
+
+            // Open new window
+            const newWindow = window.open(url, '_blank');
+
+            if (newWindow) {
+                showStatus('✅ New window opened. Diagnostic will run automatically.', 'success');
+                appendOutput('✅ New window opened successfully');
+                appendOutput('📋 The diagnostic will run automatically in the new tab');
+                appendOutput('💡 Check the browser console in the new tab for results');
+            } else {
+                showStatus('❌ Popup blocked. Please allow popups and try again.', 'error');
+                appendOutput('❌ Popup was blocked by the browser');
+                appendOutput('💡 Please allow popups for this site and try again');
+            }
+        }
+
+        function generateDiagnosticScript() {
+            const scriptContent = getDiagnosticScriptContent();
+            const scriptArea = document.getElementById('scriptContent');
+            scriptArea.value = scriptContent;
+            document.getElementById('scriptArea').style.display = 'block';
+
+            showStatus('📄 Diagnostic script generated below', 'success');
+            appendOutput('📄 Diagnostic script generated:');
+            appendOutput(scriptContent);
+        }
+
+        function showDiagnosticScript() {
+            const scriptArea = document.getElementById('scriptArea');
+            if (scriptArea.style.display === 'none') {
+                generateDiagnosticScript();
+            } else {
+                scriptArea.style.display = 'none';
+            }
+        }
+
+        function getDiagnosticScriptContent() {
+            return `// LIFEPLUS Page Diagnostic Script
+// Paste this in the browser console of the target page
+
+console.log('🔍 Starting page diagnosis...');
+
+const diagnostic = {
+    videos: () => {
+        console.log('🎥 Analyzing videos...');
+        const videos = document.querySelectorAll('video');
+        console.log(\`Found \${videos.length} video(s)\`);
+
+        videos.forEach((video, i) => {
+            console.log(\`Video \${i+1}:\`);
+            console.log(\`  Source: \${video.currentSrc || video.src || 'No source'}\`);
+            console.log(\`  State: \${video.paused ? 'paused' : 'playing'}\`);
+            console.log(\`  Ready: \${video.readyState}/4\`);
+            console.log(\`  Dimensions: \${video.videoWidth}x\${video.videoHeight}\`);
+            console.log(\`  Duration: \${video.duration || 'unknown'}s\`);
+
+            if (!video.src && !video.currentSrc) {
+                console.log('  ❌ ERROR: No video source');
+            }
+            if (video.readyState < 2) {
+                console.log('  ⚠️  WARNING: Video not loaded');
+            }
+            if (video.paused && video.autoplay) {
+                console.log('  ⚠️  WARNING: Autoplay failed');
+            }
+        });
+    },
+
+    spacing: () => {
+        console.log('📏 Analyzing spacing...');
+        const search = document.querySelector('.search-section');
+        const results = document.querySelector('.results-section');
+
+        if (search && results) {
+            const searchRect = search.getBoundingClientRect();
+            const resultsRect = results.getBoundingClientRect();
+            const distance = resultsRect.top - searchRect.bottom;
+
+            console.log(\`Search to Results distance: \${distance}px\`);
+            console.log(\`Search bottom: \${searchRect.bottom}px\`);
+            console.log(\`Results top: \${resultsRect.top}px\`);
+
+            if (distance > 100) {
+                console.log('⚠️  WARNING: Excessive space (>100px)');
+            } else if (distance < 10) {
+                console.log('⚠️  WARNING: Too little space (<10px)');
+            } else {
+                console.log('✅ Spacing looks good');
+            }
+
+            console.log(\`Search margin-bottom: \${window.getComputedStyle(search).marginBottom}\`);
+            console.log(\`Results margin-top: \${window.getComputedStyle(results).marginTop}\`);
+        } else {
+            console.log('❌ Could not find search or results sections');
+        }
+    },
+
+    header: () => {
+        console.log('🎨 Analyzing header animations...');
+        const header = document.querySelector('.header');
+        const waves = document.querySelectorAll('.wave');
+        const particles = document.querySelector('.particles-container');
+
+        console.log(\`Header exists: \${!!header}\`);
+        console.log(\`Waves: \${waves.length}\`);
+        console.log(\`Particles container: \${!!particles}\`);
+
+        waves.forEach((wave, i) => {
+            const styles = window.getComputedStyle(wave);
+            console.log(\`Wave \${i+1} animation: \${styles.animation}\`);
+        });
+
+        if (header) {
+            const headerStyles = window.getComputedStyle(header);
+            console.log(\`Header animations: \${headerStyles.animation}\`);
+        }
+    },
+
+    runAll: () => {
+        console.log('🚀 Running complete diagnostic...');
+        console.log('=' .repeat(50));
+        diagnostic.videos();
+        console.log('-' .repeat(30));
+        diagnostic.spacing();
+        console.log('-' .repeat(30));
+        diagnostic.header();
+        console.log('=' .repeat(50));
+        console.log('✅ Diagnostic complete!');
+    }
+};
+
+// Auto-run
+diagnostic.runAll();`;
+        }
+
+        // Initialize with default URL validation
+        window.addEventListener('load', () => {
+            const urlInput = document.getElementById('targetUrl');
+            if (urlInput.value && urlInput.value.startsWith('file://')) {
+                showStatus('📁 Local file detected. Make sure you\'re running a local server for best results.', 'info');
+            }
+        });
+    </script>
+</body>
+</html>
