@@ -459,7 +459,7 @@
         .search-intelligence {
             display: flex;
             justify-content: center;
-            margin: 25px 0 20px 0;
+            margin: 15px 0 10px 0; /* Reducido espacio */
         }
 
         .checkbox-group {
@@ -649,13 +649,22 @@
         .video-section {
             background: white;
             padding: 50px 25px;
-            margin: 20px 0 35px 0; /* Reducir margen superior */
+            margin: 0px 0 35px 0; /* Eliminado margen superior para reducir espacio */
             border-radius: 15px;
             box-shadow:
                 0 4px 6px rgba(0,0,0,0.1),
                 0 1px 3px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
+        }
+
+        /* Espaciado dinámico cuando hay resultados de búsqueda */
+        .search-results-active .video-section {
+            margin-top: 30px; /* Más espacio cuando hay resultados */
+        }
+
+        .search-results-active .search-intelligence {
+            margin-bottom: 25px; /* Más espacio cuando hay resultados */
         }
 
         /* Patrón decorativo sutil para sección videos */
@@ -1570,6 +1579,39 @@
                     }, 200);
                 }
             };
+
+            // Función para manejar espaciado dinámico cuando hay resultados
+            function updateSearchSpacing() {
+                const searchInput = document.getElementById('searchInput');
+                const resultsContainer = document.getElementById('resultsContainer');
+                const container = document.body;
+
+                if (searchInput && resultsContainer) {
+                    const hasResults = resultsContainer.children.length > 0;
+                    const hasQuery = searchInput.value.trim().length > 0;
+
+                    // Agregar/quitar clase dinámica
+                    if (hasResults || hasQuery) {
+                        container.classList.add('search-results-active');
+                    } else {
+                        container.classList.remove('search-results-active');
+                    }
+                }
+            }
+
+            // Observar cambios en el buscador
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', updateSearchSpacing);
+                searchInput.addEventListener('keyup', updateSearchSpacing);
+            }
+
+            // Observar cambios en los resultados
+            const resultsObserver = new MutationObserver(updateSearchSpacing);
+            const resultsContainer = document.getElementById('resultsContainer');
+            if (resultsContainer) {
+                resultsObserver.observe(resultsContainer, { childList: true });
+            }
 
             // Solo inicializar loading overlay
             const loadingOverlay = document.getElementById('loadingOverlay');
