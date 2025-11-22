@@ -1,0 +1,300 @@
+/* CSS ADJUSTMENTS FOR RESTRUCTURED LAYOUT */
+
+/* Contenedor principal para el nuevo flujo de contenido */
+.content-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+/* Ajustes para el bloque de estadísticas */
+.stats-section {
+    margin: 25px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    order: 1; /* Aparece primero */
+}
+
+/* Ajustes para el bloque de búsqueda */
+.search-section {
+    margin: 25px 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    order: 2; /* Aparece segundo */
+}
+
+/* Contenedor de estadísticas */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Items individuales de estadísticas */
+.stat-item {
+    text-align: center;
+    flex: 1;
+    min-width: 150px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Números de estadísticas */
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Etiquetas de estadísticas */
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* Contenedor de búsqueda */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Caja de búsqueda */
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Input de búsqueda */
+.search-input {
+    flex: 1;
+    padding: 15px 15px 15px 45px;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    outline: none;
+    color: #2d3748;
+}
+
+.search-input::placeholder {
+    color: #a0aec0;
+}
+
+/* Icono de búsqueda */
+.search-icon {
+    position: absolute;
+    left: 15px;
+    color: #667eea;
+    font-size: 1.1rem;
+}
+
+/* Filtros de búsqueda */
+.search-filters {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Select de filtro */
+.filter-select {
+    padding: 10px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    background: white;
+    font-size: 0.9rem;
+    color: #2d3748;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Opciones de búsqueda */
+.search-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Checkbox labels */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #4a5568;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .content-flow {
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .stats-section {
+        margin: 20px 0;
+        padding: 20px;
+    }
+
+    .search-section {
+        margin: 20px 0;
+        padding: 20px;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .stat-item {
+        min-width: auto;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .search-filters {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .filter-select {
+        width: 100%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .content-flow {
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    .stats-section {
+        margin: 15px 0;
+        padding: 15px;
+    }
+
+    .search-section {
+        margin: 15px 0;
+        padding: 15px;
+    }
+
+    .stat-item {
+        padding: 15px;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
+
+    .search-input {
+        padding: 12px 12px 12px 40px;
+        font-size: 0.9rem;
+    }
+
+    .search-icon {
+        left: 12px;
+        font-size: 1rem;
+    }
+}
+
+/* Animaciones y transiciones */
+.stats-section {
+    animation: slideInUp 0.6s ease-out;
+}
+
+.search-section {
+    animation: slideInUp 0.6s ease-out 0.2s both;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto hover para items de estadísticas */
+.stat-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.stat-item:hover::before {
+    left: 100%;
+}

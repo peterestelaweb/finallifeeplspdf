@@ -1,0 +1,9245 @@
+
+/**
+ * Buscador LifePlus con Composición Nutricional Completa
+ */
+
+class PDFSearchApp {
+    constructor() {
+        this.pdfs = [
+          {
+                    "filename": "Aloe Vera Caps 6003-PI_ES.pdf",
+                    "title": "Aloe Vera Caps 6003-pi_es",
+                    "description": "Ficha técnica de Aloe Vera Caps 6003-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "salud ósea",
+                              "músculos"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Calcium"
+                    ],
+                    "filePath": "pdfs/Aloe Vera Caps 6003-PI_ES.pdf",
+                    "fileSize": 546146,
+                    "uploadDate": "2025-09-30T06:32:13.615Z",
+                    "downloadCount": 56,
+                    "composicionNutricional": {
+                              "servingSize": "1 Capsule",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {},
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "38",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium  38 mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Proprietary AminoAce™ complex (Glycine",
+                                        "L­Glutamine",
+                                        "and"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Anti-Stress Formula  SOLO DISPONNIBLE EN USA 6121-PI_ES.pdf",
+                    "title": "Anti-stress Formula  Solo Disponnible En Usa 6121-pi_es",
+                    "description": "Ficha técnica de Anti-stress Formula  Solo Disponnible En Usa 6121-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Anti-Stress Formula  SOLO DISPONNIBLE EN USA 6121-PI_ES.pdf",
+                    "fileSize": 296712,
+                    "uploadDate": "2025-09-30T06:31:37.212Z",
+                    "downloadCount": 47,
+                    "composicionNutricional": {
+                              "servingSize": "4 Tablet",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Calcium Carbonate",
+                                        "Vitamin C (Ascorbic Acid)",
+                                        "L­Phenylalanine",
+                                        "Microcrystalline Cellulose",
+                                        "Lemon Bioflavonoids Whole Fruit",
+                                        "Magnesium"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "BE FOCUSED BERRY.pdf",
+                    "title": "Be Focused Berry",
+                    "description": "Ficha técnica de Be Focused Berry. concentración, memoria, enfoque, rendimiento mental. Ingredientes principales: l-teanina, vitamina b, vitamina c.",
+                    "category": "concentración",
+                    "categories": [
+                              "concentración",
+                              "cerebro",
+                              "cognición"
+                    ],
+                    "ingredients": [
+                              "l-teanina",
+                              "vitamina b",
+                              "vitamina c",
+                              "magnesio",
+                              "extractos herbales"
+                    ],
+                    "benefits": [
+                              "concentración",
+                              "memoria",
+                              "enfoque",
+                              "rendimiento mental"
+                    ],
+                    "uses": [
+                              "estudio",
+                              "trabajo",
+                              "concentración",
+                              "memoria"
+                    ],
+                    "keywords": [
+                              "concentración",
+                              "memoria",
+                              "cerebro",
+                              "enfoque",
+                              "cognición"
+                    ],
+                    "filePath": "pdfs/BE FOCUSED BERRY.pdf",
+                    "fileSize": 1129833,
+                    "uploadDate": "2025-09-18T05:14:48.320Z",
+                    "downloadCount": 11,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 level",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "can fortify you with unparalleled"
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "fish",
+                                        "shellfish"
+                              ]
+                    }
+          },
+          {
+                    "filename": "BIO LIGHT .pdf",
+                    "title": "Bio Light",
+                    "description": "Ficha técnica de Bio Light. control de peso, nutrición balanceada, saciedad. Ingredientes principales: fibra, proteína, vitaminas.",
+                    "category": "control de peso",
+                    "categories": [
+                              "control de peso",
+                              "nutrición",
+                              "dieta"
+                    ],
+                    "ingredients": [
+                              "fibra",
+                              "proteína",
+                              "vitaminas",
+                              "minerales",
+                              "extractos quemagrasa"
+                    ],
+                    "benefits": [
+                              "control de peso",
+                              "nutrición balanceada",
+                              "saciedad"
+                    ],
+                    "uses": [
+                              "dieta",
+                              "control de peso",
+                              "nutrición",
+                              "saciedad"
+                    ],
+                    "keywords": [
+                              "peso",
+                              "dieta",
+                              "nutrición",
+                              "saciedad",
+                              "control"
+                    ],
+                    "filePath": "pdfs/BIO LIGHT .pdf",
+                    "fileSize": 681403,
+                    "uploadDate": "2025-09-18T05:14:48.322Z",
+                    "downloadCount": 39,
+                    "composicionNutricional": {
+                              "servingSize": "one 20 cc scoop",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "BIO VEGIE CAPS.pdf",
+                    "title": "Bio Vegie Caps",
+                    "description": "Ficha técnica de Bio Vegie Caps. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/BIO VEGIE CAPS.pdf",
+                    "fileSize": 644292,
+                    "uploadDate": "2025-09-18T05:14:48.323Z",
+                    "downloadCount": 57,
+                    "composicionNutricional": {
+                              "servingSize": "/ 16 Capsules",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "egg"
+                              ]
+                    }
+          },
+          {
+                    "filename": "BODYSMART MEN .pdf",
+                    "title": "Bodysmart Men",
+                    "description": "Ficha técnica de Bodysmart Men. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "salud ósea",
+                              "energía",
+                              "metabolismo",
+                              "músculos",
+                              "piel"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin C",
+                              "Vitamin D",
+                              "Vitamin E",
+                              "Niacin (Vitamin B3)",
+                              "Vitamin B6",
+                              "Folate (Vitamin B9)",
+                              "Vitamin B12",
+                              "Biotin (Vitamin B7)",
+                              "Pantothenic Acid (Vitamin B5)",
+                              "Calcium",
+                              "Zinc",
+                              "Selenium",
+                              "Copper",
+                              "Manganese",
+                              "Chromium",
+                              "Molybdenum",
+                              "Iodine",
+                              "Sodium"
+                    ],
+                    "filePath": "pdfs/BODYSMART MEN .pdf",
+                    "fileSize": 558352,
+                    "uploadDate": "2025-09-30T06:32:29.563Z",
+                    "downloadCount": 55,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Tablet",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "300",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C (Ascorbic Acid) 300 mg"
+                                        },
+                                        "Vitamin D": {
+                                                  "cantidad": "400",
+                                                  "unidad": "iu",
+                                                  "textoCompleto": "Cholecalciferol) 400 IU"
+                                        },
+                                        "Vitamin E": {
+                                                  "cantidad": "50",
+                                                  "unidad": "iu",
+                                                  "textoCompleto": "Vitamin E (D-Alpha-Tocopheryl Acid Succinate \n(Soy)) \n50 IU"
+                                        },
+                                        "Niacin (Vitamin B3)": {
+                                                  "cantidad": "54",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Niacin (Nicotinamide) 54 mg"
+                                        },
+                                        "Vitamin B6": {
+                                                  "cantidad": "6",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Pyridoxine HCl) 6 mg"
+                                        },
+                                        "Folate (Vitamin B9)": {
+                                                  "cantidad": "600",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Folic Acid 600 mcg"
+                                        },
+                                        "Vitamin B12": {
+                                                  "cantidad": "12",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "cobalamin) 12 mcg"
+                                        },
+                                        "Biotin (Vitamin B7)": {
+                                                  "cantidad": "450",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Biotin 450 mcg"
+                                        },
+                                        "Pantothenic Acid (Vitamin B5)": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Pantothenic Acid (as Calcium D Pantothenate) 20 mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium D Pantothenate) 20 mg"
+                                        },
+                                        "Zinc": {
+                                                  "cantidad": "15",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Zinc (as Zinc Sulfate) 15 mg"
+                                        },
+                                        "Selenium": {
+                                                  "cantidad": "120",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Selenium (as Sodium Selenite) 120 mcg"
+                                        },
+                                        "Copper": {
+                                                  "cantidad": "1",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Copper (as Cupric Sulfate) 1 mg"
+                                        },
+                                        "Manganese": {
+                                                  "cantidad": "2",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Manganese (as Manganese Sulfate) 2 mg"
+                                        },
+                                        "Chromium": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Chromium (as Chromium Picolinate) 100 mcg"
+                                        },
+                                        "Molybdenum": {
+                                                  "cantidad": "180",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Molybdenum (as Sodium Molybdate) 180 mcg"
+                                        },
+                                        "Iodine": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Iodine (as Potassium Iodide) 100 mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {
+                                        "Sodium": {
+                                                  "cantidad": "5",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Sodium Borate Decahydrate) 5 mg"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "Vitamin  C  (L­Ascorbic  Acid)",
+                                        "Dicalcium  Phosphate",
+                                        "Green  Tea  Leaf  Extract  (40%  Polyphenols)",
+                                        "Microcrystalline  Cellulose",
+                                        "L­Carnitine"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "BONE BUILDER SOLO DISPONIBLE EN USA   6114-PI_ES.pdf",
+                    "title": "Bone Builder Solo Disponible En Usa   6114-pi_es",
+                    "description": "Ficha técnica de Bone Builder Solo Disponible En Usa   6114-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "energía",
+                              "metabolismo",
+                              "salud ósea",
+                              "músculos"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Folate (Vitamin B9)",
+                              "Vitamin B12",
+                              "Calcium"
+                    ],
+                    "filePath": "pdfs/BONE BUILDER SOLO DISPONIBLE EN USA   6114-PI_ES.pdf",
+                    "fileSize": 542432,
+                    "uploadDate": "2025-09-30T06:31:35.253Z",
+                    "downloadCount": 38,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Folate (Vitamin B9)": {
+                                                  "cantidad": "200",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Folate DFE (200 mcg"
+                                        },
+                                        "Vitamin B12": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "cobalamin)100mcg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "205",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium (Total)205mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Calcium Citrate Malate Carbonate Complex",
+                                        "Ipriflavone",
+                                        ""
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Focused Berry 6603-PI_ES.pdf",
+                    "title": "Be Focused Berry 6603-pi_es",
+                    "description": "Ficha técnica de Be Focused Berry 6603-pi_es. concentración, memoria, enfoque, rendimiento mental. Ingredientes principales: l-teanina, vitamina b, vitamina c.",
+                    "category": "concentración",
+                    "categories": [
+                              "concentración",
+                              "cerebro",
+                              "cognición"
+                    ],
+                    "ingredients": [
+                              "l-teanina",
+                              "vitamina b",
+                              "vitamina c",
+                              "magnesio",
+                              "extractos herbales"
+                    ],
+                    "benefits": [
+                              "concentración",
+                              "memoria",
+                              "enfoque",
+                              "rendimiento mental"
+                    ],
+                    "uses": [
+                              "estudio",
+                              "trabajo",
+                              "concentración",
+                              "memoria"
+                    ],
+                    "keywords": [
+                              "concentración",
+                              "memoria",
+                              "cerebro",
+                              "enfoque",
+                              "cognición"
+                    ],
+                    "filePath": "pdfs/Be Focused Berry 6603-PI_ES.pdf",
+                    "fileSize": 408998,
+                    "uploadDate": "2025-09-30T06:32:02.655Z",
+                    "downloadCount": 58,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 level",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es\u0007científicamente\u0007"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Focused Citrus 6604-PI_ES.pdf",
+                    "title": "Be Focused Citrus 6604-pi_es",
+                    "description": "Ficha técnica de Be Focused Citrus 6604-pi_es. concentración, memoria, enfoque, rendimiento mental. Ingredientes principales: l-teanina, vitamina b, vitamina c.",
+                    "category": "concentración",
+                    "categories": [
+                              "concentración",
+                              "cerebro",
+                              "cognición"
+                    ],
+                    "ingredients": [
+                              "l-teanina",
+                              "vitamina b",
+                              "vitamina c",
+                              "magnesio",
+                              "extractos herbales"
+                    ],
+                    "benefits": [
+                              "concentración",
+                              "memoria",
+                              "enfoque",
+                              "rendimiento mental"
+                    ],
+                    "uses": [
+                              "estudio",
+                              "trabajo",
+                              "concentración",
+                              "memoria"
+                    ],
+                    "keywords": [
+                              "concentración",
+                              "memoria",
+                              "cerebro",
+                              "enfoque",
+                              "cognición"
+                    ],
+                    "filePath": "pdfs/Be Focused Citrus 6604-PI_ES.pdf",
+                    "fileSize": 880765,
+                    "uploadDate": "2025-09-30T06:32:03.508Z",
+                    "downloadCount": 28,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 level",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es científicamente"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Focused Sachet - Berry 30 ct 6800-PI_ES.pdf",
+                    "title": "Be Focused Sachet - Berry 30 Ct 6800-pi_es",
+                    "description": "Ficha técnica de Be Focused Sachet - Berry 30 Ct 6800-pi_es. concentración, memoria, enfoque, rendimiento mental. Ingredientes principales: l-teanina, vitamina b, vitamina c.",
+                    "category": "concentración",
+                    "categories": [
+                              "concentración",
+                              "cerebro",
+                              "cognición"
+                    ],
+                    "ingredients": [
+                              "l-teanina",
+                              "vitamina b",
+                              "vitamina c",
+                              "magnesio",
+                              "extractos herbales"
+                    ],
+                    "benefits": [
+                              "concentración",
+                              "memoria",
+                              "enfoque",
+                              "rendimiento mental"
+                    ],
+                    "uses": [
+                              "estudio",
+                              "trabajo",
+                              "concentración",
+                              "memoria"
+                    ],
+                    "keywords": [
+                              "concentración",
+                              "memoria",
+                              "cerebro",
+                              "enfoque",
+                              "cognición"
+                    ],
+                    "filePath": "pdfs/Be Focused Sachet - Berry 30 ct 6800-PI_ES.pdf",
+                    "fileSize": 711015,
+                    "uploadDate": "2025-09-30T06:32:09.130Z",
+                    "downloadCount": 26,
+                    "composicionNutricional": {
+                              "servingSize": "1 sachet (",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es científicamente avanzados pueden fortalecerle con una"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Focused Sachet - Citrus 30 ct 6801-PI_ES.pdf",
+                    "title": "Be Focused Sachet - Citrus 30 Ct 6801-pi_es",
+                    "description": "Ficha técnica de Be Focused Sachet - Citrus 30 Ct 6801-pi_es. concentración, memoria, enfoque, rendimiento mental. Ingredientes principales: l-teanina, vitamina b, vitamina c.",
+                    "category": "concentración",
+                    "categories": [
+                              "concentración",
+                              "cerebro",
+                              "cognición"
+                    ],
+                    "ingredients": [
+                              "l-teanina",
+                              "vitamina b",
+                              "vitamina c",
+                              "magnesio",
+                              "extractos herbales"
+                    ],
+                    "benefits": [
+                              "concentración",
+                              "memoria",
+                              "enfoque",
+                              "rendimiento mental"
+                    ],
+                    "uses": [
+                              "estudio",
+                              "trabajo",
+                              "concentración",
+                              "memoria"
+                    ],
+                    "keywords": [
+                              "concentración",
+                              "memoria",
+                              "cerebro",
+                              "enfoque",
+                              "cognición"
+                    ],
+                    "filePath": "pdfs/Be Focused Sachet - Citrus 30 ct 6801-PI_ES.pdf",
+                    "fileSize": 710599,
+                    "uploadDate": "2025-09-30T06:32:00.557Z",
+                    "downloadCount": 33,
+                    "composicionNutricional": {
+                              "servingSize": "1 sachet  (",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es científicamente avanzados pueden fortalecerle con una"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Focused en sobres - Sabor a frutos del bosque6609-PI_ES.pdf",
+                    "title": "Be Focused En Sobres - Sabor A Frutos Del Bosque6609-pi_es",
+                    "description": "Ficha técnica de Be Focused En Sobres - Sabor A Frutos Del Bosque6609-pi_es. concentración, memoria, enfoque, rendimiento mental. Ingredientes principales: l-teanina, vitamina b, vitamina c.",
+                    "category": "concentración",
+                    "categories": [
+                              "concentración",
+                              "cerebro",
+                              "cognición"
+                    ],
+                    "ingredients": [
+                              "l-teanina",
+                              "vitamina b",
+                              "vitamina c",
+                              "magnesio",
+                              "extractos herbales"
+                    ],
+                    "benefits": [
+                              "concentración",
+                              "memoria",
+                              "enfoque",
+                              "rendimiento mental"
+                    ],
+                    "uses": [
+                              "estudio",
+                              "trabajo",
+                              "concentración",
+                              "memoria"
+                    ],
+                    "keywords": [
+                              "concentración",
+                              "memoria",
+                              "cerebro",
+                              "enfoque",
+                              "cognición"
+                    ],
+                    "filePath": "pdfs/Be Focused en sobres - Sabor a frutos del bosque6609-PI_ES.pdf",
+                    "fileSize": 718464,
+                    "uploadDate": "2025-09-30T06:32:07.061Z",
+                    "downloadCount": 44,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Sachet (",
+                              "servingsPerContainer": "/ 18",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es\u0007científicamente\u0007"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Recharged Berry 6601-PI_ES.pdf",
+                    "title": "Be Recharged Berry 6601-pi_es",
+                    "description": "Ficha técnica de Be Recharged Berry 6601-pi_es. energía rápida, rendimiento, vitalidad, hidratación. Ingredientes principales: vitamina b, vitamina c, magnesio.",
+                    "category": "energía",
+                    "categories": [
+                              "energía",
+                              "rendimiento",
+                              "vitalidad"
+                    ],
+                    "ingredients": [
+                              "vitamina b",
+                              "vitamina c",
+                              "magnesio",
+                              "potasio",
+                              "cafeína natural"
+                    ],
+                    "benefits": [
+                              "energía rápida",
+                              "rendimiento",
+                              "vitalidad",
+                              "hidratación"
+                    ],
+                    "uses": [
+                              "deporte",
+                              "energía",
+                              "rendimiento",
+                              "hidratación"
+                    ],
+                    "keywords": [
+                              "energía",
+                              "rendimiento",
+                              "deporte",
+                              "hidratación",
+                              "vitalidad"
+                    ],
+                    "filePath": "pdfs/Be Recharged Berry 6601-PI_ES.pdf",
+                    "fileSize": 683104,
+                    "uploadDate": "2025-09-30T06:32:03.771Z",
+                    "downloadCount": 26,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 level Scoop",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es  en  polvo  Be  Recharged  se"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Recharged Citrus 6602-PI_ES.pdf",
+                    "title": "Be Recharged Citrus 6602-pi_es",
+                    "description": "Ficha técnica de Be Recharged Citrus 6602-pi_es. energía rápida, rendimiento, vitalidad, hidratación. Ingredientes principales: vitamina b, vitamina c, magnesio.",
+                    "category": "energía",
+                    "categories": [
+                              "energía",
+                              "rendimiento",
+                              "vitalidad"
+                    ],
+                    "ingredients": [
+                              "vitamina b",
+                              "vitamina c",
+                              "magnesio",
+                              "potasio",
+                              "cafeína natural"
+                    ],
+                    "benefits": [
+                              "energía rápida",
+                              "rendimiento",
+                              "vitalidad",
+                              "hidratación"
+                    ],
+                    "uses": [
+                              "deporte",
+                              "energía",
+                              "rendimiento",
+                              "hidratación"
+                    ],
+                    "keywords": [
+                              "energía",
+                              "rendimiento",
+                              "deporte",
+                              "hidratación",
+                              "vitalidad"
+                    ],
+                    "filePath": "pdfs/Be Recharged Citrus 6602-PI_ES.pdf",
+                    "fileSize": 683943,
+                    "uploadDate": "2025-09-30T06:32:04.866Z",
+                    "downloadCount": 38,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 level Scoop",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es  en  polvo  Be  Recharged  se"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Recharged Sachet - Berry 30 ct 6806-PI_ES.pdf",
+                    "title": "Be Recharged Sachet - Berry 30 Ct 6806-pi_es",
+                    "description": "Ficha técnica de Be Recharged Sachet - Berry 30 Ct 6806-pi_es. energía rápida, rendimiento, vitalidad, hidratación. Ingredientes principales: vitamina b, vitamina c, magnesio.",
+                    "category": "energía",
+                    "categories": [
+                              "energía",
+                              "rendimiento",
+                              "vitalidad"
+                    ],
+                    "ingredients": [
+                              "vitamina b",
+                              "vitamina c",
+                              "magnesio",
+                              "potasio",
+                              "cafeína natural"
+                    ],
+                    "benefits": [
+                              "energía rápida",
+                              "rendimiento",
+                              "vitalidad",
+                              "hidratación"
+                    ],
+                    "uses": [
+                              "deporte",
+                              "energía",
+                              "rendimiento",
+                              "hidratación"
+                    ],
+                    "keywords": [
+                              "energía",
+                              "rendimiento",
+                              "deporte",
+                              "hidratación",
+                              "vitalidad"
+                    ],
+                    "filePath": "pdfs/Be Recharged Sachet - Berry 30 ct 6806-PI_ES.pdf",
+                    "fileSize": 628592,
+                    "uploadDate": "2025-09-30T06:32:01.670Z",
+                    "downloadCount": 58,
+                    "composicionNutricional": {
+                              "servingSize": "1 Sachet (",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es   en"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Recharged Sachet - Citrus 30 ct 6807-PI_ES.pdf",
+                    "title": "Be Recharged Sachet - Citrus 30 Ct 6807-pi_es",
+                    "description": "Ficha técnica de Be Recharged Sachet - Citrus 30 Ct 6807-pi_es. energía rápida, rendimiento, vitalidad, hidratación. Ingredientes principales: vitamina b, vitamina c, magnesio.",
+                    "category": "energía",
+                    "categories": [
+                              "energía",
+                              "rendimiento",
+                              "vitalidad"
+                    ],
+                    "ingredients": [
+                              "vitamina b",
+                              "vitamina c",
+                              "magnesio",
+                              "potasio",
+                              "cafeína natural"
+                    ],
+                    "benefits": [
+                              "energía rápida",
+                              "rendimiento",
+                              "vitalidad",
+                              "hidratación"
+                    ],
+                    "uses": [
+                              "deporte",
+                              "energía",
+                              "rendimiento",
+                              "hidratación"
+                    ],
+                    "keywords": [
+                              "energía",
+                              "rendimiento",
+                              "deporte",
+                              "hidratación",
+                              "vitalidad"
+                    ],
+                    "filePath": "pdfs/Be Recharged Sachet - Citrus 30 ct 6807-PI_ES.pdf",
+                    "fileSize": 632435,
+                    "uploadDate": "2025-09-30T06:32:02.295Z",
+                    "downloadCount": 22,
+                    "composicionNutricional": {
+                              "servingSize": "1 Sachet (",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es   en"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Refueled chocolate 6644-PI_ES.pdf",
+                    "title": "Be Refueled Chocolate 6644-pi_es",
+                    "description": "Ficha técnica de Be Refueled Chocolate 6644-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Be Refueled chocolate 6644-PI_ES.pdf",
+                    "fileSize": 337347,
+                    "uploadDate": "2025-09-30T06:32:05.584Z",
+                    "downloadCount": 51,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Refueled vainilla 6645-PI_ES.pdf",
+                    "title": "Be Refueled Vainilla 6645-pi_es",
+                    "description": "Ficha técnica de Be Refueled Vainilla 6645-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Be Refueled vainilla 6645-PI_ES.pdf",
+                    "fileSize": 710418,
+                    "uploadDate": "2025-09-30T06:32:04.610Z",
+                    "downloadCount": 43,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es\u0007"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Sustained Berry 6605-PI_ES.pdf",
+                    "title": "Be Sustained Berry 6605-pi_es",
+                    "description": "Ficha técnica de Be Sustained Berry 6605-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Be Sustained Berry 6605-PI_ES.pdf",
+                    "fileSize": 426573,
+                    "uploadDate": "2025-09-30T06:32:05.970Z",
+                    "downloadCount": 14,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 level",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Sustained Citrus 6606-PI_ES.pdf",
+                    "title": "Be Sustained Citrus 6606-pi_es",
+                    "description": "Ficha técnica de Be Sustained Citrus 6606-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Be Sustained Citrus 6606-PI_ES.pdf",
+                    "fileSize": 708153,
+                    "uploadDate": "2025-09-30T06:32:06.685Z",
+                    "downloadCount": 14,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 level",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Sustained Sachet - Berry 30 ct 6802-PI_ES.pdf",
+                    "title": "Be Sustained Sachet - Berry 30 Ct 6802-pi_es",
+                    "description": "Ficha técnica de Be Sustained Sachet - Berry 30 Ct 6802-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Be Sustained Sachet - Berry 30 ct 6802-PI_ES.pdf",
+                    "fileSize": 730123,
+                    "uploadDate": "2025-09-30T06:32:00.123Z",
+                    "downloadCount": 22,
+                    "composicionNutricional": {
+                              "servingSize": "1 sachet (",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Sustained Sachet - Citrus 30 ct 6805-PI_ES.pdf",
+                    "title": "Be Sustained Sachet - Citrus 30 Ct 6805-pi_es",
+                    "description": "Ficha técnica de Be Sustained Sachet - Citrus 30 Ct 6805-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Be Sustained Sachet - Citrus 30 ct 6805-PI_ES.pdf",
+                    "fileSize": 729035,
+                    "uploadDate": "2025-09-30T06:32:01.211Z",
+                    "downloadCount": 48,
+                    "composicionNutricional": {
+                              "servingSize": "1 sachet (",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Sustained en sobres - Sabor a cítricos 6612-PI_ES.pdf",
+                    "title": "Be Sustained En Sobres - Sabor A Cítricos 6612-pi_es",
+                    "description": "Ficha técnica de Be Sustained En Sobres - Sabor A Cítricos 6612-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Be Sustained en sobres - Sabor a cítricos 6612-PI_ES.pdf",
+                    "fileSize": 1208873,
+                    "uploadDate": "2025-09-30T06:32:08.019Z",
+                    "downloadCount": 21,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Sachet (",
+                              "servingsPerContainer": "/ 18",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Be Sustained en sobres - Sabor a frutos del bosque 6611-PI_ES.pdf",
+                    "title": "Be Sustained En Sobres - Sabor A Frutos Del Bosque 6611-pi_es",
+                    "description": "Ficha técnica de Be Sustained En Sobres - Sabor A Frutos Del Bosque 6611-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Be Sustained en sobres - Sabor a frutos del bosque 6611-PI_ES.pdf",
+                    "fileSize": 793330,
+                    "uploadDate": "2025-09-30T06:32:08.155Z",
+                    "downloadCount": 45,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Sachet (",
+                              "servingsPerContainer": "/ 18",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Biotic Blast® 6618-PI_ES.pdf",
+                    "title": "Biotic Blast 6618-pi_es",
+                    "description": "Ficha técnica de Biotic Blast 6618-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Biotic Blast® 6618-PI_ES.pdf",
+                    "fileSize": 397701,
+                    "uploadDate": "2025-09-30T06:31:34.156Z",
+                    "downloadCount": 36,
+                    "composicionNutricional": {
+                              "servingSize": "2 Capsules",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Stabilized  Probiotic  Blend  (consisting  of  715  million  beneficial  CFU  each  of"
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Bodysmart Solution 7882-PI_ES.pdf",
+                    "title": "Bodysmart Solution 7882-pi_es",
+                    "description": "Ficha técnica de Bodysmart Solution 7882-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Chromium",
+                              "Total Carbohydrate"
+                    ],
+                    "filePath": "pdfs/Bodysmart Solution 7882-PI_ES.pdf",
+                    "fileSize": 545988,
+                    "uploadDate": "2025-09-30T06:31:39.761Z",
+                    "downloadCount": 13,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Tablet",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {},
+                              "minerales": {
+                                        "Chromium": {
+                                                  "cantidad": "48",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Chromium (as Chromium Picolinate)48mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "1",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrate1g"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "es sinérgicos proporcionan energía y vitalidad."
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Bodysmart Solutions Men’s Gold Formula 7883-PI_ES.pdf",
+                    "title": "Bodysmart Solutions Men’s Gold Formula 7883-pi_es",
+                    "description": "Ficha técnica de Bodysmart Solutions Men’s Gold Formula 7883-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "salud ósea",
+                              "energía",
+                              "metabolismo",
+                              "músculos",
+                              "piel"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin A",
+                              "Vitamin C",
+                              "Vitamin D",
+                              "Vitamin K",
+                              "Niacin (Vitamin B3)",
+                              "Folate (Vitamin B9)",
+                              "Biotin (Vitamin B7)",
+                              "Pantothenic Acid (Vitamin B5)",
+                              "Calcium",
+                              "Zinc",
+                              "Selenium",
+                              "Copper",
+                              "Manganese",
+                              "Chromium",
+                              "Molybdenum",
+                              "Iodine"
+                    ],
+                    "filePath": "pdfs/Bodysmart Solutions Men’s Gold Formula 7883-PI_ES.pdf",
+                    "fileSize": 599534,
+                    "uploadDate": "2025-09-30T06:31:55.431Z",
+                    "downloadCount": 51,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Tablet",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {
+                                        "Vitamin A": {
+                                                  "cantidad": "800",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin A 800 mcg"
+                                        },
+                                        "Vitamin C": {
+                                                  "cantidad": "300",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C 300 mg"
+                                        },
+                                        "Vitamin D": {
+                                                  "cantidad": "10",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin D10mcg"
+                                        },
+                                        "Vitamin K": {
+                                                  "cantidad": "65",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin K65 mcg"
+                                        },
+                                        "Niacin (Vitamin B3)": {
+                                                  "cantidad": "54",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Niacin 54 mg"
+                                        },
+                                        "Folate (Vitamin B9)": {
+                                                  "cantidad": "600",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Folate (600 mcg"
+                                        },
+                                        "Biotin (Vitamin B7)": {
+                                                  "cantidad": "450",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Biotin 450mcg"
+                                        },
+                                        "Pantothenic Acid (Vitamin B5)": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Pantothenic Acid 20 mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "72",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium 72 mg"
+                                        },
+                                        "Zinc": {
+                                                  "cantidad": "15",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Zinc 15 mg"
+                                        },
+                                        "Selenium": {
+                                                  "cantidad": "120",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Selenium 120 mcg"
+                                        },
+                                        "Copper": {
+                                                  "cantidad": "1",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Copper 1 mg"
+                                        },
+                                        "Manganese": {
+                                                  "cantidad": "2",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Manganese 2 mg"
+                                        },
+                                        "Chromium": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Chromium 100 mcg"
+                                        },
+                                        "Molybdenum": {
+                                                  "cantidad": "180",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Molybdenum 180 mcg"
+                                        },
+                                        "Iodine": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Iodine 100 mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Vitamin  C  (L­Ascorbic  Acid)",
+                                        "Dicalcium  Phosphate",
+                                        "Green  Tea  Leaf  Extract  (40%  Polyphenols)",
+                                        "Microcrystalline  Cellulose",
+                                        "L­Carnitine"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Bodysmart Solutions Women’s Gold Formula 7884-PI_ES.pdf",
+                    "title": "Bodysmart Solutions Women’s Gold Formula 7884-pi_es",
+                    "description": "Ficha técnica de Bodysmart Solutions Women’s Gold Formula 7884-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "salud ósea",
+                              "energía",
+                              "metabolismo",
+                              "músculos",
+                              "sangre",
+                              "piel"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin A",
+                              "Vitamin C",
+                              "Vitamin D",
+                              "Vitamin E",
+                              "Vitamin K",
+                              "Niacin (Vitamin B3)",
+                              "Folate (Vitamin B9)",
+                              "Biotin (Vitamin B7)",
+                              "Pantothenic Acid (Vitamin B5)",
+                              "Calcium",
+                              "Iron",
+                              "Zinc",
+                              "Selenium",
+                              "Copper",
+                              "Manganese",
+                              "Chromium",
+                              "Molybdenum",
+                              "Iodine"
+                    ],
+                    "filePath": "pdfs/Bodysmart Solutions Women’s Gold Formula 7884-PI_ES.pdf",
+                    "fileSize": 441594,
+                    "uploadDate": "2025-09-30T06:31:47.592Z",
+                    "downloadCount": 19,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Tablet",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {
+                                        "Vitamin A": {
+                                                  "cantidad": "750",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin A \n(   (Retinyl Acetate 750 mcg"
+                                        },
+                                        "Vitamin C": {
+                                                  "cantidad": "300",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C (Ascorbic Acid)300mg"
+                                        },
+                                        "Vitamin D": {
+                                                  "cantidad": "10",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin D10mcg"
+                                        },
+                                        "Vitamin E": {
+                                                  "cantidad": "33",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin E33mg"
+                                        },
+                                        "Vitamin K": {
+                                                  "cantidad": "65",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin K65mcg"
+                                        },
+                                        "Niacin (Vitamin B3)": {
+                                                  "cantidad": "90",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Niacin90mg"
+                                        },
+                                        "Folate (Vitamin B9)": {
+                                                  "cantidad": "1500",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Folate1500mcg"
+                                        },
+                                        "Biotin (Vitamin B7)": {
+                                                  "cantidad": "600",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Biotin600mcg"
+                                        },
+                                        "Pantothenic Acid (Vitamin B5)": {
+                                                  "cantidad": "45",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Pantothenic Acid45mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "72",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium72mg"
+                                        },
+                                        "Iron": {
+                                                  "cantidad": "2.5",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Iron2.5mg"
+                                        },
+                                        "Zinc": {
+                                                  "cantidad": "15",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Zinc15mg"
+                                        },
+                                        "Selenium": {
+                                                  "cantidad": "67",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Selenium67mcg"
+                                        },
+                                        "Copper": {
+                                                  "cantidad": "2",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Copper2 mg"
+                                        },
+                                        "Manganese": {
+                                                  "cantidad": "3",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Manganese 3 mg"
+                                        },
+                                        "Chromium": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Chromium100mcg"
+                                        },
+                                        "Molybdenum": {
+                                                  "cantidad": "120",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Molybdenum120mcg"
+                                        },
+                                        "Iodine": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Iodine\n100mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Vitamin C (L­Ascorbic Acid)",
+                                        "Green Tea Leaf Extract (40% Polyphenols)",
+                                        "Microcrystalline Cellulose",
+                                        "Dicalcium Phosphate",
+                                        ""
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Brain Formula 6104-PI_ES.pdf",
+                    "title": "Brain Formula 6104-pi_es",
+                    "description": "Ficha técnica de Brain Formula 6104-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Brain Formula 6104-PI_ES.pdf",
+                    "fileSize": 247466,
+                    "uploadDate": "2025-09-30T06:31:57.280Z",
+                    "downloadCount": 29,
+                    "composicionNutricional": {
+                              "servingSize": "/ 3 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Microcrystalline Cellulose",
+                                        "Dicalcium Phosphate",
+                                        "L­Carnitine L­Tartrate",
+                                        "Taurine",
+                                        "N­Acetyl L­Cysteine",
+                                        "L­Phenylalanine",
+                                        "L­Glutamine",
+                                        "Gotu Kola"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "CAL MAG PLUS 2.pdf",
+                    "title": "Cal Mag Plus 2",
+                    "description": "Ficha técnica de Cal Mag Plus 2. huesos fuertes, dientes, musculatura, nervios, sueño. Ingredientes principales: calcio, magnesio, vitamina d.",
+                    "category": "minerales",
+                    "categories": [
+                              "minerales",
+                              "salud ósea",
+                              "huesos"
+                    ],
+                    "ingredients": [
+                              "calcio",
+                              "magnesio",
+                              "vitamina d",
+                              "vitamina k",
+                              "zinc",
+                              "cobre",
+                              "manganeso"
+                    ],
+                    "benefits": [
+                              "huesos fuertes",
+                              "dientes",
+                              "musculatura",
+                              "nervios",
+                              "sueño",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "salud ósea",
+                              "músculos"
+                    ],
+                    "uses": [
+                              "osteoporosis",
+                              "huesos",
+                              "dientes",
+                              "calambres",
+                              "estrés"
+                    ],
+                    "keywords": [
+                              "calcio",
+                              "magnesio",
+                              "vitamina d",
+                              "huesos",
+                              "osteoporosis",
+                              "dientes",
+                              "Vitamin C",
+                              "Vitamin D",
+                              "Vitamin K",
+                              "Calcium",
+                              "Magnesium",
+                              "Copper",
+                              "Manganese"
+                    ],
+                    "filePath": "pdfs/CAL MAG PLUS 2.pdf",
+                    "fileSize": 554271,
+                    "uploadDate": "2025-09-30T06:32:26.686Z",
+                    "downloadCount": 27,
+                    "composicionNutricional": {
+                              "servingSize": "/ 5 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "120",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C120 mg"
+                                        },
+                                        "Vitamin D": {
+                                                  "cantidad": "5",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin D5 mcg"
+                                        },
+                                        "Vitamin K": {
+                                                  "cantidad": "32",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin K32 mcg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "500",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium500 mg"
+                                        },
+                                        "Magnesium": {
+                                                  "cantidad": "250",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Magnesium 250 mg"
+                                        },
+                                        "Copper": {
+                                                  "cantidad": "0.5",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Copper0.5 mg"
+                                        },
+                                        "Manganese": {
+                                                  "cantidad": "3",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Manganese3 mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "PolyCalPlex"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "CAL MAG PLUS.pdf",
+                    "title": "Cal Mag Plus",
+                    "description": "Ficha técnica de Cal Mag Plus. huesos fuertes, dientes, musculatura, nervios, sueño. Ingredientes principales: calcio, magnesio, vitamina d.",
+                    "category": "minerales",
+                    "categories": [
+                              "minerales",
+                              "salud ósea",
+                              "huesos"
+                    ],
+                    "ingredients": [
+                              "calcio",
+                              "magnesio",
+                              "vitamina d",
+                              "vitamina k",
+                              "zinc",
+                              "cobre",
+                              "manganeso"
+                    ],
+                    "benefits": [
+                              "huesos fuertes",
+                              "dientes",
+                              "musculatura",
+                              "nervios",
+                              "sueño",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "salud ósea",
+                              "músculos"
+                    ],
+                    "uses": [
+                              "osteoporosis",
+                              "huesos",
+                              "dientes",
+                              "calambres",
+                              "estrés"
+                    ],
+                    "keywords": [
+                              "calcio",
+                              "magnesio",
+                              "vitamina d",
+                              "huesos",
+                              "osteoporosis",
+                              "dientes",
+                              "Vitamin C",
+                              "Vitamin D",
+                              "Vitamin K",
+                              "Calcium",
+                              "Magnesium",
+                              "Copper",
+                              "Manganese"
+                    ],
+                    "filePath": "pdfs/CAL MAG PLUS.pdf",
+                    "fileSize": 554271,
+                    "uploadDate": "2025-09-18T05:14:48.327Z",
+                    "downloadCount": 39,
+                    "composicionNutricional": {
+                              "servingSize": "/ 5 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "120",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C120 mg"
+                                        },
+                                        "Vitamin D": {
+                                                  "cantidad": "5",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin D5 mcg"
+                                        },
+                                        "Vitamin K": {
+                                                  "cantidad": "32",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin K32 mcg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "500",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium500 mg"
+                                        },
+                                        "Magnesium": {
+                                                  "cantidad": "250",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Magnesium 250 mg"
+                                        },
+                                        "Copper": {
+                                                  "cantidad": "0.5",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Copper0.5 mg"
+                                        },
+                                        "Manganese": {
+                                                  "cantidad": "3",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Manganese3 mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "PolyCalPlex"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "CBD Oil Revive  SOLO DEISPONIBLE EN  USA .pdf",
+                    "title": "Cbd Oil Revive  Solo Deisponible En  Usa",
+                    "description": "Ficha técnica de Cbd Oil Revive  Solo Deisponible En  Usa. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/CBD Oil Revive  SOLO DEISPONIBLE EN  USA .pdf",
+                    "fileSize": 1056818,
+                    "uploadDate": "2025-09-30T06:31:36.454Z",
+                    "downloadCount": 25,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es que son derivados del cáñamo."
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "CO-Q-10 PLUS  2.pdf",
+                    "title": "Co-q-10 Plus  2",
+                    "description": "Ficha técnica de Co-q-10 Plus  2. energía celular, salud cardiovascular, antioxidante, encías. Ingredientes principales: coenzima q10, ubiquinona, vitamina e.",
+                    "category": "energía celular",
+                    "categories": [
+                              "energía celular",
+                              "antioxidantes",
+                              "corazón"
+                    ],
+                    "ingredients": [
+                              "coenzima q10",
+                              "ubiquinona",
+                              "vitamina e"
+                    ],
+                    "benefits": [
+                              "energía celular",
+                              "salud cardiovascular",
+                              "antioxidante",
+                              "encías",
+                              "salud ósea",
+                              "músculos"
+                    ],
+                    "uses": [
+                              "corazón",
+                              "energía",
+                              "encías",
+                              "antienvejecimiento"
+                    ],
+                    "keywords": [
+                              "coenzima q10",
+                              "ubiquinona",
+                              "energía",
+                              "corazón",
+                              "antioxidante",
+                              "Calcium"
+                    ],
+                    "filePath": "pdfs/CO-Q-10 PLUS  2.pdf",
+                    "fileSize": 569917,
+                    "uploadDate": "2025-09-30T06:32:26.385Z",
+                    "downloadCount": 47,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {},
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "114",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium114   mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es  naturales",
+                                        "entre"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "CO-Q-10 PLUS .pdf",
+                    "title": "Co-q-10 Plus",
+                    "description": "Ficha técnica de Co-q-10 Plus. energía celular, salud cardiovascular, antioxidante, encías. Ingredientes principales: coenzima q10, ubiquinona, vitamina e.",
+                    "category": "energía celular",
+                    "categories": [
+                              "energía celular",
+                              "antioxidantes",
+                              "corazón"
+                    ],
+                    "ingredients": [
+                              "coenzima q10",
+                              "ubiquinona",
+                              "vitamina e"
+                    ],
+                    "benefits": [
+                              "energía celular",
+                              "salud cardiovascular",
+                              "antioxidante",
+                              "encías",
+                              "salud ósea",
+                              "músculos"
+                    ],
+                    "uses": [
+                              "corazón",
+                              "energía",
+                              "encías",
+                              "antienvejecimiento"
+                    ],
+                    "keywords": [
+                              "coenzima q10",
+                              "ubiquinona",
+                              "energía",
+                              "corazón",
+                              "antioxidante",
+                              "Calcium"
+                    ],
+                    "filePath": "pdfs/CO-Q-10 PLUS .pdf",
+                    "fileSize": 569917,
+                    "uploadDate": "2025-09-18T05:14:48.328Z",
+                    "downloadCount": 19,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {},
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "114",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium114   mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es  naturales",
+                                        "entre"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Cat’s Claw Plus SOLO DISPONIBLE EN USA  4040-PI_ES.pdf",
+                    "title": "Cat’s Claw Plus Solo Disponible En Usa  4040-pi_es",
+                    "description": "Ficha técnica de Cat’s Claw Plus Solo Disponible En Usa  4040-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Cat’s Claw Plus SOLO DISPONIBLE EN USA  4040-PI_ES.pdf",
+                    "fileSize": 205365,
+                    "uploadDate": "2025-09-30T06:31:33.167Z",
+                    "downloadCount": 26,
+                    "composicionNutricional": {
+                              "servingSize": "3 Tablet",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Cat’s Claw (Uncaria tomentosa (Willd.) DC ) Inner Bark Extract",
+                                        "Dicalcium"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Circulation Formula 6133-PI_ES.pdf",
+                    "title": "Circulation Formula 6133-pi_es",
+                    "description": "Ficha técnica de Circulation Formula 6133-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "energía",
+                              "metabolismo"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Thiamin (Vitamin B1)",
+                              "Riboflavin (Vitamin B2)",
+                              "Niacin (Vitamin B3)",
+                              "Folate (Vitamin B9)"
+                    ],
+                    "filePath": "pdfs/Circulation Formula 6133-PI_ES.pdf",
+                    "fileSize": 582656,
+                    "uploadDate": "2025-09-30T06:31:37.549Z",
+                    "downloadCount": 53,
+                    "composicionNutricional": {
+                              "servingSize": "/ 6 Tablet",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {
+                                        "Thiamin (Vitamin B1)": {
+                                                  "cantidad": "1",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Thiamin 1mg"
+                                        },
+                                        "Riboflavin (Vitamin B2)": {
+                                                  "cantidad": "1",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Riboflavin1mg"
+                                        },
+                                        "Niacin (Vitamin B3)": {
+                                                  "cantidad": "1.2",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Niacin1.2mg"
+                                        },
+                                        "Folate (Vitamin B9)": {
+                                                  "cantidad": "300",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Folate300mcg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "e de Circulation Formula",
+                                        "la L-Arginina",
+                                        "produce óxido nítrico",
+                                        "responsable de"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Co-Q-10 .1012-PI_ES.pdf",
+                    "title": "Co-q-10 .1012-pi_es",
+                    "description": "Ficha técnica de Co-q-10 .1012-pi_es. energía celular, salud cardiovascular, antioxidante, encías. Ingredientes principales: coenzima q10, ubiquinona, vitamina e.",
+                    "category": "energía celular",
+                    "categories": [
+                              "energía celular",
+                              "antioxidantes",
+                              "corazón"
+                    ],
+                    "ingredients": [
+                              "coenzima q10",
+                              "ubiquinona",
+                              "vitamina e"
+                    ],
+                    "benefits": [
+                              "energía celular",
+                              "salud cardiovascular",
+                              "antioxidante",
+                              "encías",
+                              "salud ósea",
+                              "músculos"
+                    ],
+                    "uses": [
+                              "corazón",
+                              "energía",
+                              "encías",
+                              "antienvejecimiento"
+                    ],
+                    "keywords": [
+                              "coenzima q10",
+                              "ubiquinona",
+                              "energía",
+                              "corazón",
+                              "antioxidante",
+                              "Calcium"
+                    ],
+                    "filePath": "pdfs/Co-Q-10 .1012-PI_ES.pdf",
+                    "fileSize": 205837,
+                    "uploadDate": "2025-09-30T06:31:42.530Z",
+                    "downloadCount": 28,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {},
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "114",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium114   mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es  naturales",
+                                        "entre"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Cogelin (Colon Formula) 6109-PI_ES.pdf",
+                    "title": "Cogelin (colon Formula) 6109-pi_es",
+                    "description": "Ficha técnica de Cogelin (colon Formula) 6109-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Cogelin (Colon Formula) 6109-PI_ES.pdf",
+                    "fileSize": 296860,
+                    "uploadDate": "2025-09-30T06:31:20.025Z",
+                    "downloadCount": 34,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "e de la receta",
+                                        "la"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "D-Mannose 6355-PI_ES.pdf",
+                    "title": "D-mannose 6355-pi_es",
+                    "description": "Ficha técnica de D-mannose 6355-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/D-Mannose 6355-PI_ES.pdf",
+                    "fileSize": 465817,
+                    "uploadDate": "2025-09-30T06:31:50.610Z",
+                    "downloadCount": 33,
+                    "composicionNutricional": {
+                              "servingSize": "4 Capsules",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Proprietary  D-C  Complex™  (D-Mannose  and  Cranberry"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "DAILY BIOBASICS™.pdf",
+                    "title": "Daily Biobasics",
+                    "description": "Ficha técnica de Daily Biobasics. nutrición completa, energía, defensas, huesos, piel. Ingredientes principales: vitamina a, vitamina c, vitamina d.",
+                    "category": "multivitamínico",
+                    "categories": [
+                              "multivitamínico",
+                              "vitaminas",
+                              "minerales",
+                              "nutrición básica"
+                    ],
+                    "ingredients": [
+                              "vitamina a",
+                              "vitamina c",
+                              "vitamina d",
+                              "vitamina e",
+                              "vitamina k",
+                              "complejo b",
+                              "calcio",
+                              "magnesio",
+                              "zinc",
+                              "selenio"
+                    ],
+                    "benefits": [
+                              "nutrición completa",
+                              "energía",
+                              "defensas",
+                              "huesos",
+                              "piel"
+                    ],
+                    "uses": [
+                              "nutrición diaria",
+                              "prevención",
+                              "energía",
+                              "defensas"
+                    ],
+                    "keywords": [
+                              "multivitamínico",
+                              "vitaminas",
+                              "minerales",
+                              "nutrición",
+                              "energía",
+                              "defensas"
+                    ],
+                    "filePath": "pdfs/DAILY BIOBASICS™.pdf",
+                    "fileSize": 634275,
+                    "uploadDate": "2025-09-18T05:14:48.329Z",
+                    "downloadCount": 55,
+                    "composicionNutricional": {
+                              "servingSize": "/ Two level scoops (Approx. 26.5 g)",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "DISCOVERY.pdf",
+                    "title": "Discovery",
+                    "description": "Ficha técnica de Discovery. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/DISCOVERY.pdf",
+                    "fileSize": 114854,
+                    "uploadDate": "2025-09-18T05:14:48.330Z",
+                    "downloadCount": 44,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "DNA IMMUNE.pdf",
+                    "title": "Dna Immune",
+                    "description": "Ficha técnica de Dna Immune. inmunidad, defensas, antioxidante, adn. Ingredientes principales: vitamina c, vitamina e, zinc.",
+                    "category": "sistema inmune",
+                    "categories": [
+                              "sistema inmune",
+                              "defensas",
+                              "antioxidantes"
+                    ],
+                    "ingredients": [
+                              "vitamina c",
+                              "vitamina e",
+                              "zinc",
+                              "selenio",
+                              "extractos vegetales"
+                    ],
+                    "benefits": [
+                              "inmunidad",
+                              "defensas",
+                              "antioxidante",
+                              "adn",
+                              "energía",
+                              "metabolismo"
+                    ],
+                    "uses": [
+                              "defensas bajas",
+                              "infecciones",
+                              "estrés oxidativo"
+                    ],
+                    "keywords": [
+                              "inmunidad",
+                              "defensas",
+                              "sistema inmune",
+                              "antioxidante",
+                              "Folate (Vitamin B9)"
+                    ],
+                    "filePath": "pdfs/DNA IMMUNE.pdf",
+                    "fileSize": 562439,
+                    "uploadDate": "2025-09-30T06:32:25.602Z",
+                    "downloadCount": 32,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Folate (Vitamin B9)": {
+                                                  "cantidad": "40",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Folic Acid (40 mcg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es  de  DNA-Immune"
+                              ],
+                              "alergenos": [
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "DNA-Immune  SOLO DISPONIBLE EN USA 6110-PI_ES.pdf",
+                    "title": "Dna-immune  Solo Disponible En Usa 6110-pi_es",
+                    "description": "Ficha técnica de Dna-immune  Solo Disponible En Usa 6110-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "energía",
+                              "metabolismo"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Folate (Vitamin B9)"
+                    ],
+                    "filePath": "pdfs/DNA-Immune  SOLO DISPONIBLE EN USA 6110-PI_ES.pdf",
+                    "fileSize": 572878,
+                    "uploadDate": "2025-09-30T06:31:36.235Z",
+                    "downloadCount": 21,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Folate (Vitamin B9)": {
+                                                  "cantidad": "40",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Folate (40 mcg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es  de  DNA-Immune"
+                              ],
+                              "alergenos": [
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Daily BioBasics 6132-PI_ES.pdf",
+                    "title": "Daily Biobasics 6132-pi_es",
+                    "description": "Ficha técnica de Daily Biobasics 6132-pi_es. nutrición completa, energía, defensas, huesos, piel. Ingredientes principales: vitamina a, vitamina c, vitamina d.",
+                    "category": "multivitamínico",
+                    "categories": [
+                              "multivitamínico",
+                              "vitaminas",
+                              "minerales",
+                              "nutrición básica"
+                    ],
+                    "ingredients": [
+                              "vitamina a",
+                              "vitamina c",
+                              "vitamina d",
+                              "vitamina e",
+                              "vitamina k",
+                              "complejo b",
+                              "calcio",
+                              "magnesio",
+                              "zinc",
+                              "selenio"
+                    ],
+                    "benefits": [
+                              "nutrición completa",
+                              "energía",
+                              "defensas",
+                              "huesos",
+                              "piel"
+                    ],
+                    "uses": [
+                              "nutrición diaria",
+                              "prevención",
+                              "energía",
+                              "defensas"
+                    ],
+                    "keywords": [
+                              "multivitamínico",
+                              "vitaminas",
+                              "minerales",
+                              "nutrición",
+                              "energía",
+                              "defensas"
+                    ],
+                    "filePath": "pdfs/Daily BioBasics 6132-PI_ES.pdf",
+                    "fileSize": 317022,
+                    "uploadDate": "2025-09-30T06:32:14.609Z",
+                    "downloadCount": 11,
+                    "composicionNutricional": {
+                              "servingSize": "2 level scoop",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Daily BioBasics Light 6500-PI_ES.pdf",
+                    "title": "Daily Biobasics Light 6500-pi_es",
+                    "description": "Ficha técnica de Daily Biobasics Light 6500-pi_es. nutrición completa, energía, defensas, huesos, piel. Ingredientes principales: vitamina a, vitamina c, vitamina d.",
+                    "category": "multivitamínico",
+                    "categories": [
+                              "multivitamínico",
+                              "vitaminas",
+                              "minerales",
+                              "nutrición básica"
+                    ],
+                    "ingredients": [
+                              "vitamina a",
+                              "vitamina c",
+                              "vitamina d",
+                              "vitamina e",
+                              "vitamina k",
+                              "complejo b",
+                              "calcio",
+                              "magnesio",
+                              "zinc",
+                              "selenio"
+                    ],
+                    "benefits": [
+                              "nutrición completa",
+                              "energía",
+                              "defensas",
+                              "huesos",
+                              "piel"
+                    ],
+                    "uses": [
+                              "nutrición diaria",
+                              "prevención",
+                              "energía",
+                              "defensas"
+                    ],
+                    "keywords": [
+                              "multivitamínico",
+                              "vitaminas",
+                              "minerales",
+                              "nutrición",
+                              "energía",
+                              "defensas"
+                    ],
+                    "filePath": "pdfs/Daily BioBasics Light 6500-PI_ES.pdf",
+                    "fileSize": 438858,
+                    "uploadDate": "2025-09-30T06:31:50.046Z",
+                    "downloadCount": 49,
+                    "composicionNutricional": {
+                              "servingSize": "one 20 cc scoop",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Daily Biobasics Veggie-Caps6193-PI_ES.pdf",
+                    "title": "Daily Biobasics Veggie-caps6193-pi_es",
+                    "description": "Ficha técnica de Daily Biobasics Veggie-caps6193-pi_es. nutrición completa, energía, defensas, huesos, piel. Ingredientes principales: vitamina a, vitamina c, vitamina d.",
+                    "category": "multivitamínico",
+                    "categories": [
+                              "multivitamínico",
+                              "vitaminas",
+                              "minerales",
+                              "nutrición básica"
+                    ],
+                    "ingredients": [
+                              "vitamina a",
+                              "vitamina c",
+                              "vitamina d",
+                              "vitamina e",
+                              "vitamina k",
+                              "complejo b",
+                              "calcio",
+                              "magnesio",
+                              "zinc",
+                              "selenio"
+                    ],
+                    "benefits": [
+                              "nutrición completa",
+                              "energía",
+                              "defensas",
+                              "huesos",
+                              "piel"
+                    ],
+                    "uses": [
+                              "nutrición diaria",
+                              "prevención",
+                              "energía",
+                              "defensas"
+                    ],
+                    "keywords": [
+                              "multivitamínico",
+                              "vitaminas",
+                              "minerales",
+                              "nutrición",
+                              "energía",
+                              "defensas",
+                              "Vitamin A"
+                    ],
+                    "filePath": "pdfs/Daily Biobasics Veggie-Caps6193-PI_ES.pdf",
+                    "fileSize": 315817,
+                    "uploadDate": "2025-09-30T06:31:06.736Z",
+                    "downloadCount": 58,
+                    "composicionNutricional": {
+                              "servingSize": "16 Capsules",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {
+                                        "Vitamin A": {
+                                                  "cantidad": "10.000",
+                                                  "unidad": "ui",
+                                                  "textoCompleto": "vitamina A preformada. Las mujeres que intentan concebir o que están embarazadas no deben consumir \nmás de 10.000 UI"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "egg"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Digestive Formula 6122-PI_ES.pdf",
+                    "title": "Digestive Formula 6122-pi_es",
+                    "description": "Ficha técnica de Digestive Formula 6122-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Digestive Formula 6122-PI_ES.pdf",
+                    "fileSize": 278399,
+                    "uploadDate": "2025-09-30T06:31:17.171Z",
+                    "downloadCount": 54,
+                    "composicionNutricional": {
+                              "servingSize": "1 Tablet",
+                              "servingsPerContainer": "90",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es de origen porcino: bilis",
+                                        "pancreatina",
+                                        "y pancrelipasa."
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "egg"
+                              ]
+                    }
+          },
+          {
+                    "filename": "EPA PLUS.pdf",
+                    "title": "Epa Plus",
+                    "description": "Ficha técnica de Epa Plus. salud cardiovascular, antiinflamatorio, circulación. Ingredientes principales: omega 3, epa, aceite de pescado.",
+                    "category": "omega",
+                    "categories": [
+                              "omega",
+                              "ácidos grasos",
+                              "suplemento cardiovascular"
+                    ],
+                    "ingredients": [
+                              "omega 3",
+                              "epa",
+                              "aceite de pescado",
+                              "vitamina e"
+                    ],
+                    "benefits": [
+                              "salud cardiovascular",
+                              "antiinflamatorio",
+                              "circulación",
+                              "antioxidante",
+                              "sistema inmunitario"
+                    ],
+                    "uses": [
+                              "corazón",
+                              "circulación",
+                              "articulaciones"
+                    ],
+                    "keywords": [
+                              "epa",
+                              "omega 3",
+                              "aceite de pescado",
+                              "cardiovascular",
+                              "Vitamin E",
+                              "EPA (Eicosapentaenoic Acid)",
+                              "DHA (Docosahexaenoic Acid)",
+                              "Cholesterol"
+                    ],
+                    "filePath": "pdfs/EPA PLUS.pdf",
+                    "fileSize": 203577,
+                    "uploadDate": "2025-09-30T06:32:28.456Z",
+                    "downloadCount": 42,
+                    "composicionNutricional": {
+                              "servingSize": "1 Capsule",
+                              "servingsPerContainer": "90",
+                              "vitaminas": {
+                                        "Vitamin E": {
+                                                  "cantidad": "1.34",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin E                                   1.34 mg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {
+                                        "EPA (Eicosapentaenoic Acid)": {
+                                                  "cantidad": "140",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "EPA (Eicosapentaenoic Acid)    140 mg"
+                                        },
+                                        "DHA (Docosahexaenoic Acid)": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "DHA (Docosahexaenoic Acid)  100 mg"
+                                        }
+                              },
+                              "otrosNutrientes": {
+                                        "Cholesterol": {
+                                                  "cantidad": "7",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Cholesterol                                     7 mg"
+                                        }
+                              },
+                              "ingredientesPrincipales": [],
+                              "alergenos": [
+                                        "fish",
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "EPA Plus 4033-PI_ES.pdf",
+                    "title": "Epa Plus 4033-pi_es",
+                    "description": "Ficha técnica de Epa Plus 4033-pi_es. salud cardiovascular, antiinflamatorio, circulación. Ingredientes principales: omega 3, epa, aceite de pescado.",
+                    "category": "omega",
+                    "categories": [
+                              "omega",
+                              "ácidos grasos",
+                              "suplemento cardiovascular"
+                    ],
+                    "ingredients": [
+                              "omega 3",
+                              "epa",
+                              "aceite de pescado",
+                              "vitamina e"
+                    ],
+                    "benefits": [
+                              "salud cardiovascular",
+                              "antiinflamatorio",
+                              "circulación",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "función cerebral"
+                    ],
+                    "uses": [
+                              "corazón",
+                              "circulación",
+                              "articulaciones"
+                    ],
+                    "keywords": [
+                              "epa",
+                              "omega 3",
+                              "aceite de pescado",
+                              "cardiovascular",
+                              "Vitamin E",
+                              "Total Omega-3",
+                              "EPA (Eicosapentaenoic Acid)",
+                              "DHA (Docosahexaenoic Acid)",
+                              "Cholesterol"
+                    ],
+                    "filePath": "pdfs/EPA Plus 4033-PI_ES.pdf",
+                    "fileSize": 291109,
+                    "uploadDate": "2025-09-30T06:31:45.677Z",
+                    "downloadCount": 13,
+                    "composicionNutricional": {
+                              "servingSize": "1 Capsule",
+                              "servingsPerContainer": "90",
+                              "vitaminas": {
+                                        "Vitamin E": {
+                                                  "cantidad": "1.34",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin E 1.34 mg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {
+                                        "Total Omega-3": {
+                                                  "cantidad": "140",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Omega-3 Polyunsaturates EPA \n(Eicosapentaenoic Acid, 140 \nmg"
+                                        },
+                                        "EPA (Eicosapentaenoic Acid)": {
+                                                  "cantidad": "140",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "EPA (Eicosapentaenoic Acid) 140 mg"
+                                        },
+                                        "DHA (Docosahexaenoic Acid)": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "DHA (Docosahexaenoic Acid) 100 mg"
+                                        }
+                              },
+                              "otrosNutrientes": {
+                                        "Cholesterol": {
+                                                  "cantidad": "7",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Cholesterol  7  mg"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "Marine Lipid Concentrate",
+                                        "Capsule"
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "fish",
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "EYE FORMULA 2.pdf",
+                    "title": "Eye Formula 2",
+                    "description": "Ficha técnica de Eye Formula 2. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "energía",
+                              "metabolismo",
+                              "salud ósea",
+                              "músculos",
+                              "piel"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin A",
+                              "Vitamin C",
+                              "Niacin (Vitamin B3)",
+                              "Magnesium",
+                              "Zinc",
+                              "Selenium"
+                    ],
+                    "filePath": "pdfs/EYE FORMULA 2.pdf",
+                    "fileSize": 553017,
+                    "uploadDate": "2025-09-30T06:32:17.335Z",
+                    "downloadCount": 22,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Vitamin A": {
+                                                  "cantidad": "375",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin A (as Beta-Carotene)375mcg"
+                                        },
+                                        "Vitamin C": {
+                                                  "cantidad": "70",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C70mg"
+                                        },
+                                        "Niacin (Vitamin B3)": {
+                                                  "cantidad": "10",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Niacin (Nicotinamide)10mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Magnesium": {
+                                                  "cantidad": "7",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Magnesium7mg"
+                                        },
+                                        "Zinc": {
+                                                  "cantidad": "5",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Zinc5mg"
+                                        },
+                                        "Selenium": {
+                                                  "cantidad": "50",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Selenium50mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es de hierbas naturales que combina los conocimientos tradicionales con los nuevos"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Endocryn® DHEA 210-PI_ES.pdf",
+                    "title": "Endocryn Dhea 210-pi_es",
+                    "description": "Ficha técnica de Endocryn Dhea 210-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "energía",
+                              "metabolismo"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Pantothenic Acid (Vitamin B5)"
+                    ],
+                    "filePath": "pdfs/Endocryn® DHEA 210-PI_ES.pdf",
+                    "fileSize": 552814,
+                    "uploadDate": "2025-09-30T06:31:56.800Z",
+                    "downloadCount": 31,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 90",
+                              "vitaminas": {
+                                        "Pantothenic Acid (Vitamin B5)": {
+                                                  "cantidad": "10",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Pantothenic Acid10 mg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Evening Primrose Oil 6237-PI_ES.pdf",
+                    "title": "Evening Primrose Oil 6237-pi_es",
+                    "description": "Ficha técnica de Evening Primrose Oil 6237-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin E"
+                    ],
+                    "filePath": "pdfs/Evening Primrose Oil 6237-PI_ES.pdf",
+                    "fileSize": 177353,
+                    "uploadDate": "2025-09-30T06:32:25.285Z",
+                    "downloadCount": 37,
+                    "composicionNutricional": {
+                              "servingSize": "2 Capsules",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {
+                                        "Vitamin E": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin E (D-Alpha-Tocopherol) 20 mg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Evening  Primrose  Oil",
+                                        "Capsule  Shell  (Glycerin"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Eye Formula 6111-PI_ES.pdf",
+                    "title": "Eye Formula 6111-pi_es",
+                    "description": "Ficha técnica de Eye Formula 6111-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "energía",
+                              "metabolismo",
+                              "salud ósea",
+                              "músculos",
+                              "piel"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin C",
+                              "Niacin (Vitamin B3)",
+                              "Magnesium",
+                              "Zinc",
+                              "Selenium"
+                    ],
+                    "filePath": "pdfs/Eye Formula 6111-PI_ES.pdf",
+                    "fileSize": 202000,
+                    "uploadDate": "2025-09-30T06:31:34.031Z",
+                    "downloadCount": 40,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "70",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C70mg"
+                                        },
+                                        "Niacin (Vitamin B3)": {
+                                                  "cantidad": "10",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Niacin (Nicotinamide)10mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Magnesium": {
+                                                  "cantidad": "7",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Magnesium7 mg"
+                                        },
+                                        "Zinc": {
+                                                  "cantidad": "5",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Zinc5 mg"
+                                        },
+                                        "Selenium": {
+                                                  "cantidad": "50",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Selenium50mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es de hierbas naturales que combina los conocimientos tradicionales con los nuevos"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "FASEO_LEAN FORTE SOLO DISPONIBLE EN USA .pdf",
+                    "title": "Faseo_lean Forte Solo Disponible En Usa",
+                    "description": "Ficha técnica de Faseo_lean Forte Solo Disponible En Usa. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Total Carbohydrate",
+                              "Sodium"
+                    ],
+                    "filePath": "pdfs/FASEO_LEAN FORTE SOLO DISPONIBLE EN USA .pdf",
+                    "fileSize": 563593,
+                    "uploadDate": "2025-09-30T06:32:10.345Z",
+                    "downloadCount": 13,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Tablet",
+                              "servingsPerContainer": "/ 90",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "1",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrates1 g"
+                                        },
+                                        "Sodium": {
+                                                  "cantidad": "9",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Sodium9 mg"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "e"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "FASEO_LEAN FORTE.pdf",
+                    "title": "Faseo_lean Forte",
+                    "description": "Ficha técnica de Faseo_lean Forte. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Total Carbohydrate",
+                              "Sodium"
+                    ],
+                    "filePath": "pdfs/FASEO_LEAN FORTE.pdf",
+                    "fileSize": 563593,
+                    "uploadDate": "2025-09-18T05:14:48.334Z",
+                    "downloadCount": 44,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Tablet",
+                              "servingsPerContainer": "/ 90",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "1",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrates1 g"
+                                        },
+                                        "Sodium": {
+                                                  "cantidad": "9",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Sodium9 mg"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "e"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "FUSIONS RED  2.pdf",
+                    "title": "Fusions Red  2",
+                    "description": "Ficha técnica de Fusions Red  2. antioxidante, juventud, vitalidad, piel. Ingredientes principales: frutas rojas, arándanos, frambuesas.",
+                    "category": "antioxidantes",
+                    "categories": [
+                              "antioxidantes",
+                              "frutas",
+                              "superfoods"
+                    ],
+                    "ingredients": [
+                              "frutas rojas",
+                              "arándanos",
+                              "frambuesas",
+                              "granada",
+                              "vitamina c"
+                    ],
+                    "benefits": [
+                              "antioxidante",
+                              "juventud",
+                              "vitalidad",
+                              "piel"
+                    ],
+                    "uses": [
+                              "antioxidante",
+                              "piel joven",
+                              "vitalidad",
+                              "antiaging"
+                    ],
+                    "keywords": [
+                              "antioxidante",
+                              "frutas rojas",
+                              "arándanos",
+                              "superfoods"
+                    ],
+                    "filePath": "pdfs/FUSIONS RED  2.pdf",
+                    "fileSize": 121428,
+                    "uploadDate": "2025-09-30T06:32:24.422Z",
+                    "downloadCount": 11,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Proprietary Fruit Blend (Montmorency Sour Cherry (Prunus cerasusL. subsp."
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "fish",
+                                        "shellfish"
+                              ]
+                    }
+          },
+          {
+                    "filename": "FUSIONS RED .pdf",
+                    "title": "Fusions Red",
+                    "description": "Ficha técnica de Fusions Red. antioxidante, juventud, vitalidad, piel. Ingredientes principales: frutas rojas, arándanos, frambuesas.",
+                    "category": "antioxidantes",
+                    "categories": [
+                              "antioxidantes",
+                              "frutas",
+                              "superfoods"
+                    ],
+                    "ingredients": [
+                              "frutas rojas",
+                              "arándanos",
+                              "frambuesas",
+                              "granada",
+                              "vitamina c"
+                    ],
+                    "benefits": [
+                              "antioxidante",
+                              "juventud",
+                              "vitalidad",
+                              "piel"
+                    ],
+                    "uses": [
+                              "antioxidante",
+                              "piel joven",
+                              "vitalidad",
+                              "antiaging"
+                    ],
+                    "keywords": [
+                              "antioxidante",
+                              "frutas rojas",
+                              "arándanos",
+                              "superfoods"
+                    ],
+                    "filePath": "pdfs/FUSIONS RED .pdf",
+                    "fileSize": 121428,
+                    "uploadDate": "2025-09-18T05:14:48.335Z",
+                    "downloadCount": 51,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Proprietary Fruit Blend (Montmorency Sour Cherry (Prunus cerasusL. subsp."
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "fish",
+                                        "shellfish"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Feminine Balance - New Improved Formula  SOLO  DISPONIBLE EN USA 6002-PI_ES.pdf",
+                    "title": "Feminine Balance - New Improved Formula  Solo  Disponible En Usa 6002-pi_es",
+                    "description": "Ficha técnica de Feminine Balance - New Improved Formula  Solo  Disponible En Usa 6002-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "salud ósea",
+                              "músculos"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Magnesium"
+                    ],
+                    "filePath": "pdfs/Feminine Balance - New Improved Formula  SOLO  DISPONIBLE EN USA 6002-PI_ES.pdf",
+                    "fileSize": 256448,
+                    "uploadDate": "2025-09-30T06:31:46.047Z",
+                    "downloadCount": 43,
+                    "composicionNutricional": {
+                              "servingSize": "/ 5 Tablet",
+                              "servingsPerContainer": "/ 48",
+                              "vitaminas": {},
+                              "minerales": {
+                                        "Magnesium": {
+                                                  "cantidad": "150",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Magnesium (Total)150mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Magnesium Citrate",
+                                        "Magnesium Malate Trihydrate",
+                                        "Kudzu (Pueraria lobata (Willd.) Ohwi) Root Extract (40% Kudzu Isoflavones)",
+                                        ""
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Forever Young Gentle Cream Cleanser.pdf",
+                    "title": "Forever Young Gentle Cream Cleanser",
+                    "description": "Ficha técnica de Forever Young Gentle Cream Cleanser. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Forever Young Gentle Cream Cleanser.pdf",
+                    "fileSize": 196962,
+                    "uploadDate": "2025-09-30T06:31:51.450Z",
+                    "downloadCount": 19,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es:"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Forever Young Radiance Serum.pdf",
+                    "title": "Forever Young Radiance Serum",
+                    "description": "Ficha técnica de Forever Young Radiance Serum. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Forever Young Radiance Serum.pdf",
+                    "fileSize": 217344,
+                    "uploadDate": "2025-09-30T06:31:14.542Z",
+                    "downloadCount": 34,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es:"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Forever Young Rejuvenating Eye Crème.pdf",
+                    "title": "Forever Young Rejuvenating Eye Crème",
+                    "description": "Ficha técnica de Forever Young Rejuvenating Eye Crème. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Forever Young Rejuvenating Eye Crème.pdf",
+                    "fileSize": 216204,
+                    "uploadDate": "2025-09-30T06:31:52.928Z",
+                    "downloadCount": 53,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es:"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Forever Young Repair & Protect Conditioner.pdf",
+                    "title": "Forever Young Repair & Protect Conditioner",
+                    "description": "Ficha técnica de Forever Young Repair & Protect Conditioner. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Forever Young Repair & Protect Conditioner.pdf",
+                    "fileSize": 214300,
+                    "uploadDate": "2025-09-30T06:31:51.962Z",
+                    "downloadCount": 19,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Forever Young Rich Moisturizing Crème.pdf",
+                    "title": "Forever Young Rich Moisturizing Crème",
+                    "description": "Ficha técnica de Forever Young Rich Moisturizing Crème. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Forever Young Rich Moisturizing Crème.pdf",
+                    "fileSize": 216467,
+                    "uploadDate": "2025-09-30T06:31:53.370Z",
+                    "downloadCount": 15,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es:"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Forever Young Skin Formula  6112-PI_ES.pdf",
+                    "title": "Forever Young Skin Formula  6112-pi_es",
+                    "description": "Ficha técnica de Forever Young Skin Formula  6112-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "salud ósea",
+                              "piel"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin C",
+                              "Vitamin D",
+                              "Vitamin E",
+                              "Zinc"
+                    ],
+                    "filePath": "pdfs/Forever Young Skin Formula  6112-PI_ES.pdf",
+                    "fileSize": 321885,
+                    "uploadDate": "2025-09-30T06:32:14.063Z",
+                    "downloadCount": 20,
+                    "composicionNutricional": {
+                              "servingSize": "1 Tablet",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "15",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C 15 mg"
+                                        },
+                                        "Vitamin D": {
+                                                  "cantidad": "1.25",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin D 1.25 mcg"
+                                        },
+                                        "Vitamin E": {
+                                                  "cantidad": "4",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin E 4    mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Zinc": {
+                                                  "cantidad": "2",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Zinc  2  mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es  contribuyen  a  que  la  piel  conserve  su"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Forever Young Strengthen & Restore Shampoo.pdf",
+                    "title": "Forever Young Strengthen & Restore Shampoo",
+                    "description": "Ficha técnica de Forever Young Strengthen & Restore Shampoo. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Forever Young Strengthen & Restore Shampoo.pdf",
+                    "fileSize": 190063,
+                    "uploadDate": "2025-09-30T06:31:53.765Z",
+                    "downloadCount": 30,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es:"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Fusions Red 6861-PI_ES.pdf",
+                    "title": "Fusions Red 6861-pi_es",
+                    "description": "Ficha técnica de Fusions Red 6861-pi_es. antioxidante, juventud, vitalidad, piel. Ingredientes principales: frutas rojas, arándanos, frambuesas.",
+                    "category": "antioxidantes",
+                    "categories": [
+                              "antioxidantes",
+                              "frutas",
+                              "superfoods"
+                    ],
+                    "ingredients": [
+                              "frutas rojas",
+                              "arándanos",
+                              "frambuesas",
+                              "granada",
+                              "vitamina c"
+                    ],
+                    "benefits": [
+                              "antioxidante",
+                              "juventud",
+                              "vitalidad",
+                              "piel"
+                    ],
+                    "uses": [
+                              "antioxidante",
+                              "piel joven",
+                              "vitalidad",
+                              "antiaging"
+                    ],
+                    "keywords": [
+                              "antioxidante",
+                              "frutas rojas",
+                              "arándanos",
+                              "superfoods"
+                    ],
+                    "filePath": "pdfs/Fusions Red 6861-PI_ES.pdf",
+                    "fileSize": 550793,
+                    "uploadDate": "2025-09-30T06:31:38.667Z",
+                    "downloadCount": 13,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Proprietary   Fruit   Blend   (Montmorency   Sour   Cherry   (Prunus"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "HEART FORMULA_ 2.pdf",
+                    "title": "Heart Formula_ 2",
+                    "description": "Ficha técnica de Heart Formula_ 2. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/HEART FORMULA_ 2.pdf",
+                    "fileSize": 141152,
+                    "uploadDate": "2025-09-30T06:32:16.501Z",
+                    "downloadCount": 20,
+                    "composicionNutricional": {
+                              "servingSize": "5 Tablet",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es   han   estado"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Heart Formula 6107-PI_ES.pdf",
+                    "title": "Heart Formula 6107-pi_es",
+                    "description": "Ficha técnica de Heart Formula 6107-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Heart Formula 6107-PI_ES.pdf",
+                    "fileSize": 216564,
+                    "uploadDate": "2025-09-30T06:31:43.488Z",
+                    "downloadCount": 27,
+                    "composicionNutricional": {
+                              "servingSize": "5 Tablet",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es  han"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "IRON PLUS.pdf",
+                    "title": "Iron Plus",
+                    "description": "Ficha técnica de Iron Plus. anemia, oxigenación, energía, cansancio. Ingredientes principales: hierro, vitamina c, ácido fólico.",
+                    "category": "minerales",
+                    "categories": [
+                              "minerales",
+                              "sangre",
+                              "anemia"
+                    ],
+                    "ingredients": [
+                              "hierro",
+                              "vitamina c",
+                              "ácido fólico",
+                              "vitamina b12"
+                    ],
+                    "benefits": [
+                              "anemia",
+                              "oxigenación",
+                              "energía",
+                              "cansancio",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "metabolismo",
+                              "sangre"
+                    ],
+                    "uses": [
+                              "anemia ferropénica",
+                              "fatiga",
+                              "deporte",
+                              "mujeres"
+                    ],
+                    "keywords": [
+                              "hierro",
+                              "anemia",
+                              "fatiga",
+                              "oxigenación",
+                              "energía",
+                              "Vitamin C",
+                              "Folate (Vitamin B9)",
+                              "Vitamin B12",
+                              "Iron"
+                    ],
+                    "filePath": "pdfs/IRON PLUS.pdf",
+                    "fileSize": 541866,
+                    "uploadDate": "2025-09-30T06:32:24.516Z",
+                    "downloadCount": 59,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "130",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C (Ascorbic Acid)130 mg"
+                                        },
+                                        "Folate (Vitamin B9)": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Folate (100 mcg"
+                                        },
+                                        "Vitamin B12": {
+                                                  "cantidad": "25",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "cobalamin)25 mcg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Iron": {
+                                                  "cantidad": "15",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Iron (Ferrous Bis-Glycinate)15 mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Calcium Carbonate",
+                                        "Vitamin C (L-Ascorbic Acid)",
+                                        "Ferrous Glycinate (Ferrous Bis-"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "JOIN FORMULA 6113-PI_ES.pdf",
+                    "title": "Join Formula 6113-pi_es",
+                    "description": "Ficha técnica de Join Formula 6113-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "salud ósea",
+                              "músculos",
+                              "sistema inmunitario",
+                              "piel"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Magnesium",
+                              "Zinc",
+                              "Copper",
+                              "Manganese",
+                              "Potassium"
+                    ],
+                    "filePath": "pdfs/JOIN FORMULA 6113-PI_ES.pdf",
+                    "fileSize": 526601,
+                    "uploadDate": "2025-09-30T06:31:15.349Z",
+                    "downloadCount": 19,
+                    "composicionNutricional": {
+                              "servingSize": "/ 4 Tablet",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {},
+                              "minerales": {
+                                        "Magnesium": {
+                                                  "cantidad": "64",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Magnesium 64mg"
+                                        },
+                                        "Zinc": {
+                                                  "cantidad": "4",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Zinc 4mg"
+                                        },
+                                        "Copper": {
+                                                  "cantidad": "0.2",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Copper 0.2mg"
+                                        },
+                                        "Manganese": {
+                                                  "cantidad": "2",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Manganese 2mg"
+                                        },
+                                        "Potassium": {
+                                                  "cantidad": "132",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Potassium 132mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Glucosamine Sulfate Potassium Chloride Salt (from Shrimp"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Key-Tonic 6648-PI_ES.pdf",
+                    "title": "Key-tonic 6648-pi_es",
+                    "description": "Ficha técnica de Key-tonic 6648-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "energía",
+                              "metabolismo"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin B12"
+                    ],
+                    "filePath": "pdfs/Key-Tonic 6648-PI_ES.pdf",
+                    "fileSize": 403125,
+                    "uploadDate": "2025-09-30T06:31:58.256Z",
+                    "downloadCount": 24,
+                    "composicionNutricional": {
+                              "servingSize": "One 15 cc Scoop",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {
+                                        "Vitamin B12": {
+                                                  "cantidad": "50",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "cobalamin)  50   mcg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "e individual aporta sus"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "LIFEPLUS PETS BASICS 6691-PI_ES.pdf",
+                    "title": "Lifeplus Pets Basics 6691-pi_es",
+                    "description": "Ficha técnica de Lifeplus Pets Basics 6691-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/LIFEPLUS PETS BASICS 6691-PI_ES.pdf",
+                    "fileSize": 340231,
+                    "uploadDate": "2025-09-30T06:32:15.661Z",
+                    "downloadCount": 59,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Multi Vitamin Blend (vegetable fat",
+                                        "yeast extract",
+                                        "dextrose",
+                                        "whey"
+                              ],
+                              "alergenos": [
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "LUNG FORMULA 2.pdf",
+                    "title": "Lung Formula 2",
+                    "description": "Ficha técnica de Lung Formula 2. sistema respiratorio, pulmones sanos, bronquios. Ingredientes principales: vitamina c, vitamina a, zinc.",
+                    "category": "respiratorio",
+                    "categories": [
+                              "respiratorio",
+                              "pulmones",
+                              "bronquios"
+                    ],
+                    "ingredients": [
+                              "vitamina c",
+                              "vitamina a",
+                              "zinc",
+                              "eucalipto",
+                              "menta",
+                              "extractos herbales"
+                    ],
+                    "benefits": [
+                              "sistema respiratorio",
+                              "pulmones sanos",
+                              "bronquios"
+                    ],
+                    "uses": [
+                              "pulmones",
+                              "bronquios",
+                              "resfriados",
+                              "tos"
+                    ],
+                    "keywords": [
+                              "pulmones",
+                              "respiratorio",
+                              "bronquios",
+                              "tos",
+                              "resfriados"
+                    ],
+                    "filePath": "pdfs/LUNG FORMULA 2.pdf",
+                    "fileSize": 516111,
+                    "uploadDate": "2025-09-30T06:32:27.791Z",
+                    "downloadCount": 55,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Calcium  Carbonate",
+                                        "Pleurisy  Root  (Butterfly  Weed;  Asclepias"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "LUNG FORMULA.pdf",
+                    "title": "Lung Formula",
+                    "description": "Ficha técnica de Lung Formula. sistema respiratorio, pulmones sanos, bronquios. Ingredientes principales: vitamina c, vitamina a, zinc.",
+                    "category": "respiratorio",
+                    "categories": [
+                              "respiratorio",
+                              "pulmones",
+                              "bronquios"
+                    ],
+                    "ingredients": [
+                              "vitamina c",
+                              "vitamina a",
+                              "zinc",
+                              "eucalipto",
+                              "menta",
+                              "extractos herbales"
+                    ],
+                    "benefits": [
+                              "sistema respiratorio",
+                              "pulmones sanos",
+                              "bronquios"
+                    ],
+                    "uses": [
+                              "pulmones",
+                              "bronquios",
+                              "resfriados",
+                              "tos"
+                    ],
+                    "keywords": [
+                              "pulmones",
+                              "respiratorio",
+                              "bronquios",
+                              "tos",
+                              "resfriados"
+                    ],
+                    "filePath": "pdfs/LUNG FORMULA.pdf",
+                    "fileSize": 516111,
+                    "uploadDate": "2025-09-18T05:14:48.338Z",
+                    "downloadCount": 26,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Calcium  Carbonate",
+                                        "Pleurisy  Root  (Butterfly  Weed;  Asclepias"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Lifeplus - Natural Hand Cream.pdf",
+                    "title": "Lifeplus - Natural Hand Cream",
+                    "description": "Ficha técnica de Lifeplus - Natural Hand Cream. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Lifeplus - Natural Hand Cream.pdf",
+                    "fileSize": 309304,
+                    "uploadDate": "2025-09-30T06:31:54.726Z",
+                    "downloadCount": 40,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es naturales y orgánicos: sin sustancias químicas agresivas",
+                                        ""
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Lifeplus Discovery 6063-PI_ES.pdf",
+                    "title": "Lifeplus Discovery 6063-pi_es",
+                    "description": "Ficha técnica de Lifeplus Discovery 6063-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Lifeplus Discovery 6063-PI_ES.pdf",
+                    "fileSize": 301746,
+                    "uploadDate": "2025-09-30T06:31:32.091Z",
+                    "downloadCount": 25,
+                    "composicionNutricional": {
+                              "servingSize": "1 Capsule",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Microcrystalline    Cellulose",
+                                        "Hydroxypropyl"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Lung Formula PULMONES SOLO DISPONIBLE EN USA  6115-PI_ES.pdf",
+                    "title": "Lung Formula Pulmones Solo Disponible En Usa  6115-pi_es",
+                    "description": "Ficha técnica de Lung Formula Pulmones Solo Disponible En Usa  6115-pi_es. sistema respiratorio, pulmones sanos, bronquios. Ingredientes principales: vitamina c, vitamina a, zinc.",
+                    "category": "respiratorio",
+                    "categories": [
+                              "respiratorio",
+                              "pulmones",
+                              "bronquios"
+                    ],
+                    "ingredients": [
+                              "vitamina c",
+                              "vitamina a",
+                              "zinc",
+                              "eucalipto",
+                              "menta",
+                              "extractos herbales"
+                    ],
+                    "benefits": [
+                              "sistema respiratorio",
+                              "pulmones sanos",
+                              "bronquios"
+                    ],
+                    "uses": [
+                              "pulmones",
+                              "bronquios",
+                              "resfriados",
+                              "tos"
+                    ],
+                    "keywords": [
+                              "pulmones",
+                              "respiratorio",
+                              "bronquios",
+                              "tos",
+                              "resfriados"
+                    ],
+                    "filePath": "pdfs/Lung Formula PULMONES SOLO DISPONIBLE EN USA  6115-PI_ES.pdf",
+                    "fileSize": 562262,
+                    "uploadDate": "2025-09-30T06:31:18.993Z",
+                    "downloadCount": 26,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Calcium  Carbonate",
+                                        "Pleurisy  Root  (Butterfly  Weed;  Asclepias"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Lyprinex (180ct) 6658-PI_ES.pdf",
+                    "title": "Lyprinex (180ct) 6658-pi_es",
+                    "description": "Ficha técnica de Lyprinex (180ct) 6658-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Lyprinex (180ct) 6658-PI_ES.pdf",
+                    "fileSize": 890129,
+                    "uploadDate": "2025-09-30T06:31:44.704Z",
+                    "downloadCount": 32,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Capsule",
+                              "servingsPerContainer": "/ 180",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Olive  Oil",
+                                        "Gelatin  (Bovine)",
+                                        "Green­Lipped  Mussel  (Perna"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Lyprinex 6108-PI_ES.pdf",
+                    "title": "Lyprinex 6108-pi_es",
+                    "description": "Ficha técnica de Lyprinex 6108-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Lyprinex 6108-PI_ES.pdf",
+                    "fileSize": 608733,
+                    "uploadDate": "2025-09-30T06:31:39.399Z",
+                    "downloadCount": 44,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Capsule",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Olive Oil",
+                                        "Gelatin (Bovine)",
+                                        "Green­Lipped Mussel (Perna"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "MANGO OMEGA .pdf",
+                    "title": "Mango Omega",
+                    "description": "Ficha técnica de Mango Omega. salud cardiovascular, función cerebral, sabor tropical. Ingredientes principales: omega 3, epa, dha.",
+                    "category": "omega",
+                    "categories": [
+                              "omega",
+                              "ácidos grasos",
+                              "suplemento cardiovascular"
+                    ],
+                    "ingredients": [
+                              "omega 3",
+                              "epa",
+                              "dha",
+                              "aceite de pescado",
+                              "mango",
+                              "vitamina e"
+                    ],
+                    "benefits": [
+                              "salud cardiovascular",
+                              "función cerebral",
+                              "sabor tropical",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "antiinflamatorio"
+                    ],
+                    "uses": [
+                              "corazón",
+                              "cerebro",
+                              "niños",
+                              "personas que no tragan pastillas"
+                    ],
+                    "keywords": [
+                              "omega 3",
+                              "mango",
+                              "aceite de pescado",
+                              "epa",
+                              "dha",
+                              "sabor",
+                              "Vitamin E",
+                              "Total Omega-3",
+                              "EPA (Eicosapentaenoic Acid)",
+                              "DHA (Docosahexaenoic Acid)",
+                              "GLA (Gamma-Linolenic Acid)",
+                              "Total Carbohydrate",
+                              "Sugar",
+                              "Sodium",
+                              "Cholesterol"
+                    ],
+                    "filePath": "pdfs/MANGO OMEGA .pdf",
+                    "fileSize": 589069,
+                    "uploadDate": "2025-09-30T06:32:28.890Z",
+                    "downloadCount": 40,
+                    "composicionNutricional": {
+                              "servingSize": "2 tsp (",
+                              "servingsPerContainer": "35",
+                              "vitaminas": {
+                                        "Vitamin E": {
+                                                  "cantidad": "3",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin E3mg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {
+                                        "Total Omega-3": {
+                                                  "cantidad": "950",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Omega-3 fatty acids950mg"
+                                        },
+                                        "EPA (Eicosapentaenoic Acid)": {
+                                                  "cantidad": "475",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "EPA (eicosapentaenoic acid)475mg"
+                                        },
+                                        "DHA (Docosahexaenoic Acid)": {
+                                                  "cantidad": "300",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "DHA (docosahexaenoic acid)300mg"
+                                        },
+                                        "GLA (Gamma-Linolenic Acid)": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "GLA (gamma-linolenic acid)100mg"
+                                        }
+                              },
+                              "otrosNutrientes": {
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "2.7",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrate2.7g"
+                                        },
+                                        "Sugar": {
+                                                  "cantidad": "1.4",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Sugar Alcohol1.4g"
+                                        },
+                                        "Sodium": {
+                                                  "cantidad": "5",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Sodium5mg"
+                                        },
+                                        "Cholesterol": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Cholesterol20mg"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "es   que   se   utilizan"
+                              ],
+                              "alergenos": [
+                                        "fish"
+                              ]
+                    }
+          },
+          {
+                    "filename": "MICRO MINS™ PLUS.pdf",
+                    "title": "Micro Mins Plus",
+                    "description": "Ficha técnica de Micro Mins Plus. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/MICRO MINS™ PLUS.pdf",
+                    "fileSize": 129475,
+                    "uploadDate": "2025-09-30T06:32:23.426Z",
+                    "downloadCount": 33,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "MSM Plus Vital Care Lotion 1021-PI_EN.pdf",
+                    "title": "Msm Plus Vital Care Lotion 1021-pi_en",
+                    "description": "Ficha técnica de Msm Plus Vital Care Lotion 1021-pi_en. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/MSM Plus Vital Care Lotion 1021-PI_EN.pdf",
+                    "fileSize": 179956,
+                    "uploadDate": "2025-09-30T06:32:13.071Z",
+                    "downloadCount": 42,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "MSM Plus pastillas 6127-PI_ES.pdf",
+                    "title": "Msm Plus Pastillas 6127-pi_es",
+                    "description": "Ficha técnica de Msm Plus Pastillas 6127-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Molybdenum"
+                    ],
+                    "filePath": "pdfs/MSM Plus pastillas 6127-PI_ES.pdf",
+                    "fileSize": 213089,
+                    "uploadDate": "2025-09-30T06:32:12.188Z",
+                    "downloadCount": 50,
+                    "composicionNutricional": {
+                              "servingSize": "/ 4 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {},
+                              "minerales": {
+                                        "Molybdenum": {
+                                                  "cantidad": "17",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Molybdenum (as Sodium Molybdate)17   mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Methyl  Sulfonyl  Methane  (MSM)",
+                                        "Stearic  Acid",
+                                        ""
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Micro•Mins™ Plus 6140-PI_ES.pdf",
+                    "title": "Micro•mins Plus 6140-pi_es",
+                    "description": "Ficha técnica de Micro•mins Plus 6140-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "salud ósea",
+                              "músculos",
+                              "sistema inmunitario",
+                              "piel"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Calcium",
+                              "Magnesium",
+                              "Zinc",
+                              "Manganese",
+                              "Potassium"
+                    ],
+                    "filePath": "pdfs/Micro•Mins™ Plus 6140-PI_ES.pdf",
+                    "fileSize": 530813,
+                    "uploadDate": "2025-09-30T06:31:38.309Z",
+                    "downloadCount": 33,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Capsules",
+                              "servingsPerContainer": "/ 30",
+                              "vitaminas": {},
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "145",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium145   mg"
+                                        },
+                                        "Magnesium": {
+                                                  "cantidad": "87",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Magnesium87 mg"
+                                        },
+                                        "Zinc": {
+                                                  "cantidad": "0.3",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Zinc0.3 mg"
+                                        },
+                                        "Manganese": {
+                                                  "cantidad": "0.7",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Manganese0.7mg"
+                                        },
+                                        "Potassium": {
+                                                  "cantidad": "99",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Potassium99mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Organic Humic Shale",
+                                        "Calcium Carbonate",
+                                        "Potassium"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Natural Body Wash.pdf",
+                    "title": "Natural Body Wash",
+                    "description": "Ficha técnica de Natural Body Wash. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Natural Body Wash.pdf",
+                    "fileSize": 228000,
+                    "uploadDate": "2025-09-30T06:31:52.406Z",
+                    "downloadCount": 49,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es de origen"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Natural Gold Hand & Body Bar.pdf",
+                    "title": "Natural Gold Hand & Body Bar",
+                    "description": "Ficha técnica de Natural Gold Hand & Body Bar. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Natural Gold Hand & Body Bar.pdf",
+                    "fileSize": 234545,
+                    "uploadDate": "2025-09-30T06:31:54.330Z",
+                    "downloadCount": 20,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es naturales y cuenta con una base 100 % vegana. Nuestra"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Natural Hand & Body Lotion.pdf",
+                    "title": "Natural Hand & Body Lotion",
+                    "description": "Ficha técnica de Natural Hand & Body Lotion. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Natural Hand & Body Lotion.pdf",
+                    "fileSize": 448197,
+                    "uploadDate": "2025-09-30T06:31:16.502Z",
+                    "downloadCount": 41,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es de origen natural. Formulada con una mezcla exclusiva de"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "OMEGOLD.4999-PI_ES.pdf",
+                    "title": "Omegold.4999-pi_es",
+                    "description": "Ficha técnica de Omegold.4999-pi_es. salud cardiovascular, función cerebral, antiinflamatorio, colesterol, triglicéridos. Ingredientes principales: omega 3, epa, dha.",
+                    "category": "omega",
+                    "categories": [
+                              "omega",
+                              "ácidos grasos",
+                              "suplemento cardiovascular"
+                    ],
+                    "ingredients": [
+                              "omega 3",
+                              "epa",
+                              "dha",
+                              "aceite de pescado",
+                              "ácidos grasos esenciales"
+                    ],
+                    "benefits": [
+                              "salud cardiovascular",
+                              "función cerebral",
+                              "antiinflamatorio",
+                              "colesterol",
+                              "triglicéridos",
+                              "salud ósea",
+                              "sistema inmunitario"
+                    ],
+                    "uses": [
+                              "corazón",
+                              "cerebro",
+                              "articulaciones",
+                              "vista",
+                              "piel"
+                    ],
+                    "keywords": [
+                              "omega 3",
+                              "aceite de pescado",
+                              "epa",
+                              "dha",
+                              "omegold",
+                              "cardiovascular",
+                              "cerebral",
+                              "Vitamin D",
+                              "EPA (Eicosapentaenoic Acid)",
+                              "DHA (Docosahexaenoic Acid)",
+                              "Cholesterol"
+                    ],
+                    "filePath": "pdfs/OMEGOLD.4999-PI_ES.pdf",
+                    "fileSize": 217120,
+                    "uploadDate": "2025-09-30T06:32:11.204Z",
+                    "downloadCount": 48,
+                    "composicionNutricional": {
+                              "servingSize": "1 Softgel Capsule",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {
+                                        "Vitamin D": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin D 20 mcg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {
+                                        "EPA (Eicosapentaenoic Acid)": {
+                                                  "cantidad": "90",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "EPA (Eicosapentaenoic Acid) 90 mg"
+                                        },
+                                        "DHA (Docosahexaenoic Acid)": {
+                                                  "cantidad": "430",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "DHA (Docosahexaenoic Acid; Minimum) 430 mg"
+                                        }
+                              },
+                              "otrosNutrientes": {
+                                        "Cholesterol": {
+                                                  "cantidad": "4",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Cholesterol 4 mg"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "Fish Oil Concentrate (Anchovy",
+                                        "Sardine",
+                                        "Chub"
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "fish"
+                              ]
+                    }
+          },
+          {
+                    "filename": "OMEGOLD®.pdf",
+                    "title": "Omegold",
+                    "description": "Ficha técnica de Omegold. salud cardiovascular, función cerebral, antiinflamatorio, colesterol, triglicéridos. Ingredientes principales: omega 3, epa, dha.",
+                    "category": "omega",
+                    "categories": [
+                              "omega",
+                              "ácidos grasos",
+                              "suplemento cardiovascular"
+                    ],
+                    "ingredients": [
+                              "omega 3",
+                              "epa",
+                              "dha",
+                              "aceite de pescado",
+                              "ácidos grasos esenciales"
+                    ],
+                    "benefits": [
+                              "salud cardiovascular",
+                              "función cerebral",
+                              "antiinflamatorio",
+                              "colesterol",
+                              "triglicéridos"
+                    ],
+                    "uses": [
+                              "corazón",
+                              "cerebro",
+                              "articulaciones",
+                              "vista",
+                              "piel"
+                    ],
+                    "keywords": [
+                              "omega 3",
+                              "aceite de pescado",
+                              "epa",
+                              "dha",
+                              "omegold",
+                              "cardiovascular",
+                              "cerebral",
+                              "Total Omega-3",
+                              "EPA (Eicosapentaenoic Acid)",
+                              "DHA (Docosahexaenoic Acid)"
+                    ],
+                    "filePath": "pdfs/OMEGOLD®.pdf",
+                    "fileSize": 180316,
+                    "uploadDate": "2025-09-18T05:14:48.340Z",
+                    "downloadCount": 10,
+                    "composicionNutricional": {
+                              "servingSize": "1 Softgel Capsule",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {
+                                        "Total Omega-3": {
+                                                  "cantidad": "60",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Omega-3   polinsaturado   EPA   (ácido\neicosapentaenoico, una cantidad mínima de 60 mg"
+                                        },
+                                        "EPA (Eicosapentaenoic Acid)": {
+                                                  "cantidad": "60",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "EPA   (ácido\neicosapentaenoico, una cantidad mínima de 60 mg"
+                                        },
+                                        "DHA (Docosahexaenoic Acid)": {
+                                                  "cantidad": "430",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "DHA (ácido docosahexaenoico, una cantidad mínima de 430 mg"
+                                        }
+                              },
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Fish Oil Concentrate",
+                                        "Capsule Shell (Gelatin",
+                                        ""
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "fish"
+                              ]
+                    }
+          },
+          {
+                    "filename": "PARACLEANSE ™.pdf",
+                    "title": "Paracleanse",
+                    "description": "Ficha técnica de Paracleanse. limpieza parasitaria, sistema digestivo, desintoxicación. Ingredientes principales: extractos antiparasitarios, ajo, nogal.",
+                    "category": "desintoxicación",
+                    "categories": [
+                              "desintoxicación",
+                              "parásitos",
+                              "limpieza"
+                    ],
+                    "ingredients": [
+                              "extractos antiparasitarios",
+                              "ajo",
+                              "nogal",
+                              "genciana",
+                              "clavo"
+                    ],
+                    "benefits": [
+                              "limpieza parasitaria",
+                              "sistema digestivo",
+                              "desintoxicación"
+                    ],
+                    "uses": [
+                              "parásitos",
+                              "limpieza intestinal",
+                              "desintoxicación"
+                    ],
+                    "keywords": [
+                              "parásitos",
+                              "limpieza",
+                              "desintoxicación",
+                              "intestinal"
+                    ],
+                    "filePath": "pdfs/PARACLEANSE ™.pdf",
+                    "fileSize": 573445,
+                    "uploadDate": "2025-09-30T06:32:20.621Z",
+                    "downloadCount": 23,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 180",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es principales"
+                              ],
+                              "alergenos": [
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "PETS CALM 6687-PI_ES.pdf",
+                    "title": "Pets Calm 6687-pi_es",
+                    "description": "Ficha técnica de Pets Calm 6687-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/PETS CALM 6687-PI_ES.pdf",
+                    "fileSize": 770646,
+                    "uploadDate": "2025-09-30T06:32:11.454Z",
+                    "downloadCount": 37,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "PER CHEWABLE (1.5 g):"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "PH PLUS™ 2.pdf",
+                    "title": "Ph Plus 2",
+                    "description": "Ficha técnica de Ph Plus 2. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "salud ósea",
+                              "músculos"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Calcium",
+                              "Magnesium",
+                              "Potassium"
+                    ],
+                    "filePath": "pdfs/PH PLUS™ 2.pdf",
+                    "fileSize": 510149,
+                    "uploadDate": "2025-09-30T06:32:23.580Z",
+                    "downloadCount": 13,
+                    "composicionNutricional": {
+                              "servingSize": "/ 3 Tablet",
+                              "servingsPerContainer": "/ 90",
+                              "vitaminas": {},
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "228",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium (as Calcium Carbonate)228 mg"
+                                        },
+                                        "Magnesium": {
+                                                  "cantidad": "90",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Magnesium (as Magnesium Carbonate)90 mg"
+                                        },
+                                        "Potassium": {
+                                                  "cantidad": "8",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "potassium Phosphate)8 mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Calcium   Carbonate",
+                                        "Potassium   Bicarbonate",
+                                        ""
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "PH PLUS™.pdf",
+                    "title": "Ph Plus",
+                    "description": "Ficha técnica de Ph Plus. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "salud ósea",
+                              "músculos"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Calcium",
+                              "Magnesium",
+                              "Potassium"
+                    ],
+                    "filePath": "pdfs/PH PLUS™.pdf",
+                    "fileSize": 510149,
+                    "uploadDate": "2025-09-18T05:14:48.343Z",
+                    "downloadCount": 36,
+                    "composicionNutricional": {
+                              "servingSize": "/ 3 Tablet",
+                              "servingsPerContainer": "/ 90",
+                              "vitaminas": {},
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "228",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium (as Calcium Carbonate)228 mg"
+                                        },
+                                        "Magnesium": {
+                                                  "cantidad": "90",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Magnesium (as Magnesium Carbonate)90 mg"
+                                        },
+                                        "Potassium": {
+                                                  "cantidad": "8",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "potassium Phosphate)8 mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Calcium   Carbonate",
+                                        "Potassium   Bicarbonate",
+                                        ""
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "PLATA COLOIDAL Colloidal Silver 1945-PI_ES.pdf",
+                    "title": "Plata Coloidal Colloidal Silver 1945-pi_es",
+                    "description": "Ficha técnica de Plata Coloidal Colloidal Silver 1945-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/PLATA COLOIDAL Colloidal Silver 1945-PI_ES.pdf",
+                    "fileSize": 526886,
+                    "uploadDate": "2025-09-30T06:31:35.146Z",
+                    "downloadCount": 37,
+                    "composicionNutricional": {
+                              "servingSize": "1Teaspoon (",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es  naturales.  Su  dorado"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "PROANTHENOLS 100 6192-PI_ES.pdf",
+                    "title": "Proanthenols 100 6192-pi_es",
+                    "description": "Ficha técnica de Proanthenols 100 6192-pi_es. antioxidante potente, circulación, piel joven, visión, antienvejecimiento. Ingredientes principales: extracto de semilla de uva, proantocianidinas, opc.",
+                    "category": "antioxidantes",
+                    "categories": [
+                              "antioxidantes",
+                              "bioflavonoides",
+                              "antienvejecimiento"
+                    ],
+                    "ingredients": [
+                              "extracto de semilla de uva",
+                              "proantocianidinas",
+                              "opc",
+                              "bioflavonoides"
+                    ],
+                    "benefits": [
+                              "antioxidante potente",
+                              "circulación",
+                              "piel joven",
+                              "visión",
+                              "antienvejecimiento",
+                              "antioxidante",
+                              "sistema inmunitario"
+                    ],
+                    "uses": [
+                              "antienvejecimiento",
+                              "piel",
+                              "circulación",
+                              "visión",
+                              "venas"
+                    ],
+                    "keywords": [
+                              "proanthenols",
+                              "semilla de uva",
+                              "antioxidante",
+                              "opc",
+                              "bioflavonoides",
+                              "Vitamin C"
+                    ],
+                    "filePath": "pdfs/PROANTHENOLS 100 6192-PI_ES.pdf",
+                    "fileSize": 454096,
+                    "uploadDate": "2025-09-30T06:32:12.524Z",
+                    "downloadCount": 51,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C\n20 mg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "e  se  basa  en  las"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "PRODUCTOS 2018 es.pdf",
+                    "title": "Productos 2018 Es",
+                    "description": "Ficha técnica de Productos 2018 Es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/PRODUCTOS 2018 es.pdf",
+                    "fileSize": 1800967,
+                    "uploadDate": "2025-09-18T05:14:48.345Z",
+                    "downloadCount": 32,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es de la más alta calidad",
+                                        "sino también al mejor precio posible. SinergiaNuestros procesos de formulación y fabricación llevan a nuestros ingredientes un paso más allá",
+                                        "al atender a las relaciones entre nutrientes.  Es lo que se llama sinergia: combinar los distintos ingredientes"
+                              ],
+                              "alergenos": [
+                                        "egg"
+                              ]
+                    }
+          },
+          {
+                    "filename": "PROSTATE FORMULA.pdf",
+                    "title": "Prostate Formula",
+                    "description": "Ficha técnica de Prostate Formula. próstata saludable, función urinaria, hombres mayores. Ingredientes principales: saw palmetto, pygeum, zinc.",
+                    "category": "salud masculina",
+                    "categories": [
+                              "salud masculina",
+                              "próstata",
+                              "hombres"
+                    ],
+                    "ingredients": [
+                              "saw palmetto",
+                              "pygeum",
+                              "zinc",
+                              "selenio",
+                              "beta-sitosterol"
+                    ],
+                    "benefits": [
+                              "próstata saludable",
+                              "función urinaria",
+                              "hombres mayores",
+                              "antioxidante",
+                              "sistema inmunitario"
+                    ],
+                    "uses": [
+                              "próstata",
+                              "orinar",
+                              "hombres",
+                              "nocturia"
+                    ],
+                    "keywords": [
+                              "próstata",
+                              "hombres",
+                              "orinar",
+                              "salud masculina",
+                              "Vitamin E",
+                              "Selenium"
+                    ],
+                    "filePath": "pdfs/PROSTATE FORMULA.pdf",
+                    "fileSize": 568178,
+                    "uploadDate": "2025-09-18T05:14:48.347Z",
+                    "downloadCount": 29,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Vitamin E": {
+                                                  "cantidad": "86",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin E 86 mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Selenium": {
+                                                  "cantidad": "50",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Selenium 50 mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Microcrystalline Cellulose",
+                                        "Saw Palmetto Berry Extract",
+                                        "Nettle Root Extract",
+                                        "Pygeum (Pygeum africanum L.) Bark Extract",
+                                        ""
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "ParaCleanse SOLO DISPONIBLE EN USA  6117-PI_ES.pdf",
+                    "title": "Paracleanse Solo Disponible En Usa  6117-pi_es",
+                    "description": "Ficha técnica de Paracleanse Solo Disponible En Usa  6117-pi_es. limpieza parasitaria, sistema digestivo, desintoxicación. Ingredientes principales: extractos antiparasitarios, ajo, nogal.",
+                    "category": "desintoxicación",
+                    "categories": [
+                              "desintoxicación",
+                              "parásitos",
+                              "limpieza"
+                    ],
+                    "ingredients": [
+                              "extractos antiparasitarios",
+                              "ajo",
+                              "nogal",
+                              "genciana",
+                              "clavo"
+                    ],
+                    "benefits": [
+                              "limpieza parasitaria",
+                              "sistema digestivo",
+                              "desintoxicación"
+                    ],
+                    "uses": [
+                              "parásitos",
+                              "limpieza intestinal",
+                              "desintoxicación"
+                    ],
+                    "keywords": [
+                              "parásitos",
+                              "limpieza",
+                              "desintoxicación",
+                              "intestinal"
+                    ],
+                    "filePath": "pdfs/ParaCleanse SOLO DISPONIBLE EN USA  6117-PI_ES.pdf",
+                    "fileSize": 510380,
+                    "uploadDate": "2025-09-30T06:31:33.183Z",
+                    "downloadCount": 35,
+                    "composicionNutricional": {
+                              "servingSize": "/ 3 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es principales"
+                              ],
+                              "alergenos": [
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Pets™ Move 6688-PI_ES.pdf",
+                    "title": "Pets Move 6688-pi_es",
+                    "description": "Ficha técnica de Pets Move 6688-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Pets™ Move 6688-PI_ES.pdf",
+                    "fileSize": 776972,
+                    "uploadDate": "2025-09-30T06:32:09.252Z",
+                    "downloadCount": 38,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es naturales en una fórmula única para"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Phase‘olean® Forte SOLO DISPONIBLE EN USA  6106-PI_ES.pdf",
+                    "title": "Phase‘olean Forte Solo Disponible En Usa  6106-pi_es",
+                    "description": "Ficha técnica de Phase‘olean Forte Solo Disponible En Usa  6106-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Total Carbohydrate",
+                              "Sodium"
+                    ],
+                    "filePath": "pdfs/Phase‘olean® Forte SOLO DISPONIBLE EN USA  6106-PI_ES.pdf",
+                    "fileSize": 220359,
+                    "uploadDate": "2025-09-30T06:31:49.535Z",
+                    "downloadCount": 26,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Tablet",
+                              "servingsPerContainer": "/ 90",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "1",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrates1 g"
+                                        },
+                                        "Sodium": {
+                                                  "cantidad": "9",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Sodium9 mg"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "e"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Proanthenol 50mg 6191-PI_ES.pdf",
+                    "title": "Proanthenol 50mg 6191-pi_es",
+                    "description": "Ficha técnica de Proanthenol 50mg 6191-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin C"
+                    ],
+                    "filePath": "pdfs/Proanthenol 50mg 6191-PI_ES.pdf",
+                    "fileSize": 456303,
+                    "uploadDate": "2025-09-30T06:31:07.677Z",
+                    "downloadCount": 39,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C (Ascorbic Acid)\n20 mg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "e  se  basa  en  las"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Proanthenols™ 100.pdf",
+                    "title": "Proanthenols 100",
+                    "description": "Ficha técnica de Proanthenols 100. antioxidante potente, circulación, piel joven, visión, antienvejecimiento. Ingredientes principales: extracto de semilla de uva, proantocianidinas, opc.",
+                    "category": "antioxidantes",
+                    "categories": [
+                              "antioxidantes",
+                              "bioflavonoides",
+                              "antienvejecimiento"
+                    ],
+                    "ingredients": [
+                              "extracto de semilla de uva",
+                              "proantocianidinas",
+                              "opc",
+                              "bioflavonoides"
+                    ],
+                    "benefits": [
+                              "antioxidante potente",
+                              "circulación",
+                              "piel joven",
+                              "visión",
+                              "antienvejecimiento",
+                              "antioxidante",
+                              "sistema inmunitario"
+                    ],
+                    "uses": [
+                              "antienvejecimiento",
+                              "piel",
+                              "circulación",
+                              "visión",
+                              "venas"
+                    ],
+                    "keywords": [
+                              "proanthenols",
+                              "semilla de uva",
+                              "antioxidante",
+                              "opc",
+                              "bioflavonoides",
+                              "Vitamin C"
+                    ],
+                    "filePath": "pdfs/Proanthenols™ 100.pdf",
+                    "fileSize": 660219,
+                    "uploadDate": "2025-09-18T05:14:48.344Z",
+                    "downloadCount": 30,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C (Ascorbic Acid)\n20 mg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "e  se  basa  en  las"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Prostate Formula SOLO DISPONIBLE EN USA  6118-PI_ES.pdf",
+                    "title": "Prostate Formula Solo Disponible En Usa  6118-pi_es",
+                    "description": "Ficha técnica de Prostate Formula Solo Disponible En Usa  6118-pi_es. próstata saludable, función urinaria, hombres mayores. Ingredientes principales: saw palmetto, pygeum, zinc.",
+                    "category": "salud masculina",
+                    "categories": [
+                              "salud masculina",
+                              "próstata",
+                              "hombres"
+                    ],
+                    "ingredients": [
+                              "saw palmetto",
+                              "pygeum",
+                              "zinc",
+                              "selenio",
+                              "beta-sitosterol"
+                    ],
+                    "benefits": [
+                              "próstata saludable",
+                              "función urinaria",
+                              "hombres mayores",
+                              "antioxidante",
+                              "sistema inmunitario"
+                    ],
+                    "uses": [
+                              "próstata",
+                              "orinar",
+                              "hombres",
+                              "nocturia"
+                    ],
+                    "keywords": [
+                              "próstata",
+                              "hombres",
+                              "orinar",
+                              "salud masculina",
+                              "Vitamin E",
+                              "Selenium"
+                    ],
+                    "filePath": "pdfs/Prostate Formula SOLO DISPONIBLE EN USA  6118-PI_ES.pdf",
+                    "fileSize": 584985,
+                    "uploadDate": "2025-09-30T06:31:32.218Z",
+                    "downloadCount": 20,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Vitamin E": {
+                                                  "cantidad": "86",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin E 86 mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Selenium": {
+                                                  "cantidad": "50",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Selenium 50 mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Microcrystalline Cellulose",
+                                        "Saw Palmetto Berry Extract",
+                                        "Nettle Root Extract",
+                                        "Pygeum ("
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "REAL NRG.pdf",
+                    "title": "Real Nrg",
+                    "description": "Ficha técnica de Real Nrg. energía natural, vitalidad, fatiga, rendimiento. Ingredientes principales: vitamina b, vitamina c, magnesio.",
+                    "category": "energía",
+                    "categories": [
+                              "energía",
+                              "fatiga",
+                              "vitalidad"
+                    ],
+                    "ingredients": [
+                              "vitamina b",
+                              "vitamina c",
+                              "magnesio",
+                              "potasio",
+                              "guaraná",
+                              "ginseng"
+                    ],
+                    "benefits": [
+                              "energía natural",
+                              "vitalidad",
+                              "fatiga",
+                              "rendimiento"
+                    ],
+                    "uses": [
+                              "fatiga",
+                              "energía",
+                              "rendimiento",
+                              "estrés"
+                    ],
+                    "keywords": [
+                              "energía",
+                              "fatiga",
+                              "vitalidad",
+                              "rendimiento",
+                              "estrés"
+                    ],
+                    "filePath": "pdfs/REAL NRG.pdf",
+                    "fileSize": 109699,
+                    "uploadDate": "2025-09-18T05:14:48.349Z",
+                    "downloadCount": 53,
+                    "composicionNutricional": {
+                              "servingSize": "1 Level Scoop",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Fructose",
+                                        "Citric Acid",
+                                        "Taurine",
+                                        "L-Tyrosine",
+                                        "Guarana Seed Extract",
+                                        "L-Phenylalanine",
+                                        "Vitamin C (L-Ascorbic Acid)",
+                                        "L-Carnitine",
+                                        "Glycine",
+                                        "Caffeine",
+                                        ""
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Real NRG 6681-PI_ES.pdf",
+                    "title": "Real Nrg 6681-pi_es",
+                    "description": "Ficha técnica de Real Nrg 6681-pi_es. energía natural, vitalidad, fatiga, rendimiento. Ingredientes principales: vitamina b, vitamina c, magnesio.",
+                    "category": "energía",
+                    "categories": [
+                              "energía",
+                              "fatiga",
+                              "vitalidad"
+                    ],
+                    "ingredients": [
+                              "vitamina b",
+                              "vitamina c",
+                              "magnesio",
+                              "potasio",
+                              "guaraná",
+                              "ginseng"
+                    ],
+                    "benefits": [
+                              "energía natural",
+                              "vitalidad",
+                              "fatiga",
+                              "rendimiento",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "energía",
+                              "metabolismo",
+                              "piel"
+                    ],
+                    "uses": [
+                              "fatiga",
+                              "energía",
+                              "rendimiento",
+                              "estrés"
+                    ],
+                    "keywords": [
+                              "energía",
+                              "fatiga",
+                              "vitalidad",
+                              "rendimiento",
+                              "estrés",
+                              "Vitamin C",
+                              "Vitamin E",
+                              "Thiamin (Vitamin B1)",
+                              "Riboflavin (Vitamin B2)",
+                              "Niacin (Vitamin B3)",
+                              "Vitamin B6",
+                              "Folate (Vitamin B9)",
+                              "Vitamin B12",
+                              "Pantothenic Acid (Vitamin B5)",
+                              "Zinc",
+                              "Chromium",
+                              "Total Carbohydrate",
+                              "Sugar"
+                    ],
+                    "filePath": "pdfs/Real NRG 6681-PI_ES.pdf",
+                    "fileSize": 169454,
+                    "uploadDate": "2025-09-30T06:31:47.993Z",
+                    "downloadCount": 43,
+                    "composicionNutricional": {
+                              "servingSize": "1 Level",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C100 mg"
+                                        },
+                                        "Vitamin E": {
+                                                  "cantidad": "8.3",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin E8.3 mg"
+                                        },
+                                        "Thiamin (Vitamin B1)": {
+                                                  "cantidad": "2",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin B1) 2 mg"
+                                        },
+                                        "Riboflavin (Vitamin B2)": {
+                                                  "cantidad": "2",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin B2)2 mg"
+                                        },
+                                        "Niacin (Vitamin B3)": {
+                                                  "cantidad": "18",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Niacin18 mg"
+                                        },
+                                        "Vitamin B6": {
+                                                  "cantidad": "3",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin B63 mg"
+                                        },
+                                        "Folate (Vitamin B9)": {
+                                                  "cantidad": "333",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Folate 333   mcg"
+                                        },
+                                        "Vitamin B12": {
+                                                  "cantidad": "30",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin B1230 mcg"
+                                        },
+                                        "Pantothenic Acid (Vitamin B5)": {
+                                                  "cantidad": "30",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Pantothenic Acid30 mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Zinc": {
+                                                  "cantidad": "3",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Zinc3 mg"
+                                        },
+                                        "Chromium": {
+                                                  "cantidad": "40",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Chromium40 mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "11",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrates11   g"
+                                        },
+                                        "Sugar": {
+                                                  "cantidad": "11",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Sugars11   g"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "Fructose",
+                                        "citric acid",
+                                        "taurine",
+                                        "L-tyrosine",
+                                        "guarana seed extract",
+                                        "L-phenylalanine",
+                                        "L-carnitine L-tartrate",
+                                        "vitamin C (L-ascorbic acid)",
+                                        "glycine",
+                                        ""
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "SUPPORT TABS.pdf",
+                    "title": "Support Tabs",
+                    "description": "Ficha técnica de Support Tabs. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/SUPPORT TABS.pdf",
+                    "fileSize": 113449,
+                    "uploadDate": "2025-09-30T06:32:22.571Z",
+                    "downloadCount": 13,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "ES: carbonato de calcio",
+                                        "vitamina C (ácido L-ascórbico)",
+                                        "L-fenilalanina",
+                                        "agente"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "SlenderLean® 6099-PI_ES.pdf",
+                    "title": "Slenderlean 6099-pi_es",
+                    "description": "Ficha técnica de Slenderlean 6099-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Chromium"
+                    ],
+                    "filePath": "pdfs/SlenderLean® 6099-PI_ES.pdf",
+                    "fileSize": 646933,
+                    "uploadDate": "2025-09-30T06:31:57.910Z",
+                    "downloadCount": 43,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 90",
+                              "vitaminas": {},
+                              "minerales": {
+                                        "Chromium": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Chromium100mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Dicalcium   Phosphate",
+                                        "Stearic   Acid",
+                                        "Silica",
+                                        ""
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Smart Bar - Barrita nutricional Chocolate Supreme BARRITA1808-PI_ES.pdf",
+                    "title": "Smart Bar - Barrita Nutricional Chocolate Supreme Barrita1808-pi_es",
+                    "description": "Ficha técnica de Smart Bar - Barrita Nutricional Chocolate Supreme Barrita1808-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Smart Bar - Barrita nutricional Chocolate Supreme BARRITA1808-PI_ES.pdf",
+                    "fileSize": 508797,
+                    "uploadDate": "2025-09-30T06:31:45.081Z",
+                    "downloadCount": 12,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "from milk",
+                                        "soya",
+                                        "eggs",
+                                        "tree nuts (almonds)",
+                                        "and wheat (which may contain gluten)",
+                                        "and"
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "milk",
+                                        "wheat",
+                                        "nuts",
+                                        "egg"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Solis Golden Milk 6673-PI_ES.pdf",
+                    "title": "Solis Golden Milk 6673-pi_es",
+                    "description": "Ficha técnica de Solis Golden Milk 6673-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Fiber",
+                              "Total Carbohydrate",
+                              "Sugar",
+                              "Sodium"
+                    ],
+                    "filePath": "pdfs/Solis Golden Milk 6673-PI_ES.pdf",
+                    "fileSize": 458695,
+                    "uploadDate": "2025-09-30T06:31:43.987Z",
+                    "downloadCount": 42,
+                    "composicionNutricional": {
+                              "servingSize": "One 15 cc Scoop",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {
+                                        "Fiber": {
+                                                  "cantidad": "1",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Fiber 1  g"
+                                        },
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "3",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrate 3  g"
+                                        },
+                                        "Sugar": {
+                                                  "cantidad": "1",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Sugars 1  g"
+                                        },
+                                        "Sodium": {
+                                                  "cantidad": "27",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Sodium 27   mg"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": [
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Solis Green Medley 6651-PI_ES.pdf",
+                    "title": "Solis Green Medley 6651-pi_es",
+                    "description": "Ficha técnica de Solis Green Medley 6651-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Fiber",
+                              "Total Carbohydrate",
+                              "Sugar"
+                    ],
+                    "filePath": "pdfs/Solis Green Medley 6651-PI_ES.pdf",
+                    "fileSize": 451943,
+                    "uploadDate": "2025-09-30T06:31:41.584Z",
+                    "downloadCount": 52,
+                    "composicionNutricional": {
+                              "servingSize": "One 15 cc Scoop",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {
+                                        "Fiber": {
+                                                  "cantidad": "0",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Fiber 0  g"
+                                        },
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "6",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrate 6  g"
+                                        },
+                                        "Sugar": {
+                                                  "cantidad": "0",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Sugars 0    g"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "es de seis categorías diferentes se"
+                              ],
+                              "alergenos": [
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Solis Purple Flash 2.pdf",
+                    "title": "Solis Purple Flash 2",
+                    "description": "Ficha técnica de Solis Purple Flash 2. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Fiber",
+                              "Total Carbohydrate",
+                              "Sugar"
+                    ],
+                    "filePath": "pdfs/Solis Purple Flash 2.pdf",
+                    "fileSize": 788774,
+                    "uploadDate": "2025-09-30T06:32:17.602Z",
+                    "downloadCount": 53,
+                    "composicionNutricional": {
+                              "servingSize": "One 15 cc Scoop",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {
+                                        "Fiber": {
+                                                  "cantidad": "0",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Fiber 0   g"
+                                        },
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "6",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrate 6   g"
+                                        },
+                                        "Sugar": {
+                                                  "cantidad": "0",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Sugars 0   g"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "*†Blueberry",
+                                        "†Aronia  ("
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Solis Raw Cacao y Mushroom 2.pdf",
+                    "title": "Solis Raw Cacao Y Mushroom 2",
+                    "description": "Ficha técnica de Solis Raw Cacao Y Mushroom 2. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Solis Raw Cacao y Mushroom 2.pdf",
+                    "fileSize": 846482,
+                    "uploadDate": "2025-09-30T06:32:18.459Z",
+                    "downloadCount": 41,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "e principal del chocolate",
+                                        ""
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Somazyme 6141-PI_ES.pdf",
+                    "title": "Somazyme 6141-pi_es",
+                    "description": "Ficha técnica de Somazyme 6141-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Somazyme 6141-PI_ES.pdf",
+                    "fileSize": 608087,
+                    "uploadDate": "2025-09-30T06:26:27.384Z",
+                    "downloadCount": 37,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 120",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es  naturales",
+                                        "entre  los"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "TRIPLE PROTEIN SHAKE.pdf",
+                    "title": "Triple Protein Shake",
+                    "description": "Ficha técnica de Triple Protein Shake. masa muscular, recuperación, saciedad, energía. Ingredientes principales: proteína de suero, proteína de soja, proteína de leche.",
+                    "category": "proteínas",
+                    "categories": [
+                              "proteínas",
+                              "nutrición deportiva",
+                              "deporte"
+                    ],
+                    "ingredients": [
+                              "proteína de suero",
+                              "proteína de soja",
+                              "proteína de leche",
+                              "aminoácidos",
+                              "vitaminas"
+                    ],
+                    "benefits": [
+                              "masa muscular",
+                              "recuperación",
+                              "saciedad",
+                              "energía"
+                    ],
+                    "uses": [
+                              "deporte",
+                              "músculo",
+                              "recuperación",
+                              "dieta",
+                              "saciedad"
+                    ],
+                    "keywords": [
+                              "proteína",
+                              "deporte",
+                              "músculo",
+                              "recuperación",
+                              "energía"
+                    ],
+                    "filePath": "pdfs/TRIPLE PROTEIN SHAKE.pdf",
+                    "fileSize": 177172,
+                    "uploadDate": "2025-09-18T05:14:48.350Z",
+                    "downloadCount": 56,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Soy Protein Isolate",
+                                        "Whey Protein Isolate",
+                                        "Milk Protein"
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "TVM PLUS™.pdf",
+                    "title": "Tvm Plus",
+                    "description": "Ficha técnica de Tvm Plus. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "salud ósea",
+                              "energía",
+                              "metabolismo",
+                              "músculos",
+                              "piel"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin C",
+                              "Vitamin D",
+                              "Vitamin E",
+                              "Vitamin K",
+                              "Niacin (Vitamin B3)",
+                              "Folate (Vitamin B9)",
+                              "Biotin (Vitamin B7)",
+                              "Pantothenic Acid (Vitamin B5)",
+                              "Calcium",
+                              "Magnesium",
+                              "Zinc",
+                              "Selenium",
+                              "Copper",
+                              "Manganese",
+                              "Chromium",
+                              "Molybdenum",
+                              "Iodine"
+                    ],
+                    "filePath": "pdfs/TVM PLUS™.pdf",
+                    "fileSize": 513883,
+                    "uploadDate": "2025-09-18T05:14:48.351Z",
+                    "downloadCount": 25,
+                    "composicionNutricional": {
+                              "servingSize": "/ 3 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "150",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C \n150 mg"
+                                        },
+                                        "Vitamin D": {
+                                                  "cantidad": "8.4",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin D 8.4 mcg"
+                                        },
+                                        "Vitamin E": {
+                                                  "cantidad": "33",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin E 33 mg"
+                                        },
+                                        "Vitamin K": {
+                                                  "cantidad": "40",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin K 40 mcg"
+                                        },
+                                        "Niacin (Vitamin B3)": {
+                                                  "cantidad": "10",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Niacin 10 mg"
+                                        },
+                                        "Folate (Vitamin B9)": {
+                                                  "cantidad": "250",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Folate (250 mcg"
+                                        },
+                                        "Biotin (Vitamin B7)": {
+                                                  "cantidad": "150",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Biotin 150 mcg"
+                                        },
+                                        "Pantothenic Acid (Vitamin B5)": {
+                                                  "cantidad": "7",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Pantothenic Acid 7 mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "300",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium \n300 mg"
+                                        },
+                                        "Magnesium": {
+                                                  "cantidad": "200",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Magnesium 200 mg"
+                                        },
+                                        "Zinc": {
+                                                  "cantidad": "15",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Zinc 15 mg"
+                                        },
+                                        "Selenium": {
+                                                  "cantidad": "63",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Selenium 63 mcg"
+                                        },
+                                        "Copper": {
+                                                  "cantidad": "0.5",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Copper 0.5 mg"
+                                        },
+                                        "Manganese": {
+                                                  "cantidad": "1",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Manganese 1 mg"
+                                        },
+                                        "Chromium": {
+                                                  "cantidad": "90",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Chromium 90 mcg"
+                                        },
+                                        "Molybdenum": {
+                                                  "cantidad": "60",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Molybdenum 60 mcg"
+                                        },
+                                        "Iodine": {
+                                                  "cantidad": "75",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Iodine \n75 mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Calcium Carbonate",
+                                        "Magnesium Oxide",
+                                        "Microcrystalline Cellulose",
+                                        "Vitamin C (Ascorbic Acid)",
+                                        "Zinc Gluconate",
+                                        "Magnesium Gluconate",
+                                        ""
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "TVM-Plus 6102-PI_ES.pdf",
+                    "title": "Tvm-plus 6102-pi_es",
+                    "description": "Ficha técnica de Tvm-plus 6102-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "salud ósea",
+                              "energía",
+                              "metabolismo",
+                              "músculos",
+                              "piel"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin C",
+                              "Vitamin D",
+                              "Vitamin E",
+                              "Vitamin K",
+                              "Niacin (Vitamin B3)",
+                              "Folate (Vitamin B9)",
+                              "Biotin (Vitamin B7)",
+                              "Pantothenic Acid (Vitamin B5)",
+                              "Calcium",
+                              "Magnesium",
+                              "Zinc",
+                              "Selenium",
+                              "Copper",
+                              "Manganese",
+                              "Chromium",
+                              "Molybdenum",
+                              "Iodine"
+                    ],
+                    "filePath": "pdfs/TVM-Plus 6102-PI_ES.pdf",
+                    "fileSize": 240697,
+                    "uploadDate": "2025-09-30T06:31:55.675Z",
+                    "downloadCount": 35,
+                    "composicionNutricional": {
+                              "servingSize": "/ 3 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "150",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C \n150 mg"
+                                        },
+                                        "Vitamin D": {
+                                                  "cantidad": "8.4",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin D 8.4 mcg"
+                                        },
+                                        "Vitamin E": {
+                                                  "cantidad": "33",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin E 33 mg"
+                                        },
+                                        "Vitamin K": {
+                                                  "cantidad": "40",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin K 40 mcg"
+                                        },
+                                        "Niacin (Vitamin B3)": {
+                                                  "cantidad": "10",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Niacin 10 mg"
+                                        },
+                                        "Folate (Vitamin B9)": {
+                                                  "cantidad": "416",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Folate 416 mcg"
+                                        },
+                                        "Biotin (Vitamin B7)": {
+                                                  "cantidad": "150",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Biotin 150 mcg"
+                                        },
+                                        "Pantothenic Acid (Vitamin B5)": {
+                                                  "cantidad": "7",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Pantothenic Acid 7 mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "300",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium \n300 mg"
+                                        },
+                                        "Magnesium": {
+                                                  "cantidad": "200",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Magnesium 200 mg"
+                                        },
+                                        "Zinc": {
+                                                  "cantidad": "15",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Zinc 15 mg"
+                                        },
+                                        "Selenium": {
+                                                  "cantidad": "63",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Selenium 63 mcg"
+                                        },
+                                        "Copper": {
+                                                  "cantidad": "0.5",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Copper 0.5 mg"
+                                        },
+                                        "Manganese": {
+                                                  "cantidad": "1",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Manganese 1 mg"
+                                        },
+                                        "Chromium": {
+                                                  "cantidad": "90",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Chromium 90 mcg"
+                                        },
+                                        "Molybdenum": {
+                                                  "cantidad": "60",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Molybdenum 60 mcg"
+                                        },
+                                        "Iodine": {
+                                                  "cantidad": "75",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Iodine \n75 mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Calcium  Carbonate",
+                                        "Magnesium  Oxide",
+                                        "Microcrystalline  Cellulose",
+                                        "Vitamin  C  (Ascorbic  Acid)",
+                                        "Zinc  Gluconate",
+                                        "Magnesium"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Tea Tree Toothpaste PASTA DE DIENTES  170g_6 oz.pdf",
+                    "title": "Tea Tree Toothpaste Pasta De Dientes  170g_6 Oz",
+                    "description": "Ficha técnica de Tea Tree Toothpaste Pasta De Dientes  170g_6 Oz. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Tea Tree Toothpaste PASTA DE DIENTES  170g_6 oz.pdf",
+                    "fileSize": 220561,
+                    "uploadDate": "2025-09-30T06:31:09.440Z",
+                    "downloadCount": 32,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Triple Protein Shake- Chocolate 6678-PI_ES.pdf",
+                    "title": "Triple Protein Shake- Chocolate 6678-pi_es",
+                    "description": "Ficha técnica de Triple Protein Shake- Chocolate 6678-pi_es. masa muscular, recuperación, saciedad, energía. Ingredientes principales: proteína de suero, proteína de soja, proteína de leche.",
+                    "category": "proteínas",
+                    "categories": [
+                              "proteínas",
+                              "nutrición deportiva",
+                              "deporte"
+                    ],
+                    "ingredients": [
+                              "proteína de suero",
+                              "proteína de soja",
+                              "proteína de leche",
+                              "aminoácidos",
+                              "vitaminas"
+                    ],
+                    "benefits": [
+                              "masa muscular",
+                              "recuperación",
+                              "saciedad",
+                              "energía"
+                    ],
+                    "uses": [
+                              "deporte",
+                              "músculo",
+                              "recuperación",
+                              "dieta",
+                              "saciedad"
+                    ],
+                    "keywords": [
+                              "proteína",
+                              "deporte",
+                              "músculo",
+                              "recuperación",
+                              "energía"
+                    ],
+                    "filePath": "pdfs/Triple Protein Shake- Chocolate 6678-PI_ES.pdf",
+                    "fileSize": 647583,
+                    "uploadDate": "2025-09-30T06:31:59.020Z",
+                    "downloadCount": 38,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Soy  Protein  Isolate",
+                                        "Whey  Protein  Isolate",
+                                        "Milk"
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Triple Protein Shake- Vainilla (sin edulcorante) SOLO EN ALEMANIA 6680-PI_ES.pdf",
+                    "title": "Triple Protein Shake- Vainilla (sin Edulcorante) Solo En Alemania 6680-pi_es",
+                    "description": "Ficha técnica de Triple Protein Shake- Vainilla (sin Edulcorante) Solo En Alemania 6680-pi_es. masa muscular, recuperación, saciedad, energía. Ingredientes principales: proteína de suero, proteína de soja, proteína de leche.",
+                    "category": "proteínas",
+                    "categories": [
+                              "proteínas",
+                              "nutrición deportiva",
+                              "deporte"
+                    ],
+                    "ingredients": [
+                              "proteína de suero",
+                              "proteína de soja",
+                              "proteína de leche",
+                              "aminoácidos",
+                              "vitaminas"
+                    ],
+                    "benefits": [
+                              "masa muscular",
+                              "recuperación",
+                              "saciedad",
+                              "energía"
+                    ],
+                    "uses": [
+                              "deporte",
+                              "músculo",
+                              "recuperación",
+                              "dieta",
+                              "saciedad"
+                    ],
+                    "keywords": [
+                              "proteína",
+                              "deporte",
+                              "músculo",
+                              "recuperación",
+                              "energía"
+                    ],
+                    "filePath": "pdfs/Triple Protein Shake- Vainilla (sin edulcorante) SOLO EN ALEMANIA 6680-PI_ES.pdf",
+                    "fileSize": 647583,
+                    "uploadDate": "2025-09-30T06:31:47.130Z",
+                    "downloadCount": 13,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Soy  Protein  Isolate",
+                                        "Whey  Protein  Isolate",
+                                        "Milk"
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Triple Protein Shake- Vainilla 6679-PI_ES.pdf",
+                    "title": "Triple Protein Shake- Vainilla 6679-pi_es",
+                    "description": "Ficha técnica de Triple Protein Shake- Vainilla 6679-pi_es. masa muscular, recuperación, saciedad, energía. Ingredientes principales: proteína de suero, proteína de soja, proteína de leche.",
+                    "category": "proteínas",
+                    "categories": [
+                              "proteínas",
+                              "nutrición deportiva",
+                              "deporte"
+                    ],
+                    "ingredients": [
+                              "proteína de suero",
+                              "proteína de soja",
+                              "proteína de leche",
+                              "aminoácidos",
+                              "vitaminas"
+                    ],
+                    "benefits": [
+                              "masa muscular",
+                              "recuperación",
+                              "saciedad",
+                              "energía"
+                    ],
+                    "uses": [
+                              "deporte",
+                              "músculo",
+                              "recuperación",
+                              "dieta",
+                              "saciedad"
+                    ],
+                    "keywords": [
+                              "proteína",
+                              "deporte",
+                              "músculo",
+                              "recuperación",
+                              "energía"
+                    ],
+                    "filePath": "pdfs/Triple Protein Shake- Vainilla 6679-PI_ES.pdf",
+                    "fileSize": 647583,
+                    "uploadDate": "2025-09-30T06:31:40.485Z",
+                    "downloadCount": 40,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Soy  Protein  Isolate",
+                                        "Whey  Protein  Isolate",
+                                        "Milk"
+                              ],
+                              "alergenos": [
+                                        "soy",
+                                        "milk"
+                              ]
+                    }
+          },
+          {
+                    "filename": "UBIQUINOL 100.pdf",
+                    "title": "Ubiquinol 100",
+                    "description": "Ficha técnica de Ubiquinol 100. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/UBIQUINOL 100.pdf",
+                    "fileSize": 137526,
+                    "uploadDate": "2025-09-18T05:14:48.352Z",
+                    "downloadCount": 13,
+                    "composicionNutricional": {
+                              "servingSize": "1 Softgel Capsule",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "D-Limonene Oil",
+                                        "Capsule Shell (Gelatin (Bovine)",
+                                        "Glycerin"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Ubiquinol 100 6657-PI_ES.pdf",
+                    "title": "Ubiquinol 100 6657-pi_es",
+                    "description": "Ficha técnica de Ubiquinol 100 6657-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Ubiquinol 100 6657-PI_ES.pdf",
+                    "fileSize": 568853,
+                    "uploadDate": "2025-09-30T06:32:19.567Z",
+                    "downloadCount": 28,
+                    "composicionNutricional": {
+                              "servingSize": "1 Softgel Capsule",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "e de origen animal es la gelatina (de bovino)."
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "VEGAN OMEGOLD®.pdf",
+                    "title": "Vegan Omegold",
+                    "description": "Ficha técnica de Vegan Omegold. salud cardiovascular, función cerebral, antiinflamatorio, colesterol, triglicéridos. Ingredientes principales: omega 3, epa, dha.",
+                    "category": "omega",
+                    "categories": [
+                              "omega",
+                              "ácidos grasos",
+                              "suplemento cardiovascular"
+                    ],
+                    "ingredients": [
+                              "omega 3",
+                              "epa",
+                              "dha",
+                              "aceite de pescado",
+                              "ácidos grasos esenciales"
+                    ],
+                    "benefits": [
+                              "salud cardiovascular",
+                              "función cerebral",
+                              "antiinflamatorio",
+                              "colesterol",
+                              "triglicéridos"
+                    ],
+                    "uses": [
+                              "corazón",
+                              "cerebro",
+                              "articulaciones",
+                              "vista",
+                              "piel"
+                    ],
+                    "keywords": [
+                              "omega 3",
+                              "aceite de pescado",
+                              "epa",
+                              "dha",
+                              "omegold",
+                              "cardiovascular",
+                              "cerebral",
+                              "Total Omega-3",
+                              "EPA (Eicosapentaenoic Acid)",
+                              "DHA (Docosahexaenoic Acid)"
+                    ],
+                    "filePath": "pdfs/VEGAN OMEGOLD®.pdf",
+                    "fileSize": 139951,
+                    "uploadDate": "2025-09-18T05:14:48.353Z",
+                    "downloadCount": 15,
+                    "composicionNutricional": {
+                              "servingSize": "1 Softgel Capsule",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {
+                                        "Total Omega-3": {
+                                                  "cantidad": "125",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "omega-3 poliinsaturados EPA (ácido eicosapentanoico, 125 mg"
+                                        },
+                                        "EPA (Eicosapentaenoic Acid)": {
+                                                  "cantidad": "125",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "EPA (ácido eicosapentanoico, 125 mg"
+                                        },
+                                        "DHA (Docosahexaenoic Acid)": {
+                                                  "cantidad": "250",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "DHA\n(ácido docosahexanoico, 250 mg"
+                                        }
+                              },
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Oil from the Micro-Algae Schizochytrium sp.",
+                                        ""
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "VITA-SAURUS® (1).pdf",
+                    "title": "Vita-saurus (1)",
+                    "description": "Ficha técnica de Vita-saurus (1). salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "salud ósea",
+                              "energía",
+                              "metabolismo",
+                              "músculos",
+                              "piel"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin C",
+                              "Vitamin D",
+                              "Vitamin E",
+                              "Vitamin K",
+                              "Thiamin (Vitamin B1)",
+                              "Riboflavin (Vitamin B2)",
+                              "Niacin (Vitamin B3)",
+                              "Folate (Vitamin B9)",
+                              "Biotin (Vitamin B7)",
+                              "Pantothenic Acid (Vitamin B5)",
+                              "Calcium",
+                              "Magnesium",
+                              "Zinc",
+                              "Selenium",
+                              "Copper",
+                              "Manganese",
+                              "Chromium",
+                              "Molybdenum",
+                              "Iodine",
+                              "Total Carbohydrate",
+                              "Sugar"
+                    ],
+                    "filePath": "pdfs/VITA-SAURUS® (1).pdf",
+                    "fileSize": 524384,
+                    "uploadDate": "2025-09-18T05:14:48.354Z",
+                    "downloadCount": 41,
+                    "composicionNutricional": {
+                              "servingSize": "2 Tablet",
+                              "servingsPerContainer": "90",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C 100 mg"
+                                        },
+                                        "Vitamin D": {
+                                                  "cantidad": "5.6",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin D5.6 mcg"
+                                        },
+                                        "Vitamin E": {
+                                                  "cantidad": "15",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin E 15 mg"
+                                        },
+                                        "Vitamin K": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin K20 mcg"
+                                        },
+                                        "Thiamin (Vitamin B1)": {
+                                                  "cantidad": "3.2",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Thiamin3.2 mg"
+                                        },
+                                        "Riboflavin (Vitamin B2)": {
+                                                  "cantidad": "3.0",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Riboflavin3.0 mg"
+                                        },
+                                        "Niacin (Vitamin B3)": {
+                                                  "cantidad": "13.5",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Niacin13.5 mg"
+                                        },
+                                        "Folate (Vitamin B9)": {
+                                                  "cantidad": "200",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Folate (200 mcg"
+                                        },
+                                        "Biotin (Vitamin B7)": {
+                                                  "cantidad": "60",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Biotin60 mcg"
+                                        },
+                                        "Pantothenic Acid (Vitamin B5)": {
+                                                  "cantidad": "5",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Pantothenic Acid 5 mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "14",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium14 mg"
+                                        },
+                                        "Magnesium": {
+                                                  "cantidad": "4",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Magnesium4 mg"
+                                        },
+                                        "Zinc": {
+                                                  "cantidad": "8",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Zinc8 mg"
+                                        },
+                                        "Selenium": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Selenium20 mcg"
+                                        },
+                                        "Copper": {
+                                                  "cantidad": "0.1",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Copper0.1 mg"
+                                        },
+                                        "Manganese": {
+                                                  "cantidad": "1",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Manganese1 mg"
+                                        },
+                                        "Chromium": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Chromium20 mcg"
+                                        },
+                                        "Molybdenum": {
+                                                  "cantidad": "10",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Molybdenum10 mcg"
+                                        },
+                                        "Iodine": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Iodine100 mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "2",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrate2 g"
+                                        },
+                                        "Sugar": {
+                                                  "cantidad": "1.6",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Sugars1.6 g"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "e muy importante en cualquier"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "VITAMIN C PLUS  2.pdf",
+                    "title": "Vitamin C Plus  2",
+                    "description": "Ficha técnica de Vitamin C Plus  2. defensas, antioxidante, colágeno, piel, cansancio. Ingredientes principales: vitamina c, bioflavonoides, rosa mosqueta.",
+                    "category": "vitaminas",
+                    "categories": [
+                              "vitaminas",
+                              "antioxidantes",
+                              "defensas"
+                    ],
+                    "ingredients": [
+                              "vitamina c",
+                              "bioflavonoides",
+                              "rosa mosqueta",
+                              "ácido ascórbico"
+                    ],
+                    "benefits": [
+                              "defensas",
+                              "antioxidante",
+                              "colágeno",
+                              "piel",
+                              "cansancio",
+                              "sistema inmunitario",
+                              "salud ósea",
+                              "músculos"
+                    ],
+                    "uses": [
+                              "resfriados",
+                              "defensas",
+                              "piel",
+                              "heridas",
+                              "cansancio"
+                    ],
+                    "keywords": [
+                              "vitamina c",
+                              "antioxidante",
+                              "defensas",
+                              "colágeno",
+                              "cansancio",
+                              "Vitamin C",
+                              "Calcium"
+                    ],
+                    "filePath": "pdfs/VITAMIN C PLUS  2.pdf",
+                    "fileSize": 444797,
+                    "uploadDate": "2025-09-30T06:32:21.508Z",
+                    "downloadCount": 36,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Tablet",
+                              "servingsPerContainer": "/ 150",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "1000",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C (from L-Ascorbic Acid, Calcium L-Ascorbate,  \nand Acerola)\n1000 mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "1000",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium L-Ascorbate,  \nand Acerola)\n1000 mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "VITAMIN C PLUS .pdf",
+                    "title": "Vitamin C Plus",
+                    "description": "Ficha técnica de Vitamin C Plus. defensas, antioxidante, colágeno, piel, cansancio. Ingredientes principales: vitamina c, bioflavonoides, rosa mosqueta.",
+                    "category": "vitaminas",
+                    "categories": [
+                              "vitaminas",
+                              "antioxidantes",
+                              "defensas"
+                    ],
+                    "ingredients": [
+                              "vitamina c",
+                              "bioflavonoides",
+                              "rosa mosqueta",
+                              "ácido ascórbico"
+                    ],
+                    "benefits": [
+                              "defensas",
+                              "antioxidante",
+                              "colágeno",
+                              "piel",
+                              "cansancio",
+                              "sistema inmunitario",
+                              "salud ósea",
+                              "músculos"
+                    ],
+                    "uses": [
+                              "resfriados",
+                              "defensas",
+                              "piel",
+                              "heridas",
+                              "cansancio"
+                    ],
+                    "keywords": [
+                              "vitamina c",
+                              "antioxidante",
+                              "defensas",
+                              "colágeno",
+                              "cansancio",
+                              "Vitamin C",
+                              "Calcium"
+                    ],
+                    "filePath": "pdfs/VITAMIN C PLUS .pdf",
+                    "fileSize": 444797,
+                    "uploadDate": "2025-09-18T05:14:48.357Z",
+                    "downloadCount": 31,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Tablet",
+                              "servingsPerContainer": "/ 150",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "1000",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C (from L-Ascorbic Acid, Calcium L-Ascorbate,  \nand Acerola)\n1000 mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "1000",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium L-Ascorbate,  \nand Acerola)\n1000 mg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "VITAMIN E COMPLEX 2.pdf",
+                    "title": "Vitamin E Complex 2",
+                    "description": "Ficha técnica de Vitamin E Complex 2. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/VITAMIN E COMPLEX 2.pdf",
+                    "fileSize": 129566,
+                    "uploadDate": "2025-09-30T06:32:20.415Z",
+                    "downloadCount": 41,
+                    "composicionNutricional": {
+                              "servingSize": "1 Softgel Capsule",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Mixed Tocopherols (from Soy",
+                                        "including D-Alpha-",
+                                        "D-Beta–",
+                                        ""
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "VITAMIN E COMPLEX.pdf",
+                    "title": "Vitamin E Complex",
+                    "description": "Ficha técnica de Vitamin E Complex. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/VITAMIN E COMPLEX.pdf",
+                    "fileSize": 129566,
+                    "uploadDate": "2025-09-18T05:14:48.358Z",
+                    "downloadCount": 34,
+                    "composicionNutricional": {
+                              "servingSize": "1 Softgel Capsule",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Mixed Tocopherols (from Soy",
+                                        "including D-Alpha-",
+                                        "D-Beta–",
+                                        ""
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "VITAMINS D K 2.pdf",
+                    "title": "Vitamins D K 2",
+                    "description": "Ficha técnica de Vitamins D K 2. huesos fuertes, defensas, calcificación, corazón. Ingredientes principales: vitamina d3, vitamina k2, calcio.",
+                    "category": "vitaminas",
+                    "categories": [
+                              "vitaminas",
+                              "huesos",
+                              "inmunidad"
+                    ],
+                    "ingredients": [
+                              "vitamina d3",
+                              "vitamina k2",
+                              "calcio"
+                    ],
+                    "benefits": [
+                              "huesos fuertes",
+                              "defensas",
+                              "calcificación",
+                              "corazón",
+                              "salud ósea",
+                              "sistema inmunitario"
+                    ],
+                    "uses": [
+                              "huesos",
+                              "osteoporosis",
+                              "defensas",
+                              "corazón"
+                    ],
+                    "keywords": [
+                              "vitamina d",
+                              "vitamina k",
+                              "huesos",
+                              "osteoporosis",
+                              "defensas",
+                              "Vitamin D",
+                              "Vitamin K"
+                    ],
+                    "filePath": "pdfs/VITAMINS D K 2.pdf",
+                    "fileSize": 454289,
+                    "uploadDate": "2025-09-30T06:32:27.473Z",
+                    "downloadCount": 26,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Vitamin D": {
+                                                  "cantidad": "324",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin D-324 mcg"
+                                        },
+                                        "Vitamin K": {
+                                                  "cantidad": "225",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin K-225mcg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Calcium Carbonate Microcrystalline Cellulose",
+                                        "Croscarmellose"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "VITAMINS D K.pdf",
+                    "title": "Vitamins D K",
+                    "description": "Ficha técnica de Vitamins D K. huesos fuertes, defensas, calcificación, corazón. Ingredientes principales: vitamina d3, vitamina k2, calcio.",
+                    "category": "vitaminas",
+                    "categories": [
+                              "vitaminas",
+                              "huesos",
+                              "inmunidad"
+                    ],
+                    "ingredients": [
+                              "vitamina d3",
+                              "vitamina k2",
+                              "calcio"
+                    ],
+                    "benefits": [
+                              "huesos fuertes",
+                              "defensas",
+                              "calcificación",
+                              "corazón",
+                              "salud ósea",
+                              "sistema inmunitario"
+                    ],
+                    "uses": [
+                              "huesos",
+                              "osteoporosis",
+                              "defensas",
+                              "corazón"
+                    ],
+                    "keywords": [
+                              "vitamina d",
+                              "vitamina k",
+                              "huesos",
+                              "osteoporosis",
+                              "defensas",
+                              "Vitamin D",
+                              "Vitamin K"
+                    ],
+                    "filePath": "pdfs/VITAMINS D K.pdf",
+                    "fileSize": 454289,
+                    "uploadDate": "2025-09-18T05:14:48.359Z",
+                    "downloadCount": 12,
+                    "composicionNutricional": {
+                              "servingSize": "/ 1 Tablet",
+                              "servingsPerContainer": "/ 60",
+                              "vitaminas": {
+                                        "Vitamin D": {
+                                                  "cantidad": "324",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin D-324 mcg"
+                                        },
+                                        "Vitamin K": {
+                                                  "cantidad": "225",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin K-225mcg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Calcium Carbonate Microcrystalline Cellulose",
+                                        "Croscarmellose"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Vegan OmeGold 4998-PI_ES.pdf",
+                    "title": "Vegan Omegold 4998-pi_es",
+                    "description": "Ficha técnica de Vegan Omegold 4998-pi_es. salud cardiovascular, función cerebral, antiinflamatorio, colesterol, triglicéridos. Ingredientes principales: omega 3, epa, dha.",
+                    "category": "omega",
+                    "categories": [
+                              "omega",
+                              "ácidos grasos",
+                              "suplemento cardiovascular"
+                    ],
+                    "ingredients": [
+                              "omega 3",
+                              "epa",
+                              "dha",
+                              "aceite de pescado",
+                              "ácidos grasos esenciales"
+                    ],
+                    "benefits": [
+                              "salud cardiovascular",
+                              "función cerebral",
+                              "antiinflamatorio",
+                              "colesterol",
+                              "triglicéridos"
+                    ],
+                    "uses": [
+                              "corazón",
+                              "cerebro",
+                              "articulaciones",
+                              "vista",
+                              "piel"
+                    ],
+                    "keywords": [
+                              "omega 3",
+                              "aceite de pescado",
+                              "epa",
+                              "dha",
+                              "omegold",
+                              "cardiovascular",
+                              "cerebral",
+                              "Total Omega-3",
+                              "EPA (Eicosapentaenoic Acid)",
+                              "DHA (Docosahexaenoic Acid)",
+                              "Total Carbohydrate",
+                              "Sugar",
+                              "Cholesterol"
+                    ],
+                    "filePath": "pdfs/Vegan OmeGold 4998-PI_ES.pdf",
+                    "fileSize": 174031,
+                    "uploadDate": "2025-09-30T06:31:46.514Z",
+                    "downloadCount": 37,
+                    "composicionNutricional": {
+                              "servingSize": "1 Capsule",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {
+                                        "Total Omega-3": {
+                                                  "cantidad": "450",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Omega-3 Fatty Acids  450 mg"
+                                        },
+                                        "EPA (Eicosapentaenoic Acid)": {
+                                                  "cantidad": "125",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "EPA (Eicosapentaenoic Acid) 125 mg"
+                                        },
+                                        "DHA (Docosahexaenoic Acid)": {
+                                                  "cantidad": "250",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "DHA (Docosahexaenoic Acid) 250 mg"
+                                        }
+                              },
+                              "otrosNutrientes": {
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "0.3",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrate 0.3 g"
+                                        },
+                                        "Sugar": {
+                                                  "cantidad": "0.1",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Sugars 0.1 g"
+                                        },
+                                        "Cholesterol": {
+                                                  "cantidad": "0",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Cholesterol  0  mg"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "Oil  from  the  Micro-Algae  Schizochytrium"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Vegan Protein Shake- Chocolate 7797-PI_ES.pdf",
+                    "title": "Vegan Protein Shake- Chocolate 7797-pi_es",
+                    "description": "Ficha técnica de Vegan Protein Shake- Chocolate 7797-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Vegan Protein Shake- Chocolate 7797-PI_ES.pdf",
+                    "fileSize": 301655,
+                    "uploadDate": "2025-09-30T06:31:48.958Z",
+                    "downloadCount": 50,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es  se  evita"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "Vita–Saurus 6343-PI_ES.pdf",
+                    "title": "Vita–saurus 6343-pi_es",
+                    "description": "Ficha técnica de Vita–saurus 6343-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "salud ósea",
+                              "energía",
+                              "metabolismo",
+                              "músculos",
+                              "piel"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin C",
+                              "Vitamin D",
+                              "Vitamin E",
+                              "Vitamin K",
+                              "Thiamin (Vitamin B1)",
+                              "Riboflavin (Vitamin B2)",
+                              "Niacin (Vitamin B3)",
+                              "Vitamin B6",
+                              "Folate (Vitamin B9)",
+                              "Vitamin B12",
+                              "Biotin (Vitamin B7)",
+                              "Pantothenic Acid (Vitamin B5)",
+                              "Calcium",
+                              "Magnesium",
+                              "Zinc",
+                              "Selenium",
+                              "Copper",
+                              "Manganese",
+                              "Chromium",
+                              "Molybdenum",
+                              "Iodine",
+                              "Total Carbohydrate",
+                              "Sugar"
+                    ],
+                    "filePath": "pdfs/Vita–Saurus 6343-PI_ES.pdf",
+                    "fileSize": 256552,
+                    "uploadDate": "2025-09-30T06:31:51.004Z",
+                    "downloadCount": 46,
+                    "composicionNutricional": {
+                              "servingSize": "2 Tablet",
+                              "servingsPerContainer": "90",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C     100   mg"
+                                        },
+                                        "Vitamin D": {
+                                                  "cantidad": "5.6",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin D5.6 mcg"
+                                        },
+                                        "Vitamin E": {
+                                                  "cantidad": "15",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin E 15 mg"
+                                        },
+                                        "Vitamin K": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin K20 mcg"
+                                        },
+                                        "Thiamin (Vitamin B1)": {
+                                                  "cantidad": "3.2",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Thiamin3.2  mg"
+                                        },
+                                        "Riboflavin (Vitamin B2)": {
+                                                  "cantidad": "3.0",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Riboflavin3.0  mg"
+                                        },
+                                        "Niacin (Vitamin B3)": {
+                                                  "cantidad": "13.5",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Niacin13.5   mg"
+                                        },
+                                        "Vitamin B6": {
+                                                  "cantidad": "3.2",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin B63.2  mg"
+                                        },
+                                        "Folate (Vitamin B9)": {
+                                                  "cantidad": "333",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Folate333   mcg"
+                                        },
+                                        "Vitamin B12": {
+                                                  "cantidad": "10",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin B1210 mcg"
+                                        },
+                                        "Biotin (Vitamin B7)": {
+                                                  "cantidad": "60",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Biotin60 mcg"
+                                        },
+                                        "Pantothenic Acid (Vitamin B5)": {
+                                                  "cantidad": "5",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Pantothenic Acid 5 mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Calcium": {
+                                                  "cantidad": "14",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Calcium14 mg"
+                                        },
+                                        "Magnesium": {
+                                                  "cantidad": "4",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Magnesium4 mg"
+                                        },
+                                        "Zinc": {
+                                                  "cantidad": "8",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Zinc8 mg"
+                                        },
+                                        "Selenium": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Selenium20 mcg"
+                                        },
+                                        "Copper": {
+                                                  "cantidad": "0.1",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Copper0.1  mg"
+                                        },
+                                        "Manganese": {
+                                                  "cantidad": "1",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Manganese1 mg"
+                                        },
+                                        "Chromium": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Chromium20 mcg"
+                                        },
+                                        "Molybdenum": {
+                                                  "cantidad": "10",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Molybdenum10 mcg"
+                                        },
+                                        "Iodine": {
+                                                  "cantidad": "100",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Iodine100   mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "2",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrate2 g"
+                                        },
+                                        "Sugar": {
+                                                  "cantidad": "1.6",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Sugars1.6  g"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "e muy importante en cualquier"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Wonder Gel.pdf",
+                    "title": "Wonder Gel",
+                    "description": "Ficha técnica de Wonder Gel. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Wonder Gel.pdf",
+                    "fileSize": 194642,
+                    "uploadDate": "2025-09-30T06:32:18.462Z",
+                    "downloadCount": 59,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es naturales para"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "X-CELL CÍTRICOS 6357-PI_ES.pdf",
+                    "title": "X-cell Cítricos 6357-pi_es",
+                    "description": "Ficha técnica de X-cell Cítricos 6357-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin A",
+                              "Vitamin C",
+                              "Fiber",
+                              "Total Carbohydrate"
+                    ],
+                    "filePath": "pdfs/X-CELL CÍTRICOS 6357-PI_ES.pdf",
+                    "fileSize": 480057,
+                    "uploadDate": "2025-09-30T06:31:41.816Z",
+                    "downloadCount": 52,
+                    "composicionNutricional": {
+                              "servingSize": "1 Tablespoon (Approximately",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {
+                                        "Vitamin A": {
+                                                  "cantidad": "750",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin A (Beta Carotene) 750 mcg"
+                                        },
+                                        "Vitamin C": {
+                                                  "cantidad": "200",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C  200 mg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {
+                                        "Fiber": {
+                                                  "cantidad": "2",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Fiber 2   g"
+                                        },
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "3",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrate  3   g"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "e presente en X-Cell. “NO” se refiere a óxido"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "X-Cell™ con polvo de raíz de remolacha 6600-PI_ES.pdf",
+                    "title": "X-cell Con Polvo De Raíz De Remolacha 6600-pi_es",
+                    "description": "Ficha técnica de X-cell Con Polvo De Raíz De Remolacha 6600-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin C",
+                              "Fiber",
+                              "Total Carbohydrate",
+                              "Sugar"
+                    ],
+                    "filePath": "pdfs/X-Cell™ con polvo de raíz de remolacha 6600-PI_ES.pdf",
+                    "fileSize": 174395,
+                    "uploadDate": "2025-09-30T06:31:56.296Z",
+                    "downloadCount": 11,
+                    "composicionNutricional": {
+                              "servingSize": "One Level 20 cc Scoop",
+                              "servingsPerContainer": "30",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "200",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C 200mg"
+                                        }
+                              },
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {
+                                        "Fiber": {
+                                                  "cantidad": "2",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Fiber2 g"
+                                        },
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "5",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrate5 g"
+                                        },
+                                        "Sugar": {
+                                                  "cantidad": "2",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Sugars2 g"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "e presente en X-Cell+. “NO” se refiere a óxido"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Xtra Antioxidants 6124-PI_ES.pdf",
+                    "title": "Xtra Antioxidants 6124-pi_es",
+                    "description": "Ficha técnica de Xtra Antioxidants 6124-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "energía",
+                              "metabolismo"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin C",
+                              "Vitamin E",
+                              "Folate (Vitamin B9)",
+                              "Selenium"
+                    ],
+                    "filePath": "pdfs/Xtra Antioxidants 6124-PI_ES.pdf",
+                    "fileSize": 317682,
+                    "uploadDate": "2025-09-30T06:31:48.559Z",
+                    "downloadCount": 56,
+                    "composicionNutricional": {
+                              "servingSize": "2 Tablet",
+                              "servingsPerContainer": "60",
+                              "vitaminas": {
+                                        "Vitamin C": {
+                                                  "cantidad": "250",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C 250 mg"
+                                        },
+                                        "Vitamin E": {
+                                                  "cantidad": "80",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin E 80 mg"
+                                        },
+                                        "Folate (Vitamin B9)": {
+                                                  "cantidad": "250",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Folate250 mcg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Selenium": {
+                                                  "cantidad": "50",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Selenium 50 mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Vitamin  C  (L-ascorbic  acid)",
+                                        "microcrystalline  cellulose",
+                                        "dicalcium  phosphate",
+                                        "vitamin  E  (D-alpha-tocopheryl  acid  succinate;  from  soy)",
+                                        ""
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Yummies 358-PI_ES.pdf",
+                    "title": "Yummies 358-pi_es",
+                    "description": "Ficha técnica de Yummies 358-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición",
+                              "antioxidante",
+                              "sistema inmunitario",
+                              "energía",
+                              "metabolismo",
+                              "piel"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Vitamin A",
+                              "Vitamin C",
+                              "Vitamin E",
+                              "Folate (Vitamin B9)",
+                              "Biotin (Vitamin B7)",
+                              "Pantothenic Acid (Vitamin B5)",
+                              "Zinc",
+                              "Selenium",
+                              "Iodine",
+                              "Total Carbohydrate",
+                              "Sugar"
+                    ],
+                    "filePath": "pdfs/Yummies 358-PI_ES.pdf",
+                    "fileSize": 367690,
+                    "uploadDate": "2025-09-30T06:31:40.741Z",
+                    "downloadCount": 49,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Gummy Bears",
+                              "servingsPerContainer": "/ 100",
+                              "vitaminas": {
+                                        "Vitamin A": {
+                                                  "cantidad": "780",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Vitamin A 780 mcg"
+                                        },
+                                        "Vitamin C": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin C 20 mg"
+                                        },
+                                        "Vitamin E": {
+                                                  "cantidad": "11",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Vitamin E 11 mg"
+                                        },
+                                        "Folate (Vitamin B9)": {
+                                                  "cantidad": "260",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Folate (260 mcg"
+                                        },
+                                        "Biotin (Vitamin B7)": {
+                                                  "cantidad": "60",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Biotin 60 mcg"
+                                        },
+                                        "Pantothenic Acid (Vitamin B5)": {
+                                                  "cantidad": "5.2",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Pantothenic Acid 5.2 mg"
+                                        }
+                              },
+                              "minerales": {
+                                        "Zinc": {
+                                                  "cantidad": "2.7",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Zinc 2.7 mg"
+                                        },
+                                        "Selenium": {
+                                                  "cantidad": "20",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Selenium 20 mcg"
+                                        },
+                                        "Iodine": {
+                                                  "cantidad": "42",
+                                                  "unidad": "mcg",
+                                                  "textoCompleto": "Iodine 42 mcg"
+                                        }
+                              },
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "4",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrate 4 g"
+                                        },
+                                        "Sugar": {
+                                                  "cantidad": "4",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Sugars 4 g"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "Sucrose",
+                                        "Glucose Syrup",
+                                        "Water",
+                                        "Pectin",
+                                        "Vitamin C (L-Ascorbic Acid)",
+                                        "Citric Acid",
+                                        "Vitamin E (D-Alpha-Tocopheryl Acetate; from Soy)",
+                                        "Vitamin A (Retinyl"
+                              ],
+                              "alergenos": [
+                                        "soy"
+                              ]
+                    }
+          },
+          {
+                    "filename": "Zinc Boost 6656-PI_ES.pdf",
+                    "title": "Zinc Boost 6656-pi_es",
+                    "description": "Ficha técnica de Zinc Boost 6656-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/Zinc Boost 6656-PI_ES.pdf",
+                    "fileSize": 589817,
+                    "uploadDate": "2025-09-30T06:31:42.910Z",
+                    "downloadCount": 15,
+                    "composicionNutricional": {
+                              "servingSize": "1 Lozenge",
+                              "servingsPerContainer": "120",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "e   en   alimentos"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "_Pets™ Ahiflower Oil  6698-PI_ES.pdf",
+                    "title": "_pets Ahiflower Oil  6698-pi_es",
+                    "description": "Ficha técnica de _pets Ahiflower Oil  6698-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/_Pets™ Ahiflower Oil  6698-PI_ES.pdf",
+                    "fileSize": 259473,
+                    "uploadDate": "2025-09-30T06:32:16.231Z",
+                    "downloadCount": 44,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "Rosemary extract",
+                                        ""
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "_Pets™ Calm 6687-PI_ES.pdf",
+                    "title": "_pets Calm 6687-pi_es",
+                    "description": "Ficha técnica de _pets Calm 6687-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/_Pets™ Calm 6687-PI_ES.pdf",
+                    "fileSize": 770646,
+                    "uploadDate": "2025-09-30T06:32:10.223Z",
+                    "downloadCount": 50,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "PER CHEWABLE (1.5 g):"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "_Pets™ Care & Comfort 6697-PI_ES.pdf",
+                    "title": "_pets Care & Comfort 6697-pi_es",
+                    "description": "Ficha técnica de _pets Care & Comfort 6697-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/_Pets™ Care & Comfort 6697-PI_ES.pdf",
+                    "fileSize": 740899,
+                    "uploadDate": "2025-09-30T06:32:15.253Z",
+                    "downloadCount": 48,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "PER TEASPOON (2.9 g):"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "_Pets™ Digest 6689-PI_ES.pdf",
+                    "title": "_pets Digest 6689-pi_es",
+                    "description": "Ficha técnica de _pets Digest 6689-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/_Pets™ Digest 6689-PI_ES.pdf",
+                    "fileSize": 783569,
+                    "uploadDate": "2025-09-30T06:32:21.718Z",
+                    "downloadCount": 23,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es diseñada para promover un intestino"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "_Pets™ Peanut Butter Biscuits 6692-PI_ES.pdf",
+                    "title": "_pets Peanut Butter Biscuits 6692-pi_es",
+                    "description": "Ficha técnica de _pets Peanut Butter Biscuits 6692-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/_Pets™ Peanut Butter Biscuits 6692-PI_ES.pdf",
+                    "fileSize": 798849,
+                    "uploadDate": "2025-09-30T06:31:08.870Z",
+                    "downloadCount": 46,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "es naturales para"
+                              ],
+                              "alergenos": [
+                                        "wheat"
+                              ]
+                    }
+          },
+          {
+                    "filename": "_Pets™ Shine 6690-PI_ES.pdf",
+                    "title": "_pets Shine 6690-pi_es",
+                    "description": "Ficha técnica de _pets Shine 6690-pi_es. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "filePath": "pdfs/_Pets™ Shine 6690-PI_ES.pdf",
+                    "fileSize": 336082,
+                    "uploadDate": "2025-09-30T06:32:22.495Z",
+                    "downloadCount": 50,
+                    "composicionNutricional": {
+                              "servingSize": "",
+                              "servingsPerContainer": "",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {},
+                              "ingredientesPrincipales": [
+                                        "PER CHEWABLE (1.5 g):"
+                              ],
+                              "alergenos": []
+                    }
+          },
+          {
+                    "filename": "phasomine.pdf",
+                    "title": "Phasomine",
+                    "description": "Ficha técnica de Phasomine. salud general, bienestar, nutrición. Ingredientes principales: .",
+                    "category": "suplemento general",
+                    "categories": [
+                              "suplemento general",
+                              "nutrición"
+                    ],
+                    "ingredients": [],
+                    "benefits": [
+                              "salud general",
+                              "bienestar",
+                              "nutrición"
+                    ],
+                    "uses": [],
+                    "keywords": [
+                              "suplemento",
+                              "salud",
+                              "bienestar",
+                              "nutrición",
+                              "Total Carbohydrate",
+                              "Sodium"
+                    ],
+                    "filePath": "pdfs/phasomine.pdf",
+                    "fileSize": 563587,
+                    "uploadDate": "2025-09-30T06:32:19.543Z",
+                    "downloadCount": 30,
+                    "composicionNutricional": {
+                              "servingSize": "/ 2 Tablet",
+                              "servingsPerContainer": "/ 90",
+                              "vitaminas": {},
+                              "minerales": {},
+                              "acidosGrasos": {},
+                              "otrosNutrientes": {
+                                        "Total Carbohydrate": {
+                                                  "cantidad": "1",
+                                                  "unidad": "g",
+                                                  "textoCompleto": "Total Carbohydrates1 g"
+                                        },
+                                        "Sodium": {
+                                                  "cantidad": "9",
+                                                  "unidad": "mg",
+                                                  "textoCompleto": "Sodium9 mg"
+                                        }
+                              },
+                              "ingredientesPrincipales": [
+                                        "e"
+                              ],
+                              "alergenos": []
+                    }
+          }
+];
+        this.filteredPDFs = [];
+        this.fuzzySearch = new FuzzySearch();
+        this.currentQuery = '';
+        this.currentCategory = '';
+        this.currentSort = 'relevance';
+        this.fuzzyEnabled = true;
+        this.isLoading = false;
+
+        // Elementos del DOM
+        this.searchInput = document.getElementById('searchInput');
+        this.clearButton = document.getElementById('clearSearch');
+        this.categoryFilter = document.getElementById('categoryFilter');
+        this.fuzzyCheckbox = document.getElementById('fuzzySearch');
+        this.sortBy = document.getElementById('sortBy');
+        this.resultsContainer = document.getElementById('resultsContainer');
+        this.loadingIndicator = document.getElementById('loadingIndicator');
+        this.noResults = document.getElementById('noResults');
+        this.resultCount = document.getElementById('resultCount');
+        this.totalDocs = document.getElementById('totalDocs');
+        this.totalSize = document.getElementById('totalSize');
+        this.lastUpdate = document.getElementById('lastUpdate');
+
+        this.init();
+    }
+
+    async init() {
+        console.log('🚀 Inicializando PDF Search App con Composición Nutricional...');
+
+        // Configurar event listeners
+        this.setupEventListeners();
+
+        // Cargar datos DIRECTAMENTE (sin fetch)
+        await this.loadPDFDataLocal();
+
+        // Actualizar estadísticas
+        this.updateStats();
+
+        // Renderizar resultados iniciales
+        this.renderResults();
+
+        console.log('✅ PDF Search App con Composición Nutricional inicializada correctamente');
+    }
+
+    async loadPDFDataLocal() {
+        // Los datos ya están integrados en this.pdfs
+        console.log('📊 Cargados', this.pdfs.length, 'productos con composición nutricional');
+
+        const conComposicion = this.pdfs.filter(p =>
+            Object.keys(p.composicionNutricional.vitaminas).length > 0 ||
+            Object.keys(p.composicionNutricional.minerales).length > 0 ||
+            Object.keys(p.composicionNutricional.acidosGrasos).length > 0
+        );
+
+        console.log('✅ Productos con composición nutricional:', conComposicion.length);
+
+        this.pdfs = this.pdfs;
+        this.filteredPDFs = [...this.pdfs];
+    }
+
+    setupEventListeners() {
+        // Búsqueda en tiempo real
+        this.searchInput.addEventListener('input', (e) => {
+            this.currentQuery = e.target.value;
+            this.clearButton.style.display = this.currentQuery ? 'block' : 'none';
+            this.performSearch();
+        });
+
+        // Limpiar búsqueda
+        this.clearButton.addEventListener('click', () => {
+            this.searchInput.value = '';
+            this.currentQuery = '';
+            this.clearButton.style.display = 'none';
+            this.performSearch();
+        });
+
+        // Opción de búsqueda difusa
+        this.fuzzyCheckbox.addEventListener('change', (e) => {
+            this.fuzzyEnabled = e.target.checked;
+            this.performSearch();
+        });
+
+        // Ordenamiento
+        this.sortBy.addEventListener('change', (e) => {
+            this.currentSort = e.target.value;
+            this.performSearch();
+        });
+
+        // Atajos de teclado
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                this.searchInput.focus();
+            }
+            if (e.key === 'Escape' && this.currentQuery) {
+                this.searchInput.value = '';
+                this.currentQuery = '';
+                this.clearButton.style.display = 'none';
+                this.performSearch();
+            }
+        });
+    }
+
+    performSearch() {
+        const query = this.currentQuery.toLowerCase().trim();
+
+        if (!query) {
+            this.filteredPDFs = [...this.pdfs];
+        } else {
+            this.filteredPDFs = this.pdfs.filter(pdf => {
+                // Búsqueda en campos básicos
+                const titleMatch = pdf.title.toLowerCase().includes(query);
+                const filenameMatch = pdf.filename.toLowerCase().includes(query);
+                const descriptionMatch = pdf.description && pdf.description.toLowerCase().includes(query);
+
+                // Búsqueda en composición nutricional
+                const comp = pdf.composicionNutricional || {};
+                const vitaminasMatch = Object.keys(comp.vitaminas || {}).some(vit =>
+                    vit.toLowerCase().includes(query)
+                );
+                const mineralesMatch = Object.keys(comp.minerales || {}).some(min =>
+                    min.toLowerCase().includes(query)
+                );
+                const acidosMatch = Object.keys(comp.acidosGrasos || {}).some(acido =>
+                    acido.toLowerCase().includes(query)
+                );
+                const nutrientesMatch = Object.keys(comp.otrosNutrientes || {}).some(nutriente =>
+                    nutrienente.toLowerCase().includes(query)
+                );
+
+                // Búsqueda en ingredientes
+                const ingredientesMatch = comp.ingredientesPrincipales && comp.ingredientesPrincipales.some(ing =>
+                    ing.toLowerCase().includes(query)
+                );
+
+                // Búsqueda mejorada con keywords
+                const keywordsMatch = pdf.keywords && pdf.keywords.some(kw =>
+                    kw.toLowerCase().includes(query)
+                );
+
+                return titleMatch || filenameMatch || descriptionMatch ||
+                       vitaminasMatch || mineralesMatch || acidosMatch ||
+                       nutrientesMatch || ingredientesMatch || keywordsMatch;
+            });
+        }
+
+        // Ordenar resultados
+        this.sortResults();
+
+        // Renderizar
+        this.renderResults();
+    }
+
+    sortResults() {
+        switch (this.currentSort) {
+            case 'name':
+                this.filteredPDFs.sort((a, b) => a.title.localeCompare(b.title));
+                break;
+            case 'date':
+                this.filteredPDFs.sort((a, b) => new Date(b.uploadDate) - new Date(a.uploadDate));
+                break;
+            case 'size':
+                this.filteredPDFs.sort((a, b) => b.fileSize - a.fileSize);
+                break;
+            case 'relevance':
+            default:
+                if (this.fuzzyEnabled && this.currentQuery) {
+                    this.filteredPDFs.sort((a, b) => (b._relevanceScore || 0) - (a._relevanceScore || 0));
+                } else {
+                    this.filteredPDFs.sort((a, b) => a.title.localeCompare(b.title));
+                }
+                break;
+        }
+    }
+
+    renderResults() {
+        this.resultsContainer.innerHTML = '';
+
+        if (this.filteredPDFs.length === 0) {
+            this.resultsContainer.innerHTML = `
+                <div class="no-results">
+                    <i class="fas fa-search"></i>
+                    <h3>No se encontraron fichas técnicas</h3>
+                    <p>Intenta con otros términos de búsqueda</p>
+                </div>
+            `;
+            return;
+        }
+
+        // Mostrar número de resultados
+        this.resultCount.textContent = this.filteredPDFs.length;
+
+        // Renderizar cada PDF como una tarjeta mejorada
+        this.filteredPDFs.forEach(pdf => {
+            const card = this.createEnhancedCardWithComposition(pdf);
+            this.resultsContainer.appendChild(card);
+        });
+
+        // Adjuntar event listeners
+        this.attachCardEventListeners();
+    }
+
+    createEnhancedCardWithComposition(pdf) {
+        const card = document.createElement('div');
+        card.className = 'result-item enhanced with-composition';
+
+        // Formatear tamaño de archivo
+        const fileSizeMB = (pdf.fileSize / (1024 * 1024)).toFixed(1);
+        const uploadDate = new Date(pdf.uploadDate).toLocaleDateString('es-ES');
+
+        // Información de composición
+        const comp = pdf.composicionNutricional || {};
+        const numVitaminas = Object.keys(comp.vitaminas || {}).length;
+        const numMinerales = Object.keys(comp.minerales || {}).length;
+        const numAcidos = Object.keys(comp.acidosGrasos || {}).length;
+
+        // Crear badges para categorías
+        const categoryBadges = pdf.categories && pdf.categories.length > 0
+            ? pdf.categories.slice(0, 3).map(cat => `<span class="category-badge">${cat}</span>`).join('')
+            : '<span class="category-badge">General</span>';
+
+        card.innerHTML = `
+            <div class="enhanced-result-card with-composition">
+                <div class="card-header">
+                    <div class="card-title-section">
+                        <h3 class="result-title">${pdf.title}</h3>
+                        <div class="category-badges">${categoryBadges}</div>
+                    </div>
+                    <div class="card-composition-summary">
+                        ${numVitaminas > 0 ? `<span class="composition-count vitaminas">${numVitaminas}V</span>` : ''}
+                        ${numMinerales > 0 ? `<span class="composition-count minerales">${numMinerales}M</span>` : ''}
+                        ${numAcidos > 0 ? `<span class="composition-count acidos">${numAcidos}Ω</span>` : ''}
+                    </div>
+                </div>
+
+                <div class="card-description">
+                    <p>${pdf.description || 'Ficha técnica del producto'}</p>
+                </div>
+
+                ${(numVitaminas > 0 || numMinerales > 0 || numAcidos > 0) ? `
+                <div class="card-composition">
+                    <div class="composition-tabs">
+                        <button class="tab-btn active" data-tab="overview">Resumen</button>
+                        ${numVitaminas > 0 ? '<button class="tab-btn" data-tab="vitaminas">Vitaminas</button>' : ''}
+                        ${numMinerales > 0 ? '<button class="tab-btn" data-tab="minerales">Minerales</button>' : ''}
+                        ${numAcidos > 0 ? '<button class="tab-btn" data-tab="acidos">Ácidos Grasos</button>' : ''}
+                    </div>
+
+                    <div class="tab-content active" id="overview">
+                        ${this.createOverviewContent(comp)}
+                    </div>
+
+                    ${numVitaminas > 0 ? `
+                    <div class="tab-content" id="vitaminas">
+                        ${this.createVitaminasContent(comp.vitaminas)}
+                    </div>` : ''}
+
+                    ${numMinerales > 0 ? `
+                    <div class="tab-content" id="minerales">
+                        ${this.createMineralesContent(comp.minerales)}
+                    </div>` : ''}
+
+                    ${numAcidos > 0 ? `
+                    <div class="tab-content" id="acidos">
+                        ${this.createAcidosContent(comp.acidosGrasos)}
+                    </div>` : ''}
+                </div>
+                ` : ''}
+
+                <div class="card-serving-info">
+                    ${comp.servingSize ? `<span class="serving-info"><i class="fas fa-spoon"></i> Dosis: ${comp.servingSize}</span>` : ''}
+                    ${comp.servingsPerContainer ? `<span class="serving-info"><i class="fas fa-box"></i> ${comp.servingsPerContainer} porciones</span>` : ''}
+                </div>
+
+                <div class="card-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>${uploadDate}</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-weight-hanging"></i>
+                        <span>${fileSizeMB} MB</span>
+                    </div>
+                </div>
+
+                <div class="pdf-actions">
+                    <button class="download-btn" data-filename="${pdf.filename}" data-url="${pdf.filePath}">
+                        <i class="fas fa-download"></i>
+                        Descargar PDF
+                    </button>
+                    <button class="view-btn" data-filename="${pdf.filename}" data-url="${pdf.filePath}" title="Ver PDF">
+                        <i class="fas fa-eye"></i>
+                        Ver
+                    </button>
+                </div>
+            </div>
+        `;
+
+        return card;
+    }
+
+    createOverviewContent(comp) {
+        const nutrientes = [];
+
+        // Vitaminas principales
+        Object.entries(comp.vitaminas || {}).slice(0, 3).forEach(([nombre, data]) => {
+            nutrientes.push(`<div class="nutrient-item">${nombre}: <strong>${data.cantidad} ${data.unidad}</strong></div>`);
+        });
+
+        // Minerales principales
+        Object.entries(comp.minerales || {}).slice(0, 3).forEach(([nombre, data]) => {
+            nutrientes.push(`<div class="nutrient-item">${nombre}: <strong>${data.cantidad} ${data.unidad}</strong></div>`);
+        });
+
+        // Ácidos grasos principales
+        Object.entries(comp.acidosGrasos || {}).slice(0, 2).forEach(([nombre, data]) => {
+            nutrientes.push(`<div class="nutrient-item">${nombre}: <strong>${data.cantidad} ${data.unidad}</strong></div>`);
+        });
+
+        return nutrientes.length > 0 ? nutrientes.join('') : '<p class="no-composition-data">Información nutricional no disponible</p>';
+    }
+
+    createVitaminasContent(vitaminas) {
+        const items = Object.entries(vitaminas).map(([nombre, data]) => `
+            <div class="nutrient-detail">
+                <div class="nutrient-name">${nombre}</div>
+                <div class="nutrient-amount">${data.cantidad} ${data.unidad}</div>
+            </div>
+        `).join('');
+
+        return items || '<p class="no-composition-data">No hay información de vitaminas</p>';
+    }
+
+    createMineralesContent(minerales) {
+        const items = Object.entries(minerales).map(([nombre, data]) => `
+            <div class="nutrient-detail">
+                <div class="nutrient-name">${nombre}</div>
+                <div class="nutrient-amount">${data.cantidad} ${data.unidad}</div>
+            </div>
+        `).join('');
+
+        return items || '<p class="no-composition-data">No hay información de minerales</p>';
+    }
+
+    createAcidosContent(acidos) {
+        const items = Object.entries(acidos).map(([nombre, data]) => `
+            <div class="nutrient-detail">
+                <div class="nutrient-name">${nombre}</div>
+                <div class="nutrient-amount">${data.cantidad} ${data.unidad}</div>
+            </div>
+        `).join('');
+
+        return items || '<p class="no-composition-data">No hay información de ácidos grasos</p>';
+    }
+
+    updateStats() {
+        this.totalDocs.textContent = this.pdfs.length;
+
+        const totalSize = this.pdfs.reduce((sum, pdf) => sum + (pdf.fileSize || 0), 0);
+        const totalSizeMB = (totalSize / (1024 * 1024)).toFixed(1);
+        this.totalSize.textContent = totalSizeMB + ' MB';
+
+        this.lastUpdate.textContent = new Date().toLocaleDateString('es-ES');
+    }
+
+    attachCardEventListeners() {
+        // Tabs de composición
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const tabName = e.target.dataset.tab;
+                const card = e.target.closest('.enhanced-result-card');
+
+                // Desactivar todos los tabs y contenidos
+                card.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+                card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                // Activar tab seleccionado
+                e.target.classList.add('active');
+                card.querySelector(`#${tabName}`).classList.add('active');
+            });
+        });
+
+        // Botones de descarga
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const filename = e.target.dataset.filename;
+                const url = e.target.dataset.url;
+                console.log('Descargando:', filename, url);
+                // Lógica de descarga
+            });
+        });
+
+        // Botones de vista
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const filename = e.target.dataset.filename;
+                const url = e.target.dataset.url;
+                console.log('Viendo:', filename, url);
+                // Lógica de vista
+            });
+        });
+    }
+}
+
+// Inicializar la aplicación cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    new PDFSearchApp();
+});

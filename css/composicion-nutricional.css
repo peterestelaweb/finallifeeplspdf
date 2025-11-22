@@ -1,0 +1,144 @@
+
+/* Estilos para composición nutricional */
+
+.enhanced-result-card.with-composition {
+    border-left: 4px solid #6366f1;
+}
+
+.card-composition-summary {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.composition-count {
+    background: #f3f4f6;
+    color: #374151;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.composition-count.vitaminas {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.composition-count.minerales {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.composition-count.acidos {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.composition-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+.tab-btn:hover {
+    color: #374151;
+    background: #f9fafb;
+}
+
+.tab-btn.active {
+    color: #6366f1;
+    border-bottom-color: #6366f1;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.nutrient-item {
+    padding: 0.25rem 0;
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+.nutrient-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 6px;
+    background: #f9fafb;
+    margin-bottom: 0.5rem;
+}
+
+.nutrient-name {
+    font-weight: 500;
+    color: #374151;
+}
+
+.nutrient-amount {
+    font-weight: 600;
+    color: #6366f1;
+}
+
+.card-serving-info {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.serving-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+    background: #f9fafb;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+}
+
+.serving-info i {
+    color: #9ca3af;
+}
+
+.no-composition-data {
+    text-align: center;
+    color: #9ca3af;
+    font-style: italic;
+    padding: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .composition-tabs {
+        flex-wrap: wrap;
+    }
+
+    .card-serving-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .nutrient-detail {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+}

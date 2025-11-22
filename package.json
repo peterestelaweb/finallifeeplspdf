@@ -1,0 +1,17 @@
+{
+  "name": "version-estatica",
+  "version": "1.0.0",
+  "description": "Esta versión está diseñada para funcionar en hosting compartido (cPanel) sin necesidad de Node.js ni PostgreSQL.",
+  "main": "analyze-desktop-margins.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pdf-parse": "^1.1.1",
+    "playwright": "^1.55.1",
+    "puppeteer": "^24.22.2"
+  }
+}

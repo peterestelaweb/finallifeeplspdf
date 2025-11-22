@@ -1,0 +1,68 @@
+/**
+ * SOLUCIÓN SIMPLE Y DEFINITIVA PARA CENTRADO
+ * Sin trucos de viewport, solo CSS limpio
+ */
+
+/* ====== RESET COMPLETO ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+/* ====== HEADER - ANCHO COMPLETO SIN SCROLL ====== */
+.header {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 20px 0 !important;
+}
+
+/* ====== CONTAINER - MÁS ANCHO Y VISIBLE ====== */
+.container {
+    max-width: 1600px !important;
+    width: 95% !important;
+    margin: 0 auto !important;
+    padding: 0 30px !important;
+}
+
+/* ====== FOOTER - ANCHO COMPLETO COMO HEADER ====== */
+.footer {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 40px 0 20px !important;
+    box-sizing: border-box !important;
+}
+
+.footer-container {
+    max-width: 1600px !important;
+    width: 95% !important;
+    margin: 0 auto !important;
+    padding: 0 30px !important;
+    box-sizing: border-box !important;
+}
+
+/* ====== SECCIONES ====== */
+.search-section,
+.video-section,
+.contact-section {
+    width: 100% !important;
+    margin: 30px 0 !important;
+}
+
+/* ====== MOBILE ====== */
+@media (max-width: 768px) {
+    .container,
+    .footer-container {
+        padding: 0 15px !important;
+    }
+}

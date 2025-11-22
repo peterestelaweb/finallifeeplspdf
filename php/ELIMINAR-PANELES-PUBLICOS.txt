@@ -1,0 +1,91 @@
+# 🚨 ARCHIVOS A ELIMINAR POR SEGURIDAD
+
+## Archivos que dan acceso PÚBLICO a funciones de administración:
+
+### 1. Panel Público (INSEGURO - ELIMINAR)
+```
+/public_html/php/scan-pdfs.php
+```
+❌ **Problema**: Cualquier persona puede acceder y ejecutar indexación
+❌ **Riesgo**: Posible ataque de denegación de servicio o manipulación
+
+### 2. Script Generador (ACCESO PÚBLICO - RESTRINGIR)
+```
+/public_html/php/generate-index.php
+```
+⚠️ **Problema**: Aunque no muestra interfaz, es ejecutable públicamente
+⚠️ **Solución**: Mover a carpeta privada o proteger con .htaccess
+
+---
+
+## ✅ ACCIONES RECOMENDADAS:
+
+### Opción 1: Eliminar acceso público
+```bash
+# Acceso SSH a tu servidor
+cd /public_html/php/
+rm scan-pdfs.php
+mv generate-index.php ../private/  # Mover a carpeta privada
+```
+
+### Opción 2: Proteger con .htaccess
+Crear archivo `.htaccess` en `/php/`:
+```apache
+# Denegar acceso a scripts sensibles
+<Files "scan-pdfs.php">
+    Require ip 127.0.0.1
+    Require ip ::1
+</Files>
+
+<Files "generate-index.php">
+    Require ip 127.0.0.1
+    Require ip ::1
+</Files>
+```
+
+### Opción 3: Renombrar archivos
+```bash
+# Renombrar para que no sean encontrados
+mv scan-pdfs.php scan-pdfs.php.bak
+mv generate-index.php generate-index.php.bak
+```
+
+---
+
+## 🔐 NUEVO SISTEMA SEGURO:
+
+### Panel de Administración Seguro:
+```
+https://lifepluspdf.peterestela.com/php/admin-indexer.php
+```
+✅ **Requiere contraseña**
+✅ **Registra todas las acciones**
+✅ **Timeout de sesión**
+✅ **Sin acceso público**
+
+---
+
+## 📋 VERIFICACIÓN DE SEGURIDAD:
+
+### Después de eliminar archivos:
+1. Intenta acceder a: `https://lifepluspdf.peterestela.com/php/scan-pdfs.php`
+   - Debe dar error 404 (No encontrado) ✅
+2. Intenta acceder a: `https://lifepluspdf.peterestela.com/php/generate-index.php`
+   - Debe dar error 404 (No encontrado) ✅
+3. Verifica que el nuevo panel funcione:
+   - `https://lifepluspdf.peterestela.com/php/admin-indexer.php`
+   - Debe pedir contraseña ✅
+
+---
+
+## 🔄 PROCESO DE INDEXACIÓN CORRECTO:
+
+### 1. Subir PDFs a: `/public_html/pdfs/`
+### 2. Acceder a panel admin: `admin-indexer.php`
+### 3. Ingresar contraseña
+### 4. Click en "Indexar Todos los PDFs"
+### 5. Listo ✅
+
+---
+
+**⚠️ IMPORTANTE**: Solo el nuevo panel admin-indexer.php debe permanecer accesible públicamente (con protección por contraseña).

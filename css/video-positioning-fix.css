@@ -1,0 +1,196 @@
+/* =====================================================
+   VIDEO POSITIONING FIXES - SOLUCIONES ESPECÍFICAS
+   ===================================================== */
+
+/* 1. CORRECCIÓN DE POSICIÓN DE VIDEOS EN TELÉFONOS */
+.phone-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Cambiado de contain a cover */
+    background: #000 !important;
+    border-radius: 25px !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important; /* Cambiado de 50% */
+    left: 0 !important; /* Cambiado de 50% */
+    transform: none !important; /* Eliminado translate */
+    object-position: center !important;
+}
+
+/* 2. ASEGURAR QUE EL VIDEO LLENE EL FRAME SIN CORTAR IMPORTANTE */
+.phone-screen {
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #000 !important;
+    border-radius: 30px !important;
+}
+
+/* 3. AJUSTE DEL PHONE FRAME PARA MEJOR VISIBILIDAD */
+.phone-frame {
+    width: 300px !important;
+    height: 600px !important;
+    background: #1a1a1a !important;
+    border-radius: 40px !important;
+    padding: 10px !important;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.3) !important,
+        0 0 0 2px #333 !important,
+        inset 0 0 0 2px #000 !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* 4. CORRECCIÓN DE ESPACIADO ENTRE BLOQUES */
+.search-section {
+    margin-bottom: 20px !important; /* Espacio adecuado entre búsqueda y resultados */
+}
+
+.results-section {
+    margin-top: 0 !important; /* Eliminar solapamiento negativo */
+    margin-bottom: 30px !important; /* Espacio consistente al siguiente bloque */
+}
+
+/* 5. MEJORA DE VISIBILIDAD DE ANIMACIÓN DE HEADER */
+.header {
+    position: relative !important;
+    overflow: hidden !important;
+    z-index: 10 !important;
+}
+
+.header::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: rgba(255, 255, 255, 0.85) !important; /* Menos opacidad para más visibilidad */
+    z-index: 1 !important;
+}
+
+.header > * {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* 6. ASEGURAR CENTRADO PERFECTO DE VIDEOS */
+@media (max-width: 768px) {
+    .phone-frame {
+        width: 250px !important;
+        height: 500px !important;
+    }
+
+    .phone-video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .phone-frame {
+        width: 200px !important;
+        height: 400px !important;
+        padding: 15px !important;
+    }
+
+    .phone-video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+}
+
+/* 7. CORRECCIÓN DE BORDES NEGROS EN VIDEOS */
+.phone-video {
+    /* Eliminar posibles bordes negros */
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* 8. MEJORA DEL CONTRASTE Y VISIBILIDAD */
+.video-card {
+    background: rgba(255, 255, 255, 0.98) !important;
+    border-radius: 20px !important;
+    padding: 30px !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* 9. ASEGURAR QUE LOS BOTONES DE SONIDO SEAN VISIBLES */
+.sound-toggle {
+    position: absolute !important;
+    top: 50px !important;
+    right: 15px !important;
+    width: 40px !important;
+    height: 40px !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50% !important;
+    color: white !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    z-index: 20 !important;
+    opacity: 1 !important; /* Siempre visible */
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(5px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* 10. CORRECCIÓN DE ESPACIADO EN LA SECCIÓN DE VIDEOS */
+.video-section {
+    margin: 40px 0 !important; /* Reducido de 60px */
+    padding: 30px !important; /* Reducido de 40px */
+}
+
+.videos-grid {
+    gap: 25px !important; /* Reducido de 30px */
+}
+
+/* 11. MEDIDAS EXACTAS PARA EVITAR PROBLEMAS */
+.phone-frame {
+    /* Dimensiones exactas para maintain aspect ratio */
+    width: 300px !important;
+    height: 600px !important;
+    /* Asegurar ratio consistente */
+    aspect-ratio: 1/2 !important;
+}
+
+.phone-video {
+    /* Forzar que el video mantenga el centro */
+    object-position: center center !important;
+    /* Evitar cualquier transformación que pueda desalinear */
+    transform: none !important;
+    /* Asegurar que no haya espacios */
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 12. SOLUCIÓN PARA VIDEOS QUE SE CORTAN */
+.phone-screen::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 85%,
+        rgba(0, 0, 0, 0.1) 95%,
+        rgba(0, 0, 0, 0.2) 100%
+    ) !important;
+    z-index: 5 !important;
+    pointer-events: none !important;
+}

@@ -1,0 +1,284 @@
+/* FIXES PARA PARPADEO EN ANDROID */
+/* Prevenir layout shifts y flickering */
+
+/* DETECCIÓN ESPECÍFICA DE ANDROID */
+/* Detectar Android Chrome específicamente */
+@supports (-webkit-touch-callout: none) {
+    /* iOS - mantener animaciones */
+}
+
+@supports not (-webkit-touch-callout: none) {
+    /* Android y otros - desactivar animaciones complejas */
+    body::before {
+        animation: none !important;
+        background: linear-gradient(135deg, #1a2332 0%, #2d3748 50%, #1a2332 100%) !important;
+        background-size: cover !important;
+        transform: none !important;
+    }
+
+    body::after {
+        animation: none !important;
+        background: radial-gradient(ellipse at center, rgba(0, 168, 107, 0.1) 0%, transparent 70%);
+        transform: none !important;
+    }
+}
+
+/* DETECCIÓN POR USER AGENT PARA ANDROID */
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 768px) {
+    /* Android específico */
+    html[data-android="true"] body::before,
+    html[data-android="true"] body::after {
+        animation: none !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* 1. FONDO 3D ANIMADO - REDUCIR ANIMACIONES EN MÓVIL */
+@media (max-width: 768px) {
+    /* Reducir complejidad de animaciones de fondo en móvil */
+    body::before {
+        animation: none !important;
+        background: linear-gradient(135deg, #1a2332 0%, #2d3748 50%, #1a2332 100%) !important;
+        background-size: cover !important;
+    }
+
+    body::after {
+        animation: none !important;
+        background: radial-gradient(ellipse at center, rgba(0, 168, 107, 0.1) 0%, transparent 70%);
+    }
+}
+
+/* 2. PARTÍCULAS - DESACTIVAR EN MÓVIL PARA MEJOR RENDIMIENTO */
+@media (max-width: 768px) {
+    .particles-container {
+        display: none !important;
+    }
+
+    .three-d-particles {
+        display: none !important;
+    }
+}
+
+/* 3. PREVENIR LAYOUT SHIFTS DURANTE CARGA */
+.container {
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.container.loaded {
+    opacity: 1;
+}
+
+/* 4. ESTADÍSTICAS - ESPACIOS FIJOS PARA EVITAR JUMPS */
+.stat-item {
+    min-height: 80px;
+}
+
+.stat-number {
+    min-height: 2.5rem;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+/* 5. BÚSQUEDA - EVITAR PARPADEO DE RESULTADOS */
+.search-section {
+    min-height: 400px;
+}
+
+.results-container {
+    min-height: 200px;
+    position: relative;
+}
+
+.loading-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+/* 6. ANIMACIONES SUAVIZADAS PARA MÓVIL */
+@media (max-width: 768px) {
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Reducir transformaciones 3D que causan problemas en Android */
+    .wave {
+        transform: none !important;
+    }
+
+    /* Suavizar transiciones */
+    .result-card {
+        transition: all 0.2s ease !important;
+        transform: none !important;
+    }
+
+    .result-card:hover {
+        transform: translateY(-2px) !important;
+    }
+}
+
+/* 7. HEADER - ESPACIOS FIJOS PARA EVITAR JUMPS */
+.header-centered {
+    min-height: 200px;
+}
+
+@media (max-width: 768px) {
+    .header-centered {
+        min-height: 300px;
+    }
+}
+
+.side-logo {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+/* 8. PREVENT OVERFLOW ISSUES */
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* 9. VIDEO Y MULTIMEDIA - EVITAR PARPADEO */
+video {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* 10. INPUTS - EVITAR PARPADEO AL ESCRIBIR */
+.search-input {
+    -webkit-appearance: none;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* 11. NOTIFICACIONES - POSICIÓN FIJA */
+.notification {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 1000 !important;
+}
+
+/* 12. MODALES - EVITAR JUMPS */
+.modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* 13. OPTIMIZACIÓN ESPECÍFICA PARA ANDROID */
+/* Detectar Android específicamente y aplicar fixes */
+@supports not (-webkit-touch-callout: none) {
+    /* Android - aplicar optimizaciones agresivas */
+    .wave {
+        animation: none !important;
+        transform: none !important;
+        opacity: 0.3 !important;
+    }
+
+    .wave:nth-child(2) {
+        animation-delay: 0s !important;
+    }
+
+    .wave:nth-child(3) {
+        animation-delay: 0s !important;
+    }
+
+    /* Reducir efectos 3D que causan problemas en Android WebView */
+    * {
+        -webkit-transform: translateZ(0) !important;
+        transform: translateZ(0) !important;
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        -webkit-perspective: 1000px !important;
+        perspective: 1000px !important;
+    }
+
+    /* Prevenir parpadeo en scroll */
+    body {
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Optimizar renderizado de texto */
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Forzar aceleración de hardware solo en Android */
+    html:not([data-ios="true"]) .header,
+    html:not([data-ios="true"]) .search-section,
+    html:not([data-ios="true"]) .results-container {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        will-change: transform;
+    }
+
+    /* Evitar rebotes en scroll */
+    body {
+        overscroll-behavior-y: contain;
+    }
+}
+
+/* 14. PREVENT FONT FLASHING */
+@font-face {
+    font-display: swap;
+}
+
+/* 15. LOADING STATES */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+}
+
+.loading-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 16. ESTABILIZAR ANIMACIONES DE PARTÍCULAS */
+@keyframes energyParticleMobile {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.5;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0) scale(0);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .particle {
+        animation: energyParticleMobile 6s linear infinite !important;
+    }
+}

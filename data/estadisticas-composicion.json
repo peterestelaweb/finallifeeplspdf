@@ -1,0 +1,41 @@
+{
+  "total_productos": 146,
+  "productos_con_composicion": 54,
+  "total_vitaminas": 129,
+  "total_minerales": 112,
+  "total_acidos_grasos": 20,
+  "vitaminas_mas_comunes": {
+    "Vitamin C": 23,
+    "Vitamin D": 13,
+    "Vitamin E": 16,
+    "Niacin (Vitamin B3)": 11,
+    "Vitamin B6": 3,
+    "Folate (Vitamin B9)": 15,
+    "Vitamin B12": 6,
+    "Biotin (Vitamin B7)": 8,
+    "Pantothenic Acid (Vitamin B5)": 10,
+    "Vitamin A": 6,
+    "Vitamin K": 10,
+    "Thiamin (Vitamin B1)": 4,
+    "Riboflavin (Vitamin B2)": 4
+  },
+  "minerales_mas_comunes": {
+    "Calcium": 19,
+    "Zinc": 14,
+    "Selenium": 13,
+    "Copper": 10,
+    "Manganese": 11,
+    "Chromium": 10,
+    "Molybdenum": 8,
+    "Iodine": 8,
+    "Iron": 2,
+    "Magnesium": 13,
+    "Potassium": 4
+  },
+  "acidos_mas_comunes": {
+    "EPA (Eicosapentaenoic Acid)": 7,
+    "DHA (Docosahexaenoic Acid)": 7,
+    "Total Omega-3": 5,
+    "GLA (Gamma-Linolenic Acid)": 1
+  }
+}

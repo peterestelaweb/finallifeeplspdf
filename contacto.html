@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - BUSCADOR LIFEPLUS FORMULACIONES PDF</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .contacto-page {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        .contacto-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .volver-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        .volver-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="contacto-page">
+        <div class="container">
+            <div class="contacto-container">
+                <a href="index.html" class="volver-link">
+                    <i class="fas fa-arrow-left"></i> Volver al buscador
+                </a>
+
+                <div class="contact-header">
+                    <h2 class="contact-title">
+                        <i class="fas fa-envelope"></i>
+                        Contacto SUNSHINE TEAM
+                    </h2>
+                    <p class="contact-subtitle">
+                        ¿Tienes preguntas sobre LifePlus? Estamos aquí para ayudarte
+                    </p>
+                </div>
+
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre *</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono">
+                            </div>
+                            <div class="form-group">
+                                <label for="motivo">Motivo de contacto *</label>
+                                <select id="motivo" name="motivo" required>
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="informacion">Información sobre productos</option>
+                                    <option value="compra">Quiero comprar productos</option>
+                                    <option value="oportunidad">Oportunidad de negocio</option>
+                                    <option value="soporte">Soporte técnico</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" id="tieneCliente" name="tieneCliente">
+                                ¿Tienes ya NÚMERO DE CLIENTE en LifePlus (Número PIN)?
+                            </label>
+                        </div>
+
+                        <div id="clienteInfo" class="cliente-info" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="pinCliente">Número PIN del cliente</label>
+                                    <input type="text" id="pinCliente" name="pinCliente">
+                                </div>
+                                <div class="form-group">
+                                    <label for="recomendado">¿Quién te recomendó?</label>
+                                    <input type="text" id="recomendado" name="recomendado" placeholder="Nombre de la persona que te recomendó">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ayuda">¿Cómo te podemos ayudar? *</label>
+                            <textarea id="ayuda" name="ayuda" rows="3" required placeholder="Describe detalladamente cómo podemos ayudarte..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Enviar Mensaje
+                            </button>
+                            <button type="reset" class="reset-btn">
+                                <i class="fas fa-redo"></i>
+                                Limpiar Formulario
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="formMessage" class="form-message" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <p>&copy; 2024 Buscador LifePlus Formulaciones PDF. Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-section">
+                <a href="https://peterestela.com" target="_blank" class="main-site-link">
+                    <i class="fas fa-home"></i>
+                    Visita peterestela.com
+                </a>
+            </div>
+            <div class="footer-section">
+                <a href="https://wa.me/34675675151" target="_blank" class="whatsapp-link">
+                    <i class="fab fa-whatsapp"></i>
+                    +34 675 67 51 51
+                </a>
+            </div>
+            <div class="footer-section">
+                <div class="team-logo">
+                    <img src="images/sunshine-logo.png" alt="SUNSHINE TEAM" class="sunshine-logo">
+                    <span class="team-text">SUNSHINE TEAM</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/34675675151" target="_blank" class="whatsapp-float-button">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script src="js/contacto-simple.js"></script>
+</body>
+</html>
