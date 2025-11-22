@@ -1,0 +1,54 @@
+===============================================
+🚀 ARCHIVOS ESENCIALES PARA SUBIR AL SERVIDOR
+===============================================
+
+✅ ARCHIVO PRINCIPAL MODIFICADO:
+• index.html (CON EL NUEVO BUSCADOR HERO)
+
+📁 CARPETAS COMPLETAS:
+• css/ (Todos los estilos CSS)
+• js/ (Todos los JavaScripts funcionales)
+• php/ (Todos los archivos PHP funcionales)
+• data/ (Todos los datos JSON de búsqueda)
+• images/ (Logo e imágenes del sitio)
+• pdfs/ (TODOS los archivos PDF)
+
+🌄 ARCHIVOS DE IMÁGENES IMPORTANTES:
+• pagina_completa.png (Si la usas en algún lado)
+• video-content-area.png (Si la necesitas)
+
+❌ NO SUBIR (Archivos de desarrollo):
+• test-*.html (Archivos de prueba)
+• test-*.js (Scripts de prueba)
+• debug-*.html (Archivos de depuración)
+• videos/ (Análisis y pruebas de video)
+• resultados-validacion/ (Capturas de validación)
+• test-results/ (Resultados de pruebas)
+• MULTILINGUAL-STUDY/ (Estudio multilingüe)
+• *.md (Documentación - README.md sí)
+• *.js (Scripts de mantenimiento - NO los de la carpeta js/)
+• *.json (Archivos de configuración - NO los de data/)
+
+🔧 ARCHIVOS PHP IMPORTANTES:
+• pdf-manager.php
+• pdf-manager-direct.php
+• universal-indexer.php
+• contacto.html
+• send-contact.php (cualquier versión que funcione)
+
+📋 ESTRUCTURA MÍNIMA FUNCIONAL:
+index.html
+css/
+js/
+php/
+data/
+pdfs/
+images/
+contacto.html
+
+===============================================
+🎯 ACCIÓN INMEDIATA:
+1. Subir index.html (¡ESTE ES EL CAMBIO PRINCIPAL!)
+2. Subir carpetas: css/, js/, php/, data/, images/, pdfs/
+3. Verificar que funcione el nuevo buscador HERO
+===============================================
