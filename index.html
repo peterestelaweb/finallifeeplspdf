@@ -38,9 +38,32 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 50%, #e6f3e6 100%) !important; /* Fondo verde suave FORZADO */
+            background:
+                radial-gradient(circle at 20% 30%, rgba(0, 168, 107, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(56, 161, 105, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #e0f2e0 0%, #d4f1d4 25%, #c8ecc8 50%, #d4f1d4 75%, #e0f2e0 100%) !important;
+            background-attachment: fixed !important;
             overflow-x: hidden;
             min-height: 100vh;
+            position: relative;
+        }
+
+        /* Patrón sutil para romper espacio vacío */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 25% 25%, rgba(0, 168, 107, 0.03) 0%, transparent 25%),
+                radial-gradient(circle at 75% 75%, rgba(56, 161, 105, 0.03) 0%, transparent 25%),
+                linear-gradient(45deg, transparent 48%, rgba(0, 168, 107, 0.02) 50%, transparent 52%);
+            background-size: 60px 60px, 80px 80px, 40px 40px;
+            background-position: 0 0, 20px 20px, 0 0;
+            pointer-events: none;
+            z-index: 0;
         }
 
         /* ====== HEADER ====== */
@@ -67,17 +90,327 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 30px 20px 40px 20px; /* Más espacio arriba, menos abajo */
             width: 100%;
+            position: relative;
+            z-index: 1; /* Para estar por encima del patrón */
         }
 
         /* ====== SECCIÓN BÚSQUEDA ====== */
         .search-section {
             background: white;
             border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 35px 30px 40px 30px; /* Más espacio interno */
+            margin: 15px 0 25px 0; /* Reducir margen superior */
+            box-shadow:
+                0 4px 6px rgba(0,0,0,0.1),
+                0 1px 3px rgba(0,0,0,0.08),
+                0 0 0 1px rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efecto decorativo sutil para añadir interés visual */
+        .search-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 168, 107, 0.02) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .search-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ====== HERO SEARCH SECTION ====== */
+        .hero-search {
+            background: linear-gradient(135deg,
+                #ffffff 0%,
+                #f8fffe 25%,
+                #f0fdf9 50%,
+                #e6fffa 75%,
+                #ffffff 100%);
+            position: relative;
+            overflow: visible;
+            border: 2px solid rgba(0, 168, 107, 0.1);
+        }
+
+        .hero-search::before {
+            background:
+                radial-gradient(circle at 20% 80%, rgba(0, 168, 107, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(49, 130, 206, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(0, 168, 107, 0.01) 0%, transparent 70%);
+        }
+
+        .search-hero-content {
+            text-align: center;
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .search-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary-color), #38a169);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 168, 107, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .search-hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .title-gradient {
+            background: linear-gradient(135deg, var(--primary-color), #38a169);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .title-accent {
+            color: var(--accent-color);
+            display: block;
+            font-size: 3.2rem;
+            font-weight: 900;
+        }
+
+        .search-hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .search-hero-form {
+            position: relative;
+            z-index: 2;
+        }
+
+        .search-container-hero {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 15px;
+            align-items: start;
+            margin-bottom: 25px;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input-hero {
+            width: 100%;
+            padding: 20px 25px 20px 55px;
+            border: 3px solid transparent;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, var(--primary-color), #38a169) border-box;
+            box-shadow:
+                0 8px 32px rgba(0, 168, 107, 0.1),
+                0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            outline: none;
+        }
+
+        .search-input-hero:focus {
+            transform: translateY(-2px);
+            box-shadow:
+                0 12px 40px rgba(0, 168, 107, 0.15),
+                0 4px 12px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, var(--primary-color), var(--accent-color)) border-box;
+        }
+
+        .search-input-hero::placeholder {
+            color: #999;
+            font-weight: 400;
+        }
+
+        .search-icon-hero {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            z-index: 1;
+        }
+
+        .clear-btn-hero {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 5px;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        .clear-btn-hero:hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--error-color);
+        }
+
+        .search-action-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 20px 35px;
+            background: linear-gradient(135deg, var(--primary-color), #38a169);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 168, 107, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
+        }
+
+        .search-action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 168, 107, 0.5);
+            background: linear-gradient(135deg, #00b36b, #38a169);
+        }
+
+        .search-action-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-shine {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 70%
+            );
+            transform: rotate(45deg) translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .search-action-btn:hover .btn-shine {
+            transform: rotate(45deg) translateX(100%);
+        }
+
+        .search-tips {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: rgba(0, 168, 107, 0.05);
+            border: 1px solid rgba(0, 168, 107, 0.1);
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            transition: all 0.2s ease;
+        }
+
+        .tip-item:hover {
+            background: rgba(0, 168, 107, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .tip-item i {
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+
+        /* Efectos flotantes */
+        .hero-search-effects {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.6;
+            animation: floatUp 4s ease-in-out infinite;
+        }
+
+        .floating-1 { top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-2 { top: 60%; right: 15%; animation-delay: 1s; }
+        .floating-3 { bottom: 30%; left: 20%; animation-delay: 2s; }
+        .floating-4 { top: 40%; right: 25%; animation-delay: 3s; }
+
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(0, 168, 107, 0.02) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            50% {
+                opacity: 0.6;
+                transform: translateY(-5px);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
         }
 
         .search-container {
@@ -282,29 +615,56 @@
         /* ====== SECCIÓN VIDEOS ====== */
         .video-section {
             background: white;
-            padding: 40px 20px;
-            margin: 40px 0;
+            padding: 50px 25px;
+            margin: 20px 0 35px 0; /* Reducir margen superior */
             border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow:
+                0 4px 6px rgba(0,0,0,0.1),
+                0 1px 3px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Patrón decorativo sutil para sección videos */
+        .video-section::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -30%;
+            width: 160%;
+            height: 160%;
+            background:
+                radial-gradient(circle at 70% 30%, rgba(49, 130, 206, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 30% 70%, rgba(0, 168, 107, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Más grande */
+            gap: 25px;
+            margin-top: 35px;
+            position: relative;
+            z-index: 1; /* Para estar por encima del patrón */
         }
 
         .video-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 12px; /* Más redondeado */
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow:
+                0 6px 12px rgba(0,0,0,0.1),
+                0 2px 4px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .video-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow:
+                0 12px 24px rgba(0,0,0,0.15),
+                0 4px 8px rgba(0,0,0,0.1);
         }
 
         .video-container {
@@ -534,21 +894,98 @@
                 padding: 12px !important;
             }
 
-            /* CORRECCIÓN ESPECIAL: Buscador en móvil - espacio para texto */
-            .search-input {
-                padding: 12px 12px 12px 35px !important; /* Reducir espacio izquierdo para la lupa */
+            /* ====== HERO SEARCH RESPONSIVE MOBILE ====== */
+            .hero-search {
+                padding: 25px 20px !important;
+                margin: 10px 0 20px 0 !important;
+            }
+
+            .search-hero-content {
+                margin-bottom: 25px !important;
+            }
+
+            .search-badge {
+                font-size: 0.8rem !important;
+                padding: 6px 12px !important;
+                margin-bottom: 15px !important;
+            }
+
+            .search-hero-title {
+                font-size: 2rem !important;
+                line-height: 1.1 !important;
+            }
+
+            .title-accent {
+                font-size: 2.3rem !important;
+            }
+
+            .search-hero-subtitle {
+                font-size: 1rem !important;
+                max-width: 100% !important;
+                padding: 0 10px !important;
+            }
+
+            .search-container-hero {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+
+            .search-input-hero {
+                padding: 18px 20px 18px 50px !important;
                 font-size: 16px !important;
-                min-height: 48px !important; /* Un poco más alto */
+                border-radius: 18px !important;
+                min-height: 50px !important;
+            }
+
+            .search-icon-hero {
+                left: 18px !important;
+                font-size: 1.1rem !important;
+            }
+
+            .search-action-btn {
+                width: 100% !important;
+                padding: 18px 25px !important;
+                font-size: 1rem !important;
+                border-radius: 18px !important;
+                justify-content: center;
+            }
+
+            .search-tips {
+                flex-direction: column !important;
+                gap: 10px !important;
+                align-items: stretch !important;
+            }
+
+            .tip-item {
+                padding: 10px 15px !important;
+                font-size: 0.85rem !important;
+            }
+
+            .floating-element {
+                font-size: 1.2rem !important;
+            }
+
+            /* Ocultar algunos elementos flotantes en móvil para mejorar rendimiento */
+            .floating-3,
+            .floating-4 {
+                display: none !important;
+            }
+
+            /* CORRECCIÓN ESPECIAL: Buscador antiguo en móvil (por si queda) */
+            .search-input {
+                padding: 12px 12px 12px 35px !important;
+                font-size: 16px !important;
+                min-height: 48px !important;
             }
 
             .search-icon {
-                left: 10px !important; /* Mover lupa más a la izquierda */
-                font-size: 14px !important; /* Hacer lupa un poco más pequeña */
-                width: 20px !important; /* Reducir espacio ocupado */
+                left: 10px !important;
+                font-size: 14px !important;
+                width: 20px !important;
             }
 
             .clear-btn {
-                right: 10px !important; /* Mover botón limpiar más a la derecha */
+                right: 10px !important;
             }
 
             .result-actions {
@@ -798,21 +1235,68 @@
 
     <div class="container">
 
-        <!-- Sección de Búsqueda -->
-        <section class="search-section">
-            <div class="search-container">
-                <i class="fas fa-search search-icon"></i>
-                <input
-                    type="text"
-                    id="searchInput"
-                    class="search-input"
-                    placeholder="Ej: Omega3, Daily Biobasics, Proanthenols..."
-                    autocomplete="off"
-                >
-                <button id="clearSearch" class="clear-btn" style="display: none;">
-                    <i class="fas fa-times"></i>
-                </button>
+        <!-- Sección de Búsqueda HERO -->
+        <section class="search-section hero-search">
+            <div class="search-hero-content">
+                <div class="search-badge">
+                    <i class="fas fa-sparkles"></i>
+                    <span>124+ Fichas Disponibles</span>
+                </div>
+
+                <h2 class="search-hero-title">
+                    <span class="title-gradient">Encuentra tu Producto</span>
+                    <span class="title-accent">LifePlus</span>
+                </h2>
+
+                <p class="search-hero-subtitle">
+                    Acceso instantáneo a toda la información técnica de productos LifePlus
+                </p>
             </div>
+
+            <div class="search-hero-form">
+                <div class="search-container-hero">
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search search-icon-hero"></i>
+                        <input
+                            type="text"
+                            id="searchInput"
+                            class="search-input-hero"
+                            placeholder="🔍 Busca: OmegaGold, Daily Biobasics, Proanthenols..."
+                            autocomplete="off"
+                        >
+                        <button id="clearSearch" class="clear-btn-hero" style="display: none;">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                    </div>
+
+                    <button class="search-action-btn" onclick="focusSearch()">
+                        <i class="fas fa-search"></i>
+                        <span>Buscar Ahora</span>
+                        <div class="btn-shine"></div>
+                    </button>
+                </div>
+
+                <div class="search-tips">
+                    <div class="tip-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Usa nombres de productos como "Vitamin" o "Antioxidant"</span>
+                    </div>
+                    <div class="tip-item">
+                        <i class="fas fa-keyboard"></i>
+                        <span>Escribe 2+ letras para ver sugerencias</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Efectos decorativos -->
+            <div class="hero-search-effects">
+                <div class="floating-element floating-1">✨</div>
+                <div class="floating-element floating-2">🔬</div>
+                <div class="floating-element floating-3">💊</div>
+                <div class="floating-element floating-4">🌿</div>
+                <div class="hero-glow"></div>
+            </div>
+        </section>
 
             <div class="search-filters">
                 <div class="filter-group">
@@ -1055,7 +1539,26 @@
     <!-- Script LIMPIO de inicialización -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 Buscador LifePlus - Sistema LIMPIO cargado');
+            console.log('🚀 Buscador LifePlus - Sistema HERO cargado');
+
+            // Función para enfocar el buscador
+            window.focusSearch = function() {
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) {
+                    searchInput.focus();
+                    // Hacer scroll suave al buscador
+                    searchInput.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+
+                    // Efecto visual de focus
+                    searchInput.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        searchInput.style.transform = 'scale(1)';
+                    }, 200);
+                }
+            };
 
             // Solo inicializar loading overlay
             const loadingOverlay = document.getElementById('loadingOverlay');
