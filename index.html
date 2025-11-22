@@ -534,6 +534,23 @@
                 padding: 12px !important;
             }
 
+            /* CORRECCIÓN ESPECIAL: Buscador en móvil - espacio para texto */
+            .search-input {
+                padding: 12px 12px 12px 35px !important; /* Reducir espacio izquierdo para la lupa */
+                font-size: 16px !important;
+                min-height: 48px !important; /* Un poco más alto */
+            }
+
+            .search-icon {
+                left: 10px !important; /* Mover lupa más a la izquierda */
+                font-size: 14px !important; /* Hacer lupa un poco más pequeña */
+                width: 20px !important; /* Reducir espacio ocupado */
+            }
+
+            .clear-btn {
+                right: 10px !important; /* Mover botón limpiar más a la derecha */
+            }
+
             .result-actions {
                 flex-direction: column;
             }
