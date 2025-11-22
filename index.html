@@ -456,12 +456,45 @@
         }
 
         /* ====== FILTROS ====== */
-        .search-filters {
+        .search-intelligence {
             display: flex;
-            gap: 15px;
+            justify-content: center;
+            margin: 25px 0 20px 0;
+        }
+
+        .checkbox-group {
+            display: flex;
             align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
+            gap: 10px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, rgba(0, 168, 107, 0.05), rgba(0, 168, 107, 0.02));
+            border: 1px solid rgba(0, 168, 107, 0.1);
+            border-radius: 25px;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-group:hover {
+            background: rgba(0, 168, 107, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+        }
+
+        .checkbox-group label {
+            font-weight: 500;
+            color: var(--text-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-group label i {
+            color: var(--primary-color);
         }
 
         .filter-group {
@@ -1298,35 +1331,13 @@
             </div>
         </section>
 
-            <div class="search-filters">
-                <div class="filter-group">
-                    <label for="categoryFilter">Categoría</label>
-                    <select id="categoryFilter">
-                        <option value="">Todas las categorías</option>
-                        <option value="Antioxidantes">Antioxidantes</option>
-                        <option value="Colágeno y Belleza">Colágeno y Belleza</option>
-                        <option value="Energía y Rendimiento">Energía y Rendimiento</option>
-                        <option value="General">General</option>
-                        <option value="Minerales">Minerales</option>
-                        <option value="Omega y Ácidos Grasos">Omega y Ácidos Grasos</option>
-                        <option value="Sistema Inmune">Sistema Inmune</option>
-                        <option value="Vitaminas y Suplementos">Vitaminas y Suplementos</option>
-                    </select>
-                </div>
-
-                <div class="filter-group">
-                    <label for="sortBy">Ordenar por</label>
-                    <select id="sortBy">
-                        <option value="relevance">Relevancia</option>
-                        <option value="name">Nombre</option>
-                        <option value="date">Fecha</option>
-                        <option value="size">Tamaño</option>
-                    </select>
-                </div>
-
+            <div class="search-intelligence">
                 <div class="checkbox-group">
                     <input type="checkbox" id="fuzzySearch" checked>
-                    <label for="fuzzySearch">Búsqueda inteligente</label>
+                    <label for="fuzzySearch">
+                        <i class="fas fa-brain"></i>
+                        Búsqueda inteligente activada
+                    </label>
                 </div>
             </div>
 
