@@ -711,18 +711,18 @@
 
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
+            width: 100%;
+            height: 250px;
             overflow: hidden;
+            border-radius: 15px;
+            background: #000;
         }
 
         .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 15px;
         }
 
         .video-content {
@@ -1396,13 +1396,19 @@
 
             <div class="video-grid">
                 <div class="video-card">
-                    <div class="video-placeholder" style="background: linear-gradient(135deg, var(--primary-color), #38a169); height: 200px; display: flex; align-items: center; justify-content: center; color: white; border-radius: 10px; position: relative; overflow: hidden;">
-                        <div style="text-align: center; z-index: 2;">
-                            <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 10px; display: block;"></i>
-                            <div style="font-size: 1.2rem; font-weight: bold;">BUSCADOR INTELIGENTE</div>
-                            <div style="font-size: 0.9rem; margin-top: 5px;">124+ Fichas Técnicas</div>
-                        </div>
-                        <div style="position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); animation: pulse 3s ease-in-out infinite;"></div>
+                    <div class="video-container">
+                        <video
+                            controls
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;"
+                            poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDMyMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMjAiIGhlaWdodD0iMjUwIiByeD0iMTUiIGZpbGw9ImxpbmVhci1ncmFkaWVudCgxMzVkZWcsICMwMGE4NmIsICMzOGExNjkpIi8+Cjx0ZXh0IHg9IjE2MCIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiPkJVU0NBRE9SIElOVEVMSUdFTlRFPjwvdGV4dD4KPHR5ZXh0IHg9IjE2MCIgeT0iMTUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxNCIgPjEyNCsgRmljaGFzIFTDqWNuaWNhczwvdGV4dD4KPHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHg9IjEzMCIgeT0iOTAiPjxwb2x5Z29uIHBvaW50cz0iMjAsMTUgMjAsNDUgNDUsMzAiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo8L3N2Zz4=">
+                            <source src="videos/demo-video.mp4" type="video/mp4">
+                            <source src="videos/demo-video.webm" type="video/webm">
+                            Tu navegador no soporta videos HTML5.
+                        </video>
                     </div>
                     <div class="video-content">
                         <h3 class="video-title">
@@ -1415,13 +1421,19 @@
                 </div>
 
                 <div class="video-card">
-                    <div class="video-placeholder" style="background: linear-gradient(135deg, #38a169, var(--accent-color)); height: 200px; display: flex; align-items: center; justify-content: center; color: white; border-radius: 10px; position: relative; overflow: hidden;">
-                        <div style="text-align: center; z-index: 2;">
-                            <i class="fas fa-heart" style="font-size: 3rem; margin-bottom: 10px; display: block;"></i>
-                            <div style="font-size: 1.2rem; font-weight: bold;">BENEFICIOS LIFEPLUS</div>
-                            <div style="font-size: 0.9rem; margin-top: 5px;">Salud y Bienestar</div>
-                        </div>
-                        <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); animation: pulse 3s ease-in-out infinite 1.5s;"></div>
+                    <div class="video-container">
+                        <video
+                            controls
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;"
+                            poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDMyMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMjAiIGhlaWdodD0iMjUwIiByeD0iMTUiIGZpbGw9ImxpbmVhci1ncmFkaWVudCgxMzVkZWcsICMzOGExNjksICMzMTgyY2UpIi8+Cjx0ZXh0IHg9IjE2MCIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiPkJFTkVGSUNJT1MgTElGRVBMVVM8L3RleHQ+Cjx0ZXh0IHg9IjE2MCIgeT0iMTUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxNCIgPlNhbHVkIHkgQmllbmVzdGFyPC90ZXh0Pgo8c3ZnIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgeD0iMTMwIiB5PSI5MCI+PHBhdGggZD0iTTMwIDEwIEwzNSAyMCBMMzAgMzAgTDM1IDQwIEwzMCA1MCBMMjUgNDAgTDMwIDMwIEwyNSAyMCBaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4KPC9zdmc+">
+                            <source src="videos/solis-greenly.mp4" type="video/mp4">
+                            <source src="videos/solis-greenly.webm" type="video/webm">
+                            Tu navegador no soporta videos HTML5.
+                        </video>
                     </div>
                     <div class="video-content">
                         <h3 class="video-title">
