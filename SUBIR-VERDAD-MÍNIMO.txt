@@ -1,0 +1,23 @@
+🎯 VERDAD: SOLO NECESITAS SUBIR ESTO:
+
+✅ OBLIGATORIO (1 archivo):
+• index.html ← NUESTRO BUSCADOR HERO
+
+🤔 PUEDE QUE NECESITES (si no los tienes en servidor):
+• Carpeta css/ (si no existe)
+• Carpeta js/ (si no existe)
+• Carpeta data/ (si no existe)
+• Carpeta php/ (si no existe)
+• Carpeta images/ (si no existe)
+
+❌ NO SUBIR NADA MÁS:
+• pdfs/ ← YA ESTÁN EN SERVIDOR
+• data/ ← YA ESTÁ EN SERVIDOR (con daily/dayli configurado)
+• css/, js/, php/ ← YA ESTÁN EN SERVIDOR
+
+🚀 ACCIÓN:
+1. SUBE index.html
+2. VERIFICA QUE FUNCIONE
+3. ¡LISTO!
+
+ESO ES TODO.
