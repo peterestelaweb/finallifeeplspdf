@@ -1560,7 +1560,13 @@
             display: block !important;
             visibility: visible !important;
             opacity: 1 !important;
-            margin: 30px 0 35px 0 !important;
+            margin: 50px 0 50px 0 !important;
+            padding: 40px 25px !important;
+            background: linear-gradient(135deg, rgba(0, 168, 107, 0.02), rgba(49, 130, 206, 0.02)) !important;
+            border: 2px solid rgba(0, 168, 107, 0.1) !important;
+            border-radius: 20px !important;
+            position: relative !important;
+            z-index: 10 !important;
         }
 
         .video-grid {
@@ -1586,14 +1592,29 @@
 
         .video-placeholder {
             background: linear-gradient(135deg, var(--primary-color), #38a169) !important;
-            height: 200px !important;
+            height: 250px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             color: white !important;
-            border-radius: 10px !important;
+            border-radius: 15px !important;
             position: relative !important;
             overflow: hidden !important;
+            box-shadow: 0 10px 30px rgba(0, 168, 107, 0.3) !important;
+            transform: scale(1) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .video-placeholder:hover {
+            transform: scale(1.05) !important;
+            box-shadow: 0 15px 40px rgba(0, 168, 107, 0.4) !important;
+        }
+
+        /* FORZAR ICONOS MAS GRANDES */
+        .video-placeholder .fas {
+            font-size: 4rem !important;
+            margin-bottom: 15px !important;
+            display: block !important;
         }
 
         .video-content {
